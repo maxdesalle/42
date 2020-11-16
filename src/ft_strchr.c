@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strchr.c                                           :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:23:54 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/16 11:00:13 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/16 14:14:58 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	char	*sp;
+	char	*stringpointer;
 
-	while (*s)
+	stringpointer = (char *)s;
+	while (*stringpointer != c)
 	{
-		if (*s++ == c)
-			*sp = s;
-		else
+		if (*stringpointer == '\0')
 			return (NULL);
+		stringpointer++;
 	}
-	return (sp);
+	return (stringpointer);
 }
 
 int	main()
