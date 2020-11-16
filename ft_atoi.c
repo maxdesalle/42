@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 14:55:42 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/13 09:59:05 by mdesalle         ###   ########.fr       */
+/*   Created: 2020/11/12 11:34:55 by mdesalle          #+#    #+#             */
+/*   Updated: 2020/11/16 15:35:56 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	int	i;
+	int	result;
+	int	sign;
 
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < (n - 1))
-		i++;
-	return (s1[i] - s2[i]);
+	result = 0;
+	while (*nptr <= 32)
+		nptr++;
+	sign = (*nptr++ == '-') ? -1 : 1;
+	(*nptr == '+' || *nptr == '-') ? ++nptr : 0;
+	while (*nptr >= '0' && *nptr <= '9')
+		result = result * 10 + *nptr++ - '0';
+	return (sign * result);
 }
