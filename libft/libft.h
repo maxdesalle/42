@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 10:10:43 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/17 10:33:17 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/17 11:56:04 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	ft_putendl_fd(char const *s, int fd);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 char	*ft_strrchr(const char *s, int c);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+char    *ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 #endif
