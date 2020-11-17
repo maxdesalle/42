@@ -6,22 +6,19 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 09:17:14 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/16 16:51:28 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/17 10:30:11 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+static int	ft_intlen(long x)
 {
-	char	*s;
-	long	x;
 	int	len;
 	int	tmp;
 
-	x = n;
-	tmp = x;
 	len = 0;
+	tmp = x;
 	while (tmp)
 	{
 		tmp /= 10;
@@ -29,6 +26,17 @@ char	*ft_itoa(int n)
 	}
 	if (x < 0)
 		len++;
+	return (len);
+}
+
+char		*ft_itoa(int n)
+{
+	int		len;
+	long	x;
+	char	*s;
+
+	x = n;
+	len = ft_intlen(x);
 	if (!(s = (char*)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	s[len--] = '\0';
