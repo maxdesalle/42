@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 14:40:00 by mdesalle          #+#    #+#              #
-#    Updated: 2020/11/16 17:50:18 by mdesalle         ###   ########.fr        #
+#    Updated: 2020/11/16 18:53:29 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC = 	ft_atoi.c \
 	ft_toupper.c \
 	ft_putendl_fd.c \
 	ft_strlcpy.c \
+	ft_strrchr.c
 
 OBJ = $(SRC:.c=.o)
 

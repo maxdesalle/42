@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 10:10:43 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/16 17:49:49 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/17 08:35:09 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ void	ft_putnbr_fd(int n, int fd);
 char	*ft_strchr(const char *s, int c);
 void    ft_putendl_fd(char const *s, int fd);
 size_t  ft_strlcpy(char *dst, const char *src, size_t size);
+char    *ft_strrchr(const char *s, int c);
 
 #endif
