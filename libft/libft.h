@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 10:10:43 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/17 14:56:59 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/18 09:05:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
+void	ft_bzero(void *s, size_t n);
 
-#endif 
+#endif
