@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 14:40:00 by mdesalle          #+#    #+#              #
-#    Updated: 2020/11/19 09:46:35 by mdesalle         ###   ########.fr        #
+#    Updated: 2020/11/19 10:10:22 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SRC = 	ft_atoi.c \
 	ft_memcmp.c \
 	ft_memset.c \
 	ft_memmove.c \
-	ft_calloc.c
+	ft_calloc.c \
+	ft_strdup.c
 
 OBJ = $(SRC:.c=.o)
 
