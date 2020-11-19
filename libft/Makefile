@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 14:40:00 by mdesalle          #+#    #+#              #
-#    Updated: 2020/11/19 15:49:47 by mdesalle         ###   ########.fr        #
+#    Updated: 2020/11/19 16:58:42 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ SRC = 	ft_atoi.c \
 	ft_calloc.c \
 	ft_strdup.c \
 	ft_strjoin.c \
-	ft_substr.c
+	ft_substr.c \
+	ft_strmapi.c
 
 OBJ = $(SRC:.c=.o)
 
