@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 10:10:43 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/18 14:04:28 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/19 09:46:23 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	ft_bzero(void *s, size_t n);
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
-void	*memmove(void *dest, const void *src, size_t n);
+void	*ft_memmove(void *dest, const void *src, size_t n);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
