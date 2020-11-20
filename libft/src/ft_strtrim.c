@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 07:53:52 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/20 08:50:32 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/20 17:35:33 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ char				*ft_strtrim(char const *s1, char const *set)
 	end = (char *)s1 + len - 1;
 	while (is_in_set(*start, set))
 		start++;
-	while (is_in_set(*end, set))
-		end--;
+	if (start < end)
+		while (is_in_set(*end, set))
+			end--;
 	return (ft_substr(s1, start - s1, end - start + 1));
 }
