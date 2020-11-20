@@ -19,3 +19,6 @@ To remove the ```.o``` files, as well as the library itself, execute:
 ```
 make fclean
 ```
+
+## License
+Everything is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).
