@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 10:10:43 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/19 16:59:15 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/20 08:52:19 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ char	*ft_strdup(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_substr(char const *s1, unsigned int start, size_t len);
 char	*ft_strmapi(char const *s1, char (*f)(unsigned int, char));
+char	*ft_strtrim(char const *s1, char const *set);
 
 #endif
