@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 17:57:04 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/17 09:59:34 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/21 12:10:18 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*stringpointer;
+	const char	*stringpointer;
 
-	stringpointer = (char *)s;
+	stringpointer = (char*)s;
 	while (*stringpointer)
 		stringpointer++;
-	while (stringpointer--)
+	if (c == '\0')
+		return ((char*)stringpointer);
+	while (stringpointer-- >= s)
 		if (*stringpointer == c)
-			return (stringpointer);
+			return ((char*)stringpointer);
 	return (NULL);
 }
