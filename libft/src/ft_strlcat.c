@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 08:39:11 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/17 09:07:13 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/21 12:41:23 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		count++;
 	while (dst[i] && i < size)
 		i++;
-	while (src[j] && (i + j) < (size - 1))
+	while (src[j] && (i + j + 1) < size)
 	{
 		dst[i + j] = src[j];
 		j++;
