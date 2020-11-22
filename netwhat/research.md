@@ -114,3 +114,21 @@ A DHCP server dynamically assigns an IP address and other network configuration 
 ## What are the rules to make 2 devices communicate using IP addresses?
 
 computer --> gateway --> internet --> gateway --> computer
+
+## How does routing work with IP?
+
+IP routing is the process where data is transmitted from one computer to another and needs to find the quickest path across the internet to reach the other computer. Routers refer to internal routing tables to make decisions about how to route packets along network paths.
+
+## What is a default gateway for routing?
+
+A default gateway is the node in a computer network using the IP suite that esrvers as the router (forwarding host) to other networks when no other route specification matches the destination IP address of a packet. A router merely forwards the packets between networks with different network prefixes.
+
+The gateway is also used as firewall, proxy,... 
+
+## What is a port from an IP point of view and what is it used for when connecting to another device?
+
+A port is a communication endpoint, and is always associated with an IP address of a host and the type of transport protocol used for communication. The combination of an IP address and a port is called a *socket* which is the route which will be used to transfer data.
+
+- Ports between 0 and 1023 identify the most commonly used services and are called the *well-known port numbers*
+- Ports between 1024 and 49151 identify the registered ports
+- Ports between 49152 and 65535 identify the dynamic/private/ephemeral ports
