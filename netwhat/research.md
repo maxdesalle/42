@@ -104,3 +104,13 @@ The TCP/IP framework only uses 4 layers:
 2. Internet
 3. Transport (or Host-to-Host)
 4. Application (or Process)
+
+## What is a DHCP and the DHCP protocol?
+
+DHCP stands for Dynamic Host Configuration Protocol. It's a network management protocol based on the Internet Protocol (IP) networks.
+
+A DHCP server dynamically assigns an IP address and other network configuration parameters to each device on the network so they can communicate with other IP networks. A DHCP server enables computers to request IP addresses and networking parameters automatically from the Internet service provider (ISP), which removes the need for a network administrator or a user to manually assign IP addresses to all network devices.
+
+## What are the rules to make 2 devices communicate using IP addresses?
+
+computer --> gateway --> internet --> gateway --> computer
