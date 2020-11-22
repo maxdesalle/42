@@ -9,9 +9,7 @@ An IP address has two functions:
 
 There are two major versions of the IP right now. The first one is IPv4 (Internet Protocol version 4) which defines its addresses in 32-bit numbers. Due to the massive growth of the internet, causing the depletion of IPv4 addresses, IPv6 was invented. The main difference with IPv4 is that IPv6 uses 128-bit numbers instead of 32-bit ones.
 
----
-
-## What is a Netmask ? What is a subnet? What is the broadcast address of a subnet?
+## What is a Netmask ? What is a subnet? What are the different ways to represent an IP address with the Netmask?
 A Netmask is a mask allowing you to differentiate the part of an IP address used for routing, and the part that's being used to distinguish each computer on the network. It's simply a shorthand for describing a range of IP addresses.
 
 - ```192.168.0.1/32``` is a netmask for only one address: ```192.168.0.1```
@@ -32,8 +30,18 @@ Reading a Netmask may seem difficult, but in fact, it's very simple. The left pa
 
 ```192.168.0.1/30``` for example, indicates that the last two digits (**in binary**) aren't significant, meaning this Netmask will match 4 different IP addresses.
 
+## What is a broadcast address?
+
 A broadcast address is an address which allows you to communicate with all the hosts on a given subnet. The broadcast is always the last address of a subnet and is assigned only once in each network.
 
 If we take the ```192.168.0.1``` example again, the broadcast address will be ```192.168.0.1```.
 
----
+## What are the differences between public and private IPs?
+
+A private IP address is used in a local network and a public IP address is used in a public network. A public IP allows you to directly communicate with other devices around the world, while a private IP only allows you to communicate with devices on your local network.
+
+The public IP is provided by the ISP (Internet Service Provider).
+
+- You can find your public IP by looking up on Google: "what's my IP".
+
+- You can find your private IP by using the ```ipconfig``` command in the Terminal.
