@@ -48,7 +48,7 @@ The public IP is provided by the ISP (Internet Service Provider).
 
 ## What is a class of IP addresses? 
 
-There are 5 different classes available for an IPv4 address. Three of them (A, B and C) are commonly used and the remaining two have more specific usecases.
+There are 5 different classes available for an IPv4 address. Three of them (```A```, ```B``` and ```C```) are commonly used and the remaining two have more specific usecases.
 
 |Class|Address Range|Supports|
 |---|---|---|
@@ -58,4 +58,14 @@ There are 5 different classes available for an IPv4 address. Three of them (A, B
 |D|224.0.0.0 to 239.255.255.255|Reserved for multicast (one sender with multiple receivers) groups|
 |E|240.0.0.0 to 254.255.255.254|Reserved for future use, or research and development purposes|
 
+## What is TCP?
+TCP stands for Transmission Control Protocol. It complements the Internet Protocol (IP), which is why these two protocols are often referred as *TCP/IP*.
 
+TCP provides a reliable, error-free stream of bytes between apps running on hosts communicating via the IP network. E-mail, the World Wide Web,... all rely on *TCP/IP*. TCP allows for transmission of packets (the unit of data transmission TCP uses) of data in both directions, meaning a computer can send and receive data at the same time.
+
+In order to allow to devices to communicate over a TCP connection, they each need to have an IPv4/IPv6 address and the desired port open which will be used to transmit the data.
+
+## What is UDP?
+UDP stands for User Datagram Protocol. It's like TCP a communication protocol, but which is specifically suited for time-sensitive transmissions such as video playback for example. The communication is faster than TCP mainly thanks to the fact that UDP does not establish a connection before data is transmitted. This speeds up the transfers, but is also more risky as it can cause some packets to be lost in transit. Aside from that, it also opens the door for DDoS attacks.
+
+The main difference with TCP is that TCP first establishes a connection through a *handshake* and only then will data be transmitted. UDP directly sends the data, without going throuhg that *handshake*. If a packet is lost along the way in a TCP connection, TCP will require it to be re-sent. This is not the case with UDP.
