@@ -45,3 +45,17 @@ The public IP is provided by the ISP (Internet Service Provider).
 - You can find your public IP by looking up on Google: "what's my IP".
 
 - You can find your private IP by using the ```ipconfig``` command in the Terminal.
+
+## What is a class of IP addresses? 
+
+There are 5 different classes available for an IPv4 address. Three of them (A, B and C) are commonly used and the remaining two have more specific usecases.
+
+|Class|Address Range|Supports|
+|---|---|---|
+|A|1.0.0.1 to 126.255.255.254|Supports 16 million hosts on each of 127 networks|
+|B|128.1.0.1 to 191.255.255.254|Supports 65,000 hosts on each of 16,000 networks|
+|C|192.0.1.1 to 223.255.254.254|Supports 254 hosts on each of 2 million networks|
+|D|224.0.0.0 to 239.255.255.255|Reserved for multicast (one sender with multiple receivers) groups|
+|E|240.0.0.0 to 254.255.255.254|Reserved for future use, or research and development purposes|
+
+
