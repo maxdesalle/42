@@ -121,7 +121,7 @@ IP routing is the process where data is transmitted from one computer to another
 
 ## What is a default gateway for routing?
 
-A default gateway is the node in a computer network using the IP suite that esrvers as the router (forwarding host) to other networks when no other route specification matches the destination IP address of a packet. A router merely forwards the packets between networks with different network prefixes.
+A default gateway is the node in a computer network using the IP suite that serves as the router (forwarding host) to other networks when no other route specification matches the destination IP address of a packet. A router merely forwards the packets between networks with different network prefixes.
 
 The gateway is also used as firewall, proxy,... 
 
