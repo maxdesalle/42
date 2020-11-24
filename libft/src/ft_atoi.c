@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 11:34:55 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/21 15:31:06 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/24 09:42:38 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,10 @@ int	ft_atoi(const char *nptr)
 		nptr++;
 	while (*nptr && *nptr >= '0' && *nptr <= '9')
 		result = result * 10 + (*nptr++ - '0');
-	return (result * sign);
+	result *= sign;
+	if (result > 0 && sign < 0)
+		return (0);
+	if (result < 0 && sign > 0)
+		return (-1);
+	return (result);
 }
