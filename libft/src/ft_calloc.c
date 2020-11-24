@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 09:28:46 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/19 09:45:33 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/24 13:59:36 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char			*memorypointer;
-	unsigned int	value;
-	unsigned int	i;
+	void	*memorypointer;
+	size_t	len;
 
-	i = 0;
-	value = nmemb * size;
-	if (!(memorypointer = malloc(value)))
+	len = nmemb * size;
+	if (!(memorypointer = malloc(len)))
 		return (NULL);
-	while (value--)
-		memorypointer[i++] = 0;
-	return ((void *)memorypointer);
+	ft_bzero(memorypointer, len);
+	return (memorypointer);
 }

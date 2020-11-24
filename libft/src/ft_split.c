@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 09:21:49 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/23 10:33:43 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/24 11:13:22 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char			**ft_split(char const *s, char c)
 	char	**dest;
 	int		l;
 
-	if (s == NULL)
+	if (!s || !c)
 		return (NULL);
 	l = string_number(s, c);
 	if (!(dest = (char **)malloc(sizeof(char *) * (l + 1))))

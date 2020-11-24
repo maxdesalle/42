@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 13:48:35 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/21 12:25:08 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/24 11:21:40 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	{
 		s1 += n;
 		s2 += n;
-		while (n--)
+		while (n-- > 0)
 			*--s1 = *--s2;
 	}
 	else
-		while (n--)
+		while (n-- > 0)
 			*s1++ = *s2++;
 	return (dest);
 }

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 10:38:22 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/13 10:39:55 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/24 14:03:02 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
+	if (fd < 0 || !s)
+		return ;
 	while (*s)
 		write(fd, s++, 1);
 }
