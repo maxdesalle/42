@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 09:17:14 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/17 10:30:11 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/24 09:48:40 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static int	ft_intlen(long x)
 
 	len = 0;
 	tmp = x;
+	if (x == 0)
+		return (++len);
 	while (tmp)
 	{
 		tmp /= 10;
@@ -32,7 +34,7 @@ static int	ft_intlen(long x)
 char		*ft_itoa(int n)
 {
 	int		len;
-	long	x;
+	int	x;
 	char	*s;
 
 	x = n;
