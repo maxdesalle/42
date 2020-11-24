@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 09:17:14 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/24 09:48:40 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/24 11:03:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	ft_intlen(long x)
 char		*ft_itoa(int n)
 {
 	int		len;
-	int	x;
+	long	x;
 	char	*s;
 
 	x = n;
