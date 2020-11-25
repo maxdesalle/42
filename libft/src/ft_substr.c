@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 13:20:54 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/24 13:45:06 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/25 11:19:36 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	while (s[j])
 		j++;
-	if (!(substring = (char *)malloc(sizeof(char) * (len + 1))))
+	if (!(substring = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	if (start < j)
 	{

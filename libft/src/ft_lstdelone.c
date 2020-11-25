@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 14:20:27 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/24 15:46:55 by mdesalle         ###   ########.fr       */
+/*   Created: 2020/11/24 15:13:34 by mdesalle          #+#    #+#             */
+/*   Updated: 2020/11/24 15:15:19 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
-	return (c);
+	if (!lst)
+		return ;
+	else if (del)
+		del(lst->content);
+	free(lst);
 }

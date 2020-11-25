@@ -1,58 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/13 09:17:14 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/25 11:22:01 by mdesalle         ###   ########.fr       */
+/*   Created: 2020/11/24 14:49:57 by mdesalle          #+#    #+#             */
+/*   Updated: 2020/11/24 14:52:49 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_intlen(long x)
+int	ft_lstsize(t_list *lst)
 {
-	int	len;
-	int	tmp;
+	unsigned int	len;
 
 	len = 0;
-	tmp = x;
-	if (x == 0)
-		return (++len);
-	while (tmp)
+	while (lst)
 	{
-		tmp /= 10;
+		lst = lst->next;
 		len++;
 	}
-	if (x < 0)
-		len++;
 	return (len);
-}
-
-char		*ft_itoa(int n)
-{
-	int		len;
-	long	x;
-	char	*s;
-
-	x = n;
-	len = ft_intlen(x);
-	if (!(s = malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	s[len--] = '\0';
-	if (x == 0)
-		s[0] = '0';
-	if (x < 0)
-	{
-		s[0] = '-';
-		x *= -1;
-	}
-	while (x > 0)
-	{
-		s[len--] = x % 10 + '0';
-		x /= 10;
-	}
-	return (s);
 }
