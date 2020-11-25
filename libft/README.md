@@ -10,6 +10,11 @@ In order to use the library, simply execute:
 make
 ```
 
+If you want to compile the bonus exercices too, execute:
+```
+make bonus
+```
+
 To remove the ```.o``` files, execute:
 ```
 make clean
