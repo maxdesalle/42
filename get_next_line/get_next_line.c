@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 10:51:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/28 13:46:11 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/28 16:43:06 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static char	*next_string(char *str)
 
 static char	*line_finder(char *str)
 {
-	int	len;
+	int		len;
 	char	*newstr;
 
 	len = 0;
@@ -65,7 +65,7 @@ static int	endofline_checker(char *str)
 	return (1);
 }
 
-int		get_next_line(int fd, char **line)
+int			get_next_line(int fd, char **line)
 {
 	int			reader;
 	char		*buff;
