@@ -6,16 +6,16 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 10:51:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/26 17:30:18 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/28 13:46:11 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char	*ft_string_finder(char *str)
+static char	*next_string(char *str)
 {
-	int	i;
-	int	len;
+	int		i;
+	int		len;
 	char	*newstr;
 
 	i = 0;
@@ -29,23 +29,23 @@ static char	*ft_string_finder(char *str)
 		free(str);
 		return (0);
 	}
-	if (!(newstr= malloc(sizeof(char) * ((ft_strlen(str) - len + 1)))))
-		return (NULL);
+	if (!(newstr = malloc(sizeof(char) * (ft_strlen(str) - len + 1))))
+		return (0);
 	len += 1;
-	while (str[len] != '\0')
+	while (str[len])
 		newstr[i++] = str[len++];
 	newstr[i] = '\0';
 	free(str);
 	return (newstr);
 }
 
-static char	*ft_line_finder(char *str)
+static char	*line_finder(char *str)
 {
 	int	len;
 	char	*newstr;
 
 	len = 0;
-	if (str[len] == '\0')
+	if (str == 0)
 		return (0);
 	while (str[len] != '\0' && str[len] != '\n')
 		len++;
@@ -57,36 +57,39 @@ static int	endofline_checker(char *str)
 	int	i;
 
 	i = 0;
+	if (str == 0)
+		return (1);
 	while (str[i] != '\0')
 		if (str[i++] == '\n')
 			return (0);
 	return (1);
 }
 
-int	get_next_line(int fd, char **line)
+int		get_next_line(int fd, char **line)
 {
 	int			reader;
 	char		*buff;
 	static char	*str;
 
+	reader = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0 || line == 0)
 		return (-1);
-	if (!(buff = malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+	if ((buff = malloc(sizeof(char) * (BUFFER_SIZE + 1))) == 0)
 		return (-1);
-	while (endofline_checker(str))
+	while (endofline_checker(str) && reader != 0)
 	{
-		if ((reader = read(fd, buff, BUFFER_SIZE)) < 0)
+		if ((reader = read(fd, buff, BUFFER_SIZE)) == -1)
 		{
 			free(buff);
 			return (-1);
 		}
-		else if (reader == 0)
-			return (0);
 		buff[reader] = '\0';
 		str = ft_strjoin(str, buff);
 	}
 	free(buff);
-	*line = ft_line_finder(str);
-	str = ft_string_finder(str);
+	*line = line_finder(str);
+	str = next_string(str);
+	if (reader == 0)
+		return (0);
 	return (1);
 }
