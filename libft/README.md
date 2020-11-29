@@ -3,7 +3,7 @@ Libft is a library containing nearly all the essential functions used in C. It's
 
 Every student starts the 42 cursus by creating his own library, which will be the only one he can use in the projects which will follow, unless specifically mentioned otherwise.
 
-The project allows you to get familiar with the some of the most foundational functions in C.
+The project allows the students to get familiar with some of the most foundational functions in C.
 
 ## Warning
 The structure of this repository does **not** follow the guidelines. The reason for this is to add some clarity in how the files are structured. Because of that, the ```Makefile``` also differs from the one which should be used in order to follow the guidelines.
