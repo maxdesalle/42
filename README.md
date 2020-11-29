@@ -6,7 +6,7 @@ Learn more about 42 [here](https://www.42.fr/42-network/).
 
 ## FAQ
 ### Why is your code so weird?
-At 19 (and in every school part of the 42 network), we need to respect a norm wich is strictly imposed by the school. This means we can't use ```for``` loops for example and that or functions can't be longer than 25 lines.
+At 19 (and in every school part of the 42 network), we need to respect a norm wich is strictly imposed by the school. This means we can't use ```for``` loops for example and that our functions can't be longer than 25 lines.
 
 ### I have a question, how can I reach out to you?
 If you are a student at 42, you can find me on slack with the following username: ```mdesalle```.
