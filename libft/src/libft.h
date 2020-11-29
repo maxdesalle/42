@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 10:10:43 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/25 11:16:47 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/29 18:52:08 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,12 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
+char			*ft_strcat(char *dest, const char *src);
+char			*ft_strncat(char *dest, const char *src, size_t n);
+void			ft_putnbr(int n);
+void			ft_putendl(const char *s);
+void			ft_putchar(char c);
+void			ft_putstr(const char *s);
+int				ft_isspace(int c);
 
 #endif

@@ -8,15 +8,12 @@ The project allows you to get familiar with the some of the most foundational fu
 ## Warning
 The structure of this repository does **not** follow the guidelines. The reason for this is to add some clarity in how the files are structured. Because of that, the ```Makefile``` also differs from the one which should be used in order to follow the guidelines.
 
+Aside from that, I have added some additional functions to the library which you don't need to submit if you are a student at 42.
+
 ## Compile
 In order to use the library, simply execute:
 ```
 make
-```
-
-If you want to compile the bonus exercices too, execute:
-```
-make bonus
 ```
 
 To remove the ```.o``` files, execute:
