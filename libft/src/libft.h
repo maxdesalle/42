@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 10:10:43 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/29 18:52:08 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/29 21:00:34 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void			ft_putendl(const char *s);
 void			ft_putchar(char c);
 void			ft_putstr(const char *s);
 int				ft_isspace(int c);
+double			ft_pow(double x, double y);
 
 #endif
