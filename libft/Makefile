@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 14:40:00 by mdesalle          #+#    #+#              #
-#    Updated: 2020/11/25 12:00:27 by mdesalle         ###   ########.fr        #
+#    Updated: 2020/11/29 13:48:13 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ OBJBONUS = ${BONUS:.c=.o}
 
 all: ${NAME}
 
-${NAME}: ${OBJ}
+$(NAME): ${OBJ}
 	ar rc ${NAME} ${OBJ}
 	ranlib ${NAME}
 
