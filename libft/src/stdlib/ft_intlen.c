@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 08:48:27 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/30 08:52:46 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/30 10:04:11 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_intlen(long x)
 {
-	int	len;
+	int		len;
 	long	tmp;
 
 	len = 0;
