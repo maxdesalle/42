@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 14:40:00 by mdesalle          #+#    #+#              #
-#    Updated: 2020/11/29 18:36:52 by mdesalle         ###   ########.fr        #
+#    Updated: 2020/11/30 09:05:46 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = $(wildcard src/*.c)
+SRC = $(wildcard src/*/*.c)
 
 OBJ = ${SRC:.c=.o}
 
-.c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+%.o: %.c
+	${CC} ${CFLAGS} -I include -c $^ -o $@
 
 all: ${NAME}
 
