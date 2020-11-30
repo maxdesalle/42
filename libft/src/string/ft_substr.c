@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 13:20:54 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/25 11:19:36 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/30 14:52:14 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start < j)
 	{
-		while (s[start] && len--)
+		while (s[start] && len-- > 0)
 		{
 			substring[i] = s[start];
 			start++;

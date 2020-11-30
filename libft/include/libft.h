@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 10:10:43 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/30 10:02:14 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/11/30 16:37:19 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct	s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
-int				ft_atoi(const char *nptr);
+long				ft_atoi(const char *nptr);
 int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_isalnum(int c);
