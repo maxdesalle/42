@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 10:51:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/30 13:24:45 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/01 13:36:09 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,25 +68,19 @@ static int	ft_eol(char *str)
 int			get_next_line(int fd, char **line)
 {
 	int			reader;
-	char		*buff;
+	char		buff[BUFFER_SIZE + 1];
 	static char	*str;
 
 	reader = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0 || line == NULL)
 		return (-1);
-	if (!(buff = malloc(sizeof(char) * (BUFFER_SIZE + 1))))
-		return (-1);
 	while (ft_eol(str) && reader != 0)
 	{
 		if ((reader = read(fd, buff, BUFFER_SIZE)) == -1)
-		{
-			free(buff);
 			return (-1);
-		}
 		buff[reader] = '\0';
 		str = ft_strjoin(str, buff);
 	}
-	free(buff);
 	*line = ft_line(str);
 	str = ft_string(str);
 	if (reader == 0)
