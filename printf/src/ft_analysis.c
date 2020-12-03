@@ -6,13 +6,13 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 08:51:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/03 10:44:59 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/03 15:41:32 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-int	ft_precision(char *str)
+static int	ft_precision(char *str)
 {
 	int	i;
 	int	precision;
@@ -34,7 +34,7 @@ int	ft_precision(char *str)
 	return (-1);
 }
 
-int	ft_width(char *str)
+static int	ft_width(char *str)
 {
 	int	i;
 	int	width;
@@ -55,9 +55,43 @@ int	ft_width(char *str)
 	return (-1);
 }
 
+static void	ft_flag(char *str, node_t *box)
+{
+	int    i;
+
+	i = 0;
+	box->ftag = 0;
+	box->fzero = 0;
+	box->fplus = 0;
+	box->fminus = 0;
+	box->fspace = 0;
+	while (str[i] != '\0')
+	{
+		while (str[i] != '#' && str[i] != '0' && str[i] != '+' && str[i] != '-')
+			i++;
+		while (str[i] == '#' || str[i] == '0' || str[i] == '+' || str[i] == '-')
+		{
+			if (str[i] == '#')
+				box->ftag += 1;
+			if (str[i] == '0')
+				box->fzero += 1;
+			if (str[i] == '+')
+				box->fplus += 1;
+			if (str[i] == '-')
+				box->fminus += 1;
+			if (str[i] == ' ')
+				box->fspace += 1;
+			i++;
+		}
+	}
+}
+
 void	ft_analysis(char *str, va_list argptr)
 {
 	node_t	box;
 
 	box.precision = ft_precision(str);
 	box.width = ft_width(str);
+	box.length = ft_length(str);
+	ft_flag(str, &box);
+}
