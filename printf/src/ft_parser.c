@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:24:47 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/02 14:52:21 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/03 08:50:43 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_type_check(char c)
 		c == '%');
 }
 
-int	ft_parser(va_list argptr, const char *str)
+int		ft_parser(va_list argptr, const char *str)
 {
 	int	i;
 	int	len;
