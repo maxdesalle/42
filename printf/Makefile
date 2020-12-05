@@ -6,13 +6,14 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/04 16:09:49 by mdesalle          #+#    #+#              #
-#    Updated: 2020/12/04 16:29:45 by mdesalle         ###   ########.fr        #
+#    Updated: 2020/12/05 15:36:52 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = src/ft_analysis.c src/ft_parser.c src/ft_printf.c src/ft_utilities.c
+SRC = src/ft_analysis.c src/ft_parser.c src/ft_printf.c src/ft_utilities.c \
+      src/ft_c_craft.c
 
 OBJ = $(SRC:.c=.o)
 

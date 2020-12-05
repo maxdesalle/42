@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:24:47 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/05 10:32:51 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/05 15:37:44 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	ft_craft2(va_list argptr, t_list *box)
 	{
 		box->p = va_arg(argptr, void *);
 		ft_p_craft(box);
-		// faut encore ajouter des paramètres, pour l'addr et l'end //
+		/* faut encore ajouter des paramètres, pour l'addr et l'end */
 	}
 	else
 	{
@@ -62,7 +62,6 @@ static void	ft_craft2(va_list argptr, t_list *box)
 		ft_xX_craft(box);
 	}
 }
-	
 
 static void	ft_type_selector(va_list argptr, t_list *box)
 {
@@ -81,11 +80,7 @@ int			ft_parser(va_list argptr, const char *str, t_list *box)
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%' && str[i + 1] == '%')
-		{
-			ft_putchar('%');
-			i++;
-			len++;
-		}
+			ft_putchar('%', box);
 		else if (str[i] == '%' && str[i + 1] != '%')
 		{
 			while (ft_type_check(str[i]) == 0)
@@ -93,12 +88,9 @@ int			ft_parser(va_list argptr, const char *str, t_list *box)
 			box->type = str[i];
 			ft_type_selector(argptr, box);
 		}
-		if (str[i] != '%' && str[i + 1] != '%')
-		{
-			ft_putchar(str[i]);
-			len++;
-		}
+		else if (str[i] != '%' && str[i + 1] != '%')
+			ft_putchar(str[i], box);
 		i++;
 	}
-	return (len);
+	return (box->len);
 }
