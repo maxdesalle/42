@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 09:00:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/04 16:44:12 by maxdesall        ###   ########.fr       */
+/*   Updated: 2020/12/05 10:29:18 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_printf(const char *str, ...)
 {
 	int		len;
-	node_t	box;
+	t_list	box;
 	va_list	argptr;
 
 	va_start(argptr, str);
