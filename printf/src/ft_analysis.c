@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 08:51:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/03 15:41:32 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/04 16:46:51 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_precision(char *str)
 			i++;
 			while (str[i] >= '0' && str[i] <= '9')
 				precision = precision * 10 + (str[i++] - '0');
-			return (precision)
+			return (precision);
 		}
 	}
 	return (-1);
@@ -86,12 +86,9 @@ static void	ft_flag(char *str, node_t *box)
 	}
 }
 
-void	ft_analysis(char *str, va_list argptr)
+void	ft_analysis(char *str, va_list argptr, node_t *box)
 {
-	node_t	box;
-
-	box.precision = ft_precision(str);
-	box.width = ft_width(str);
-	box.length = ft_length(str);
-	ft_flag(str, &box);
+	box->precision = ft_precision(str);
+	box->width = ft_width(str);
+	ft_flag(str, box);
 }

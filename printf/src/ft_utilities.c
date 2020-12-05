@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_utilities.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 09:00:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/04 16:44:12 by maxdesall        ###   ########.fr       */
+/*   Created: 2020/12/04 16:28:10 by mdesalle          #+#    #+#             */
+/*   Updated: 2020/12/04 16:29:23 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-int	ft_printf(const char *str, ...)
+void	ft_putchar(char c)
 {
-	int		len;
-	node_t	box;
-	va_list	argptr;
-
-	va_start(argptr, str);
-	len = ft_parser(argptr, (char *)str, &box);
-	va_end(argptr);
-	return (len);
+	write(1, &c, 1);
 }
