@@ -24,19 +24,64 @@ A subnet (or subnetwork) on the other hand, is an internal network. Essentially,
 
 Reading a Netmask may seem difficult, but in fact, it's very simple. The left part describes the IP address. If we take the netmask ```192.168.0.1/32``` as an example, ```192.168.0.1``` is the IP address. ```32``` indicates how digits **in binary** of the host address (```192.168.0.1```) are considered significant. The non-significant digits are considered as wild-card.
 
-```192.168.0.1/31``` for example, indicates that the last digit (**in binary**) isn't significant, meaning this Netmask will match 2 different IP addresses:
+```192.168.0.1/31``` for example, indicates that the last digit (**in binary**) isn't significant, meaning this Netmask will match 2 different IP addresses (2^1), and no hosts as there is always 1 network address and 1 broadcast address:
 
 - ```11000000.10101000.11111111.00000000``` (which equals ```192.168.0.0``` in non-binary)
 
 - ```11000000.10101000.11111111.00000001``` (which equals ```192.168.0.1``` in non-binary)
 
-```192.168.0.1/30``` for example, indicates that the last two digits (**in binary**) aren't significant, meaning this Netmask will match 4 different IP addresses.
+```192.168.0.1/30``` for example, indicates that the last two digits (**in binary**) aren't significant, meaning this Netmask will match 4 different IP addresses (2^2), and 2 hosts as there is always 1 network address and 1 broadcast address
+.
+```192.168.0.1/29``` for example, indicates that the last three digits (**in binary**) aren't significant, meaning this Netmask will match 8 different IP addresses (2^3), and 6 hosts as there is always 1 network address and 1 broadcast address.
+
+## What is a network address?
+
+A network address is an IP address used to identify an IP address. The network address is always the first one of a subnet and is assigned only once in each network.
 
 ## What is a broadcast address?
 
 A broadcast address is an address which allows you to communicate with all the hosts on a given subnet. The broadcast is always the last address of a subnet and is assigned only once in each network.
 
-If we take the ```192.168.0.1``` example again, the broadcast address will be ```192.168.0.1```.
+## How can a network address, broadcast address, and IP range be calculated?
+
+In order to do all these calculations, we will first need to convert the Netmask in a "normal" IP address:
+
+```107.212.146.212/25``` becomes ```255.255.255.128``` because the ```/25``` mask indicates that 7 digits aren't significant, meaning there is only one 1 bit which is significant in the last byte.
+
+This means that in binary, the last byte (so a group of 8 bits part of the 32 bits which represent an IP address), is equal to ```10000000``` in binary. If you convert this to a decimal value, you will get ```128```.
+
+The ```255.255.255``` come from the fact that these 3 bytes are only made of bits equal to ```1```, which equal ```255``` when grouped into bytes.
+
+Now we have our Netmask address, let's convert our IP address and Netmask address to binary:
+
+```107.212.146.212```: ```01101011.11010100.10010010.11010100```
+```255.255.255.128```: ```11111111.11111111.11111111.10000000```
+
+In order to know our network address, we will need to convert the two addresses to a new address, the network address. We will do this by only writing a ```1``` if the two addresses contain a bit equal to ```1``` at that place.
+
+```
+01101011.11010100.10010010.11010100
+11111111.11111111.11111111.10000000
+-----------------------------------
+01101011.11010100.10010010.10000000 (==> network address in binary)
+```
+
+Now let's convert that IP address in a decimal value: ```107.212.146.128```. We now have our network address.
+
+In order to know our broadcast address, we will need to conver the two addresses in a new address, the broadcast address. We will do this by first noting the non-significant digits in the Netmask address, then copying over for all the significant ones the bits of the "regular" IP address (```107.212.146.212```) to the new address. Non-significant bits are all made equal to ```1```.
+
+```
+01101011.11010100.10010010.11010100
+11111111.11111111.11111111.1XXXXXXX
+-----------------------------------
+01101011.11010100.10010010.11111111 (==> broadcast address in binary)
+```
+
+Now let's convert that IP address in a decimal value: ```107.212.146.255```. We now have our broadcast address.
+
+In order to know the IP (or host) range, will simply need add ```1``` to the last byte of the network address, and substract ```1``` of the last byte of the broadcast address, our range becomes:
+
+```107.212.146.129 - 107.212.146.254```
 
 ## What are the differences between public and private IPs?
 
@@ -47,6 +92,12 @@ The public IP is provided by the ISP (Internet Service Provider).
 - You can find your public IP by looking up on Google: "what's my IP".
 
 - You can find your private IP by using the ```ipconfig``` command in the Terminal.
+
+There are only three possible ranges for private IP addresses:
+
+- ```192.168.0.0 - 192.168.255.255```
+- ```172.16.0.0 - 172.31.255.255```
+- ```10.0.0.0 - 10.255.255.255```
 
 ## What is a class of IP addresses? 
 
@@ -60,15 +111,13 @@ There are 5 different classes available for an IPv4 address. Three of them (```A
 |D|```224.0.0.0``` to ```239.255.255.255```|Reserved for multicast (one sender with multiple receivers) groups|
 |E|```240.0.0.0``` to ```254.255.255.254```|Reserved for future use, or research and development purposes|
 
-## What is TCP?
+## What is TCP? What is UDP?
 
 TCP stands for Transmission Control Protocol. It complements the Internet Protocol (IP), which is why these two protocols are often referred as *TCP/IP*.
 
 TCP provides a reliable, error-free stream of bytes between apps running on hosts communicating via the IP network. E-mail, the World Wide Web,... all rely on *TCP/IP*. TCP allows for transmission of packets (the unit of data transmission TCP uses) of data in both directions, meaning a computer can send and receive data at the same time.
 
 In order to allow to devices to communicate over a TCP connection, they each need to have an IPv4/IPv6 address and the desired port open which will be used to transmit the data.
-
-## What is UDP?
 
 UDP stands for User Datagram Protocol. It's like TCP a communication protocol, but which is specifically suited for time-sensitive transmissions such as video playback for example. The communication is faster than TCP mainly thanks to the fact that UDP does not establish a connection before data is transmitted. This speeds up the transfers, but is also more risky as it can cause some packets to be lost in transit. Aside from that, it also opens the door for DDoS attacks.
 
@@ -111,15 +160,11 @@ DHCP stands for Dynamic Host Configuration Protocol. It's a network management p
 
 A DHCP server dynamically assigns an IP address and other network configuration parameters to each device on the network so they can communicate with other IP networks. A DHCP server enables computers to request IP addresses and networking parameters automatically from the Internet service provider (ISP), which removes the need for a network administrator or a user to manually assign IP addresses to all network devices.
 
-## What are the rules to make 2 devices communicate using IP addresses?
+## What are the rules to make 2 devices communicate using IP addresses? How does routing work with IP? What is the default gateway for routing?
 
-computer --> gateway --> internet --> gateway --> computer
-
-## How does routing work with IP?
+"Rules" to make 2 devices communicate using IP addresses: ```computer --> gateway --> internet --> gateway --> computer```
 
 IP routing is the process where data is transmitted from one computer to another and needs to find the quickest path across the internet to reach the other computer. Routers refer to internal routing tables to make decisions about how to route packets along network paths.
-
-## What is a default gateway for routing?
 
 A default gateway is the node in a computer network using the IP suite that serves as the router (forwarding host) to other networks when no other route specification matches the destination IP address of a packet. A router merely forwards the packets between networks with different network prefixes.
 
