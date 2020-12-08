@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/26 10:51:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/01 13:36:09 by mdesalle         ###   ########.fr       */
+/*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
+/*   Updated: 2020/12/08 09:35:31 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../include/get_next_line.h"
 
 static char	*ft_string(char *str)
 {

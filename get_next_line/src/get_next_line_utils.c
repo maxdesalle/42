@@ -6,11 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:07:40 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/30 13:55:26 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/08 09:32:31 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../include/get_next_line.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -72,4 +72,23 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		newstring[--len] = s1[i];
 	free((char *)s1);
 	return (newstring);
+}
+
+void	ft_putendl(const char *s)
+{
+	ft_putstr(s);
+	ft_putchar('\n');
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(const char *s)
+{
+	if (!s)
+		return ;
+	while (*s)
+		write(1, s++, 1);
 }
