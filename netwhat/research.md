@@ -54,8 +54,10 @@ The ```255.255.255``` come from the fact that these 3 bytes are only made of bit
 
 Now we have our Netmask address, let's convert our IP address and Netmask address to binary:
 
-```107.212.146.212```: ```01101011.11010100.10010010.11010100```
-```255.255.255.128```: ```11111111.11111111.11111111.10000000```
+```
+107.212.146.212: 01101011.11010100.10010010.11010100
+255.255.255.128: 11111111.11111111.11111111.10000000
+```
 
 In order to know our network address, we will need to convert the two addresses to a new address, the network address. We will do this by only writing a ```1``` if the two addresses contain a bit equal to ```1``` at that place.
 
