@@ -12,22 +12,22 @@ Aside from that, I have added some additional functions to the library which you
 
 ## Compile
 In order to use the library, simply execute:
-```
+```console
 make
 ```
 
 To remove the ```.o``` files, execute:
-```
+```console
 make clean
 ``` 
 
 To remove the ```.o``` files, as well as the library itself, execute:
-```
+```console
 make fclean
 ```
 
 To recompile the whole library after making a change, simply execute:
-```
+```console
 make re
 ```
 

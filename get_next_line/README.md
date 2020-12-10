@@ -3,17 +3,17 @@
 
 ## How to use it
 If you want to try it out, simply clone this repository then execute the following commands:
-```
+```console
 cd 42/get_next_line/
 ```
-```
+```console
 gcc -Wall -Wextra -Werror -o gnl src/get_next_line.c src/get_next_line_utils.c src/main.c
 ```
 You should now have an executable called ```gnl```. I have included two test files which you can find in the ```test``` folder. To try out the ```get_next_line``` function, simply execute the following commands:
-```
+```console
 ./gnl test/wisdom.txt
 ```
-```
+```console
 ./gnl test/ipsum.txt
 ```
 If everything works correctly, it should have a similar behaviour as the ```cat``` command.

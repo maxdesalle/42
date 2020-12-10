@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 09:02:17 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/05 15:32:36 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/07 08:38:55 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ int				ft_printf(const char *str, ...);
 int				ft_parser(va_list argptr, const char *str, t_list *box);
 void			ft_putchar(char c, t_list *box);
 void			ft_super_putchar(int len, char c, t_list *box);
-void			ft_analysis(char *str, va_list argptr, t_list *box);
-
+void			ft_analysis(char *str, t_list *box);
+void			ft_c_craft(t_list *box);
 #endif

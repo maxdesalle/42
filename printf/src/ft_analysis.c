@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 08:51:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/05 14:14:52 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/07 08:36:32 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static void	ft_flag(char *str, t_list *box)
 	while (str[i] && str[i] != '#' && str[i] != '0' && str[i] != '+'
 			&& str[i] != '-')
 		i++;
-	while (str[i] && str[i] == '#' || str[i] == '0' || str[i] == '+'
-			|| str[i] == '-')
+	while (str[i] && (str[i] == '#' || str[i] == '0' || str[i] == '+'
+			|| str[i] == '-'))
 	{
 		if (str[i] == '#')
 			box->ftag += 1;
@@ -85,7 +85,7 @@ static void	ft_flag(char *str, t_list *box)
 	}
 }
 
-void		ft_analysis(char *str, va_list argptr, t_list *box)
+void		ft_analysis(char *str, t_list *box)
 {
 	box->precision = ft_precision(str);
 	box->width = ft_width(str);
