@@ -1,5 +1,5 @@
 # ```netwhat```
-```netwhat``` is one of the three projects following [```libft```](https://github.com/maxdesalle/42/tree/main/libft). The purpose is to get a short but in-depth introduction to networking.
+```netwhat``` is one of the three projects following [**```libft```**](https://github.com/maxdesalle/42/tree/main/libft). The purpose is to get a short but in-depth introduction to networking.
 
 I have published all the research have I done for this project in the ```research.md``` file. If you are a 42 student working on ```netwhat```, you should already have a pretty good understanding of networking after reading the ```research.md``` file.
 
