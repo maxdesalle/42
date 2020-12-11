@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 08:51:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/07 08:36:32 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/11 08:24:43 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,9 @@ static int	ft_width(char *str)
 	{
 		while (!(str[i] >= '0' && str[i] <= '9'))
 			i++;
-		while (str[i] != '.')
+		while (str[i] != '.' && (str[i] >= '0' && str[i] <= '9'))
 		{
-			while (str[i] >= '0' && str[i] <= '9')
-				width = width * 10 + (str[i++] - '0');
+			width = ft_atoi(str);
 			return (width);
 		}
 	}
@@ -65,24 +64,21 @@ static void	ft_flag(char *str, t_list *box)
 	box->fplus = 0;
 	box->fminus = 0;
 	box->fspace = 0;
-	while (str[i] && str[i] != '#' && str[i] != '0' && str[i] != '+'
-			&& str[i] != '-')
-		i++;
-	while (str[i] && (str[i] == '#' || str[i] == '0' || str[i] == '+'
-			|| str[i] == '-'))
+	while (str[i] != '\0')
 	{
 		if (str[i] == '#')
 			box->ftag += 1;
-		if (str[i] == '0')
+		else if (str[i] == '0')
 			box->fzero += 1;
-		if (str[i] == '+')
+		else if (str[i] == '+')
 			box->fplus += 1;
-		if (str[i] == '-')
+		else if (str[i] == '-')
 			box->fminus += 1;
-		if (str[i] == ' ')
+		else if (str[i] == ' ')
 			box->fspace += 1;
 		i++;
 	}
+	return ;
 }
 
 void		ft_analysis(char *str, t_list *box)

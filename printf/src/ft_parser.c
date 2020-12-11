@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:24:47 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/07 08:58:45 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/11 09:36:58 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ static int	ft_type_check(char c)
 static void	ft_craft1(va_list argptr, t_list *box)
 {
 	if (box->type == 'c')
-	{
-		box->c = va_arg(argptr, int);
-		ft_c_craft(box);
-	}
+		ft_c_craft(va_arg(argptr, int), box);
 /*	else if (box->type == 's')
 	{
 		box->s = va_arg(argptr, char *);
@@ -79,17 +76,15 @@ int			ft_parser(va_list argptr, const char *str, t_list *box)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == '%' && str[i + 1] == '%')
-			ft_putchar('%', box);
-		else if (str[i] == '%' && str[i + 1] != '%')
+		if (str[i] == '%' && str[i + 1] != '%')
 		{
+			i++;
 			ft_analysis((char*)str, box);
-			while (ft_type_check(str[i]) == 0)
-				i++;
-			box->type = str[i];
+			if (ft_type_check(str[i]) == 1)
+				box->type = str[i];
 			ft_type_selector(argptr, box);
 		}
-		else if (str[i] != '%' && str[i + 1] != '%')
+		else if (str[i] != '%')
 			ft_putchar(str[i], box);
 		i++;
 	}

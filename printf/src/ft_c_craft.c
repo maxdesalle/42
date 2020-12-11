@@ -6,32 +6,32 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:20:17 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/10 10:32:36 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/11 09:06:24 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-static void	ft_first_case(t_list *box)
+static void	ft_first_case(char c, t_list *box)
 {
-	if (box->width > 1 && box->fminus == 1)
+	if (box->fminus == 1)
 	{
-		ft_putchar(box->c, box);
+		ft_putchar(c, box);
 		ft_super_putchar(box->width - 1, ' ', box);
 		return ;
 	}
-	else if (box->width > 1 && box->fzero == 1)
+	else if (box->fzero == 1)
 		ft_super_putchar(box->width - 1, '0', box);
-	else if (box->width > 1 && box->fminus == 0)
+	else if (box->fminus == 0)
 		ft_super_putchar(box->width - 1, ' ', box);
-	ft_putchar(box->c, box);
+	ft_putchar(c, box);
 	return ;
 }
 
-void	ft_c_craft(t_list *box)
+void	ft_c_craft(char c, t_list *box)
 {
 	if (box->width > 1)
-		ft_first_case(box);
+		ft_first_case(c, box);
 	else
-		ft_putchar(box->c, box);
+		ft_putchar(c, box);
 }
