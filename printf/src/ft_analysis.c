@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 08:51:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/11 08:24:43 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/11 10:07:03 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,12 @@ static int	ft_width(char *str)
 	width = 0;
 	while (str[i] != '\0')
 	{
-		while (!(str[i] >= '0' && str[i] <= '9'))
-			i++;
 		while (str[i] != '.' && (str[i] >= '0' && str[i] <= '9'))
 		{
 			width = ft_atoi(str);
 			return (width);
 		}
+		i++;
 	}
 	return (-1);
 }

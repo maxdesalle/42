@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:24:47 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/11 09:36:58 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/11 10:27:52 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void	ft_craft1(va_list argptr, t_list *box)
 		box->di = va_arg(argptr, int);
 		ft_di_craft(box);
 	} */
+	return ;
 }
 
 /* static void	ft_craft2(va_list argptr, t_list *box)
@@ -67,6 +68,7 @@ static void	ft_type_selector(va_list argptr, t_list *box)
 		ft_craft1(argptr, box);
 /*	else
 		ft_craft2(argptr, box);*/
+	return ;
 }
 
 int			ft_parser(va_list argptr, const char *str, t_list *box)
@@ -80,6 +82,8 @@ int			ft_parser(va_list argptr, const char *str, t_list *box)
 		{
 			i++;
 			ft_analysis((char*)str, box);
+			while (ft_type_check(str[i]) == 0)
+				i++;
 			if (ft_type_check(str[i]) == 1)
 				box->type = str[i];
 			ft_type_selector(argptr, box);

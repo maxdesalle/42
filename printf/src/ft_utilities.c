@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 16:28:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/11 09:05:07 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/11 10:11:11 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_putchar(char c, t_list *box)
 {
 	write(1, &c, 1);
 	box->len += 1;
+	return ;
 }
 
 void	ft_super_putchar(int len, char c, t_list *box)
@@ -25,6 +26,7 @@ void	ft_super_putchar(int len, char c, t_list *box)
 		write(1, &c, 1);
 		box->len += 1;
 	}
+	return ;
 }
 
 long	ft_atoi(const char *nptr)

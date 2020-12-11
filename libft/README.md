@@ -1,5 +1,5 @@
-# Libft
-Libft is a library containing nearly all the essential functions used in C. It's the first project at 42.
+# ```libft```
+```libft``` is a library containing nearly all the essential functions used in C. It's the first project at 42.
 
 Every student starts the 42 cursus by creating his own library, which will be the only one he can use in the projects which will follow, unless specifically mentioned otherwise.
 
