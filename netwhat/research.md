@@ -34,11 +34,9 @@ Reading a Netmask may seem difficult, but in fact, it's very simple. The left pa
 .
 ```192.168.0.1/29``` for example, indicates that the last three digits (**in binary**) aren't significant, meaning this Netmask will match 8 different IP addresses (2^3), and 6 hosts as there is always 1 network address and 1 broadcast address.
 
-## What is a network address?
+## What is a network address? What is a broadcast address?
 
 A network address is an IP address used to identify an IP address. The network address is always the first one of a subnet and is assigned only once in each network.
-
-## What is a broadcast address?
 
 A broadcast address is an address which allows you to communicate with all the hosts on a given subnet. The broadcast is always the last address of a subnet and is assigned only once in each network.
 
@@ -124,6 +122,10 @@ In order to allow to devices to communicate over a TCP connection, they each nee
 UDP stands for User Datagram Protocol. It's like TCP a communication protocol, but which is specifically suited for time-sensitive transmissions such as video playback for example. The communication is faster than TCP mainly thanks to the fact that UDP does not establish a connection before data is transmitted. This speeds up the transfers, but is also more risky as it can cause some packets to be lost in transit. Aside from that, it also opens the door for DDoS attacks.
 
 The main difference with TCP is that TCP first establishes a connection through a *handshake* and only then will data be transmitted. UDP directly sends the data, without going through that *handshake*. If a packet is lost along the way in a TCP connection, TCP will require it to be re-sent. This is not the case with UDP.
+
+- Protocols using UDP include DHCP for example.
+
+- Protocols using TCP include SMTP and HTTP for example.
 
 ## What is the OSI model? What are the network layers?
 
