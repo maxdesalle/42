@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/04 16:09:49 by mdesalle          #+#    #+#              #
-#    Updated: 2020/12/07 09:31:48 by mdesalle         ###   ########.fr        #
+#    Updated: 2020/12/11 11:29:17 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC = src/ft_c_craft.c src/ft_analysis.c src/ft_parser.c src/ft_printf.c src/ft_
 OBJ = $(SRC:.c=.o)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I include -c $^ -o $@
+	$(CC) -I include -c $^ -o $@
 
 all: $(NAME)
 

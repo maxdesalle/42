@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 09:02:17 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/11 09:06:51 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/12 06:44:53 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct	s_list
 }				t_list;
 
 int				ft_printf(const char *str, ...);
-int				ft_parser(va_list argptr, const char *str, t_list *box);
+int				ft_parser(va_list argptr, char *str, t_list *box);
 void			ft_putchar(char c, t_list *box);
 void			ft_super_putchar(int len, char c, t_list *box);
 void			ft_analysis(char *str, t_list *box);

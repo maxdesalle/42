@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 11:24:47 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/11 10:27:52 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/12 06:44:35 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	ft_type_selector(va_list argptr, t_list *box)
 	return ;
 }
 
-int			ft_parser(va_list argptr, const char *str, t_list *box)
+int			ft_parser(va_list argptr, char *str, t_list *box)
 {
 	int	i;
 
@@ -80,15 +80,14 @@ int			ft_parser(va_list argptr, const char *str, t_list *box)
 	{
 		if (str[i] == '%' && str[i + 1] != '%')
 		{
-			i++;
-			ft_analysis((char*)str, box);
+			ft_analysis(&str[++i], box);
 			while (ft_type_check(str[i]) == 0)
 				i++;
 			if (ft_type_check(str[i]) == 1)
 				box->type = str[i];
 			ft_type_selector(argptr, box);
 		}
-		else if (str[i] != '%')
+		else
 			ft_putchar(str[i], box);
 		i++;
 	}

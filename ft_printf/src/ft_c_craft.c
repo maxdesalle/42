@@ -6,13 +6,13 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/05 13:20:17 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/11 09:06:24 by mdesalle         ###   ########.fr       */
+/*   Updated: 2020/12/12 06:46:53 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/printf.h"
 
-static void	ft_first_case(char c, t_list *box)
+static void	ft_print_char(char c, t_list *box)
 {
 	if (box->fminus == 1)
 	{
@@ -31,7 +31,7 @@ static void	ft_first_case(char c, t_list *box)
 void	ft_c_craft(char c, t_list *box)
 {
 	if (box->width > 1)
-		ft_first_case(c, box);
+		ft_print_char(c, box);
 	else
 		ft_putchar(c, box);
 }
