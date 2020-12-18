@@ -5,12 +5,7 @@ Every student starts the 42 cursus by creating his own library, which will be th
 
 The project allows the students to get familiar with some of the most foundational functions in C.
 
-## Warning
-The structure of this repository does **not** follow the guidelines. The reason for this is to add some clarity in how the files are structured. Because of that, the ```Makefile``` also differs from the one which should be used in order to follow the guidelines.
-
-Aside from that, I have added some additional functions to the library which you don't need to submit if you are a student at 42.
-
-## Compile
+## How to use it
 In order to use the library, simply execute:
 ```console
 make
@@ -30,6 +25,14 @@ To recompile the whole library after making a change, simply execute:
 ```console
 make re
 ```
+
+## What I learned
+Creating a library in a certain language is a really great exerise to get familiar with it. This is really what ```libft``` is all about. Aside from knowing how a library works and how to use it of course.
+
+## Warning
+The structure of this repository does **not** follow the guidelines. The reason for this is to add some clarity in how the files are structured. Because of that, the ```Makefile``` also differs from the one which should be used in order to follow the guidelines.
+
+Aside from that, I have added some additional functions to the library which you don't need to submit if you are a student at 42.
 
 ## License
 Everything is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).
