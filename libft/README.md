@@ -35,4 +35,4 @@ The structure of this repository does **not** follow the guidelines. The reason 
 Aside from that, I have added some additional functions to the library which you don't need to submit if you are a student at 42.
 
 ## License
-Everything is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).
+Everything in this repository is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).

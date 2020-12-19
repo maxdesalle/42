@@ -25,4 +25,4 @@ This is the first "big" project I have created in C, as [**```libft```**](https:
 This repository does **not** respect the project's guidelines in terms of structure. This is done on purpose to add some clarity.
 
 ## License
-Everything is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).
+Everything in this repository is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).

@@ -10,4 +10,4 @@ During this project, I have had the chance to learn everything regarding the bas
 This repository does **not** contain the answers to the questions of the quiz. It merely contains the research I have made in order to understand what needs to be understood for this project. Aside from that, there is **no** guarantee that the content is correct, as I have written it in my own words.
 
 ## License
-Everything is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).
+Everything in this repository is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).

@@ -14,4 +14,4 @@ If you are a student at 42, you can find me on slack with the following username
 If you aren't, feel free to DM me on Twitter [here](https://twitter.com/maxdesalle) or send an email [here](mailto:maxdesalle@pm.me).
 
 ## License
-Everything is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).
+Everything in this repository is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).
