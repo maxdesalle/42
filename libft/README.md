@@ -7,22 +7,22 @@ The project allows the students to get familiar with some of the most foundation
 
 ## How to use it
 In order to use the library, simply execute:
-```console
+```bash
 make
 ```
 
 To remove the ```.o``` files, execute:
-```console
+```bash
 make clean
 ``` 
 
 To remove the ```.o``` files, as well as the library itself, execute:
-```console
+```bash
 make fclean
 ```
 
 To recompile the whole library after making a change, simply execute:
-```console
+```bash
 make re
 ```
 
