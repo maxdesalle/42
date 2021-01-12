@@ -11,7 +11,7 @@ At 19 (and in every school part of the 42 network), we need to respect a norm wi
 ### I have a question, how can I reach out to you?
 If you are a student at 42, you can find me on slack with the following username: ```mdesalle```.
 
-If you aren't, feel free to DM me on Twitter [here](https://twitter.com/maxdesalle) or send an email [here](mailto:maxdesalle@pm.me).
+If you aren't, feel free to DM me your phone number (or a private note containing it) on [Twitter](https://twitter.com/maxdesalle) or [Telegram](https://t.me/maxdesalle), instead of directly messaging the matter. I will get back to you on [Signal](https://signal.org) afterwards.
 
 ## License
 Everything in this repository is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).
