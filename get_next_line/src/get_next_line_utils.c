@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:07:40 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/12/08 09:32:31 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/14 10:27:35 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,18 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		newstring[--len] = s1[i];
 	free((char *)s1);
 	return (newstring);
+}
+
+char	*ft_strcat_alpha(char *dest, char *src, int len)
+{
+	int	i;
+
+	i = 0;
+	while (src[len] != '\0')
+		dest[i++] = src[len++];
+	dest[i] = '\0';
+	free(src);
+	return (dest);
 }
 
 void	ft_putendl(const char *s)
