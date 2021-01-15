@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:05:40 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/14 10:28:03 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/15 10:22:06 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct  s_list
+typedef struct	s_list
 {
-        int     i;
-        int     len;
-}                               t_list;
+	int	i;
+	int	len;
+}				t_list;
 
-void    ft_putchar(char c);
-void    ft_putstr(const char *s);
-void    ft_putendl(const char *s);
-char    *ft_substr(char const *s, unsigned int start, size_t len);
-char    *ft_strjoin(char const *s1, char const *s2);
-char    *ft_strcat_alpha(char *dest, char *src, int len);
-size_t  ft_strlen(const char *s);
-int             get_next_line(int fd, char **line);
+size_t			ft_strlen(const char *s);
+void			ft_putchar(char c);
+void			ft_putstr(const char *s);
+void			ft_putendl(const char *s);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strcat_alpha(char *dest, char *src, int len);
+int				get_next_line(int fd, char **line);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/14 10:27:15 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/15 10:07:33 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/get_next_line.h"
 
-static int      ft_eol(char *str, int option, int i)
+static int	ft_eol(char *str, int option, int i)
 {
 	i = 0;
 	if (!str)
@@ -30,12 +30,10 @@ static int      ft_eol(char *str, int option, int i)
 	return (i);
 }
 
-static char	*ft_string(char *str, int len, int i)
+static char	*ft_string(char *str, int len)
 {
 	char	*newstr;
 
-	i = 0;
-	len = ft_eol(str, 0, i);
 	if (str[len] == '\0')
 	{
 		free(str);
@@ -66,7 +64,7 @@ int			get_next_line(int fd, char **line)
 	}
 	box.len = ft_eol(str, 0, box.i);
 	*line = ft_substr(str, 0, (size_t)box.len);
-	str = ft_string(str, box.len, box.i);
+	str = ft_string(str, box.len);
 	if (reader == 0)
 		return (0);
 	return (1);

@@ -6,14 +6,33 @@
 /*   By: jrameau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 05:26:42 by jrameau           #+#    #+#             */
-/*   Updated: 2020/12/08 09:33:17 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/15 10:21:16 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/get_next_line.h"
 #include <fcntl.h>
 
-int		main(int argc, char **argv)
+void	ft_putendl(const char *s)
+{
+	ft_putstr(s);
+	ft_putchar('\n');
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putstr(const char *s)
+{
+	if (!s)
+		return ;
+	while (*s)
+		write(1, s++, 1);
+}
+
+int			main(int argc, char **argv)
 {
 	int		fd;
 	char	*line;
