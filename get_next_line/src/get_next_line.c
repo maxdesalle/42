@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/16 11:49:58 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/16 11:52:07 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static int	ft_eol(char *str, int option, int i)
 {
-	i = 0;
 	if (!str)
 		return (0);
 	while (str[i] != '\0' && str[i] != '\n')
