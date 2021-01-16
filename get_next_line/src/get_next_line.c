@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/15 10:07:33 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/16 10:44:09 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,12 @@ static int	ft_eol(char *str, int option, int i)
 	i = 0;
 	if (!str)
 		return (0);
-	if (option == 0)
-		while (str[i] != '\0' && str[i] != '\n')
-			i++;
-	else if (option == 1)
+	while (str[i] != '\0' && str[i] != '\n')
+		i++;
+	if (option == 1)
 	{
-		while (str[i] != '\0')
-			if (str[i++] == '\n')
-				return (1);
+		if (str[i] == '\n')
+			return (1);
 		return (0);
 	}
 	return (i);
@@ -60,7 +58,8 @@ int			get_next_line(int fd, char **line)
 		if ((reader = read(fd, buff, BUFFER_SIZE)) == -1)
 			return (-1);
 		buff[reader] = '\0';
-		str = ft_strjoin(str, buff);
+		if (!(str = ft_strjoin(str, buff)))
+			return (-1);
 	}
 	box.len = ft_eol(str, 0, box.i);
 	*line = ft_substr(str, 0, (size_t)box.len);
