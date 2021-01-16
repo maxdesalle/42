@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/16 10:44:09 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/16 11:28:31 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,21 +46,27 @@ static char	*ft_string(char *str, int len)
 int			get_next_line(int fd, char **line)
 {
 	int			reader;
-	char		buff[BUFFER_SIZE + 1];
+	char		*buff;
 	t_list		box;
 	static char	*str;
 
 	reader = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0 || !line)
 		return (-1);
+	if (!(buff = malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+		return (-1);
 	while ((!ft_eol(str, 1, box.i)) && reader != 0)
 	{
 		if ((reader = read(fd, buff, BUFFER_SIZE)) == -1)
+		{
+			free(buff);
 			return (-1);
+		}
 		buff[reader] = '\0';
 		if (!(str = ft_strjoin(str, buff)))
 			return (-1);
 	}
+	free(buff);
 	box.len = ft_eol(str, 0, box.i);
 	*line = ft_substr(str, 0, (size_t)box.len);
 	str = ft_string(str, box.len);
