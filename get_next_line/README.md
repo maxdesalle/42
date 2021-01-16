@@ -21,6 +21,10 @@ If everything works correctly, it should have a similar behaviour as the ```cat`
 ## What I have learned
 This is the first "big" project I have created in C, as [**```libft```**](https://github.com/maxdesalle/42/tree/main/libft) was more a collection of little functions, than a real big function. Aside from that, I also learned how the ```read``` function works, as well as everything about static variables of course.
 
+## Acknowledgements
+- Nick Rameau's [get_next_line](https://github.com/R4meau/get_next_line)
+- Romain Challier's [get_next_line](https://github.com/rchallie/get_next_line)
+
 ## Warning
 This repository does **not** respect the project's guidelines in terms of structure. This is done on purpose to add some clarity.
 
