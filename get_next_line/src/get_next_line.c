@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/16 11:28:31 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/16 11:49:58 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,13 @@ int			get_next_line(int fd, char **line)
 {
 	int			reader;
 	char		*buff;
-	t_list		box;
 	static char	*str;
 
 	reader = 1;
-	if (fd < 0 || BUFFER_SIZE <= 0 || !line)
+	if (fd < 0 || BUFFER_SIZE <= 0 || !line || (!(buff =
+				malloc(sizeof(char) * (BUFFER_SIZE + 1)))))
 		return (-1);
-	if (!(buff = malloc(sizeof(char) * (BUFFER_SIZE + 1))))
-		return (-1);
-	while ((!ft_eol(str, 1, box.i)) && reader != 0)
+	while ((!ft_eol(str, 1, 0)) && reader != 0)
 	{
 		if ((reader = read(fd, buff, BUFFER_SIZE)) == -1)
 		{
@@ -67,9 +65,8 @@ int			get_next_line(int fd, char **line)
 			return (-1);
 	}
 	free(buff);
-	box.len = ft_eol(str, 0, box.i);
-	*line = ft_substr(str, 0, (size_t)box.len);
-	str = ft_string(str, box.len);
+	*line = ft_substr(str, 0, (size_t)ft_eol(str, 0, 0));
+	str = ft_string(str, ft_eol(str, 0, 0));
 	if (reader == 0)
 		return (0);
 	return (1);

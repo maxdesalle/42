@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:05:40 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/15 10:22:06 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/16 11:49:15 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-
-typedef struct	s_list
-{
-	int	i;
-	int	len;
-}				t_list;
 
 size_t			ft_strlen(const char *s);
 void			ft_putchar(char c);
