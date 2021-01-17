@@ -6,7 +6,7 @@
 /*   By: jrameau <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 05:26:42 by jrameau           #+#    #+#             */
-/*   Updated: 2021/01/15 10:21:16 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/17 13:45:41 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_putstr(const char *s)
 		write(1, s++, 1);
 }
 
-int			main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	int		fd;
 	char	*line;
