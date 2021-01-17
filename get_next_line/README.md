@@ -1,7 +1,12 @@
 # ```get_next_line```
 ```get_next_line``` is one of the three projects following [**```libft```**](https://github.com/maxdesalle/42/tree/main/libft). The purpose is to create a function which, when called in a loop, will then read the text available on a file descriptor one line at a time until the end of the file.
 
+This version of ```get_next_line``` also respects the bonus requirements of the project.
+
 ## How to use it
+
+> Note: by default, the BUFFER_SIZE variable is set to 32. Feel free to change it in the ```get_next_line.h``` header file.
+
 If you want to try it out, simply clone this repository and execute the following commands:
 ```bash
 cd 42/get_next_line/

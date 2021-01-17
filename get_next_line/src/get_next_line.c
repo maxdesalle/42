@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/16 11:52:07 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/17 13:39:52 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ int			get_next_line(int fd, char **line)
 {
 	int			reader;
 	char		*buff;
-	static char	*str;
+	static char	*str[4096];
 
 	reader = 1;
-	if (fd < 0 || BUFFER_SIZE <= 0 || !line || (!(buff =
+	if (fd < 0 || fd > 4096 || BUFFER_SIZE <= 0 || !line || (!(buff =
 				malloc(sizeof(char) * (BUFFER_SIZE + 1)))))
 		return (-1);
-	while ((!ft_eol(str, 1, 0)) && reader != 0)
+	while ((!ft_eol(str[fd], 1, 0)) && reader != 0)
 	{
 		if ((reader = read(fd, buff, BUFFER_SIZE)) == -1)
 		{
@@ -60,12 +60,12 @@ int			get_next_line(int fd, char **line)
 			return (-1);
 		}
 		buff[reader] = '\0';
-		if (!(str = ft_strjoin(str, buff)))
+		if (!(str[fd] = ft_strjoin(str[fd], buff)))
 			return (-1);
 	}
 	free(buff);
-	*line = ft_substr(str, 0, (size_t)ft_eol(str, 0, 0));
-	str = ft_string(str, ft_eol(str, 0, 0));
+	*line = ft_substr(str[fd], 0, (size_t)ft_eol(str[fd], 0, 0));
+	str[fd] = ft_string(str[fd], ft_eol(str[fd], 0, 0));
 	if (reader == 0)
 		return (0);
 	return (1);
