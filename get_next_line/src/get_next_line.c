@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/18 09:48:42 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/18 09:49:28 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static char	*ft_string(char *str, int len)
 ** string goes wrong using the ft_substr function, we return an error (-1).
 **
 ** afterwards, we store the whole string, without the line we just stored in
-** the line arrray.
+** the line "table".
 **
 ** finally, if we reach the end of the file (reader == 0), we return 0.
 ** otherwise we return 1 as everything went well.
