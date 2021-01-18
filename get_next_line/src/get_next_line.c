@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/18 09:14:43 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/18 09:25:37 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int			get_next_line(int fd, char **line)
 			return (ft_free(&buff));
 	}
 	free(buff);
-	if (!(*line = ft_substr(str[fd], 0, ft_eol(str[fd], 0, 0))))
+	if (!(*line = ft_substr(str[fd], 0, (size_t)ft_eol(str[fd], 0, 0))))
 		return (-1);
 	str[fd] = ft_string(str[fd], ft_eol(str[fd], 0, 0));
 	if (reader == 0)
