@@ -6,11 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:07:40 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/15 10:18:03 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/18 09:48:09 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/get_next_line.h"
+
+/*
+** returns the length of the given string
+*/
 
 size_t	ft_strlen(const char *s)
 {
@@ -23,6 +27,10 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+
+/*
+** creates a new string using a part of the content of another string.
+*/
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -51,6 +59,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (substring);
 }
 
+/*
+** joins two strings in a new memory-allocated string.
+*/
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;
@@ -73,6 +85,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	free((char *)s1);
 	return (newstring);
 }
+
+/*
+** a modified version of the strcat function which starts copying the
+** content of a string at a certain point in the string in a completely
+** new string. the source string is freed and the destination string is
+** ended with \0 and returned.
+*/
 
 char	*ft_strcat_alpha(char *dest, char *src, int len)
 {
