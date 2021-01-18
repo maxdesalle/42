@@ -6,11 +6,17 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/17 13:39:52 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/18 09:14:43 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/get_next_line.h"
+
+static int	ft_free(char **buff)
+{
+	free(*buff);
+	return (-1);
+}
 
 static int	ft_eol(char *str, int option, int i)
 {
@@ -46,25 +52,23 @@ int			get_next_line(int fd, char **line)
 {
 	int			reader;
 	char		*buff;
-	static char	*str[4096];
+	static char	*str[OPEN_MAX];
 
 	reader = 1;
-	if (fd < 0 || fd > 4096 || BUFFER_SIZE <= 0 || !line || (!(buff =
-				malloc(sizeof(char) * (BUFFER_SIZE + 1)))))
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || !line ||
+		(!(buff = malloc(sizeof(char) * (BUFFER_SIZE + 1)))))
 		return (-1);
 	while ((!ft_eol(str[fd], 1, 0)) && reader != 0)
 	{
 		if ((reader = read(fd, buff, BUFFER_SIZE)) == -1)
-		{
-			free(buff);
-			return (-1);
-		}
+			return (ft_free(&buff));
 		buff[reader] = '\0';
 		if (!(str[fd] = ft_strjoin(str[fd], buff)))
-			return (-1);
+			return (ft_free(&buff));
 	}
 	free(buff);
-	*line = ft_substr(str[fd], 0, (size_t)ft_eol(str[fd], 0, 0));
+	if (!(*line = ft_substr(str[fd], 0, ft_eol(str[fd], 0, 0))))
+		return (-1);
 	str[fd] = ft_string(str[fd], ft_eol(str[fd], 0, 0));
 	if (reader == 0)
 		return (0);
