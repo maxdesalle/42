@@ -6,11 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/20 15:13:35 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/20 15:27:58 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/get_next_line.h"
+#include "get_next_line.h"
 
 /*
 ** returns -1 if there was an error in one of the mallocs, returns 0 if the
@@ -18,14 +18,14 @@
 ** everything is OK.
 */
 
-static int      ft_return(t_list *box)
+static int	ft_return(t_list *box)
 {
-        if (!box->check)
-                return (-1);
-        else if (!box->reader)
-                return (0);
-        else
-                return (1);
+	if (!box->check)
+		return (-1);
+	else if (!box->reader)
+		return (0);
+	else
+		return (1);
 }
 
 /*
@@ -74,23 +74,23 @@ static int	ft_eol(char *str, int option, int i)
 ** strcat function, in the new newstr string and we return it.
 */
 
-static char     *ft_string(char *str, int len, t_list *box)
+static char	*ft_string(char *str, int len, t_list *box)
 {
-        char    *newstr;
+	char	*newstr;
 
-        if (str[len] == '\0')
-        {
-                free(str);
-                return (NULL);
-        }
-        if (!(newstr = malloc(sizeof(char) * (ft_strlen(str) - len + 1))))
-        {
-                free(str);
-                box->check = 0;
-                return (NULL);
-        }
-        newstr = ft_strcat_alpha(newstr, str, ++len);
-        return (newstr);
+	if (str[len] == '\0')
+	{
+		free(str);
+		return (NULL);
+	}
+	if (!(newstr = malloc(sizeof(char) * (ft_strlen(str) - len + 1))))
+	{
+		free(str);
+		box->check = 0;
+		return (NULL);
+	}
+	newstr = ft_strcat_alpha(newstr, str, ++len);
+	return (newstr);
 }
 
 /*
@@ -119,29 +119,29 @@ static char     *ft_string(char *str, int len, t_list *box)
 ** otherwise we return 1 as everything went well.
 */
 
-int                     get_next_line(int fd, char **line)
+int			get_next_line(int fd, char **line)
 {
-        char            *buff;
-        t_list          box;
-        static char     *str[OPEN_MAX];
+	char		*buff;
+	t_list		box;
+	static char	*str[OPEN_MAX];
 
-        box.check = 1;
-        box.reader = 1;
-        if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || !line ||
-                (!(buff = malloc(sizeof(char) * (BUFFER_SIZE + 1)))))
-                return (-1);
-        while ((!ft_eol(str[fd], 1, 0)) && box.reader != 0)
-        {
-                if ((box.reader = read(fd, buff, BUFFER_SIZE)) == -1)
-                        return (ft_free(&buff));
-                buff[box.reader] = '\0';
-                if (!(str[fd] = ft_strjoin(str[fd], buff)))
-                        return (ft_free(&buff));
-        }
-        free(buff);
-        if (!(*line = ft_substr(str[fd], 0, (size_t)ft_eol(str[fd], 0, 0))))
-                return (-1);
-        if (!(box.reader == 0 && !str[fd]))
-                str[fd] = ft_string(str[fd], ft_eol(str[fd], 0, 0), &box);
-        return (ft_return(&box));
+	box.check = 1;
+	box.reader = 1;
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || !line ||
+			(!(buff = malloc(sizeof(char) * (BUFFER_SIZE + 1)))))
+		return (-1);
+	while ((!ft_eol(str[fd], 1, 0)) && box.reader != 0)
+	{
+		if ((box.reader = read(fd, buff, BUFFER_SIZE)) == -1)
+			return (ft_free(&buff));
+		buff[box.reader] = '\0';
+		if (!(str[fd] = ft_strjoin(str[fd], buff)))
+			return (ft_free(&buff));
+	}
+	free(buff);
+	if (!(*line = ft_substr(str[fd], 0, (size_t)ft_eol(str[fd], 0, 0))))
+		return (-1);
+	if (!(box.reader == 0 && !str[fd]))
+		str[fd] = ft_string(str[fd], ft_eol(str[fd], 0, 0), &box);
+	return (ft_return(&box));
 }
