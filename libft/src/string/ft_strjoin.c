@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 10:14:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2020/11/24 13:45:56 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/20 09:58:45 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[j])
 		j++;
 	len = i + j;
-	if (!(newstring = malloc(len + 1)))
+	if (!(newstring = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	newstring[len] = '\0';
 	while (j-- > 0)
