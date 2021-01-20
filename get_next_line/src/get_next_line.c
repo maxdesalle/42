@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/18 09:49:28 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/20 08:48:11 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,10 @@ static char	*ft_string(char *str, int len)
 		return (NULL);
 	}
 	if (!(newstr = malloc(sizeof(char) * (ft_strlen(str) - len + 1))))
+	{
+		free(str);
 		return (NULL);
+	}
 	newstr = ft_strcat_alpha(newstr, str, ++len);
 	return (newstr);
 }

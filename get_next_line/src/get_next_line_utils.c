@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:07:40 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/18 09:48:09 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/20 09:53:38 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = ft_strlen((char *)s1);
 	j = ft_strlen((char *)s2);
 	len = i + j;
-	if (!(newstring = malloc(len + 1)))
+	if (!(newstring = malloc(sizeof(char) * (len + 1))))
+	{
+		free((char *)s1);
 		return (0);
+	}
 	newstring[len] = '\0';
 	while (j-- > 0)
 		newstring[--len] = s2[j];
