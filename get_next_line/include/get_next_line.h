@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:05:40 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/18 09:14:58 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/20 15:34:47 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+
+typedef struct	s_list
+{
+	int	check;
+	int	reader;
+}				t_list;
 
 size_t			ft_strlen(const char *s);
 void			ft_putchar(char c);
