@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/27 11:03:12 by mdesalle          #+#    #+#              #
-#    Updated: 2021/01/21 11:12:35 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/01/21 13:34:11 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,14 @@ RUN apt-get -y install wget nginx mariadb-server
 
 # Install PHP
 RUN apt-get -y install php8.0-{mysql, fpm, cli, mbstring}
+
+# Install WordPress
+RUN wget https://wordpress.org/latest.tar.gz
+RUN tar -xzvf latest.tar.gz
+RUN rm -f latest.tar.gz
+RUN mv src/wp-config.php wordpress
+RUN chmod +x -R wordpress
+RUN mv wordpress var/www/hmtl/
 
 # Listen to the required ports
 EXPOSE 80 443
