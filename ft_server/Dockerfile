@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/27 11:03:12 by mdesalle          #+#    #+#              #
-#    Updated: 2021/01/21 13:51:44 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/01/21 14:03:08 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,12 +26,20 @@ RUN apt-get -y install wget nginx mariadb-server
 # Install PHP
 RUN apt-get -y install php7.3 php-mysql php-fpm php-cli php-mbstring
 
+# Install phpMyAdmin
+RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-english.tar.gz
+RUN tar -xzvf phpMyAdmin-5.0.4-english.tar.gz
+RUN rm -f phpMyAdmin-5.0.4-english.tar.gz
+RUN mv phpMyAdmin-5.0.4-english phpmyadmin
+COPY ./src/config.inc.php phpmyadmin
+RUN mv phpmyadmin var/www/html/
+
 # Install WordPress
 RUN wget https://wordpress.org/latest.tar.gz
 RUN tar -xzvf latest.tar.gz
 RUN rm -f latest.tar.gz
 COPY ./src/wp-config.php wordpress
-RUN chmod +x -R wordpress
+RUN chmod -R 755 wordpress
 RUN mv wordpress var/www/hmtl/
 
 # Listen to the required ports
