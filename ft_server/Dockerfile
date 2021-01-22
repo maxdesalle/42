@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/27 11:03:12 by mdesalle          #+#    #+#              #
-#    Updated: 2021/01/21 14:03:08 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/01/22 08:15:42 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,17 @@ RUN rm -f latest.tar.gz
 COPY ./src/wp-config.php wordpress
 RUN chmod -R 755 wordpress
 RUN mv wordpress var/www/hmtl/
+
+# Install mkcert
+RUN mkdir ~/mkcert
+RUN cd ~/mkcert
+RUN wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64
+RUN mv mkcert-v1.4.3-linux-amd64 mkcert
+RUN chmod 755 mkcert
+RUN ./mkcert -install
+RUN ./mkcert localhost
+RUN cd
+RUN mv ~/mkcert var/www/html/
 
 # Listen to the required ports
 EXPOSE 80 443
