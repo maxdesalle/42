@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/27 11:03:12 by mdesalle          #+#    #+#              #
-#    Updated: 2021/01/22 08:55:27 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/01/22 13:48:53 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,14 @@ RUN mkcert/mkcert -install
 RUN mkcert/mkcert localhost
 RUN mv localhost-key.pem localhost.pem mkcert 
 RUN mv mkcert var/www/
+
+# Set up Nginx
+COPY ./srcs/nginx-config /etc/nginx/sites-available
+RUN rm -f /etc/nginx/sites-available/default
+
+# Set up MySQL
+RUN service mysql start
+RUN chmod -R 755 /var/lib/mysql/
 
 # Listen to the required ports
 EXPOSE 80 443
