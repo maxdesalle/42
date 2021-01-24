@@ -9,17 +9,17 @@ server{
 
 	listen 443 ssl ;
 	listen [::]:443 ssl ;
-	
+
 	server_name localhost;
-	
+
 	ssl_certificate /var/www/mkcert/localhost.pem;
 	ssl_certificate_key /var/www/mkcert/localhost-key.pem;
 
 	root /var/www;
-	index index.html index.htm index.nginx-debian.html index.php;
+        index index.html index.htm index.nginx-debian.html index.php;
 
 	location / {
-		autoindex on;
+		autoindex off;
 		try_files $uri $uri/ =404;
 	}
 
