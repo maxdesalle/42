@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/16 14:40:00 by mdesalle          #+#    #+#              #
-#    Updated: 2020/11/30 09:05:46 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/01/25 11:59:25 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRC = $(wildcard src/*/*.c)
 
 OBJ = ${SRC:.c=.o}
 
+ccgreen = "\033[0;92m"
+
 %.o: %.c
 	${CC} ${CFLAGS} -I include -c $^ -o $@
 
@@ -28,13 +30,22 @@ all: ${NAME}
 $(NAME): ${OBJ}
 	ar rc ${NAME} ${OBJ}
 	ranlib ${NAME}
+	@printf $(ccgreen)
+	@echo "Library successfully compiled"
 
 clean:
-	rm -f ${OBJ}
+	rm -rf $(OBJ)
+	@printf $(ccgreen)
+	@echo "Library successfully cleaned"
 
-fclean: clean
-	rm -f ${NAME}
+fclean:
+	rm -rf $(OBJ)
+	rm -rf $(NAME)
+	@printf $(ccgreen)
+	@echo "Library successfully cleaned, including the libft.a file"
 
-re: fclean all
+fcleanre:
+	rm -rf $(OBJ)
+	rm -rf $(NAME)
 
-.PHONY: clean fclean all re
+re: fcleanre all
