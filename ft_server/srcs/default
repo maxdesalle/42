@@ -12,14 +12,14 @@ server{
 
 	server_name localhost;
 
-	ssl_certificate /var/www/mkcert/localhost.pem;
-	ssl_certificate_key /var/www/mkcert/localhost-key.pem;
+	ssl_certificate /etc/nginx/ssl/localhost.pem;
+	ssl_certificate_key /etc/nginx/ssl/localhost-key.pem;
 
-	root /var/www;
+	root /var/www/localhost;
         index index.html index.htm index.nginx-debian.html index.php;
 
 	location / {
-		autoindex off;
+		autoindex on;
 		try_files $uri $uri/ =404;
 	}
 
