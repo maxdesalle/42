@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/27 11:42:43 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/27 11:49:24 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 ** namecheck functions checks that the map file has the right format (.cub). If
 ** so, the function calls the initialization function to initialize all the
 ** flags.
+**
+** if there are 3 arguments, it checks the file extension and the
+** save argument. Otherwise, it returns an error through the ft_error function.
 */
 
 int	main(int argc, char **argv)
