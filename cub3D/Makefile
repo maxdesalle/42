@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/25 14:49:28 by mdesalle          #+#    #+#              #
-#    Updated: 2021/01/25 14:54:52 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/01/27 11:45:08 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
-SRC =
+SRC = src/cub3D.c \
+      src/ft_error_check.c
 
 OBJ = $(SRC:.c=.o)
 
