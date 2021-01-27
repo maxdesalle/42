@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 11:16:37 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/27 11:44:41 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/27 15:00:13 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ int	ft_argcheck(char *argv, int option)
 ** returns an error based on the given option.
 */
 
-void	ft_error(option)
+int	ft_error(option)
 {
 	if (option == 0)
 		return (write(1, "Error\nInvalid argument", 23));
+	return (0);
 }

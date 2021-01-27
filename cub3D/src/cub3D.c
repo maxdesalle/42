@@ -6,11 +6,19 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/27 11:49:24 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/27 15:06:47 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
+
+int	somefunction()
+{
+	int	something;
+
+	something = 0;
+	return (0);
+}
 
 /*
 ** main function. If there are two arguments given (./cub3D map.cub), the
@@ -24,11 +32,11 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc == 2 && ft_namecheck(argv[1]))
+	if (argc == 2 && ft_argcheck(argv[1], 0))
 		somefunction();
-	else if (argc == 3 && ft_argcheck(argv[1], 0) && ft_argcheck(argv[1], 1))
+	else if (argc == 3 && ft_argcheck(argv[1], 0) && ft_argcheck(argv[2], 1))
 		somefunction();
 	else
-		return(ft_error(0));
+		return (ft_error(0));
 	return (0);
 }

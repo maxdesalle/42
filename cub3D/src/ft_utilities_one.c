@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   ft_utilities_one.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/27 15:02:02 by mdesalle         ###   ########.fr       */
+/*   Created: 2021/01/27 15:00:27 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/01/27 15:01:20 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
-
-# include <unistd.h>
-# include <stdlib.h>
-# include <math.h>
-# include <fcntl.h>
+#include "../include/cub3D.h"
 
 /*
-** ft_error_check.c
+** calculates the length of a string.
 */
 
-int	ft_argcheck(char *argv, int option);
-int	ft_error(int option);
+size_t	ft_strlen(const char *s)
+{
+	int	len;
 
-
-/*
-** ft_utilities_one.c
-*/
-
-size_t	ft_strlen(const char *s);
-
-#endif
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
