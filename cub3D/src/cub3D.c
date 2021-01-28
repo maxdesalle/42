@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/27 15:06:47 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:51:42 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ int	somefunction()
 
 int	main(int argc, char **argv)
 {
-	if (argc == 2 && ft_argcheck(argv[1], 0))
+	if (argc == 2 && ft_argnamecheck(argv[1]))
 		somefunction();
-	else if (argc == 3 && ft_argcheck(argv[1], 0) && ft_argcheck(argv[2], 1))
+	else if (argc == 3 && ft_argnamecheck(argv[1])
+			&& ft_argsavecheck(argv[2]))
 		somefunction();
 	else
 		return (ft_error(0));

@@ -6,44 +6,58 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 11:16:37 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/27 15:00:13 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/28 19:01:46 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
 /*
-** if option 0 is given, the function checks if the file format is equal to
-** ".cub". If option 1 is given, it checks if the argument is "--save".
+** checks if the argument save is correctly given. returns 1 if yes, 0 if not.
 */
 
-int	ft_argcheck(char *argv, int option)
+int	ft_argsavecheck(char *argv)
 {
 	int		i;
 	char	*save;
 
 	i = 0;
 	save = "--save";
-	if (option == 0)
+	while (argv[i] == save[i])
 	{
-		i = ft_strlen(argv) - 4;
-		if (i > 0 && argv[i] == '.' && argv[i + 1] == 'c' &&
-				argv[i + 2] == 'u' && argv[i + 3] == 'b')
+		if (argv[i] == '\0' && save[i] == '\0')
 			return (1);
-		return (0);
+		i++;
 	}
-	else if (option == 1)
+	return (0);
+}
+
+
+/*
+** checks if the map argument is correctly given with the right file format
+** (.cub). returns 1 if yes, 0 if not.
+*/
+
+int	ft_argnamecheck(char *argv)
+{
+	int		i;
+	int		j;
+	char	*cub;
+
+	i = ft_strlen(argv) - 4;
+	j = 0;
+	cub = ".cub";
+	if (i > 0)
 	{
-		while (argv[i] == save[i])
+		while (argv[i] == cub[j])
 		{
-			if (argv[i] == '\0' && save[i] == '\0')
+			if (argv[i] == '\0' && cub[j] == '\0')
 				return (1);
+			j++;
 			i++;
 		}
-		return (0);
 	}
-	else
-		return (0);
+	return (0);
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/27 15:02:02 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/28 18:55:59 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 ** ft_error_check.c
 */
 
-int	ft_argcheck(char *argv, int option);
+int	ft_argnamecheck(char *argv);
+int	ft_argsavecheck(char *argv);
 int	ft_error(int option);
 
 

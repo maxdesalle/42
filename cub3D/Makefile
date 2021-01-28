@@ -6,11 +6,11 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/25 14:49:28 by mdesalle          #+#    #+#              #
-#    Updated: 2021/01/27 15:03:28 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/01/28 11:05:54 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Cub3D
+NAME = cub3D
 
 CC = gcc
 
