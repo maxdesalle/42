@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/25 14:49:28 by mdesalle          #+#    #+#              #
-#    Updated: 2021/01/28 11:05:54 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/01/29 08:43:12 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,9 @@ LXFLAGS = -lmlx -framework OpenGL -framework AppKit
 
 SRC = src/cub3D.c \
       src/ft_error_check.c \
-      src/ft_utilities_one.c
+      src/ft_utilities_one.c \
+      src/get_next_line.c \
+      src/get_next_line_utils.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/28 18:55:59 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/29 08:45:49 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,31 @@
 # include <stdlib.h>
 # include <math.h>
 # include <fcntl.h>
+# include <limits.h> 
+
+# define BUFFER_SIZE 32
+
+typedef struct	s_list
+{
+	int	check;
+	int	reader;
+}				t_list;
+
+/*
+** get_next_line.c
+*/
+
+int		get_next_line(int fd, char **line);
+
+
+/*
+** get_next_line_utils.c
+*/
+
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strcat_alpha(char *dest, char *src, int len);
+
 
 /*
 ** ft_error_check.c
