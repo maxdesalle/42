@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/29 09:11:01 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/29 14:07:48 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ typedef struct	s_list
 	int	check;
 	int	reader;
 }				t_list;
+
+/*
+** cub3d.c
+*/
+
+void			ft_analytics(char *mapfile);
 
 /*
 ** get_next_line.c

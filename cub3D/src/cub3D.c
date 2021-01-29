@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/29 14:00:10 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/29 14:06:57 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** linked lists.
 */
 
-void	ft_analytics(char *file)
+void	ft_analytics(char *mapfile)
 {
 	int		fd;
 	int		reader;
@@ -25,7 +25,7 @@ void	ft_analytics(char *file)
 
 	reader = 1;
 	line = NULL;
-	fd = open(file, O_RDONLY);
+	fd = open(mapfile, O_RDONLY);
 	while (reader > 0)
 	{
 		reader = get_next_line(fd, &line);
