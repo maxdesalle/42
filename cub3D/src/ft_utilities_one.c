@@ -6,11 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 15:00:27 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/27 15:01:20 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/29 09:14:46 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3D.h"
+#include "../include/cub3d.h"
 
 /*
 ** calculates the length of a string.

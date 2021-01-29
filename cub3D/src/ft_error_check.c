@@ -6,11 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 11:16:37 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/28 19:01:46 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/29 09:20:25 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3D.h"
+#include "../include/cub3d.h"
 
 /*
 ** checks if the argument save is correctly given. returns 1 if yes, 0 if not.
@@ -32,7 +32,6 @@ int	ft_argsavecheck(char *argv)
 	return (0);
 }
 
-
 /*
 ** checks if the map argument is correctly given with the right file format
 ** (.cub). returns 1 if yes, 0 if not.
@@ -48,18 +47,11 @@ int	ft_argnamecheck(char *argv)
 	j = 0;
 	cub = ".cub";
 	if (i > 0)
-	{
-		while (argv[i] == cub[j])
-		{
+		while (argv[i++] == cub[j++])
 			if (argv[i] == '\0' && cub[j] == '\0')
 				return (1);
-			j++;
-			i++;
-		}
-	}
 	return (0);
 }
-
 
 /*
 ** returns an error based on the given option.
@@ -68,6 +60,6 @@ int	ft_argnamecheck(char *argv)
 int	ft_error(option)
 {
 	if (option == 0)
-		return (write(1, "Error\nInvalid argument", 23));
+		write(1, "Error\nInvalid argument", 22);
 	return (0);
 }
