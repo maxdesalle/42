@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/25 14:49:28 by mdesalle          #+#    #+#              #
-#    Updated: 2021/01/29 09:06:02 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/01/29 11:34:44 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,13 +30,10 @@ OBJ = $(SRC:.c=.o)
 
 ccgreen = "\033[0;92m"
 
-%.o: %.c
-	$(CC) $(CFLAGS) -I include -c $^ -o $@
-
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) -L $(MLX) $(LXFLAGS) $(OBJ)
 
 clean:
 	rm -rf $(OBJ)
