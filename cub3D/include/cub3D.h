@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/29 14:07:48 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/30 16:53:46 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,28 @@ typedef struct	s_list
 }				t_list;
 
 /*
+** linked list used accross all the code to store the necessary info about
+** the map, textures...
+*/
+
+typedef struct	q_list
+{
+	int	Rx;
+	int	Ry;
+	int	i;
+}				v_list;
+
+/*
 ** cub3d.c
 */
 
-void			ft_analytics(char *mapfile);
+void			ft_analytics(char *mapfile, v_list *cube);
+
+/*
+** ft_resolution.c
+*/
+
+void			ft_resolution(char **line, v_list *cube);
 
 /*
 ** get_next_line.c

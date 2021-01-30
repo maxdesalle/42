@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 11:16:37 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/29 09:20:25 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/30 15:59:41 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	ft_argnamecheck(char *argv)
 int	ft_error(option)
 {
 	if (option == 0)
-		write(1, "Error\nInvalid argument", 22);
+		return (write(1, "Error\nInvalid argument", 22));
+	if (option == 1)
+		return (write(1, "Error\nInvalid resolution", 24));
 	return (0);
 }

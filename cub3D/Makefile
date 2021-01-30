@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/25 14:49:28 by mdesalle          #+#    #+#              #
-#    Updated: 2021/01/29 11:34:44 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/01/30 16:00:01 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ MLX = mlxopengl
 LXFLAGS = -lmlx -framework OpenGL -framework AppKit
 
 SRC = src/cub3d.c \
+      src/ft_resolution.c \
       src/ft_error_check.c \
       src/ft_utilities_one.c \
       src/get_next_line.c \
