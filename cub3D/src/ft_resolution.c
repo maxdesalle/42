@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 15:11:38 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/30 16:15:22 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:47:14 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ static int	ft_resolution_converter(char *line, v_list *cube)
 	return (result);
 }
 
-void	ft_resolution(char **line, v_list *cube)
+void	ft_resolution(char *line, v_list *cube)
 {
 	cube->i = 0;
-	if (*line[cube->i] == 'R')
+	if (line[cube->i] == 'R')
 	{
-		cube->Rx = ft_resolution_converter(*line, cube);
-		cube->Ry = ft_resolution_converter(*line, cube);
+		cube->Rx = ft_resolution_converter(line, cube);
+		cube->Ry = ft_resolution_converter(line, cube);
 	}
 	printf("%d\n", cube->Rx);
 	printf("%d\n", cube->Rx);

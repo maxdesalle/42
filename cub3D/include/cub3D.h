@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/30 16:53:46 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/01/31 14:54:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,19 @@ void			ft_analytics(char *mapfile, v_list *cube);
 ** ft_resolution.c
 */
 
-void			ft_resolution(char **line, v_list *cube);
+void			ft_resolution(char *line, v_list *cube);
+
+/*
+** ft_textures.c
+*/
+
+void			ft_textures(char *line, v_list *cube);
+
+/*
+** ft_map.c
+*/
+
+void			ft_map(char *line, v_list *cube);
 
 /*
 ** get_next_line.c
