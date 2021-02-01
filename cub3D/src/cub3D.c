@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/31 14:49:35 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:57:42 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,25 @@
 ** linked lists.
 */
 
-void	ft_analytics(char *mapfile, v_list *cube)
+static int	ft_analytics(char *mapfile, v_list *cube)
 {
 	int		fd;
 	int		reader;
 	char	*line;
 
 	reader = 1;
-	fd = open(mapfile, O_RDONLY);
+	if ((fd = open(mapfile, O_RDONLY)) == -1)
+		return (ft_error(3));
 	while (reader == 1)
 	{
 		reader = get_next_line(fd, &line);
 		ft_resolution(line, cube);
 		ft_textures(line, cube);
-		ft_map(line, cube);
+		ft_mapsize(line, cube);
 		free(line);
 	}
 	close(fd);
-	return ;
+	return (0);
 }
 
 /*

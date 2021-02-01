@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 11:16:37 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/30 15:59:41 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/01 14:37:36 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,11 @@ int	ft_error(option)
 		return (write(1, "Error\nInvalid argument", 22));
 	if (option == 1)
 		return (write(1, "Error\nInvalid resolution", 24));
+	if (option == 2)
+		return (write(1, "Error\nInvalid map file path", 27));
+	if (option == 3)
+		return (write(1, "Error\nInvalid map file", 22));
+	if (option == 4)
+		return (write(1, "Error\nInvalid map", 17));
 	return (0);
 }

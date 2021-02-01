@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/31 14:54:10 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/01 11:39:28 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,14 @@ typedef struct	q_list
 	int	Rx;
 	int	Ry;
 	int	i;
+	int	**map;
+	int	error;
+	char	*NO;
+	char	*SO;
+	char	*WE;
+	char	*EA;
+	char	*S;
 }				v_list;
-
-/*
-** cub3d.c
-*/
-
-void			ft_analytics(char *mapfile, v_list *cube);
 
 /*
 ** ft_resolution.c
