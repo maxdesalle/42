@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/01 11:39:28 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/02 08:45:59 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ typedef struct	q_list
 	int	i;
 	int	**map;
 	int	error;
+	int	nboflines;
+	int	linelength;
 	char	*NO;
 	char	*SO;
 	char	*WE;
@@ -66,7 +68,13 @@ void			ft_textures(char *line, v_list *cube);
 ** ft_map.c
 */
 
-void			ft_map(char *line, v_list *cube);
+int				ft_map(v_list *cube);
+
+/*
+** ft_mapcheck.c
+*/
+
+int				ft_mapsize(char *line, v_list *cube);
 
 /*
 ** get_next_line.c

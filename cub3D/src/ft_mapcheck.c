@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map.c                                           :+:      :+:    :+:   */
+/*   ft_mapcheck.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/02 08:38:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/02 08:45:45 by mdesalle         ###   ########.fr       */
+/*   Created: 2021/01/31 14:50:48 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/02/02 08:44:07 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-static int	ft_map_allocator(v_list *cube)
+static int	ft_mapvalid(char *line)
 {
 	int	i;
 
 	i = 0;
-	if (!(cube->map = malloc(cube->nboflines * sizeof(int*))))
-		return (ft_error(5));
-	if (!(i < cube->nboflines))
-		return (0);
-	while (i < cube->nboflines)
+	while (line[i] != '\0')
 	{
-		if (!(cube->map[i] = malloc(cube->linelength * sizeof(int))))
-			return (ft_error(5));
-		i++;
+		if (line[i] == ' ' || line[i] == '0' || line[i] == '1'
+				|| line[i] == '2' || line[i] == '\n')
+			i++;
+		else
+			return (-1);
 	}
 	return (1);
 }
 
-int	ft_map(v_list *cube)
+
+int	ft_mapsize(char *line, v_list *cube)
 {
-	ft_map_allocator(cube);
+	if (ft_mapvalid(line) == 1)
+	{
+		cube->nboflines += 1;
+		cube->linelength = ft_strlen(line);
+	}
+	else
+		return (ft_error(4));
 	return (0);
 }
