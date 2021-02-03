@@ -6,13 +6,27 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:38:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/02 08:45:45 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/03 09:30:28 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-static int	ft_map_allocator(v_list *cube)
+int	ft_array_insert(char *line, v_list *cube)
+{
+	int	i;
+
+	i = 0;
+	while (line[i] != '\0' && line[i] != '\n')
+	{
+		cube->map[cube->counter][i] = ft_atoi_char(line[i]);
+		i++;
+	}
+	cube->counter += 1;
+	return (0);
+}
+
+int	ft_map_allocator(v_list *cube)
 {
 	int	i;
 
@@ -28,10 +42,4 @@ static int	ft_map_allocator(v_list *cube)
 		i++;
 	}
 	return (1);
-}
-
-int	ft_map(v_list *cube)
-{
-	ft_map_allocator(cube);
-	return (0);
 }

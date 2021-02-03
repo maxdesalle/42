@@ -6,13 +6,13 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 14:50:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/02 08:44:07 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/02 09:25:51 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-static int	ft_mapvalid(char *line)
+int	ft_mapvalid(char *line)
 {
 	int	i;
 
