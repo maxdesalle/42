@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/05 10:25:38 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/05 10:31:13 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ static int	ft_analytics(char *mapfile, v_list *cube)
 	{
 		ft_resolution(line, cube);
 		ft_textures(line, cube);
-		ft_mapsize(line, cube);
+/*		ft_mapsize(line, cube);*/
 		free(line);
 	}
 	close(fd);
-	ft_map_allocator(cube);
-	ft_map_analytics(mapfile, cube);
+/*	ft_map_allocator(cube);
+	ft_map_analytics(mapfile, cube);*/
 	return (0);
 }
 
