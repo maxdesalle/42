@@ -6,23 +6,34 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/05 10:31:13 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/05 13:57:37 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+#include <stdio.h>
 
 static int	ft_map_analytics(char *mapfile, v_list *cube)
 {
+	int	i;
+	int	a;
 	int	fd;
 	char	*line;
 
+	a = 0;
+	i = 0;
 	if ((fd = open(mapfile, O_RDONLY)) == -1)
 		return (ft_error(3));
 	while (get_next_line(fd, &line) == 1)
 	{
 		if (ft_mapvalid(line) == 1)
 			ft_array_insert(line, cube);
+/*		a = cube->counter - 1;
+		while (i < cube->linelength)
+		{
+			printf("%d\n", cube->map[a][i]);
+			i++;
+		}*/
 		free(line);
 	}
 	close (fd);
@@ -47,12 +58,12 @@ static int	ft_analytics(char *mapfile, v_list *cube)
 	{
 		ft_resolution(line, cube);
 		ft_textures(line, cube);
-/*		ft_mapsize(line, cube);*/
+		ft_mapsize(line, cube);
 		free(line);
 	}
 	close(fd);
-/*	ft_map_allocator(cube);
-	ft_map_analytics(mapfile, cube);*/
+	ft_map_allocator(cube);
+	ft_map_analytics(mapfile, cube);
 	return (0);
 }
 

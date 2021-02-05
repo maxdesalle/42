@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/05 10:24:38 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/05 13:44:44 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void			ft_textures(char *line, v_list *cube);
 ** ft_map.c
 */
 
+int				ft_map_free(v_list *cube);
 int				ft_map_allocator(v_list *cube);
 int				ft_array_insert(char *line, v_list *cube);
 
@@ -108,5 +109,6 @@ int				ft_error(int option);
 */
 
 int				ft_atoi_char(char c);
+size_t				ft_strlen_alpha(const char *s);
 
 #endif
