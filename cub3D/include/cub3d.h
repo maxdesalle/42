@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/03 09:31:21 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/05 10:24:38 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include <limits.h>
+# include <string.h>  
 
 # define BUFFER_SIZE 32
 
@@ -89,6 +90,7 @@ int				get_next_line(int fd, char **line);
 ** get_next_line_utils.c
 */
 
+size_t			ft_strlen(const char *s);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strcat_alpha(char *dest, char *src, int len);
@@ -106,6 +108,5 @@ int				ft_error(int option);
 */
 
 int				ft_atoi_char(char c);
-size_t			ft_strlen(const char *s);
 
 #endif

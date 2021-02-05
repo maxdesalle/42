@@ -6,11 +6,27 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:07:40 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/30 16:54:39 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/05 10:24:07 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+/*
+** returns the length of the given string
+*/
+
+size_t	ft_strlen(const char *s)
+{
+	int i;
+
+	i = 0;
+	if (s == 0)
+		return (0);
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
 
 /*
 ** creates a new string using a part of the content of another string.
