@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/05 13:44:44 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/09 18:17:04 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # include <math.h>
 # include <fcntl.h>
 # include <limits.h>
-# include <string.h>  
+# include <string.h>
+# include "../minilibX/mlx.h"
 
 # define BUFFER_SIZE 32
 
@@ -41,6 +42,8 @@ typedef struct	q_list
 {
 	int	Rx;
 	int	Ry;
+	int	Sx;
+	int	Sy;
 	int	i;
 	int	**map;
 	int	error;
@@ -52,6 +55,7 @@ typedef struct	q_list
 	char	*WE;
 	char	*EA;
 	char	*S;
+	void	*mlx_ptr;
 }				v_list;
 
 /*
@@ -110,5 +114,11 @@ int				ft_error(int option);
 
 int				ft_atoi_char(char c);
 size_t				ft_strlen_alpha(const char *s);
+
+/*
+** ft_initiation.c
+*/
+
+int				ft_initiation(v_list *cube);
 
 #endif

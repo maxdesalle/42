@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/25 14:49:28 by mdesalle          #+#    #+#              #
-#    Updated: 2021/02/05 13:56:40 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/02/09 18:16:28 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
-MLX = mlxopengl
+MLX = minilibX
 
 LXFLAGS = -lmlx -framework OpenGL -framework AppKit
 
@@ -28,7 +28,8 @@ SRC = src/cub3d.c \
       src/ft_error_check.c \
       src/ft_utilities_one.c \
       src/get_next_line.c \
-      src/get_next_line_utils.c
+      src/get_next_line_utils.c \
+      src/ft_initiation.c
 
 OBJ = $(SRC:.c=.o)
 
