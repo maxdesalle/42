@@ -16,7 +16,9 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
-MLX = minilibX
+MLX_DIR = minilibX
+
+MLX = libmlx.dylib
 
 LXFLAGS = -lmlx -framework OpenGL -framework AppKit
 
@@ -38,7 +40,8 @@ ccgreen = "\033[0;92m"
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) -L $(MLX) $(LXFLAGS) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) -L $(MLX_DIR) $(LXFLAGS) $(OBJ)
+	@install_name_tool -change $(MLX) @loader_path/$(MLX_DIR)/$(MLX) $(NAME)
 
 clean:
 	rm -rf $(OBJ)
