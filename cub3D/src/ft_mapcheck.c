@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 14:50:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/05 13:40:09 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:18:26 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	ft_mapsize(char *line, v_list *cube)
 {
 	if (ft_mapvalid(line) == 1)
 	{
-		cube->nboflines += 1;
-		cube->linelength = ft_strlen_alpha(line);
+		cube->utilities.nboflines += 1;
+		cube->utilities.linelength = ft_strlen_alpha(line);
 	}
 	else if (ft_mapvalid(line) == 0)
 		return (0);

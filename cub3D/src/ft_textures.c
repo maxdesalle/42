@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 14:50:02 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/05 10:51:35 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:18:58 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ static int	ft_path_converter(char *line, char **texture_path)
 void	ft_textures(char *line, v_list *cube)
 {
 	if (line[0] == 'N' && line[1] == 'O')
-		ft_path_converter(line, &cube->NO);
+		ft_path_converter(line, &cube->texturepath.NO);
 	if (line[0] == 'S' && line[1] == 'O')
-                ft_path_converter(line, &cube->SO);
+                ft_path_converter(line, &cube->texturepath.SO);
 	if (line[0] == 'W' && line[1] == 'E')
-                ft_path_converter(line, &cube->WE);
+                ft_path_converter(line, &cube->texturepath.WE);
 	if (line[0] == 'E' && line[1] == 'A')
-                ft_path_converter(line, &cube->EA);
+                ft_path_converter(line, &cube->texturepath.EA);
 	if (line[0] == 'S' && line[1] == ' ')
-		ft_path_converter(line, &cube->S);
+		ft_path_converter(line, &cube->texturepath.S);
 }

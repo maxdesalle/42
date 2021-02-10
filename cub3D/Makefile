@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/25 14:49:28 by mdesalle          #+#    #+#              #
-#    Updated: 2021/02/09 18:16:28 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/02/10 11:31:23 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3D
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -fsanitize=address
 
 MLX_DIR = minilibX
 

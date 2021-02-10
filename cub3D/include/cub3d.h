@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/09 18:17:04 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:17:49 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,28 +34,42 @@ typedef struct	s_list
 }				t_list;
 
 /*
-** linked list used accross all the code to store the necessary info about
+** linked lists used accross all the code to store the necessary info about
 ** the map, textures...
 */
 
-typedef struct	q_list
+typedef struct s_screenres
 {
 	int	Rx;
 	int	Ry;
 	int	Sx;
 	int	Sy;
-	int	i;
-	int	**map;
-	int	error;
-	int	nboflines;
-	int	linelength;
-	int	counter;
+}				t_screenres;
+
+typedef struct s_texturepath
+{
 	char	*NO;
 	char	*SO;
 	char	*WE;
 	char	*EA;
 	char	*S;
+}				t_texturepath;
+
+typedef struct s_utilities
+{
+	int	i;
+	int	counter;
+	int	nboflines;
+	int	linelength;
+}				t_utilities;
+
+typedef struct	s_mainlist
+{
+	int	**map;
 	void	*mlx_ptr;
+	t_utilities	utilities;
+	t_screenres	screenres;
+	t_texturepath	texturepath;
 }				v_list;
 
 /*

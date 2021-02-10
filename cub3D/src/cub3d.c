@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/09 18:16:39 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/10 11:30:23 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 
 static int	ft_map_analytics(char *mapfile, v_list *cube)
 {
+	int	i;
+	int	j;
 	int	fd;
 	char	*line;
 
+	i = 0;
+	j = 0;
 	if ((fd = open(mapfile, O_RDONLY)) == -1)
 		return (ft_error(3));
 	while (get_next_line(fd, &line) == 1)
@@ -25,6 +29,18 @@ static int	ft_map_analytics(char *mapfile, v_list *cube)
 		if (ft_mapvalid(line) == 1)
 			ft_array_insert(line, cube);
 		free(line);
+	}
+	while (j < cube->utilities.nboflines)
+	{
+		i = 0;
+		while (i < cube->utilities.linelength)
+		{
+			printf("%d", cube->map[j][i]);
+			printf(" ");
+			i++;
+		}
+		printf("\n");
+		j++;
 	}
 	close (fd);
 	ft_initiation(cube);
@@ -41,8 +57,8 @@ static int	ft_analytics(char *mapfile, v_list *cube)
 	int		fd;
 	char	*line;
 
-	cube->nboflines = 0;
-	cube->linelength = 0;
+	cube->utilities.nboflines = 0;
+	cube->utilities.linelength = 0;
 	if ((fd = open(mapfile, O_RDONLY)) == -1)
 		return (ft_error(3));
 	while (get_next_line(fd, &line) == 1)
