@@ -50,7 +50,7 @@ int	ft_map_allocator(v_list *cube)
 	int	i;
 
 	i = 0;
-	if (!(cube->map = malloc(cube->utilities.nboflines * sizeof(int*))))
+	if (!(cube->map = malloc(cube->utilities.nboflines * sizeof(int *))))
 		return (ft_error(5));
 	if (!(i < cube->utilities.nboflines))
 		return (0);

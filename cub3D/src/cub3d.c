@@ -30,7 +30,8 @@ static int	ft_map_analytics(char *mapfile, v_list *cube)
 			ft_array_insert(line, cube);
 		free(line);
 	}
-	while (j < cube->utilities.nboflines)
+	close(fd);
+/*	while (j < cube->utilities.nboflines)
 	{
 		i = 0;
 		while (i < cube->utilities.linelength)
@@ -41,9 +42,8 @@ static int	ft_map_analytics(char *mapfile, v_list *cube)
 		}
 		printf("\n");
 		j++;
-	}
-	close (fd);
-	ft_initiation(cube);
+	}*/
+/*	ft_initiation(cube);*/
 	return (0);
 }
 

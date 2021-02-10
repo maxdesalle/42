@@ -14,13 +14,11 @@ NAME = cub3D
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 MLX_DIR = minilibX
 
 MLX = libmlx.dylib
-
-LXFLAGS = -lmlx -framework OpenGL -framework AppKit
 
 SRC = src/cub3d.c \
       src/ft_resolution.c \
@@ -40,7 +38,7 @@ ccgreen = "\033[0;92m"
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) -L $(MLX_DIR) $(LXFLAGS) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L $(MLX_DIR) -lmlx
 	@install_name_tool -change $(MLX) @loader_path/$(MLX_DIR)/$(MLX) $(NAME)
 
 clean:
