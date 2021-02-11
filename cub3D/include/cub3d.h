@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/10 11:17:49 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/11 10:39:09 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct	s_list
 }				t_list;
 
 /*
-** linked lists used accross all the code to store the necessary info about
+** linked list used accross all the code to store the necessary info about
 ** the map, textures...
 */
 
@@ -42,25 +42,24 @@ typedef struct s_screenres
 {
 	int	Rx;
 	int	Ry;
-	int	Sx;
-	int	Sy;
 }				t_screenres;
 
-typedef struct s_texturepath
+typedef struct s_path
 {
 	char	*NO;
 	char	*SO;
 	char	*WE;
 	char	*EA;
 	char	*S;
-}				t_texturepath;
+}				t_texture_path;
 
 typedef struct s_utilities
 {
 	int	i;
-	int	counter;
+	int	error;
 	int	nboflines;
 	int	linelength;
+	int	counter;
 }				t_utilities;
 
 typedef struct	s_mainlist
@@ -68,8 +67,8 @@ typedef struct	s_mainlist
 	int	**map;
 	void	*mlx_ptr;
 	t_utilities	utilities;
-	t_screenres	screenres;
-	t_texturepath	texturepath;
+	t_texture_path	texture_path;
+	t_screenres screenres;
 }				v_list;
 
 /*
@@ -128,11 +127,5 @@ int				ft_error(int option);
 
 int				ft_atoi_char(char c);
 size_t				ft_strlen_alpha(const char *s);
-
-/*
-** ft_initiation.c
-*/
-
-int				ft_initiation(v_list *cube);
 
 #endif

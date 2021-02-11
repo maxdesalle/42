@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:38:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/10 11:25:30 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/11 10:09:57 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,7 @@ int	ft_array_insert(char *line, v_list *cube)
 	{
 		if (line[j] == ' ')
 			j++;
-		cube->map[cube->utilities.counter][i] =
-			ft_atoi_char(line[j]);
+		cube->map[cube->utilities.counter][i] = ft_atoi_char(line[j]);
 		i++;
 		j++;
 	}
@@ -50,14 +49,13 @@ int	ft_map_allocator(v_list *cube)
 	int	i;
 
 	i = 0;
-	if (!(cube->map = malloc(cube->utilities.nboflines * sizeof(int *))))
+	if (!(cube->map = malloc(cube->utilities.nboflines * sizeof(int*))))
 		return (ft_error(5));
 	if (!(i < cube->utilities.nboflines))
 		return (0);
 	while (i < cube->utilities.nboflines)
 	{
-		if (!(cube->map[i] =
-			malloc(cube->utilities.linelength * sizeof(int))))
+		if (!(cube->map[i] = malloc(cube->utilities.linelength * sizeof(int))))
 			return (ft_error(5));
 		i++;
 	}
