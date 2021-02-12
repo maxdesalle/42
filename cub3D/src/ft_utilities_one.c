@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 15:00:27 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/05 11:02:10 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/12 14:58:59 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 int     ft_atoi_char(char c)
 {
-        int     number;
-
-        number = c - '0';
-        return (number);
+	if (c == 'N')
+		return (3);
+	if (c == 'S')
+		return (4);
+	if (c == 'E')
+		return (5);
+	if (c == 'W')
+		return (6);
+	return (c - '0');
 }
 
 size_t	ft_strlen_alpha(const char *s)
