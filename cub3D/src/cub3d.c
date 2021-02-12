@@ -6,12 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/12 13:36:41 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/12 15:01:07 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-#include <stdio.h>
 
 static int	ft_map_analytics(char *mapfile, v_list *cube)
 {
@@ -32,18 +31,8 @@ static int	ft_map_analytics(char *mapfile, v_list *cube)
 		free(line);
 	}
 	close (fd);
-	while (j < cube->utilities.nboflines)
-	{
-		i = 0;
-		while (i < cube->utilities.linelength)
-		{
-			printf("%d ", cube->map[j][i]);
-			i++;
-		}
-		printf("\n");
-		j++;
-	}
 	ft_wall_check(cube);
+	ft_initiation(cube);
 	return (0);
 }
 

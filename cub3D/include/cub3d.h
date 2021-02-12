@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/12 13:36:00 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/12 15:02:38 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_screenres
 {
 	int	Rx;
 	int	Ry;
+	int	Sx;
+	int	Sy;
 }				t_screenres;
 
 typedef struct s_path
@@ -82,6 +84,12 @@ void			ft_resolution(char *line, v_list *cube);
 */
 
 void			ft_textures(char *line, v_list *cube);
+
+/*
+** ft_initiation.c
+*/
+
+int			ft_initiation(v_list *cube);
 
 /*
 ** ft_map.c
