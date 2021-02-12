@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/11 10:39:09 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/12 13:36:00 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void			ft_textures(char *line, v_list *cube);
 ** ft_map.c
 */
 
+int				ft_wall_checker(v_list *cube);
+int				ft_wall_check(v_list *cube);
 int				ft_map_free(v_list *cube);
 int				ft_map_allocator(v_list *cube);
 int				ft_array_insert(char *line, v_list *cube);
