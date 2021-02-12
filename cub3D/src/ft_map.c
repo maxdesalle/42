@@ -6,11 +6,20 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:38:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/11 10:09:57 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/12 13:05:54 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+#include <stdio.h>
+
+/*int	ft_wall_check(v_list *cube)
+{
+	int	i;
+
+	i = 0;
+	while (
+	*/
 
 int	ft_map_free(v_list *cube)
 {

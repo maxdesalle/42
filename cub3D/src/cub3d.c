@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/11 10:12:02 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/12 13:05:13 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static int	ft_map_analytics(char *mapfile, v_list *cube)
 
 	i = 0;
 	j = 0;
+	cube->utilities.counter = 0;
 	if ((fd = open(mapfile, O_RDONLY)) == -1)
 		return (ft_error(3));
 	while (get_next_line(fd, &line) == 1)
