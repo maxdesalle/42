@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/12 15:02:38 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/14 14:17:38 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,27 @@ typedef struct	s_list
 ** the map, textures...
 */
 
+typedef struct s_texture
+{
+	int	*addr;
+	int	width;
+	int	height;
+	int	endian;
+	int	size_line;
+	int	bits_per_pixel;
+	void	*img_ptr;
+}				t_texture;
+
+typedef struct s_mlx
+{
+	void		*mlx_ptr;
+	t_texture	north;
+	t_texture	south;
+	t_texture	east;
+	t_texture	west;
+	t_texture	sprite;
+}				t_mlx;
+
 typedef struct s_screenres
 {
 	int	Rx;
@@ -67,7 +88,7 @@ typedef struct s_utilities
 typedef struct	s_mainlist
 {
 	int	**map;
-	void	*mlx_ptr;
+	t_mlx		mlx;
 	t_utilities	utilities;
 	t_texture_path	texture_path;
 	t_screenres screenres;

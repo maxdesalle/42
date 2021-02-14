@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 11:16:37 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/02 08:46:14 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/14 14:20:34 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,7 @@ int	ft_error(option)
 		return (write(1, "Error\nInvalid map", 17));
 	if (option == 5)
 		return (write(1, "Error\nFailed memory allocation", 30));
+	if (option == 6)
+		return (write(1, "Error\nInvalid minilibX", 22));
 	return (0);
 }
