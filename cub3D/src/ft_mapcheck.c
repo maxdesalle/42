@@ -50,6 +50,19 @@ int	ft_mapsize(char *line, v_list *cube)
 	return (0);
 }
 
+static int	ft_player_orientation(v_list *cube, int i, int j)
+{
+	if (cube->map[j][i] == 3)
+		cube->player.orientation = 0;
+	if (cube->map[j][i] == 4)
+		cube->player.orientation = 180;
+	if (cube->map[j][i] == 5)
+		cube->player.orientation = 90;
+	if (cube->map[j][i] == 6)
+		cube->player.orientation = 270;
+	return (0);
+}
+
 int	ft_player_position(v_list *cube)
 {
 	int	i;
@@ -62,14 +75,17 @@ int	ft_player_position(v_list *cube)
 		i = 0;
 		while (i < cube->utilities.linelength)
 		{
-			if (map[j][i] > 2)
+			if (cube->map[j][i] > 2)
 			{
 				cube->player.Px = i;
 				cube->player.Py = j;
+				ft_player_orientation(cube, i, j);
+				cube->map[j][i] = 0;
+				return (1);
 			}
 			i++;
 		}
 		j++;
 	}
-	return (0);
+	return (ft_error(7));
 }

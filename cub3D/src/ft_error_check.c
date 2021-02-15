@@ -73,5 +73,7 @@ int	ft_error(option)
 		return (write(1, "Error\nFailed memory allocation", 30));
 	if (option == 6)
 		return (write(1, "Error\nInvalid minilibX", 22));
+	if (option == 7)
+		return (write(1, "Error\nPlayer not found", 22));
 	return (0);
 }

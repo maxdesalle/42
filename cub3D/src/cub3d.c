@@ -32,6 +32,7 @@ static int	ft_map_analytics(char *mapfile, v_list *cube)
 	}
 	close (fd);
 	ft_wall_check(cube);
+	ft_player_position(cube);
 	ft_initiation(cube);
 	return (0);
 }
