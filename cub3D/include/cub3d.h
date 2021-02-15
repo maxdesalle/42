@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/14 14:17:38 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/15 11:43:56 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ typedef struct	s_list
 ** linked list used accross all the code to store the necessary info about
 ** the map, textures...
 */
+
+typedef struct s_player
+{
+	int	Px;
+	int	Py;
+	int	orientation;
+}				t_player;
 
 typedef struct s_texture
 {
@@ -89,9 +96,10 @@ typedef struct	s_mainlist
 {
 	int	**map;
 	t_mlx		mlx;
+	t_player	player;
 	t_utilities	utilities;
+	t_screenres	screenres;
 	t_texture_path	texture_path;
-	t_screenres screenres;
 }				v_list;
 
 /*
@@ -128,6 +136,7 @@ int				ft_array_insert(char *line, v_list *cube);
 
 int				ft_mapsize(char *line, v_list *cube);
 int				ft_mapvalid(char *line);
+int				ft_player_position(v_list *cube);
 
 /*
 ** get_next_line.c
