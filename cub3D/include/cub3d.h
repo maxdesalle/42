@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/15 11:43:56 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/15 14:09:28 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,12 @@ typedef struct s_texture
 
 typedef struct s_mlx
 {
+	int		*addr;
+	int		endian;
+	int		size_line;
+	int		bits_per_pixel;
+	void		*img_ptr;
+	void		*window;
 	void		*mlx_ptr;
 	t_texture	north;
 	t_texture	south;

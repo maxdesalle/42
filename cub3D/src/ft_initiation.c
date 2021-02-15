@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:06:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/14 14:22:18 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/15 14:10:02 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,15 @@ int	ft_initiation(v_list *cube)
 	if (cube->screenres.Ry > cube->screenres.Sy)
 		cube->screenres.Ry = cube->screenres.Sy;
 	ft_compute(cube);
+	if (!(cube->mlx.img_ptr = mlx_new_image(cube->mlx.mlx_ptr, cube->screenres.Rx,
+			cube->screenres.Ry)))
+		return (ft_error(6));
+	if (!(cube->mlx.addr = (int *)mlx_get_data_addr(cube->mlx.img_ptr,
+			&cube->mlx.bits_per_pixel, &cube->mlx.size_line,
+			&cube->mlx.endian)))
+		return (ft_error(6));
+	if (!(cube->mlx.window = mlx_new_window(cube->mlx.mlx_ptr,
+			cube->screenres.Rx, cube->screenres.Ry, "Cub3D")))
+		return (ft_error(6));
 	return (0);
 }
