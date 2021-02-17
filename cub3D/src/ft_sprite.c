@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 10:17:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/17 10:22:05 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/17 10:25:51 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	ft_sprite_position(v_list *cube)
 	int	j;
 	int	k;
 
+	ft_spritecounter(cube);
 	if ((!(cube->sprite.Sx = malloc(sizeof(int) * cube->sprite.spritecounter))) ||
 	(!(cube->sprite.Sy = malloc(sizeof(int) * cube->sprite.spritecounter))))
 		return (ft_error(5));
