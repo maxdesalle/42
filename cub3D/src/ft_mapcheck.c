@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 14:50:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/17 09:48:11 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/17 10:22:50 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,11 @@ int	ft_player_position(v_list *cube)
 	int	j;
 
 	j = 0;
-	cube->sprite.spritecounter = 0;
 	while (j < cube->utilities.nboflines)
 	{
 		i = 0;
 		while (i < cube->utilities.linelength)
 		{
-			if (cube->map[j][i] == 2)
-				cube->sprite.spritecounter += 1;
 			if (cube->map[j][i] > 2)
 			{
 				cube->player.Px = i;
@@ -90,77 +87,3 @@ int	ft_player_position(v_list *cube)
 	}
 	return (ft_error(7));
 }
-
-int	ft_sprite_position(v_list *cube)
-{
-	int	i;
-	int	j;
-	int	k;
-
-	if ((!(cube->sprite.Sx = malloc(sizeof(int) * cube->sprite.spritecounter))) ||
-	(!(cube->sprite.Sy = malloc(sizeof(int) * cube->sprite.spritecounter))))
-		return (ft_error(5));
-	j = 0;
-	k = 0;
-	while (j < cube->utilities.nboflines)
-	{
-		i = 0;
-		while (i < cube->utilities.linelength)
-		{
-			if (cube->map[j][i] == 2)
-			{
-				cube->sprite.Sx[k] = i;
-				cube->sprite.Sy[k] = j;
-				k++;
-			}
-			i++;
-		}
-		j++;
-	}
-	return (0);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

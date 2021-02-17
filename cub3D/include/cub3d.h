@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/17 09:48:37 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/17 10:23:38 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,11 @@ int				ft_array_insert(char *line, v_list *cube);
 int				ft_mapsize(char *line, v_list *cube);
 int				ft_mapvalid(char *line);
 int				ft_player_position(v_list *cube);
+
+/*
+** ft_sprite.c
+*/
+
 int				ft_sprite_position(v_list *cube);
 
 /*
