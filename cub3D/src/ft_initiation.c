@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:06:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/16 14:44:21 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/17 09:49:23 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_initiation(v_list *cube)
 	if (!(cube->mlx.window = mlx_new_window(cube->mlx.mlx_ptr,
 			cube->screenres.Rx, cube->screenres.Ry, "Cub3D")))
 		return (ft_error(6));
-	mlx_loop_hook(cube->mlx.mlx_ptr, somefunction, cube);
+/*	mlx_loop_hook(cube->mlx.mlx_ptr, somefunction, cube);*/
 	mlx_loop(cube->mlx.mlx_ptr);
 	return (0);
 }

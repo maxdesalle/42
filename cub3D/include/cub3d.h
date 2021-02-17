@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/15 14:09:28 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/17 09:48:37 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@ typedef struct s_player
 	int	Py;
 	int	orientation;
 }				t_player;
+
+typedef struct s_sprite
+{
+	int	*Sx;
+	int	*Sy;
+	int	spritecounter;
+}				t_sprite;
 
 typedef struct s_texture
 {
@@ -102,6 +109,7 @@ typedef struct	s_mainlist
 {
 	int	**map;
 	t_mlx		mlx;
+	t_sprite	sprite;
 	t_player	player;
 	t_utilities	utilities;
 	t_screenres	screenres;
@@ -143,6 +151,7 @@ int				ft_array_insert(char *line, v_list *cube);
 int				ft_mapsize(char *line, v_list *cube);
 int				ft_mapvalid(char *line);
 int				ft_player_position(v_list *cube);
+int				ft_sprite_position(v_list *cube);
 
 /*
 ** get_next_line.c
