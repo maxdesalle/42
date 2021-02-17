@@ -61,6 +61,6 @@ int	ft_initiation(v_list *cube)
 			cube->screenres.Rx, cube->screenres.Ry, "Cub3D")))
 		return (ft_error(6));
 /*	mlx_loop_hook(cube->mlx.mlx_ptr, somefunction, cube);*/
-	mlx_loop(cube->mlx.mlx_ptr);
+/*	mlx_loop(cube->mlx.mlx_ptr);*/
 	return (0);
 }

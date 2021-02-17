@@ -29,7 +29,8 @@ SRC = src/cub3d.c \
       src/ft_utilities_one.c \
       src/get_next_line.c \
       src/get_next_line_utils.c \
-      src/ft_initiation.c
+      src/ft_initiation.c \
+      src/ft_sprite.c
 
 OBJ = $(SRC:.c=.o)
 

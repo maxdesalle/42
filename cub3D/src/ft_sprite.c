@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3D.h"
+#include "../include/cub3d.h"
 
 static void	ft_spritecounter(v_list *cube)
 {
@@ -19,7 +19,7 @@ static void	ft_spritecounter(v_list *cube)
 
 	j = 0;
 	cube->sprite.spritecounter = 0;
-	while (j < cube->utilities.nfoflines)
+	while (j < cube->utilities.nboflines)
 	{
 		i = 0;
 		while (i < cube->utilities.linelength)
