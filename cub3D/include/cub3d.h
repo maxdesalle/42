@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/18 11:29:00 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/18 11:46:18 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@
 # include "../minilibX/mlx.h"
 
 # define BUFFER_SIZE 32
+
+# define A 0
+# define S 1
+# define D 2
+# define W 13
+# define ESC 53
+# define LEFT 123
+# define RIGHT 124
 
 /*
 ** linked list used for get_next_line.c
@@ -93,7 +101,7 @@ typedef struct s_path
 	char	*SO;
 	char	*WE;
 	char	*EA;
-	char	*S;
+	char	*SP;
 }				t_texture_path;
 
 typedef struct s_utilities

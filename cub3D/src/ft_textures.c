@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 14:50:02 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/11 10:27:42 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/18 11:46:43 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ void	ft_textures(char *line, v_list *cube)
 	if (line[0] == 'E' && line[1] == 'A')
                 ft_path_converter(line, &cube->texture_path.EA);
 	if (line[0] == 'S' && line[1] == ' ')
-		ft_path_converter(line, &cube->texture_path.S);
+		ft_path_converter(line, &cube->texture_path.SP);
 }
