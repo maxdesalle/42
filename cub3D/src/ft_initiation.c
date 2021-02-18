@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:06:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/17 09:49:23 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/18 11:29:16 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,17 @@ static int	ft_compute(v_list *cube)
 	return (0);
 }
 
+static int	ft_mlx_start(v_list *cube)
+{
+	ft_visual(cube);
+	mlx_put_image_to_window(cube->mlx.mlx_ptr, cube->mlx.win_ptr,
+			cube->mlx.img_ptr, 0, 0);
+	mlx_hook(cube->mlx.mlx_ptr, 2, 0, ft_keycode, cube);
+	mlx_hook(cube->mlx.mlx_ptr, 17, 0, ft_exit, cube);
+	mlx_loop(cube->mlx.mlx_ptr);
+	return (0);
+}
+
 int	ft_initiation(v_list *cube)
 {
 	if (!(cube->mlx.mlx_ptr = mlx_init()))
@@ -57,10 +68,9 @@ int	ft_initiation(v_list *cube)
 			&cube->mlx.bits_per_pixel, &cube->mlx.size_line,
 			&cube->mlx.endian)))
 		return (ft_error(6));
-	if (!(cube->mlx.window = mlx_new_window(cube->mlx.mlx_ptr,
+	if (!(cube->mlx.win_ptr = mlx_new_window(cube->mlx.mlx_ptr,
 			cube->screenres.Rx, cube->screenres.Ry, "Cub3D")))
 		return (ft_error(6));
-/*	mlx_loop_hook(cube->mlx.mlx_ptr, somefunction, cube);*/
-/*	mlx_loop(cube->mlx.mlx_ptr);*/
+	ft_mlx_start(cube);
 	return (0);
 }

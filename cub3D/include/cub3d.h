@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/18 09:11:57 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/18 11:29:00 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct s_mlx
 	int		size_line;
 	int		bits_per_pixel;
 	void		*img_ptr;
-	void		*window;
+	void		*win_ptr;
 	void		*mlx_ptr;
 	t_texture	north;
 	t_texture	south;
@@ -157,6 +157,24 @@ int				ft_player_position(v_list *cube);
 */
 
 int				ft_sprite_position(v_list *cube);
+
+/*
+** ft_keys.c
+*/
+
+int				ft_keycode(v_list *cube);
+
+/*
+** ft_visual.c
+*/
+
+int				ft_visual(v_list *cube);
+
+/*
+** ft_exit.c
+*/
+
+int				ft_exit(v_list *cube);
 
 /*
 ** get_next_line.c
