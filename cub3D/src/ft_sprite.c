@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 10:17:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/17 10:25:51 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/18 09:12:55 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	ft_sprite_position(v_list *cube)
 		{
 			if (cube->map[j][i] == 2)
 			{
-				cube->sprite.Sx[k] = i;
-				cube->sprite.Sy[k] = j;
+				cube->sprite.Sx[k] = (double)i + 0.5;
+				cube->sprite.Sy[k] = (double)j + 0.5;
 				k++;
 			}
 			i++;

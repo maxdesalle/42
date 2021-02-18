@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/17 10:23:38 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/18 09:11:57 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,16 @@ typedef struct	s_list
 
 typedef struct s_player
 {
-	int	Px;
-	int	Py;
 	int	orientation;
+	double	Px;
+	double	Py;
 }				t_player;
 
 typedef struct s_sprite
 {
-	int	*Sx;
-	int	*Sy;
 	int	spritecounter;
+	double	*Sx;
+	double	*Sy;
 }				t_sprite;
 
 typedef struct s_texture
