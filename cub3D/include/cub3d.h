@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/18 11:46:18 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/20 14:37:59 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,22 @@ typedef struct	s_list
 
 typedef struct s_player
 {
+	int	mapX;
+	int	mapY;
 	int	orientation;
-	double	Px;
-	double	Py;
+	double	posX;
+	double	posY;
+	double	dirX;
+	double	dirY;
+	double	planeX;
+	double	planeY;
+	double	time;
+	double	oldtime;
+	double	cameraX;
+	double	rayDirX;
+	double	rayDirY;
+	double	sideDistX;
+	double	sideDistY;
 }				t_player;
 
 typedef struct s_sprite
@@ -170,7 +183,7 @@ int				ft_sprite_position(v_list *cube);
 ** ft_keys.c
 */
 
-int				ft_keycode(v_list *cube);
+int				ft_keycode(int keycode, v_list *cube);
 
 /*
 ** ft_visual.c

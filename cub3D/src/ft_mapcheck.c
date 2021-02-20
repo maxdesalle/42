@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 14:50:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/18 09:13:34 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/20 14:37:02 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int	ft_player_position(v_list *cube)
 		{
 			if (cube->map[j][i] > 2)
 			{
-				cube->player.Px = (double)i + 0.5;
-				cube->player.Py = (double)j + 0.5;
+				cube->player.posX = (double)i + 0.5;
+				cube->player.posY = (double)j + 0.5;
 				cube->map[j][i] = 0;
 				return (ft_player_orientation(cube, i, j));
 			}

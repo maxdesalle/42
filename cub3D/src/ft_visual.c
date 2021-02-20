@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/18 11:24:50 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/18 11:25:35 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/19 09:53:36 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_visual(v_list *cube)
 {
-	return (cube->utilities.i);
+
 }
