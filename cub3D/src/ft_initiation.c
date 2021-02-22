@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:06:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/18 11:47:03 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/22 17:18:47 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,17 @@ static int	ft_compute(v_list *cube)
 	ft_computation(cube, &cube->mlx.west, cube->texture_path.WE);
 	ft_computation(cube, &cube->mlx.east, cube->texture_path.EA);
 	ft_computation(cube, &cube->mlx.sprite, cube->texture_path.SP);
+	return (0);
+}
+
+int	ft_visual(v_list *cube)
+{
+	cube->ray.raycounter = 0;
+	while (cube->ray.raycounter < cube->screenres.Rx)
+	{
+
+		cube->ray.raycounter++;
+	}
 	return (0);
 }
 

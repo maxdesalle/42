@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/20 14:37:59 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/22 11:51:47 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ typedef struct	s_list
 ** the map, textures...
 */
 
-typedef struct s_player
+typedef struct s_ray
 {
 	int	mapX;
 	int	mapY;
-	int	orientation;
+	int	raycounter;
 	double	posX;
 	double	posY;
 	double	dirX;
@@ -64,6 +64,13 @@ typedef struct s_player
 	double	rayDirY;
 	double	sideDistX;
 	double	sideDistY;
+}				t_ray;
+
+typedef struct	s_player
+{
+	int	Px;
+	int	Py;
+	int	orientation;
 }				t_player;
 
 typedef struct s_sprite
@@ -129,6 +136,7 @@ typedef struct s_utilities
 typedef struct	s_mainlist
 {
 	int	**map;
+	t_ray		ray;
 	t_mlx		mlx;
 	t_sprite	sprite;
 	t_player	player;
