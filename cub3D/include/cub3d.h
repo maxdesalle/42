@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/24 09:04:48 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/24 10:52:12 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,14 @@ typedef struct	s_list
 
 typedef struct s_ray
 {
+	int	hit;
+	int	side;
+
 	int	mapX;
 	int	mapY;
+
+	int	stepX;
+	int	stepY;
 
 	int	raycounter;
 
@@ -215,10 +221,17 @@ int				ft_sprite_position(v_list *cube);
 int				ft_keycode(int keycode, v_list *cube);
 
 /*
+** ft_move.c
+*/
+
+void				ft_move(v_list *cube, int option);
+void				ft_rotate(v_list *cube, int option);
+
+/*
 ** ft_visual.c
 */
 
-int				ft_visual(v_list *cube);
+void				ft_visual_initiation(v_list *cube);
 
 /*
 ** ft_exit.c
