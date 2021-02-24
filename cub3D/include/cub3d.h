@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/22 11:51:47 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/24 09:04:48 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@
 # define LEFT 123
 # define RIGHT 124
 
+# define FORWARD_MOVE 1
+# define BACK_MOVE -1
+# define RIGHT_MOVE 1
+# define LEFT_MOVE -1
+# define RIGHT_ROTATE 1
+# define LEFT_ROTATE -1
+
 /*
 ** linked list used for get_next_line.c
 */
@@ -50,20 +57,34 @@ typedef struct s_ray
 {
 	int	mapX;
 	int	mapY;
+
 	int	raycounter;
+
 	double	posX;
 	double	posY;
+
 	double	dirX;
 	double	dirY;
+
 	double	planeX;
 	double	planeY;
+
 	double	time;
 	double	oldtime;
+
 	double	cameraX;
+
 	double	rayDirX;
 	double	rayDirY;
+
 	double	sideDistX;
 	double	sideDistY;
+
+	double	rotspeed;
+	double	movespeed;
+
+	double	deltaDistX;
+	double	deltaDistY;
 }				t_ray;
 
 typedef struct	s_player

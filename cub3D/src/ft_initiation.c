@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:06:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/22 17:18:47 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/23 07:56:48 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_visual(v_list *cube)
 	cube->ray.raycounter = 0;
 	while (cube->ray.raycounter < cube->screenres.Rx)
 	{
-
+		ft_visual_initiation(cube);
 		cube->ray.raycounter++;
 	}
 	return (0);
