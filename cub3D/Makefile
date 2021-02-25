@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/25 14:49:28 by mdesalle          #+#    #+#              #
-#    Updated: 2021/02/24 10:49:45 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/02/25 10:17:13 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRC = src/cub3d.c \
       src/ft_initiation.c \
       src/ft_sprite.c \
       src/ft_exit.c \
-      src/ft_visual.c \
+      src/ft_visual_one.c \
+      src/ft_visual_two.c \
       src/ft_move.c \
      #src/ft_keys.c \
 

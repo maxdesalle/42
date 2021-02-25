@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_visual.c                                        :+:      :+:    :+:   */
+/*   ft_visual_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 07:56:57 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/24 10:52:42 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/25 09:10:48 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,5 @@ void		ft_visual_initiation(v_list *cube)
 	ft_camray_initiation(cube);
 	ft_sidedist_calculator(cube);
 	ft_hit_check(cube);
+	ft_height(cube);
 }

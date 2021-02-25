@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/24 10:52:12 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/25 10:17:37 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ typedef struct s_ray
 	int	stepX;
 	int	stepY;
 
+	int	drawstart;
+	int	drawend;
+
+	int	lineheight;
+
 	int	raycounter;
 
 	double	posX;
@@ -91,6 +96,8 @@ typedef struct s_ray
 
 	double	deltaDistX;
 	double	deltaDistY;
+
+	double	perpwalldist;
 }				t_ray;
 
 typedef struct	s_player
@@ -228,10 +235,16 @@ void				ft_move(v_list *cube, int option);
 void				ft_rotate(v_list *cube, int option);
 
 /*
-** ft_visual.c
+** ft_visual_one.c
 */
 
 void				ft_visual_initiation(v_list *cube);
+
+/*
+** ft_visual_two.c
+*/
+
+void				ft_height(v_list *cube);
 
 /*
 ** ft_exit.c
