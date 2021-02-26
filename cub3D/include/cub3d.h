@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/25 10:17:37 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/26 10:51:45 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,7 +231,8 @@ int				ft_keycode(int keycode, v_list *cube);
 ** ft_move.c
 */
 
-void				ft_move(v_list *cube, int option);
+void				ft_move_vertical(v_list *cube, int option);
+void				ft_move_horizontal(v_list *cube, int option);
 void				ft_rotate(v_list *cube, int option);
 
 /*

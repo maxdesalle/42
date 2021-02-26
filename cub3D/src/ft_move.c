@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 08:05:35 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/24 10:55:16 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/26 10:52:01 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,29 @@ static void	ft_rotate_left(v_list *cube, double oldDirX, double oldPlaneX)
 		cube->ray.planeY * cos(cube->ray.rotspeed);
 }
 
-void            ft_move(v_list *cube, int option)
+void		ft_move_horizontal(v_list *cube, int option)
+{
+	if (option == RIGHT_MOVE)
+	{
+		if (cube->map[(int)(cube->ray.posX + cube->ray.dirX *
+			cube->ray.movespeed)][(int)(cube->ray.posY)] == 0)
+			cube->ray.posX += cube->ray.dirX * cube->ray.movespeed;
+		if (cube->map[(int)(cube->ray.posX)][(int)(cube->ray.posY -
+			cube->ray.dirY * cube->ray.movespeed)] == 0)
+			cube->ray.posY -= cube->ray.dirY * cube->ray.movespeed;
+	}
+	if (option == LEFT_MOVE)
+	{
+		if (cube->map[(int)(cube->ray.posX - cube->ray.dirX *
+			cube->ray.movespeed)][(int)(cube->ray.posY)] == 0)
+			cube->ray.posX -= cube->ray.dirX * cube->ray.movespeed;
+		if (cube->map[(int)(cube->ray.posX)][(int)(cube->ray.posY +
+			cube->ray.dirY * cube->ray.movespeed)] == 0)
+			cube->ray.posY += cube->ray.dirY * cube->ray.movespeed;
+	}
+}
+
+void            ft_move_vertical(v_list *cube, int option)
 {
 	if (option == FORWARD_MOVE)
 	{
