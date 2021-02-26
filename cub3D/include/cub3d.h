@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/26 10:51:45 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/26 11:40:17 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@
 # define LEFT_MOVE -1
 # define RIGHT_ROTATE 1
 # define LEFT_ROTATE -1
+
+# define CEILING 1
+# define FLOOR -1
 
 /*
 ** linked list used for get_next_line.c
@@ -156,6 +159,8 @@ typedef struct s_path
 	char	*WE;
 	char	*EA;
 	char	*SP;
+	long	C;
+	long	F;
 }				t_texture_path;
 
 typedef struct s_utilities

@@ -6,11 +6,12 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/17 09:48:55 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/26 13:49:19 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+#include <stdio.h>
 
 static int	ft_map_analytics(char *mapfile, v_list *cube)
 {
