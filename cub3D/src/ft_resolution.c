@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/30 15:11:38 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/26 13:48:24 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/02/28 11:58:44 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,23 @@ static int	ft_resolution_converter(char *line, v_list *cube)
 	return (result);
 }
 
+static int	ft_fc_check(char *line, long result)
+{
+	int	i;
+	int	counter;
+
+	i = 1;
+	counter = 0;
+	while (line[i] && (((line[i] >= '0' && line[i] <= '9') ||
+		line[i] == ',' || line[i] == ' ' ||
+		(line[i] >= 9 && line[i] <= 13))))
+		if (line[i++] == ',')
+			counter++;
+	if (result > 255255255 || result < 0 || counter != 2)
+		return (ft_error(4));
+	return (0);
+}
+
 static int	ft_floor_ceiling(char *line, v_list *cube, int option)
 {
 	int	i;
@@ -37,8 +54,7 @@ static int	ft_floor_ceiling(char *line, v_list *cube, int option)
 
 	i = 1;
 	result = 0;
-	while (line[i] != '\0'
-		&& ((line[i] >= 9 && line[i] <= 13) || line[i] == ' '))
+	while (line[i] && ((line[i] >= 9 && line[i] <= 13) || line[i] == ' '))
 		i++;
 	while (line[i] != '\0' && ((line[i] >= '0'
 		&& line[i] <= '9') || line[i] == ','))
@@ -52,6 +68,7 @@ static int	ft_floor_ceiling(char *line, v_list *cube, int option)
 		cube->texture_path.C = result;
 	else if (option == FLOOR)
 		cube->texture_path.F = result;
+	ft_fc_check(line, result);
 	return (0);
 }
 
