@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/26 11:40:17 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/01 16:33:30 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,9 @@ typedef struct s_ray
 	int	mapX;
 	int	mapY;
 
+	int	texX;
+	int	texY;
+
 	int	stepX;
 	int	stepY;
 
@@ -71,8 +74,10 @@ typedef struct s_ray
 	int	drawend;
 
 	int	lineheight;
-
 	int	raycounter;
+
+	double	step;
+	double	texPos;
 
 	double	posX;
 	double	posY;
@@ -132,16 +137,13 @@ typedef struct s_mlx
 {
 	int		*addr;
 	int		endian;
+	int		texDir;
 	int		size_line;
 	int		bits_per_pixel;
 	void		*img_ptr;
 	void		*win_ptr;
 	void		*mlx_ptr;
-	t_texture	north;
-	t_texture	south;
-	t_texture	east;
-	t_texture	west;
-	t_texture	sprite;
+	t_texture	texture[4];
 }				t_mlx;
 
 typedef struct s_screenres
@@ -195,6 +197,7 @@ void			ft_resolution(char *line, v_list *cube);
 */
 
 void			ft_textures(char *line, v_list *cube);
+void			ft_texture_place(v_list *cube);
 
 /*
 ** ft_initiation.c

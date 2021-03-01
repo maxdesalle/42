@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:06:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/23 07:56:48 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/01 16:26:37 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ static int	ft_computation(v_list *cube, t_texture *texture, char *texture_path)
 
 static int	ft_compute(v_list *cube)
 {
-	ft_computation(cube, &cube->mlx.north, cube->texture_path.NO);
-	ft_computation(cube, &cube->mlx.south, cube->texture_path.SO);
-	ft_computation(cube, &cube->mlx.west, cube->texture_path.WE);
-	ft_computation(cube, &cube->mlx.east, cube->texture_path.EA);
-	ft_computation(cube, &cube->mlx.sprite, cube->texture_path.SP);
+	ft_computation(cube, &cube->mlx.texture[0], cube->texture_path.NO);
+	ft_computation(cube, &cube->mlx.texture[1], cube->texture_path.SO);
+	ft_computation(cube, &cube->mlx.texture[2], cube->texture_path.WE);
+	ft_computation(cube, &cube->mlx.texture[3], cube->texture_path.EA);
+	ft_computation(cube, &cube->mlx.texture[4], cube->texture_path.SP);
 	return (0);
 }
 
