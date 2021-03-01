@@ -39,8 +39,9 @@ int	ft_sprite_position(v_list *cube)
 	int	k;
 
 	ft_spritecounter(cube);
-	if ((!(cube->sprite.Sx = malloc(sizeof(int) * cube->sprite.spritecounter))) ||
-	(!(cube->sprite.Sy = malloc(sizeof(int) * cube->sprite.spritecounter))))
+	if (!(cube->sprite.Sx = malloc(sizeof(double) * cube->sprite.spritecounter)))
+		return (ft_error(5));
+	if (!(cube->sprite.Sy = malloc(sizeof(double) * cube->sprite.spritecounter)))
 		return (ft_error(5));
 	j = 0;
 	k = 0;
