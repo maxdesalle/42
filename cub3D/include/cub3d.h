@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/01 16:33:30 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/02 19:13:31 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,22 @@ typedef struct	s_player
 
 typedef struct s_sprite
 {
+	int	*spriteorder;
 	int	spritecounter;
+
+	int	spriteheight;
+	int	spritescreenX;
+
 	double	*Sx;
 	double	*Sy;
+
+	double	invDet;
+
+	double	transformX;
+	double	transformY;
+
+	double	spriteX;
+	double	spriteY;
 }				t_sprite;
 
 typedef struct s_texture
