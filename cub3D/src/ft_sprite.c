@@ -6,33 +6,37 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 10:17:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/02 19:15:27 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/02 21:55:13 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-static void	ft_spritecounter(v_list *cube)
+static void	ft_sprite_calc(v_list *cube)
 {
-	int	i;
-	int	j;
-
-	j = 0;
-	cube->sprite.spritecounter = 0;
-	while (j < cube->utilities.nboflines)
-	{
-		i = 0;
-		while (i < cube->utilities.linelength)
-		{
-			if (cube->map[j][i] == 2)
-				cube->sprite.spritecounter += 1;
-			i++;
-		}
-		j++;
-	}
+         cube->sprite.drawstartY = -cube->sprite.spriteheight / 2 +
+                         cube->screenres.Ry / 2;
+         cube->sprite.drawendY = cube->sprite.spriteheight / 2 +
+                         cube->screenres.Ry / 2;
+         if (cube->sprite.drawstartY < 0)
+                 cube->sprite.drawstartY = 0;
+         if (cube->sprite.drawendY >= cube->screenres.Ry)
+                 cube->sprite.drawendY = cube->screenres.Ry - 1;
+	 cube->sprite.spritewidth = abs((int)(cube->screenres.Ry /
+		cube->sprite.transformY));
+	 cube->sprite.drawstartX = -cube->sprite.spritewidth / 2 +
+		 cube->sprite.spritescreenX;
+	 cube->sprite.drawendX = cube->sprite.spritewidth / 2 +
+		 cube->sprite.spritescreenX;
+	 if (cube->sprite.drawstartX < 0)
+		 cube->sprite.drawstartX = 0;
+	 if (cube->sprite.drawstartY >= cube->screenres.Rx)
+		 cube->sprite.drawendX = cube->screenres.Rx - 1;
 }
 
-int	ft_sprite_order(v_list *cube)
+
+
+static int	ft_sprite_order(v_list *cube)
 {
 	int	i;
 
@@ -48,7 +52,7 @@ int	ft_sprite_order(v_list *cube)
 	}
 }
 
-int	ft_sprite_draw(v_list *cube)
+static int	ft_sprite_draw(v_list *cube)
 {
 	cube->sprite.spriteX = cube->sprite.Sx[cube->sprite.spriteorder[i]]
 		- cube->ray.posX;
@@ -64,35 +68,41 @@ int	ft_sprite_draw(v_list *cube)
 			cube->sprite.spriteY);
 	cube->sprite.spritescreenX = (int)((cube->screenres.Ry / 2) * (1 +
 			cube->sprite.transformX / cube->sprite.transformY));
+	cube->sprite.spriteheight = abs((int)(cube->screenres.Ry /
+			cube->sprite.transformY));
+	ft_sprite_calc(cube);
+	return (cube->sprite.drawstartX);
 }
 
-int	ft_sprite_position(v_list *cube)
+static void	ft_sprite_compute(v_list *cube, int y, int texX, int stripe)
 {
-	int	i;
-	int	j;
-	int	k;
 
-	ft_spritecounter(cube);
-	if (!(cube->sprite.Sx = malloc(sizeof(double) * cube->sprite.spritecounter)))
-		return (ft_error(5));
-	if (!(cube->sprite.Sy = malloc(sizeof(double) * cube->sprite.spritecounter)))
-		return (ft_error(5));
-	j = 0;
-	k = 0;
-	while (j < cube->utilities.nboflines)
+}
+
+void	ft_sprite_display(v_list *cube)
+{
+	int	y;
+	int	texX;
+	int	stripe;
+
+	cube->utilities.i = 0;
+	ft_sprite_order(cube);
+	while (cube->utilities.i++ < cube->sprite.spritecounter)
 	{
-		i = 0;
-		while (i < cube->utilities.linelength)
+		sprite = ft_sprite_draw(cube);
+		while (stripe++ < cube->sprite.drawendX)
 		{
-			if (cube->map[j][i] == 2)
+			texX = (int)(256 * (stripe - (-cube->sprite.spritewidth
+			/ 2 + cube->sprite.spritescreenX)) * cube->
+			mlx.texture[4].width / cube->sprite.spritewidth) / 256;
+			if (cube->sprite.transformY > 0 && stripe >= 0 &&
+			stripe < cube->screenresRx && cube->
+			sprite.transformY < cube->sprite.zbuffer[stripe])
 			{
-				cube->sprite.Sx[k] = (double)i + 0.5;
-				cube->sprite.Sy[k] = (double)j + 0.5;
-				k++;
+				y = cube->sprite.drawstartY;
+				while (y++ < cube->sprite.drawendY)
+					ft_sprite_compute(cube, y, texX, stripe);
 			}
-			i++;
 		}
-		j++;
 	}
-	return (0);
 }
