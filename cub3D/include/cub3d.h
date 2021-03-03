@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/02 21:15:08 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/03 10:35:05 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ typedef struct	s_player
 typedef struct s_sprite
 {
 	int	drawstartX;
-	int	drawendY;
+	int	drawendX;
 
 	int	drawstartY;
 	int	drawendY;
@@ -141,6 +141,9 @@ typedef struct s_sprite
 
 	double	spriteX;
 	double	spriteY;
+
+	double	*zbuffer;
+	double	*spritedistance;
 }				t_sprite;
 
 typedef struct s_texture
@@ -164,7 +167,7 @@ typedef struct s_mlx
 	void		*img_ptr;
 	void		*win_ptr;
 	void		*mlx_ptr;
-	t_texture	texture[4];
+	t_texture	texture[5];
 }				t_mlx;
 
 typedef struct s_screenres
