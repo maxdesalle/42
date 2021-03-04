@@ -71,13 +71,13 @@ void	ft_texture_place(v_list *cube)
 	int	i;
 
 	i = 0;
-	while (i++ < cube->ray.drawstart)
+/*	while (i++ < cube->ray.drawstart)
 		cube->mlx.addr[cube->mlx.size_line * i + cube->ray.raycounter] =
-			cube->texture_path.C;
+			(int)cube->texture_path.C;*/
 	if (i <= cube->ray.drawend)
 		ft_texture_column(cube);
 	i = cube->ray.drawend;
-	while (i++ < cube->screenres.Ry)
+/*	while (i++ < cube->screenres.Ry)
 		cube->mlx.addr[cube->mlx.size_line * i + cube->ray.raycounter] =
-			cube->texture_path.F;
+			(int)cube->texture_path.F;*/
 }

@@ -251,6 +251,12 @@ int				ft_player_position(v_list *cube);
 ** ft_sprite.c
 */
 
+void				ft_sprite_display(v_list *cube);
+
+/*
+** ft_sprite_utilities.c
+*/
+
 int				ft_sprite_position(v_list *cube);
 
 /*

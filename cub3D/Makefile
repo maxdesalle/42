@@ -35,6 +35,7 @@ SRC = src/cub3d.c \
       src/ft_visual_one.c \
       src/ft_visual_two.c \
       src/ft_move.c \
+      src/ft_sprite_utilities.c \
      #src/ft_keys.c \
 
 OBJ = $(SRC:.c=.o)

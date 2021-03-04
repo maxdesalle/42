@@ -38,6 +38,8 @@ static void	ft_orientation_initiation(v_list *cube)
 
 static void	ft_camray_initiation(v_list *cube)
 {
+	cube->ray.hit = 0;
+	cube->ray.mapX = 0;
 	cube->ray.cameraX = (2 * cube->ray.raycounter /
 			(double)cube->screenres.Rx) - 1;
 	cube->ray.rayDirX = cube->ray.dirX +
@@ -98,8 +100,10 @@ static void	ft_hit_check(v_list *cube)
 			cube->ray.mapY += cube->ray.stepY;
 			cube->ray.side = 1;
 		}
-		if (cube->map[cube->ray.mapX][cube->ray.mapY] == 1)
-			cube->ray.hit = 1;
+		if (cube->ray.mapX < cube->utilities.linelength &&
+			cube->ray.mapY < cube->utilities.nboflines)
+			if (cube->map[cube->ray.mapX][cube->ray.mapY] == 1)
+				cube->ray.hit = 1;
 	}
 }
 

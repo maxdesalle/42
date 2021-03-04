@@ -45,6 +45,8 @@ int	ft_visual(v_list *cube)
 	while (cube->ray.raycounter < cube->screenres.Rx)
 	{
 		ft_visual_initiation(cube);
+		ft_texture_place(cube);
+/*		ft_sprite_display(cube);*/
 		cube->ray.raycounter++;
 	}
 	return (0);
@@ -52,7 +54,7 @@ int	ft_visual(v_list *cube)
 
 static int	ft_mlx_start(v_list *cube)
 {
-	ft_visual(cube);
+	mlx_loop_hook(cube->mlx.mlx_ptr, ft_visual, cube);
 	mlx_put_image_to_window(cube->mlx.mlx_ptr, cube->mlx.win_ptr,
 			cube->mlx.img_ptr, 0, 0);
 /*	mlx_hook(cube->mlx.mlx_ptr, 2, 0, ft_keycode, cube);
