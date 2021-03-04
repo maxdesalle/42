@@ -154,6 +154,7 @@ typedef struct s_texture
 	int	endian;
 	int	size_line;
 	int	bits_per_pixel;
+	char	*path;
 	void	*img_ptr;
 }				t_texture;
 

@@ -100,8 +100,8 @@ static void	ft_hit_check(v_list *cube)
 			cube->ray.mapY += cube->ray.stepY;
 			cube->ray.side = 1;
 		}
-		if (cube->ray.mapX < cube->utilities.linelength &&
-			cube->ray.mapY < cube->utilities.nboflines)
+		if (cube->ray.mapX < (cube->utilities.linelength - 1) &&
+			cube->ray.mapY < (cube->utilities.nboflines - 1))
 			if (cube->map[cube->ray.mapX][cube->ray.mapY] == 1)
 				cube->ray.hit = 1;
 	}
@@ -112,6 +112,6 @@ void		ft_visual_initiation(v_list *cube)
 	ft_orientation_initiation(cube);
 	ft_camray_initiation(cube);
 	ft_sidedist_calculator(cube);
-	ft_hit_check(cube);
+/*	ft_hit_check(cube);*/
 	ft_height(cube);
 }

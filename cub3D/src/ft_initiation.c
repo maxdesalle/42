@@ -39,6 +39,30 @@ static int	ft_compute(v_list *cube)
 	return (0);
 }
 
+static int	ft_test(v_list *cube)
+{
+	int	i;
+
+	i = 0;
+	while (i <= 4)
+	{
+		if (!(cube->mlx.texture[i].img_ptr = mlx_xpm_file_to_image(
+					cube->mlx.mlx_ptr,
+					cube->mlx.texture[i].path,
+					&cube->mlx.texture[i].width,
+					&cube->mlx.texture[i].height)))
+			return (ft_error(6));
+		if (!(cube->mlx.texture[i].addr = (int *)mlx_get_data_addr(
+					cube->mlx.texture[i].img_ptr,
+					&cube->mlx.texture[i].bits_per_pixel,
+					&cube->mlx.texture[i].size_line,
+					&cube->mlx.texture[i].endian)))
+			return (ft_error(6));
+		i++;
+	}
+	return (0);
+}
+
 int	ft_visual(v_list *cube)
 {
 	cube->ray.raycounter = 0;
@@ -73,7 +97,7 @@ int	ft_initiation(v_list *cube)
 		cube->screenres.Rx = cube->screenres.Sx;
 	if (cube->screenres.Ry > cube->screenres.Sy)
 		cube->screenres.Ry = cube->screenres.Sy;
-	ft_compute(cube);
+	ft_test(cube);
 	if (!(cube->mlx.img_ptr = mlx_new_image(cube->mlx.mlx_ptr, cube->screenres.Rx,
 			cube->screenres.Ry)))
 		return (ft_error(6));
