@@ -12,34 +12,7 @@
 
 #include "../include/cub3d.h"
 
-static int	ft_computation(v_list *cube, t_texture *texture, char *texture_path)
-{
-	if (!(texture->img_ptr = mlx_xpm_file_to_image(
-					cube->mlx.mlx_ptr,
-					texture_path,
-					&texture->width,
-					&texture->height)))
-		return (ft_error(6));
-	if (!(texture->addr = (int *)mlx_get_data_addr(
-					texture->img_ptr,
-					&texture->bits_per_pixel,
-					&texture->size_line,
-					&texture->endian)))
-		return (ft_error(6));
-	return (0);
-}
-
 static int	ft_compute(v_list *cube)
-{
-	ft_computation(cube, &cube->mlx.texture[0], cube->texture_path.NO);
-	ft_computation(cube, &cube->mlx.texture[1], cube->texture_path.SO);
-	ft_computation(cube, &cube->mlx.texture[2], cube->texture_path.WE);
-	ft_computation(cube, &cube->mlx.texture[3], cube->texture_path.EA);
-	ft_computation(cube, &cube->mlx.texture[4], cube->texture_path.SP);
-	return (0);
-}
-
-static int	ft_test(v_list *cube)
 {
 	int	i;
 
@@ -97,7 +70,7 @@ int	ft_initiation(v_list *cube)
 		cube->screenres.Rx = cube->screenres.Sx;
 	if (cube->screenres.Ry > cube->screenres.Sy)
 		cube->screenres.Ry = cube->screenres.Sy;
-	ft_test(cube);
+	ft_compute(cube);
 	if (!(cube->mlx.img_ptr = mlx_new_image(cube->mlx.mlx_ptr, cube->screenres.Rx,
 			cube->screenres.Ry)))
 		return (ft_error(6));

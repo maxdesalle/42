@@ -30,3 +30,26 @@ void	ft_height(v_list *cube)
 	if (cube->ray.drawend >= cube->screenres.Ry)
 		cube->ray.drawend = cube->screenres.Ry - 1;
 }
+
+void	ft_delta(v_list *cube)
+{
+	if (cube->ray.rayDirY == 0)
+	{
+		cube->ray.deltaDistX = 0;
+		cube->ray.deltaDistY = 1;
+	}
+	if (cube->ray.rayDirX == 0)
+	{
+		cube->ray.deltaDistX = 1;
+		cube->ray.deltaDistY = 0;
+	}
+	else
+	{
+		cube->ray.deltaDistX = sqrt(1 + (cube->ray.rayDirY *
+			cube->ray.rayDirY) / (cube->ray.rayDirX *
+			cube->ray.rayDirX));
+		cube->ray.deltaDistY = sqrt(1 + (cube->ray.rayDirX *
+			cube->ray.rayDirX) / (cube->ray.rayDirY *
+			cube->ray.rayDirY));
+	}
+}

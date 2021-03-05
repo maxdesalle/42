@@ -40,6 +40,13 @@ static void	ft_texdir(v_list *cube)
 		cube->mlx.texDir = 2;
 	if (cube->ray.side == 1 && cube->ray.rayDirY >= 0)
 		cube->mlx.texDir = 3;
+	if (cube->ray.side == 0)
+		cube->ray.wallX = cube->ray.posY + cube->ray.perpwalldist
+			* cube->ray.rayDirY;
+	else
+		cube->ray.wallX = cube->ray.posX + cube->ray.perpwalldist
+			* cube->ray.rayDirX;
+	cube->ray.wallX -= floor((cube->ray.wallX));
 }
 
 static void	ft_texture_column(v_list *cube)
@@ -51,7 +58,7 @@ static void	ft_texture_column(v_list *cube)
 	cube->ray.step = 1.0 * cube->mlx.texture[0].height / cube->ray.lineheight;
 	cube->ray.texPos = (cube->ray.drawstart - cube->screenres.Ry / 2 +
 			cube->ray.lineheight / 2) * cube->ray.step;
-	while (i++ <= cube->ray.drawend)
+	while (i <= cube->ray.drawend)
 	{
 		cube->ray.texY = (int)cube->ray.texPos &
 			(cube->mlx.texture[cube->mlx.texDir].height - 1);
@@ -61,6 +68,7 @@ static void	ft_texture_column(v_list *cube)
 			cube->mlx.texture[cube->mlx.texDir].addr[cube->ray.texY
 			* cube->mlx.texture[cube->mlx.texDir].size_line / 4
 			+ cube->ray.texX];
+		i++;
 	}
 
 }
@@ -84,13 +92,19 @@ void	ft_texture_place(v_list *cube)
 	int	i;
 
 	i = 0;
-	while (i++ < cube->ray.drawstart)
+	while (i < cube->ray.drawstart)
+	{
 		cube->mlx.addr[cube->mlx.size_line / 4 * i + cube->ray.raycounter] =
 			(int)cube->texture_path.C;
+		i++;
+	}
 	if (i <= cube->ray.drawend)
 		ft_texture_column(cube);
 	i = cube->ray.drawend;
-	while (i++ < cube->screenres.Ry)
+	while (i < cube->screenres.Ry)
+	{
 		cube->mlx.addr[cube->mlx.size_line / 4 * i + cube->ray.raycounter] =
 			(int)cube->texture_path.F;
+		i++;
+	}
 }

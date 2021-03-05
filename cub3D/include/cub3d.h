@@ -67,6 +67,8 @@ typedef struct s_ray
 	int	texX;
 	int	texY;
 
+	int	wallX;
+
 	int	stepX;
 	int	stepY;
 
@@ -285,6 +287,7 @@ void				ft_visual_initiation(v_list *cube);
 */
 
 void				ft_height(v_list *cube);
+void				ft_delta(v_list *cube);
 
 /*
 ** ft_exit.c
