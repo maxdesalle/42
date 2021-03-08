@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+#include <stdio.h>
 
 static int	ft_path_converter(char *line, char **texture_path)
 {
@@ -56,6 +57,12 @@ static void	ft_texture_column(v_list *cube)
 	i = cube->ray.drawstart;
 	ft_texdir(cube);
 	cube->ray.step = 1.0 * cube->mlx.texture[0].height / cube->ray.lineheight;
+	cube->ray.texX = (int)(cube->ray.wallX *
+			(double)cube->mlx.texture[cube->mlx.texDir].width);
+	if ((cube->ray.side == 0 && cube->ray.rayDirX > 0) ||
+			(cube->ray.side == 1 && cube->ray.rayDirY < 0))
+		cube->ray.texX = cube->mlx.texture[cube->mlx.texDir].width
+			- cube->ray.texX - 1;
 	cube->ray.texPos = (cube->ray.drawstart - cube->screenres.Ry / 2 +
 			cube->ray.lineheight / 2) * cube->ray.step;
 	while (i <= cube->ray.drawend)

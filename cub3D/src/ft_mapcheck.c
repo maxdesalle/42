@@ -53,13 +53,13 @@ int	ft_mapsize(char *line, v_list *cube)
 static int	ft_player_orientation(v_list *cube, int i, int j)
 {
 	if (cube->map[j][i] == 3)
-		cube->player.orientation = 0;
+		cube->player.orientation = 3;
 	if (cube->map[j][i] == 4)
-		cube->player.orientation = 180;
+		cube->player.orientation = 4;
 	if (cube->map[j][i] == 5)
-		cube->player.orientation = 90;
+		cube->player.orientation = 5;
 	if (cube->map[j][i] == 6)
-		cube->player.orientation = 270;
+		cube->player.orientation = 6;
 	return (0);
 }
 
@@ -80,12 +80,12 @@ int	ft_player_position(v_list *cube)
 				cube->player.Py = j;
 				cube->ray.posX = (double)i + 0.5;
 				cube->ray.posY = (double)j + 0.5;
+				ft_player_orientation(cube, i, j);
 				cube->map[j][i] = 0;
-				return (ft_player_orientation(cube, i, j));
 			}
 			i++;
 		}
 		j++;
 	}
-	return (ft_error(7));
+	return (0);
 }

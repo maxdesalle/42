@@ -14,7 +14,7 @@ NAME = cub3D
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -fsanitize=address
+CFLAGS = -Wall -Wextra
 
 MLX_DIR = minilibX
 
@@ -36,7 +36,7 @@ SRC = src/cub3d.c \
       src/ft_visual_two.c \
       src/ft_move.c \
       src/ft_sprite_utilities.c \
-     #src/ft_keys.c \
+      src/ft_keys.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -19,7 +19,7 @@ void	ft_height(v_list *cube)
 			(1 - cube->ray.stepX) / 2) / cube->ray.rayDirX;
 	else if (cube->ray.side == 1)
 		cube->ray.perpwalldist = (cube->ray.mapY - cube->ray.posY +
-			(1 - cube->ray.stepY) / 2) / cube->ray.rayDirX;
+			(1 - cube->ray.stepY) / 2) / cube->ray.rayDirY;
 	cube->ray.lineheight =
 		(int)(cube->screenres.Ry / cube->ray.perpwalldist);
 	cube->ray.drawstart =
