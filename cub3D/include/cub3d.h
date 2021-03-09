@@ -272,9 +272,10 @@ int				ft_keycode(int keycode, v_list *cube);
 ** ft_move.c
 */
 
+void				ft_rotate_right(v_list *cube);
+void				ft_rotate_left(v_list *cube);
 void				ft_move_vertical(v_list *cube, int option);
 void				ft_move_horizontal(v_list *cube, int option);
-void				ft_rotate(v_list *cube, int option);
 
 /*
 ** ft_visual_one.c

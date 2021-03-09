@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+#include <stdio.h>
 
 int	ft_keycode(int keycode, v_list *cube)
 {
@@ -25,8 +26,8 @@ int	ft_keycode(int keycode, v_list *cube)
 	else if (keycode == ESC)
 		ft_exit(cube);
 	else if (keycode == RIGHT)
-		ft_rotate(cube, 1);
+		ft_rotate_right(cube);
 	else if (keycode == LEFT)
-		ft_rotate(cube, 0);
+		ft_rotate_left(cube);
 	return (0);
 }

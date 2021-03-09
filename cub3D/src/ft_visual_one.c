@@ -48,8 +48,8 @@ static void	ft_camray_initiation(v_list *cube)
 		(cube->ray.planeY * cube->ray.cameraX);
 	cube->ray.mapX = (int)cube->ray.posX;
 	cube->ray.mapY = (int)cube->ray.posY;
-	cube->ray.movespeed = 10;
-	cube->ray.rotspeed = 0.05;
+	cube->ray.movespeed = 0.1;
+	cube->ray.rotspeed = 0.033 * 1.8;
 }
 
 static void	ft_sidedist_calculator(v_list *cube)
