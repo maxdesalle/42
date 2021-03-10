@@ -39,7 +39,6 @@ static void	ft_orientation_initiation(v_list *cube)
 static void	ft_camray_initiation(v_list *cube)
 {
 	cube->ray.hit = 0;
-	cube->ray.perpwalldist = 0;
 	cube->ray.cameraX = (2 * cube->ray.raycounter /
 			(double)cube->screenres.Rx) - 1;
 	cube->ray.rayDirX = cube->ray.dirX +
@@ -49,7 +48,7 @@ static void	ft_camray_initiation(v_list *cube)
 	cube->ray.mapX = (int)cube->ray.posX;
 	cube->ray.mapY = (int)cube->ray.posY;
 	cube->ray.movespeed = 0.1;
-	cube->ray.rotspeed = 0.033 * 1.8;
+	cube->ray.rotspeed = 0.05;
 }
 
 static void	ft_sidedist_calculator(v_list *cube)
@@ -57,25 +56,25 @@ static void	ft_sidedist_calculator(v_list *cube)
 	if (cube->ray.rayDirX < 0)
 	{
 		cube->ray.stepX = -1;
-		cube->ray.sideDistX = (cube->ray.posX - cube->ray.mapX) *
+		cube->ray.sideDistX = (cube->ray.posX - (double)cube->ray.mapX) *
 			cube->ray.deltaDistX;
 	}
 	else
 	{
 		cube->ray.stepX = 1;
-		cube->ray.sideDistX = (cube->ray.mapX + 1.0 -
+		cube->ray.sideDistX = ((double)cube->ray.mapX + 1.0 -
 			cube->ray.posX) * cube->ray.deltaDistX;
 	}
 	if (cube->ray.rayDirY < 0)
 	{
 		cube->ray.stepY = -1;
-		cube->ray.sideDistY = (cube->ray.posY - cube->ray.mapY) *
+		cube->ray.sideDistY = (cube->ray.posY - (double)cube->ray.mapY) *
 			cube->ray.deltaDistY;
 	}
 	else
 	{
 		cube->ray.stepY = 1;
-		cube->ray.sideDistY = (cube->ray.mapY + 1.0 -
+		cube->ray.sideDistY = ((double)cube->ray.mapY + 1.0 -
 			cube->ray.posY) * cube->ray.deltaDistY;
 	}
 }

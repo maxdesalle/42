@@ -30,13 +30,13 @@
 # define ESC 53
 # define LEFT 123
 # define RIGHT 124
+# define BACKWARD 125
+# define FORWARD 126
 
 # define FORWARD_MOVE 1
-# define BACK_MOVE -1
+# define BACK_MOVE 0
 # define RIGHT_MOVE 1
-# define LEFT_MOVE -1
-# define RIGHT_ROTATE 1
-# define LEFT_ROTATE -1
+# define LEFT_MOVE 0
 
 # define CEILING 1
 # define FLOOR -1

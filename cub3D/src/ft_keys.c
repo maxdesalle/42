@@ -16,12 +16,12 @@
 int	ft_keycode(int keycode, v_list *cube)
 {
 	if (keycode == A)
-		ft_move_horizontal(cube, 1);
-	else if (keycode == D)
 		ft_move_horizontal(cube, 0);
-	else if (keycode == W)
+	if (keycode == D) 
+		ft_move_horizontal(cube, 1);
+	else if (keycode == W || keycode == FORWARD)
 		ft_move_vertical(cube, 1);
-	else if (keycode == S)
+	else if (keycode == S || keycode == BACKWARD)
 		ft_move_vertical(cube, 0);
 	else if (keycode == ESC)
 		ft_exit(cube);
