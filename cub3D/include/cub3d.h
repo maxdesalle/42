@@ -282,6 +282,7 @@ void				ft_move_horizontal(v_list *cube, int option);
 */
 
 void				ft_visual_initiation(v_list *cube);
+void				ft_orientation_initiation(v_list *cube);
 
 /*
 ** ft_visual_two.c

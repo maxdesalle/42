@@ -71,10 +71,10 @@ static void	ft_texture_column(v_list *cube)
 			(cube->mlx.texture[cube->mlx.texDir].height - 1);
 		cube->ray.texPos += cube->ray.step;
 		cube->mlx.addr[i * cube->mlx.size_line / 4 +
-			cube->ray.raycounter] =
-			cube->mlx.texture[cube->mlx.texDir].addr[cube->ray.texY
-			* cube->mlx.texture[cube->mlx.texDir].size_line / 4
-			+ cube->ray.texX];
+				cube->ray.raycounter] =
+				cube->mlx.texture[cube->mlx.texDir].addr[cube->ray.texY
+				* cube->mlx.texture[cube->mlx.texDir].size_line / 4
+				+ cube->ray.texX];
 		i++;
 	}
 

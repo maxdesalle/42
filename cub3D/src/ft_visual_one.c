@@ -12,7 +12,7 @@
 
 #include "../include/cub3d.h"
 
-static void	ft_orientation_initiation(v_list *cube)
+void	ft_orientation_initiation(v_list *cube)
 {
 	if (cube->player.orientation == 3)
 	{
@@ -39,6 +39,7 @@ static void	ft_orientation_initiation(v_list *cube)
 static void	ft_camray_initiation(v_list *cube)
 {
 	cube->ray.hit = 0;
+	cube->ray.perpwalldist = 0;
 	cube->ray.cameraX = (2 * cube->ray.raycounter /
 			(double)cube->screenres.Rx) - 1;
 	cube->ray.rayDirX = cube->ray.dirX +
@@ -102,7 +103,6 @@ static void	ft_hit_check(v_list *cube)
 
 void		ft_visual_initiation(v_list *cube)
 {
-	ft_orientation_initiation(cube);
 	ft_camray_initiation(cube);
 	ft_delta(cube);
 	ft_sidedist_calculator(cube);

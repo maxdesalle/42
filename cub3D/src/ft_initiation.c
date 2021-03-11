@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-#include <stdio.h>
 
 static int	ft_compute(v_list *cube)
 {
@@ -54,7 +53,7 @@ int	ft_visual(v_list *cube)
 
 static int	ft_mlx_start(v_list *cube)
 {
-	mlx_hook(cube->mlx.win_ptr, 2, 1L << 0, ft_keycode, cube);
+	mlx_hook(cube->mlx.win_ptr, 2, 0, ft_keycode, cube);
 	mlx_loop_hook(cube->mlx.mlx_ptr, ft_visual, cube);
 /*	mlx_hook(cube->mlx.mlx_ptr, 17, 0, ft_exit, cube);*/
 	mlx_loop(cube->mlx.mlx_ptr);
@@ -63,6 +62,7 @@ static int	ft_mlx_start(v_list *cube)
 
 int	ft_initiation(v_list *cube)
 {
+	ft_orientation_initiation(cube);
 	if (!(cube->mlx.mlx_ptr = mlx_init()))
 		return (ft_error(6));
 	mlx_get_screen_size(cube->mlx.mlx_ptr,
