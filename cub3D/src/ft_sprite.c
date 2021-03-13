@@ -41,7 +41,7 @@ static void	ft_sprite_order(v_list *cube)
 	int	i;
 
 	i = 0;
-	while (i++ < cube->sprite.spritecounter)
+	while (i < cube->sprite.spritecounter)
 	{
 		cube->sprite.spriteorder[i] = i;
 		cube->sprite.spritedistance[i] = ((cube->ray.posX -
@@ -49,6 +49,7 @@ static void	ft_sprite_order(v_list *cube)
 			cube->sprite.Sx[i]) + (cube->ray.posY -
 			cube->sprite.Sy[i]) * (cube->ray.posY -
 			cube->sprite.Sy[i]));
+		i++;
 	}
 }
 
@@ -98,12 +99,12 @@ void	ft_sprite_display(v_list *cube)
 	int	texX;
 	int	stripe;
 
-	cube->utilities.i = 0;
+	cube->utilities.i = -1;
 	ft_sprite_order(cube);
-	while (cube->utilities.i++ < cube->sprite.spritecounter)
+	while (++cube->utilities.i < cube->sprite.spritecounter)
 	{
-		stripe = ft_sprite_draw(cube, cube->utilities.i);
-		while (stripe++ < cube->sprite.drawendX)
+		stripe = ft_sprite_draw(cube, cube->utilities.i) - 1;
+		while (++stripe < cube->sprite.drawendX)
 		{
 			texX = (int)(256 * (stripe - (-cube->sprite.spritewidth
 					/ 2 + cube->sprite.spritescreenX)) * cube->
@@ -112,8 +113,8 @@ void	ft_sprite_display(v_list *cube)
 				stripe < cube->screenres.Rx && cube->
 				sprite.transformY < cube->sprite.zbuffer[stripe])
 			{
-				y = cube->sprite.drawstartY;
-				while (y++ < cube->sprite.drawendY)
+				y = cube->sprite.drawstartY - 1;
+				while (++y < cube->sprite.drawendY)
 					ft_sprite_compute(cube, y, texX, stripe);
 			}
 		}

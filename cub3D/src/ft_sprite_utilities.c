@@ -32,6 +32,21 @@ static void	ft_spritecounter(v_list *cube)
 	}
 }
 
+static int	ft_sprite_malloc(v_list *cube)
+{
+	if (!(cube->sprite.Sx = malloc(cube->sprite.spritecounter * sizeof(double))))
+		return (ft_error(5, cube));
+	if (!(cube->sprite.Sy = malloc(cube->sprite.spritecounter * sizeof(double))))
+		return (ft_error(5, cube));
+	if (!(cube->sprite.spritedistance = malloc(cube->sprite.spritecounter * sizeof(double))))
+		return (ft_error(5, cube));
+	if (!(cube->sprite.spriteorder = malloc(cube->sprite.spritecounter * sizeof(double))))
+		return (ft_error(5, cube));
+	if (!(cube->sprite.zbuffer = malloc(cube->screenres.Rx * sizeof(double))))
+		return (ft_error(5, cube));
+	return (0);
+}
+
 int	ft_sprite_position(v_list *cube)
 {
 	int	i;
@@ -39,10 +54,7 @@ int	ft_sprite_position(v_list *cube)
 	int	k;
 
 	ft_spritecounter(cube);
-	if (!(cube->sprite.Sx = malloc(sizeof(double) * cube->sprite.spritecounter)))
-		return (ft_error(5, cube));
-	if (!(cube->sprite.Sy = malloc(sizeof(double) * cube->sprite.spritecounter)))
-		return (ft_error(5, cube));
+	ft_sprite_malloc(cube);
 	j = 0;
 	k = 0;
 	while (j < cube->utilities.nboflines)

@@ -43,7 +43,7 @@ int	ft_visual(v_list *cube)
 	{
 		ft_visual_initiation(cube);
 		ft_texture_place(cube);
-/*		ft_sprite_display(cube);*/
+		ft_sprite_display(cube);
 		cube->ray.raycounter++;
 	}
 	mlx_put_image_to_window(cube->mlx.mlx_ptr, cube->mlx.win_ptr,
