@@ -57,8 +57,9 @@ int	ft_argnamecheck(char *argv)
 ** returns an error based on the given option.
 */
 
-int	ft_error(option)
+int	ft_error(int option, v_list *cube)
 {
+	cube->utilities.error = 1;
 	if (option == 0)
 		return (write(1, "Error\nInvalid argument", 22));
 	if (option == 1)

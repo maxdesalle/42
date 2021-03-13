@@ -40,9 +40,9 @@ int	ft_sprite_position(v_list *cube)
 
 	ft_spritecounter(cube);
 	if (!(cube->sprite.Sx = malloc(sizeof(double) * cube->sprite.spritecounter)))
-		return (ft_error(5));
+		return (ft_error(5, cube));
 	if (!(cube->sprite.Sy = malloc(sizeof(double) * cube->sprite.spritecounter)))
-		return (ft_error(5));
+		return (ft_error(5, cube));
 	j = 0;
 	k = 0;
 	while (j < cube->utilities.nboflines)

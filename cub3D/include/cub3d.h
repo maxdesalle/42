@@ -318,7 +318,7 @@ char			*ft_strcat_alpha(char *dest, char *src, int len);
 
 int				ft_argnamecheck(char *argv);
 int				ft_argsavecheck(char *argv);
-int				ft_error(int option);
+int				ft_error(int option, v_list *cube);
 
 /*
 ** ft_utilities_one.c

@@ -22,7 +22,7 @@ static int	ft_resolution_converter(char *line, v_list *cube)
 		|| line[cube->utilities.i] == ' '))
 		cube->utilities.i++;
 	if (line[cube->utilities.i] == '+' || line[cube->utilities.i] == '-')
-		return (ft_error(1));
+		return (ft_error(1, cube));
 	while (line[cube->utilities.i] && (line[cube->utilities.i] >= '0'
 		&& line[cube->utilities.i] <= '9'))
 		result = result * 10 + (line[cube->utilities.i++] - '0');
@@ -30,7 +30,7 @@ static int	ft_resolution_converter(char *line, v_list *cube)
 	return (result);
 }
 
-static int	ft_fc_check(char *line, long result)
+static int	ft_fc_check(char *line, long result, v_list *cube)
 {
 	int	i;
 	int	counter;
@@ -43,7 +43,7 @@ static int	ft_fc_check(char *line, long result)
 		if (line[i++] == ',')
 			counter++;
 	if (result > 255255255 || result < 0 || counter != 2)
-		return (ft_error(4));
+		return (ft_error(4, cube));
 	return (0);
 }
 
@@ -68,7 +68,7 @@ static int	ft_floor_ceiling(char *line, v_list *cube, int option)
 		cube->texture_path.C = result;
 	else if (option == FLOOR)
 		cube->texture_path.F = result;
-	ft_fc_check(line, result);
+	ft_fc_check(line, result, cube);
 	return (0);
 }
 

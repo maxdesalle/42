@@ -13,7 +13,7 @@
 #include "../include/cub3d.h"
 #include <stdio.h>
 
-static int	ft_path_converter(char *line, char **texture_path)
+static int	ft_path_converter(char *line, char **texture_path, v_list *cube)
 {
 	int	i;
 	int	j;
@@ -28,7 +28,7 @@ static int	ft_path_converter(char *line, char **texture_path)
 		return (0);
 	}
 	else
-		return (ft_error(2));
+		return (ft_error(2, cube));
 }
 
 static void	ft_texdir(v_list *cube)
@@ -83,15 +83,15 @@ static void	ft_texture_column(v_list *cube)
 void	ft_textures(char *line, v_list *cube)
 {
 	if (line[0] == 'N' && line[1] == 'O')
-		ft_path_converter(line, &cube->mlx.texture[0].path);
+		ft_path_converter(line, &cube->mlx.texture[0].path, cube);
 	if (line[0] == 'S' && line[1] == 'O')
-                ft_path_converter(line, &cube->mlx.texture[1].path);
+                ft_path_converter(line, &cube->mlx.texture[1].path, cube);
 	if (line[0] == 'W' && line[1] == 'E')
-                ft_path_converter(line, &cube->mlx.texture[2].path);
+                ft_path_converter(line, &cube->mlx.texture[2].path, cube);
 	if (line[0] == 'E' && line[1] == 'A')
-                ft_path_converter(line, &cube->mlx.texture[3].path);
+                ft_path_converter(line, &cube->mlx.texture[3].path, cube);
 	if (line[0] == 'S' && line[1] == ' ')
-		ft_path_converter(line, &cube->mlx.texture[4].path);
+		ft_path_converter(line, &cube->mlx.texture[4].path, cube);
 }
 
 void	ft_texture_place(v_list *cube)

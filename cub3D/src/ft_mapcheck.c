@@ -46,7 +46,7 @@ int	ft_mapsize(char *line, v_list *cube)
 	else if (ft_mapvalid(line) == 0)
 		return (0);
 	else
-		return (ft_error(4));
+		return (ft_error(4, cube));
 	return (0);
 }
 

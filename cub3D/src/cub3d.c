@@ -24,7 +24,7 @@ static int	ft_map_analytics(char *mapfile, v_list *cube)
 	j = 0;
 	cube->utilities.counter = 0;
 	if ((fd = open(mapfile, O_RDONLY)) == -1)
-		return (ft_error(3));
+		return (ft_error(3, cube));
 	while (get_next_line(fd, &line) == 1)
 	{
 		if (ft_mapvalid(line) == 1)
@@ -52,7 +52,7 @@ static int	ft_analytics(char *mapfile, v_list *cube)
 	cube->utilities.nboflines = 0;
 	cube->utilities.linelength = 0;
 	if ((fd = open(mapfile, O_RDONLY)) == -1)
-		return (ft_error(3));
+		return (ft_error(3, cube));
 	while (get_next_line(fd, &line) == 1)
 	{
 		ft_resolution(line, cube);
@@ -86,6 +86,6 @@ int		main(int argc, char **argv)
 			&& ft_argsavecheck(argv[2]))
 		ft_analytics(argv[1], &cube);
 	else
-		return (ft_error(0));
+		return (ft_error(0, &cube));
 	return (0);
 }
