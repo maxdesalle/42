@@ -43,9 +43,10 @@ int	ft_visual(v_list *cube)
 	{
 		ft_visual_initiation(cube);
 		ft_texture_place(cube);
-		ft_sprite_display(cube);
+		cube->sprite.zbuffer[cube->ray.raycounter] = cube->ray.perpwalldist;
 		cube->ray.raycounter++;
 	}
+	ft_sprite_display(cube);
 	mlx_put_image_to_window(cube->mlx.mlx_ptr, cube->mlx.win_ptr,
 			cube->mlx.img_ptr, 0, 0);
 	return (0);

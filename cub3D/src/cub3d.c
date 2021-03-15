@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-#include <stdio.h>
 
 static int	ft_map_analytics(char *mapfile, v_list *cube)
 {

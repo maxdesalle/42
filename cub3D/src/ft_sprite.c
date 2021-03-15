@@ -34,8 +34,6 @@ static void	ft_sprite_calc(v_list *cube)
 		cube->sprite.drawendX = cube->screenres.Rx;
 }
 
-
-
 void	ft_sprite_order(v_list *cube)
 {
 	int	i;
