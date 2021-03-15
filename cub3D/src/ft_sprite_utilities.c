@@ -74,3 +74,29 @@ int	ft_sprite_position(v_list *cube)
 	}
 	return (0);
 }
+
+void	ft_sprite_sort(v_list *cube)
+{
+	int	i;
+	int	j;
+	double	k;
+
+	j = -1;
+	ft_sprite_order(cube);
+	while (++j < cube->sprite.spritecounter)
+	{
+		i = -1;
+		while (++i < cube->sprite.spritecounter - 1)
+		{
+			if (cube->sprite.spritedistance[i] < cube->sprite.spritedistance[i + 1])
+			{
+				k = cube->sprite.spritedistance[i];
+				cube->sprite.spritedistance[i] = cube->sprite.spritedistance[i + 1];
+				cube->sprite.spritedistance[i + 1] = k;
+				k = cube->sprite.spriteorder[i];
+				cube->sprite.spriteorder[i] = cube->sprite.spriteorder[i + 1];
+				cube->sprite.spriteorder[i + 1] = (int)k;
+			}
+		}
+	}
+}

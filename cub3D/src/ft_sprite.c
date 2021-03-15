@@ -21,7 +21,7 @@ static void	ft_sprite_calc(v_list *cube)
 	if (cube->sprite.drawstartY < 0)
 		cube->sprite.drawstartY = 0;
 	if (cube->sprite.drawendY >= cube->screenres.Ry)
-		cube->sprite.drawendY = cube->screenres.Ry - 1;
+		cube->sprite.drawendY = cube->screenres.Ry;
 	cube->sprite.spritewidth = abs((int)(cube->screenres.Ry /
 				cube->sprite.transformY));
 	cube->sprite.drawstartX = -cube->sprite.spritewidth / 2 +
@@ -30,13 +30,13 @@ static void	ft_sprite_calc(v_list *cube)
 		cube->sprite.spritescreenX;
 	if (cube->sprite.drawstartX < 0)
 		cube->sprite.drawstartX = 0;
-	if (cube->sprite.drawstartY >= cube->screenres.Rx)
-		cube->sprite.drawendX = cube->screenres.Rx - 1;
+	if (cube->sprite.drawendX >= cube->screenres.Rx)
+		cube->sprite.drawendX = cube->screenres.Rx;
 }
 
 
 
-static void	ft_sprite_order(v_list *cube)
+void	ft_sprite_order(v_list *cube)
 {
 	int	i;
 
@@ -67,7 +67,7 @@ static int	ft_sprite_draw(v_list *cube, int i)
 	cube->sprite.transformY = cube->sprite.invDet * (-cube->ray.planeY *
 			cube->sprite.spriteX + cube->ray.planeX *
 			cube->sprite.spriteY);
-	cube->sprite.spritescreenX = (int)((cube->screenres.Ry / 2) * (1 +
+	cube->sprite.spritescreenX = (int)((cube->screenres.Rx / 2) * (1 +
 			cube->sprite.transformX / cube->sprite.transformY));
 	cube->sprite.spriteheight = abs((int)(cube->screenres.Ry /
 				cube->sprite.transformY));
@@ -100,7 +100,7 @@ void	ft_sprite_display(v_list *cube)
 	int	stripe;
 
 	cube->utilities.i = -1;
-	ft_sprite_order(cube);
+	ft_sprite_sort(cube);
 	while (++cube->utilities.i < cube->sprite.spritecounter)
 	{
 		stripe = ft_sprite_draw(cube, cube->utilities.i) - 1;

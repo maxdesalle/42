@@ -256,6 +256,7 @@ int				ft_player_position(v_list *cube);
 ** ft_sprite.c
 */
 
+void				ft_sprite_order(v_list *cube);
 void				ft_sprite_display(v_list *cube);
 
 /*
@@ -263,6 +264,7 @@ void				ft_sprite_display(v_list *cube);
 */
 
 int				ft_sprite_position(v_list *cube);
+void				ft_sprite_sort(v_list *cube);
 
 /*
 ** ft_keys.c
