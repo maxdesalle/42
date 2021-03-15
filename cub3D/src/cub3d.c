@@ -22,12 +22,14 @@ static int	ft_map_analytics(char *mapfile, v_list *cube)
 
 	i = 0;
 	j = 0;
+	cube->utilities.check = 0;
+	cube->utilities.mapstart = 0;
 	cube->utilities.counter = 0;
 	if ((fd = open(mapfile, O_RDONLY)) == -1)
 		return (ft_error(3, cube));
 	while (get_next_line(fd, &line) == 1)
 	{
-		if (ft_mapvalid(line) == 1)
+		if (ft_mapvalid(line, cube) == 1)
 			ft_array_insert(line, cube);
 		free(line);
 	}
@@ -49,6 +51,8 @@ static int	ft_analytics(char *mapfile, v_list *cube)
 	int		fd;
 	char	*line;
 
+	cube->utilities.check = 1;
+	cube->utilities.mapstart = 0;
 	cube->utilities.nboflines = 0;
 	cube->utilities.linelength = 0;
 	if ((fd = open(mapfile, O_RDONLY)) == -1)

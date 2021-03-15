@@ -196,9 +196,11 @@ typedef struct s_utilities
 {
 	int	i;
 	int	error;
+	int	check;
 	int	nboflines;
 	int	linelength;
 	int	counter;
+	int	mapstart;
 }				t_utilities;
 
 typedef struct	s_mainlist
@@ -247,7 +249,7 @@ int				ft_array_insert(char *line, v_list *cube);
 */
 
 int				ft_mapsize(char *line, v_list *cube);
-int				ft_mapvalid(char *line);
+int				ft_mapvalid(char *line, v_list *cube);
 int				ft_player_position(v_list *cube);
 
 /*
@@ -326,5 +328,6 @@ int				ft_error(int option, v_list *cube);
 
 int				ft_atoi_char(char c);
 size_t				ft_strlen_alpha(const char *s);
+char				*ft_strchr(const char *s, int c);
 
 #endif

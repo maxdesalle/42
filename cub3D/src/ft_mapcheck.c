@@ -11,42 +11,58 @@
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+#include <stdio.h>
 
-int	ft_mapvalid(char *line)
+static int	ft_mapspace(char *line)
 {
 	int	i;
-
+	
 	i = 0;
+	if (!line)
+		return (0);
 	while (line[i] != '\0' && line[i] == ' ')
 		i++;
 	if (line[i] == '\0')
 		return (0);
-	i = 0;
-	while (line[i] != '\0')
-	{
-		if (!(line[i] == ' ' || line[i] == '0' || line[i] == '1'
-				|| line[i] == '2' || line[i] == '\n'
-				|| line[i] == 'N' || line[i] == 'S'
-				|| line[i] == 'E' || line[i] == 'W'))
-			return (0);
-		else
-			i++;
-	}
 	return (1);
 }
 
+int	ft_mapvalid(char *line, v_list *cube)
+{
+	int	i;
+
+	i = 0;
+	if (ft_mapspace(line) == 0)
+		return (0);
+	if (ft_strchr(line, '1') || ft_strchr(line, '0'))
+	{
+		while (line[i] != '\0')
+		{
+			if (!(line[i] == ' ' || line[i] == '0' || line[i] == '1'
+			|| line[i] == '2' || line[i] == '\n' || line[i] == 'N'
+			|| line[i] == 'S' || line[i] == 'E' || line[i] == 'W'
+			|| line[i] == '\t'))
+			{
+				if (cube->utilities.mapstart == 1 && cube->utilities.check == 1)
+					return (ft_error(4, cube));
+				return (0);
+			}
+			i++;
+		}
+		return (1);
+	}
+	return (0);
+}
 
 int	ft_mapsize(char *line, v_list *cube)
 {
-	if (ft_mapvalid(line) == 1)
+	if (ft_mapvalid(line, cube) == 1)
 	{
+		if (cube->utilities.check == 1)
+			cube->utilities.mapstart = 1;
 		cube->utilities.nboflines += 1;
 		cube->utilities.linelength = ft_strlen_alpha(line);
 	}
-	else if (ft_mapvalid(line) == 0)
-		return (0);
-	else
-		return (ft_error(4, cube));
 	return (0);
 }
 
