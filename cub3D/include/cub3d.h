@@ -201,6 +201,7 @@ typedef struct s_utilities
 	int	linelength;
 	int	counter;
 	int	mapstart;
+	int	exit;
 }				t_utilities;
 
 typedef struct	s_mainlist

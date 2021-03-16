@@ -14,5 +14,26 @@
 
 int	ft_exit(v_list *cube)
 {
-	return (cube->utilities.i);
+	cube->utilities.exit = 1;
+	free(cube->sprite.Sx);
+	free(cube->sprite.Sy);
+	free(cube->sprite.spritedistance);
+	free(cube->sprite.spriteorder);
+	free(cube->sprite.zbuffer);
+	if (cube->mlx.img_ptr)
+		mlx_destroy_image(cube->mlx.mlx_ptr, cube->mlx.img_ptr);
+	if (cube->mlx.texture[0].img_ptr)
+		mlx_destroy_image(cube->mlx.mlx_ptr, cube->mlx.texture[0].img_ptr);
+	if (cube->mlx.texture[1].img_ptr)
+		mlx_destroy_image(cube->mlx.mlx_ptr, cube->mlx.texture[1].img_ptr);
+	if (cube->mlx.texture[2].img_ptr)
+		mlx_destroy_image(cube->mlx.mlx_ptr, cube->mlx.texture[2].img_ptr);
+	if (cube->mlx.texture[3].img_ptr)
+		mlx_destroy_image(cube->mlx.mlx_ptr, cube->mlx.texture[3].img_ptr);
+	if (cube->mlx.texture[4].img_ptr)
+		mlx_destroy_image(cube->mlx.mlx_ptr, cube->mlx.texture[4].img_ptr);
+	if (cube->mlx.win_ptr)
+		mlx_destroy_window(cube->mlx.mlx_ptr, cube->mlx.win_ptr);
+/*	ft_map_free(cube);*/
+	return (0);
 }

@@ -47,14 +47,13 @@ int	ft_wall_check(v_list *cube)
 
 int	ft_map_free(v_list *cube)
 {
-	int	i;
-
-	i = 0;
-	while (cube->utilities.counter > 0)
+	cube->utilities.nboflines -= 1;
+	while (cube->utilities.nboflines > 0)
 	{
-		free(cube->map[cube->utilities.counter]);
-		cube->utilities.counter--;
+		free(cube->map[cube->utilities.nboflines]);
+		cube->utilities.nboflines--;
 	}
+	free(cube->map);
 	return (0);
 }
 
