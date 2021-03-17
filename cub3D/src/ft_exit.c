@@ -15,6 +15,7 @@
 int	ft_exit(v_list *cube)
 {
 	cube->utilities.exit = 1;
+	ft_map_free(cube);
 	free(cube->sprite.Sx);
 	free(cube->sprite.Sy);
 	free(cube->sprite.spritedistance);
@@ -34,6 +35,6 @@ int	ft_exit(v_list *cube)
 		mlx_destroy_image(cube->mlx.mlx_ptr, cube->mlx.texture[4].img_ptr);
 	if (cube->mlx.win_ptr)
 		mlx_destroy_window(cube->mlx.mlx_ptr, cube->mlx.win_ptr);
-/*	ft_map_free(cube);*/
+	exit(0);
 	return (0);
 }

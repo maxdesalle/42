@@ -38,30 +38,30 @@ static int	ft_compute(v_list *cube)
 
 int	ft_visual(v_list *cube)
 {
-	cube->ray.raycounter = 0;
-	while (cube->ray.raycounter < cube->screenres.Rx)
+	if (cube->utilities.exit == 0)
 	{
-		ft_visual_initiation(cube);
-		ft_texture_place(cube);
-		cube->sprite.zbuffer[cube->ray.raycounter] = cube->ray.perpwalldist;
-		cube->ray.raycounter++;
-	}
-	ft_sprite_display(cube);
-	mlx_put_image_to_window(cube->mlx.mlx_ptr, cube->mlx.win_ptr,
+		cube->ray.raycounter = 0;
+		while (cube->ray.raycounter < cube->screenres.Rx)
+		{
+			ft_visual_initiation(cube);
+			ft_texture_place(cube);
+			cube->sprite.zbuffer[cube->ray.raycounter] = cube->ray.perpwalldist;
+			cube->ray.raycounter++;
+		}
+		ft_sprite_display(cube);
+		mlx_put_image_to_window(cube->mlx.mlx_ptr, cube->mlx.win_ptr,
 			cube->mlx.img_ptr, 0, 0);
+	}
 	return (0);
 }
 
 static int	ft_mlx_start(v_list *cube)
 {
 	cube->utilities.exit = 0;
-	if (cube->utilities.exit == 0)
-	{
-		mlx_hook(cube->mlx.win_ptr, 2, 0, ft_keycode, cube);
-		mlx_loop_hook(cube->mlx.mlx_ptr, ft_visual, cube);
-		mlx_hook(cube->mlx.win_ptr, 17, 0, ft_exit, cube);
-		mlx_loop(cube->mlx.mlx_ptr);
-	}
+	mlx_hook(cube->mlx.win_ptr, 17, 0, ft_exit, cube);
+	mlx_hook(cube->mlx.win_ptr, 2, 0, ft_keycode, cube);
+	mlx_loop_hook(cube->mlx.mlx_ptr, ft_visual, cube);
+	mlx_loop(cube->mlx.mlx_ptr);
 	return (0);
 }
 
