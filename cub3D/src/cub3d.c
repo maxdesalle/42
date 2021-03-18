@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:54:16 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/26 13:49:19 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/18 11:49:19 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int		main(int argc, char **argv)
 	if (argc == 2 && ft_argnamecheck(argv[1]))
 		ft_analytics(argv[1], &cube);
 	else if (argc == 3 && ft_argnamecheck(argv[1])
-			&& ft_argsavecheck(argv[2]))
+			&& ft_argsavecheck(argv[2], &cube))
 		ft_analytics(argv[1], &cube);
 	else
 		return (ft_error(0, &cube));

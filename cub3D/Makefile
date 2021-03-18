@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/25 14:49:28 by mdesalle          #+#    #+#              #
-#    Updated: 2021/02/26 13:48:54 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/03/18 11:44:45 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ SRC = src/cub3d.c \
       src/ft_visual_two.c \
       src/ft_move.c \
       src/ft_sprite_utilities.c \
-      src/ft_keys.c
+      src/ft_keys.c \
+	  src/ft_save.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -45,8 +46,9 @@ ccgreen = "\033[0;92m"
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L $(MLX_DIR) -lmlx
-	@install_name_tool -change $(MLX) @loader_path/$(MLX_DIR)/$(MLX) $(NAME)
+#	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L $(MLX_DIR) -lmlx
+#	@install_name_tool -change $(MLX) @loader_path/$(MLX_DIR)/$(MLX) $(NAME)
+	@$(CC) -lmlx -framework OpenGL -framework AppKit $(CFLAGS) $(SRC) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)

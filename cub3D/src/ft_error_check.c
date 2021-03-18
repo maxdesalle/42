@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 11:16:37 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/02/14 14:20:34 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/18 11:47:22 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,21 @@
 ** checks if the argument save is correctly given. returns 1 if yes, 0 if not.
 */
 
-int	ft_argsavecheck(char *argv)
+int	ft_argsavecheck(char *argv, v_list *cube)
 {
 	int		i;
 	char	*save;
 
 	i = 0;
 	save = "--save";
+	cube->utilities.save = 0;
 	while (argv[i] == save[i])
 	{
 		if (argv[i] == '\0' && save[i] == '\0')
+		{
+			cube->utilities.save = 1;
 			return (1);
+		}
 		i++;
 	}
 	return (0);
@@ -76,5 +80,7 @@ int	ft_error(int option, v_list *cube)
 		return (write(1, "Error\nInvalid minilibX", 22));
 	if (option == 7)
 		return (write(1, "Error\nPlayer not found", 22));
+	if (option == 8)
+		return (write(1, "Error\nImage file could not be created", 37));
 	return (0);
 }

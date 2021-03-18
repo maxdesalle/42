@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:06:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/01 16:26:37 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/18 11:45:16 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	ft_visual(v_list *cube)
 			cube->ray.raycounter++;
 		}
 		ft_sprite_display(cube);
+		if (cube->utilities.save == 1)
+			return (ft_save(cube));
 		mlx_put_image_to_window(cube->mlx.mlx_ptr, cube->mlx.win_ptr,
 			cube->mlx.img_ptr, 0, 0);
 	}
@@ -72,12 +74,12 @@ int	ft_initiation(v_list *cube)
 	ft_orientation_initiation(cube);
 	if (!(cube->mlx.mlx_ptr = mlx_init()))
 		return (ft_error(6, cube));
-	mlx_get_screen_size(cube->mlx.mlx_ptr,
+/*	mlx_get_screen_size(cube->mlx.mlx_ptr,
 			&cube->screenres.Sx, &cube->screenres.Sy);
 	if (cube->screenres.Rx > cube->screenres.Sx)
 		cube->screenres.Rx = cube->screenres.Sx;
 	if (cube->screenres.Ry > cube->screenres.Sy)
-		cube->screenres.Ry = cube->screenres.Sy;
+		cube->screenres.Ry = cube->screenres.Sy;*/
 	ft_compute(cube);
 	if (!(cube->mlx.img_ptr = mlx_new_image(cube->mlx.mlx_ptr, cube->screenres.Rx,
 			cube->screenres.Ry)))
