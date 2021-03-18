@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@s19.be>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 09:59:55 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/18 12:59:27 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/18 14:50:32 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int			ft_save(v_list *cube)
 	int	rgb;
 
 	j = cube->screenres.Ry;
-	if ((fd = open("save.bmp", O_CREAT | O_WRONLY)) == -1)
+	if ((fd = open("save.bmp", O_CREAT | O_WRONLY | O_TRUNC, 77777)) == -1)
 		return (ft_error(8, cube));
 	ft_bmp_fileheader(cube, fd);
 	ft_bmp_infoheader(cube, fd);
@@ -89,7 +89,7 @@ int			ft_save(v_list *cube)
 			ft_colorflex(fd, rgb);
 		}
 	}
-	system("chmod 777 save.bmp");
+	close(fd);
 	exit(0);
 	return (0);
 }
