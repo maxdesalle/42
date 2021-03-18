@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/18 12:31:48 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/18 15:40:07 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -333,8 +333,7 @@ int				ft_error(int option, v_list *cube);
 int				ft_atoi_char(char c);
 size_t				ft_strlen_alpha(const char *s);
 char				*ft_strchr(const char *s, int c);
-void				ft_pixel_get(t_mlx *mlx, int i, int j, int *rgb);
-void				ft_pixel_get(t_mlx *mlx, int i, int j, int *rgb);
+void				ft_pixel_get(v_list *cube, int i, int j, int *rgb);
 
 /*
 ** ft_save.c

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:06:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/18 11:45:16 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/18 16:26:46 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_visual(v_list *cube)
 		}
 		ft_sprite_display(cube);
 		if (cube->utilities.save == 1)
-			return (ft_save(cube));
+			ft_save(cube);
 		mlx_put_image_to_window(cube->mlx.mlx_ptr, cube->mlx.win_ptr,
 			cube->mlx.img_ptr, 0, 0);
 	}
