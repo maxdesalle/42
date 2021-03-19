@@ -54,11 +54,3 @@ char    *ft_strchr(const char *s, int c)
 			return ((char*)--s);
 	return (NULL);
 }
-
-void	ft_pixel_get(v_list *cube, int i, int j, int *rgb)
-{
-	char	*dst;
-
-	dst = cube->mlx.addr + (j * cube->mlx.size_line + i * cube->mlx.bits_per_pixel / 8);
-	*rgb = *dst;
-}

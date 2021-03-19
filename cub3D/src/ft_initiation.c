@@ -74,12 +74,12 @@ int	ft_initiation(v_list *cube)
 	ft_orientation_initiation(cube);
 	if (!(cube->mlx.mlx_ptr = mlx_init()))
 		return (ft_error(6, cube));
-/*	mlx_get_screen_size(cube->mlx.mlx_ptr,
+	mlx_get_screen_size(cube->mlx.mlx_ptr,
 			&cube->screenres.Sx, &cube->screenres.Sy);
 	if (cube->screenres.Rx > cube->screenres.Sx)
 		cube->screenres.Rx = cube->screenres.Sx;
 	if (cube->screenres.Ry > cube->screenres.Sy)
-		cube->screenres.Ry = cube->screenres.Sy;*/
+		cube->screenres.Ry = cube->screenres.Sy;
 	ft_compute(cube);
 	if (!(cube->mlx.img_ptr = mlx_new_image(cube->mlx.mlx_ptr, cube->screenres.Rx,
 			cube->screenres.Ry)))
