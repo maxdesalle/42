@@ -1,4 +1,4 @@
-R 1080 720
+R 675 450
 
 NO ./textures/brick.xpm
 SO ./textures/metal.xpm
@@ -6,8 +6,8 @@ WE ./textures/stone.xpm
 EA ./textures/wood.xpm
 S ./textures/barrel.xpm
 
-C 205,249,255
-F 224,172,105
+C 255	,255,255
+F 255,255,255
 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 1 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1

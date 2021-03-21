@@ -187,9 +187,8 @@ typedef struct s_path
 	char	*SO;
 	char	*WE;
 	char	*EA;
-	char	*SP;
-	long	C;
-	long	F;
+	int	C;
+	int	F;
 }				t_texture_path;
 
 typedef struct s_utilities

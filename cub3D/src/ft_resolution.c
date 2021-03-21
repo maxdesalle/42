@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+#include <stdio.h>
 
 static int	ft_resolution_converter(char *line, v_list *cube)
 {
@@ -30,7 +31,7 @@ static int	ft_resolution_converter(char *line, v_list *cube)
 	return (result);
 }
 
-static int	ft_fc_check(char *line, long result, v_list *cube)
+static int	ft_fc_check(char *line, int result, v_list *cube)
 {
 	int	i;
 	int	counter;
@@ -50,26 +51,24 @@ static int	ft_fc_check(char *line, long result, v_list *cube)
 static int	ft_floor_ceiling(char *line, v_list *cube, int option)
 {
 	int	i;
-	long	result;
+	int	result;
 
 	i = 1;
 	result = 0;
-	while (line[i] && ((line[i] >= 9 && line[i] <= 13) || line[i] == ' '))
-		i++;
-	while (line[i] != '\0' && ((line[i] >= '0'
-		&& line[i] <= '9') || line[i] == ',' || (line[i] == ' ' &&
-			line[i + 1] != ' ')))
+	while (line[i] != '\0' && (line[i] == ',' || (line[i] == ' ')
+			|| (line[i] >= 9 && line[i] <= 13)))
 	{
-		if (line[i] == ',' || line[i] == ' ')
+		while (!(line[i] >= '0' && line[i] <= '9'))
 			i++;
-		result = result * 10 + (line[i] - '0');
-		i++;
+		while (line[i] >= '0' && line[i] <= '9') 
+			result = result * 10 + (line[i++] - '0');
 	}
 	if (option == CEILING)
 		cube->texture_path.C = result;
 	else if (option == FLOOR)
 		cube->texture_path.F = result;
 	ft_fc_check(line, result, cube);
+	printf("%d\n", result);
 	return (0);
 }
 

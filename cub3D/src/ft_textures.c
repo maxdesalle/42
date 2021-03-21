@@ -101,7 +101,7 @@ void	ft_texture_place(v_list *cube)
 	while (i < cube->ray.drawstart)
 	{
 		cube->mlx.addr[cube->mlx.size_line / 4 * i + cube->ray.raycounter] =
-			(int)cube->texture_path.C;
+			cube->texture_path.C;
 		i++;
 	}
 	if (i <= cube->ray.drawend)
@@ -110,7 +110,7 @@ void	ft_texture_place(v_list *cube)
 	while (i < cube->screenres.Ry)
 	{
 		cube->mlx.addr[cube->mlx.size_line / 4 * i + cube->ray.raycounter] =
-			(int)cube->texture_path.F;
+			cube->texture_path.F;
 		i++;
 	}
 }
