@@ -81,6 +81,8 @@ int	ft_initiation(v_list *cube)
 	if (cube->screenres.Ry > cube->screenres.Sy)
 		cube->screenres.Ry = cube->screenres.Sy;
 	ft_compute(cube);
+	if (cube->utilities.save == 1)
+		ft_visual(cube);
 	if (!(cube->mlx.img_ptr = mlx_new_image(cube->mlx.mlx_ptr, cube->screenres.Rx,
 			cube->screenres.Ry)))
 		return (ft_error(6, cube));

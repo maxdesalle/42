@@ -57,9 +57,10 @@ static int	ft_floor_ceiling(char *line, v_list *cube, int option)
 	while (line[i] && ((line[i] >= 9 && line[i] <= 13) || line[i] == ' '))
 		i++;
 	while (line[i] != '\0' && ((line[i] >= '0'
-		&& line[i] <= '9') || line[i] == ','))
+		&& line[i] <= '9') || line[i] == ',' || (line[i] == ' ' &&
+			line[i + 1] != ' ')))
 	{
-		if (line[i] == ',')
+		if (line[i] == ',' || line[i] == ' ')
 			i++;
 		result = result * 10 + (line[i] - '0');
 		i++;

@@ -90,6 +90,6 @@ int			ft_save(v_list *cube)
 					/ 4 + i], 4);
 	}
 	close(fd);
-	exit(0);
+	ft_exit(cube);
 	return (0);
 }
