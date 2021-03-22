@@ -33,7 +33,7 @@ static int	ft_map_analytics(char *mapfile, v_list *cube)
 		free(line);
 	}
 	close (fd);
-/*	ft_wall_check(cube);*/
+	ft_wall_check(cube);
 	ft_player_position(cube);
 	ft_sprite_position(cube);
 	ft_initiation(cube);

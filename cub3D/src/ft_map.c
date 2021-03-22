@@ -18,15 +18,15 @@ int	ft_wall_checker(v_list *cube)
 	int	i;
 
 	i = 0;
-	while (i < cube->utilities.linelength && cube->map[0][i] == 1)
+	while (cube->map[0][i] != -42 && cube->map[0][i] == 1)
 		i++;
-	if (i != cube->utilities.linelength)
+	if (cube->map[0][i] != -42)
 		return (ft_error(4, cube));
 	i = 0;
-	while (i < cube->utilities.linelength
+	while (cube->map[cube->utilities.nboflines - 1][i] != -42
 			&& cube->map[cube->utilities.nboflines - 1][i] == 1)
 		i++;
-	if (i != cube->utilities.linelength)
+	if (cube->map[cube->utilities.nboflines - 1][i] != -42)
 		return (ft_error(4, cube));
 	return (1);
 }
@@ -34,14 +34,19 @@ int	ft_wall_checker(v_list *cube)
 int	ft_wall_check(v_list *cube)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-/*	if (!(ft_wall_checker(cube)))
-		return (ft_error(4, cube));*/
-	while (i++ < (cube->utilities.nboflines - 1))
-		if (!(cube->map[i][0] == 1 &&
-			cube->map[i][cube->utilities.linelength - 1] == 1))
+	j = 0;
+	ft_wall_checker(cube);
+	while (j < cube->utilities.nboflines)
+	{
+		i = 0;
+		while (cube->map[j][i] != -42)
+			i++;
+		if (cube->map[j][i - 1] != 1 || cube->map[j][0] != 1)
 			return (ft_error(4, cube));
+		j++;
+	}
 	return (1);
 }
 
@@ -85,6 +90,7 @@ int	ft_array_insert(char *line, v_list *cube)
 		i++;
 		j++;
 	}
+	cube->map[cube->utilities.counter][i] = -42;
 	cube->utilities.counter += 1;
 	return (0);
 }
@@ -94,14 +100,14 @@ int	ft_map_allocator(v_list *cube)
 	int	i;
 
 	i = 0;
-	if (!(cube->map = malloc(cube->utilities.nboflines * sizeof(int*))))
+	if (!(cube->map = malloc(cube->utilities.nboflines * sizeof(int *))))
 		return (ft_error(5, cube));
 	if (!(i < cube->utilities.nboflines))
 		return (0);
 	while (i < cube->utilities.nboflines)
 	{
 		if (!(cube->map[i] =
-			malloc(cube->utilities.linelength * sizeof(int))))
+			malloc((1 + cube->utilities.linelength) * sizeof(int))))
 			return (ft_error(5, cube));
 		i++;
 	}
