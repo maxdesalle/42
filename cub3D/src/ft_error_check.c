@@ -65,22 +65,22 @@ int	ft_error(int option, v_list *cube)
 {
 	cube->utilities.error = 1;
 	if (option == 0)
-		return (write(1, "Error\nInvalid argument", 22));
+		return (write(1, "Error\nInvalid argument\n", 23));
 	if (option == 1)
-		return (write(1, "Error\nInvalid resolution", 24));
+		return (write(1, "Error\nInvalid resolution\n", 25));
 	if (option == 2)
-		return (write(1, "Error\nInvalid map file path", 27));
+		return (write(1, "Error\nInvalid map file path\n", 28));
 	if (option == 3)
-		return (write(1, "Error\nInvalid map file", 22));
+		return (write(1, "Error\nInvalid map file\n", 23));
 	if (option == 4)
-		return (write(1, "Error\nInvalid map", 17));
+		return (write(1, "Error\nInvalid map\n", 18));
 	if (option == 5)
-		return (write(1, "Error\nFailed memory allocation", 30));
+		return (write(1, "Error\nFailed memory allocation\n", 31));
 	if (option == 6)
-		return (write(1, "Error\nInvalid minilibX", 22));
+		return (write(1, "Error\nInvalid minilibX\n", 23));
 	if (option == 7)
-		return (write(1, "Error\nPlayer not found", 22));
+		return (write(1, "Error\nPlayer not found\n", 24));
 	if (option == 8)
-		return (write(1, "Error\nImage file could not be created", 37));
+		return (write(1, "Error\nImage file could not be created\n", 38));
 	return (0);
 }

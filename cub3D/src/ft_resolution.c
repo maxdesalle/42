@@ -68,7 +68,6 @@ static int	ft_floor_ceiling(char *line, v_list *cube, int option)
 	else if (option == FLOOR)
 		cube->texture_path.F = result;
 	ft_fc_check(line, result, cube);
-	printf("%d\n", result);
 	return (0);
 }
 

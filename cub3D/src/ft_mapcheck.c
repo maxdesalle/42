@@ -61,7 +61,8 @@ int	ft_mapsize(char *line, v_list *cube)
 		if (cube->utilities.check == 1)
 			cube->utilities.mapstart = 1;
 		cube->utilities.nboflines += 1;
-		cube->utilities.linelength = ft_strlen_alpha(line);
+		if (cube->utilities.linelength < (int)ft_strlen_alpha(line))
+			cube->utilities.linelength = ft_strlen_alpha(line);
 	}
 	return (0);
 }

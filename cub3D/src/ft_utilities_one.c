@@ -28,17 +28,11 @@ int     ft_atoi_char(char c)
 size_t	ft_strlen_alpha(const char *s)
 {
 	int	i;
-	int	len;
 
 	i = 0;
-	len = 0;
 	while (s[i] != '\0')
-	{
-		if (s[i] != ' ')
-			len++;
 		i++;
-	}
-	return (len);
+	return (i);
 }
 
 char    *ft_strchr(const char *s, int c)

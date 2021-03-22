@@ -36,8 +36,8 @@ int	ft_wall_check(v_list *cube)
 	int	i;
 
 	i = 0;
-	if (!(ft_wall_checker(cube)))
-		return (ft_error(4, cube));
+/*	if (!(ft_wall_checker(cube)))
+		return (ft_error(4, cube));*/
 	while (i++ < (cube->utilities.nboflines - 1))
 		if (!(cube->map[i][0] == 1 &&
 			cube->map[i][cube->utilities.linelength - 1] == 1))
@@ -61,13 +61,26 @@ int	ft_array_insert(char *line, v_list *cube)
 {
 	int	i;
 	int	j;
+	int	k;
 
 	i = 0;
 	j = 0;
-	while (line[j] != '\0' && line[j] != '\n')
+	k = 0;
+	while (line[j] != '\0')
 	{
-		if (line[j] == ' ')
+		while (line[j] == ' ')
+		{
+			cube->map[cube->utilities.counter][i] = 1;
+			i++;
 			j++;
+		}
+		if (line[j] == '\t')
+		{
+			k = i + 8;
+			while (i < k)
+				cube->map[cube->utilities.counter][i++] = 1;
+			j++;
+		}
 		cube->map[cube->utilities.counter][i] = ft_atoi_char(line[j]);
 		i++;
 		j++;

@@ -19,15 +19,15 @@ int	ft_keycode(int keycode, v_list *cube)
 		ft_move_horizontal(cube, 0);
 	if (keycode == D) 
 		ft_move_horizontal(cube, 1);
-	else if (keycode == W || keycode == FORWARD)
+	if (keycode == W || keycode == FORWARD)
 		ft_move_vertical(cube, 1);
-	else if (keycode == S || keycode == BACKWARD)
+	if (keycode == S || keycode == BACKWARD)
 		ft_move_vertical(cube, 0);
-	else if (keycode == ESC)
+	if (keycode == ESC)
 		ft_exit(cube);
-	else if (keycode == RIGHT)
+	if (keycode == RIGHT)
 		ft_rotate_right(cube);
-	else if (keycode == LEFT)
+	if (keycode == LEFT)
 		ft_rotate_left(cube);
 	return (0);
 }
