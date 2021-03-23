@@ -48,3 +48,15 @@ char    *ft_strchr(const char *s, int c)
 			return ((char*)--s);
 	return (NULL);
 }
+
+void	ft_mlx_swap(v_list *cube)
+{
+	void	*swap;
+
+	swap = cube->mlx.addr;
+	cube->mlx.addr = cube->mlx.addr_swap;
+	cube->mlx.addr_swap = swap;
+	swap = cube->mlx.img_ptr;
+	cube->mlx.img_ptr = cube->mlx.img_ptr_swap;
+	cube->mlx.img_ptr_swap = swap;
+}

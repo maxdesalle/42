@@ -170,6 +170,10 @@ typedef struct s_mlx
 	void		*img_ptr;
 	void		*win_ptr;
 	void		*mlx_ptr;
+
+	int		*addr_swap;
+	void		*img_ptr_swap;
+
 	t_texture	texture[5];
 }				t_mlx;
 
@@ -333,6 +337,7 @@ int				ft_atoi_char(char c);
 size_t				ft_strlen_alpha(const char *s);
 char				*ft_strchr(const char *s, int c);
 void				ft_pixel_get(v_list *cube, int i, int j, int *rgb);
+void				ft_mlx_swap(v_list *cube);
 
 /*
 ** ft_save.c

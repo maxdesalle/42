@@ -53,6 +53,7 @@ int	ft_visual(v_list *cube)
 			ft_save(cube);
 		mlx_put_image_to_window(cube->mlx.mlx_ptr, cube->mlx.win_ptr,
 			cube->mlx.img_ptr, 0, 0);
+		ft_mlx_swap(cube);
 	}
 	return (0);
 }
@@ -83,16 +84,16 @@ int	ft_initiation(v_list *cube)
 	ft_compute(cube);
 	if (cube->utilities.save == 1)
 		ft_visual(cube);
-	if (!(cube->mlx.img_ptr = mlx_new_image(cube->mlx.mlx_ptr, cube->screenres.Rx,
-			cube->screenres.Ry)))
-		return (ft_error(6, cube));
-	if (!(cube->mlx.addr = (int *)mlx_get_data_addr(cube->mlx.img_ptr,
-			&cube->mlx.bits_per_pixel, &cube->mlx.size_line,
-			&cube->mlx.endian)))
-		return (ft_error(6, cube));
-	if (!(cube->mlx.win_ptr = mlx_new_window(cube->mlx.mlx_ptr,
-			cube->screenres.Rx, cube->screenres.Ry, "Cub3D")))
-		return (ft_error(6, cube));
+	cube->mlx.img_ptr = mlx_new_image(cube->mlx.mlx_ptr, cube->screenres.Rx,
+			cube->screenres.Ry);
+	cube->mlx.addr = (int *)mlx_get_data_addr(cube->mlx.img_ptr,
+	&cube->mlx.bits_per_pixel, &cube->mlx.size_line, &cube->mlx.endian);
+	cube->mlx.win_ptr = mlx_new_window(cube->mlx.mlx_ptr,
+	cube->screenres.Rx, cube->screenres.Ry, "Cub3D");
+	cube->mlx.img_ptr_swap = mlx_new_image(cube->mlx.mlx_ptr,
+	cube->screenres.Rx, cube->screenres.Ry);
+	cube->mlx.addr_swap = (int *)mlx_get_data_addr(cube->mlx.img_ptr_swap,
+	&cube->mlx.bits_per_pixel, &cube->mlx.size_line, &cube->mlx.endian);
 	ft_mlx_start(cube);
 	return (0);
 }
