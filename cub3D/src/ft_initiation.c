@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 18:06:59 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/18 16:26:46 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/24 09:04:30 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,19 +75,19 @@ int	ft_initiation(v_list *cube)
 	ft_orientation_initiation(cube);
 	if (!(cube->mlx.mlx_ptr = mlx_init()))
 		return (ft_error(6, cube));
-	mlx_get_screen_size(cube->mlx.mlx_ptr,
+/*	mlx_get_screen_size(cube->mlx.mlx_ptr,
 			&cube->screenres.Sx, &cube->screenres.Sy);
 	if (cube->screenres.Rx > cube->screenres.Sx)
 		cube->screenres.Rx = cube->screenres.Sx;
 	if (cube->screenres.Ry > cube->screenres.Sy)
-		cube->screenres.Ry = cube->screenres.Sy;
+		cube->screenres.Ry = cube->screenres.Sy;*/
 	ft_compute(cube);
+	cube->mlx.img_ptr = mlx_new_image(cube->mlx.mlx_ptr, cube->screenres.Rx,
+            cube->screenres.Ry);
+    cube->mlx.addr = (int *)mlx_get_data_addr(cube->mlx.img_ptr,
+    &cube->mlx.bits_per_pixel, &cube->mlx.size_line, &cube->mlx.endian);
 	if (cube->utilities.save == 1)
 		ft_visual(cube);
-	cube->mlx.img_ptr = mlx_new_image(cube->mlx.mlx_ptr, cube->screenres.Rx,
-			cube->screenres.Ry);
-	cube->mlx.addr = (int *)mlx_get_data_addr(cube->mlx.img_ptr,
-	&cube->mlx.bits_per_pixel, &cube->mlx.size_line, &cube->mlx.endian);
 	cube->mlx.win_ptr = mlx_new_window(cube->mlx.mlx_ptr,
 	cube->screenres.Rx, cube->screenres.Ry, "Cub3D");
 	cube->mlx.img_ptr_swap = mlx_new_image(cube->mlx.mlx_ptr,

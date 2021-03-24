@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/31 14:50:02 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/01 16:33:33 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/24 09:05:53 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	ft_texture_column(v_list *cube)
 {
 	int	i;
 
-	i = cube->ray.drawstart;
+	i = cube->ray.drawstart - 1;
 	ft_texdir(cube);
 	cube->ray.step = 1.0 * cube->mlx.texture[0].height / cube->ray.lineheight;
 	cube->ray.texX = (int)(cube->ray.wallX *
@@ -64,17 +64,18 @@ static void	ft_texture_column(v_list *cube)
 			- cube->ray.texX - 1;
 	cube->ray.texPos = (cube->ray.drawstart - cube->screenres.Ry / 2 +
 			cube->ray.lineheight / 2) * cube->ray.step;
-	while (i <= cube->ray.drawend)
+	while (++i <= cube->ray.drawend)
 	{
 		cube->ray.texY = (int)cube->ray.texPos &
 			(cube->mlx.texture[cube->mlx.texDir].height - 1);
 		cube->ray.texPos += cube->ray.step;
+		if (i < cube->screenres.Ry &&
+				cube->ray.raycounter < cube->screenres.Rx)
 		cube->mlx.addr[i * cube->mlx.size_line / 4 +
 				cube->ray.raycounter] =
 				cube->mlx.texture[cube->mlx.texDir].addr[cube->ray.texY
 				* cube->mlx.texture[cube->mlx.texDir].size_line / 4
 				+ cube->ray.texX];
-		i++;
 	}
 
 }
@@ -97,20 +98,14 @@ void	ft_texture_place(v_list *cube)
 {
 	int	i;
 
-	i = 0;
-	while (i < cube->ray.drawstart)
-	{
+	i = -1;
+	while (++i < cube->ray.drawstart)
 		cube->mlx.addr[cube->mlx.size_line / 4 * i + cube->ray.raycounter] =
 			cube->texture_path.C;
-		i++;
-	}
 	if (i <= cube->ray.drawend)
 		ft_texture_column(cube);
-	i = cube->ray.drawend;
-	while (i < cube->screenres.Ry)
-	{
+	i = cube->ray.drawend - 1;
+	while (++i < cube->screenres.Ry)
 		cube->mlx.addr[cube->mlx.size_line / 4 * i + cube->ray.raycounter] =
 			cube->texture_path.F;
-		i++;
-	}
 }
