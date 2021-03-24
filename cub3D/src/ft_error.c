@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error_check.c                                   :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/27 11:16:37 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/18 11:47:22 by mdesalle         ###   ########.fr       */
+/*   Created: 2021/03/24 21:48:54 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/03/24 21:51:12 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,18 @@
 ** checks if the argument save is correctly given. returns 1 if yes, 0 if not.
 */
 
-int	ft_argsavecheck(char *argv, v_list *cube)
+int	ft_args(char *argv, v_list *c)
 {
 	int		i;
 	char	*save;
 
 	i = 0;
 	save = "--save";
-	cube->utilities.save = 0;
 	while (argv[i] == save[i])
 	{
 		if (argv[i] == '\0' && save[i] == '\0')
 		{
-			cube->utilities.save = 1;
+			c->uti.sve = 1;
 			return (1);
 		}
 		i++;
@@ -41,7 +40,7 @@ int	ft_argsavecheck(char *argv, v_list *cube)
 ** (.cub). returns 1 if yes, 0 if not.
 */
 
-int	ft_argnamecheck(char *argv)
+int	ft_argn(char *argv)
 {
 	int		i;
 	int		j;
@@ -61,9 +60,9 @@ int	ft_argnamecheck(char *argv)
 ** returns an error based on the given option.
 */
 
-int	ft_error(int option, v_list *cube)
+int	ft_error(int option, v_list *c)
 {
-	cube->utilities.error = 1;
+	c->uti.err = 1;
 	if (option == 0)
 		return (write(1, "Error\nInvalid argument\n", 23));
 	if (option == 1)

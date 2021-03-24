@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/27 10:51:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/18 15:40:07 by mdesalle         ###   ########.fr       */
+/*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/03/24 21:54:36 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <string.h>
 # include "../minilibX/mlx.h"
 
-# define BUFFER_SIZE 32
+# define BUFFER_SIZE = 32
 
 # define A 0
 # define S 1
@@ -38,311 +38,178 @@
 # define RIGHT_MOVE 1
 # define LEFT_MOVE 0
 
-# define CEILING 1
-# define FLOOR -1
-
-/*
-** linked list used for get_next_line.c
-*/
-
 typedef struct	s_list
 {
 	int	check;
 	int	reader;
 }				t_list;
 
-/*
-** linked list used accross all the code to store the necessary info about
-** the map, textures...
-*/
+typedef struct	s_fc
+{
+	int	c;
+	int	f;
 
-typedef struct s_ray
+	int	cre;
+	int	cgr;
+	int	cbl;
+
+	int	fre;
+	int	fgr;
+	int	fbl;
+}				t_fc;
+
+typedef struct	ray
 {
 	int	hit;
-	int	side;
+	int	sde;
 
-	int	mapX;
-	int	mapY;
+	int	mx;
+	int	my;
 
-	int	texX;
-	int	texY;
+	int	tx;
+	int	ty;
 
-	int	wallX;
+	int	wx;
 
-	int	stepX;
-	int	stepY;
+	int	sx;
+	int	sy;
 
-	int	drawstart;
-	int	drawend;
+	int	ds;
+	int	de;
 
-	int	lineheight;
-	int	raycounter;
+	int	lh;
+	int	rc;
 
-	double	step;
-	double	texPos;
+	double	stp;
+	double	txp;
 
-	double	posX;
-	double	posY;
+	double	px;
+	double	py;
 
-	double	dirX;
-	double	dirY;
+	double	dx;
+	double	dy;
 
-	double	planeX;
-	double	planeY;
+	double	plx;
+	double	ply;
 
-	double	time;
-	double	oldtime;
+	double	cx;
+	double	prp;
 
-	double	cameraX;
+	double	rdx;
+	double	rdy;
 
-	double	rayDirX;
-	double	rayDirY;
+	double	sdx;
+	double	sdy;
 
-	double	sideDistX;
-	double	sideDistY;
+	double	rs;
+	double	ms;
 
-	double	rotspeed;
-	double	movespeed;
-
-	double	deltaDistX;
-	double	deltaDistY;
-
-	double	perpwalldist;
+	double	ddx;
+	double	ddy;
 }				t_ray;
 
-typedef struct	s_player
+typedef struct	s_mlx
 {
-	int	Px;
-	int	Py;
-	int	orientation;
-}				t_player;
+	int	end;
+	int	tdr;
+	int	sl;
+	int	bpp;
+	void	*img;
+	void	*win;
+	void	*mlx;
+	unsigned int	*adr;
 
-typedef struct s_sprite
-{
-	int	drawstartX;
-	int	drawendX;
-
-	int	drawstartY;
-	int	drawendY;
-
-	int	*spriteorder;
-	int	spritecounter;
-
-	int	spritewidth;
-	int	spriteheight;
-
-	int	spritescreenX;
-
-	double	*Sx;
-	double	*Sy;
-
-	double	invDet;
-
-	double	transformX;
-	double	transformY;
-
-	double	spriteX;
-	double	spriteY;
-
-	double	*zbuffer;
-	double	*spritedistance;
-}				t_sprite;
-
-typedef struct s_texture
-{
-	int	*addr;
-	int	width;
-	int	height;
-	int	endian;
-	int	size_line;
-	int	bits_per_pixel;
-	char	*path;
-	void	*img_ptr;
-}				t_texture;
-
-typedef struct s_mlx
-{
-	int		*addr;
-	int		endian;
-	int		texDir;
-	int		size_line;
-	int		bits_per_pixel;
-	void		*img_ptr;
-	void		*win_ptr;
-	void		*mlx_ptr;
-
-	int		*addr_swap;
-	void		*img_ptr_swap;
-
-	t_texture	texture[5];
+	void	*isp;
+	unsigned int	*asp;
 }				t_mlx;
 
-typedef struct s_screenres
+typedef struct	s_map
 {
-	int	Rx;
-	int	Ry;
-	int	Sx;
-	int	Sy;
-}				t_screenres;
+	int	prx;
+	int	pry;
+	int	ori;
+	char	**map;
+}				t_map;
 
-typedef struct s_path
-{
-	char	*NO;
-	char	*SO;
-	char	*WE;
-	char	*EA;
-	int	C;
-	int	F;
-}				t_texture_path;
-
-typedef struct s_utilities
+typedef struct	s_uti
 {
 	int	i;
-	int	error;
-	int	check;
-	int	nboflines;
-	int	linelength;
-	int	counter;
-	int	mapstart;
-	int	exit;
-	int	save;
-}				t_utilities;
+	int	err;
+	int	nbl;
+	int	ll;
+	int	ctr;
+	int	mps;
+	int	ext;
+	int	sve;
+}				t_uti;
+
+typedef struct	s_spr
+{
+	int	dsx;
+	int	dex;
+
+	int	dsy;
+	int	dey;
+
+	int	*spo;
+	int	spc;
+
+	int	spw;
+	int	sph;
+
+	int	ssx;
+
+	double	*sx;
+	double	*sy;
+
+	double	inv;
+
+	double	tfx;
+	double	tfy;
+
+	double	spx;
+	double	spy;
+
+	double	*zbf;
+	double	*spd;
+}				t_spr;
+
+typedef	struct	s_res
+{
+	int	rx;
+	int	ry;
+	int	sx;
+	int	sy;
+}				t_res;
+
+typedef struct	t_tex
+{
+	int	*adr;
+	int	wdh;
+	int	hgt;
+	int	end;
+	int	sl;
+	int	bpp;
+	char	*pth;
+	void	*img;
+}				t_tex;
 
 typedef struct	s_mainlist
 {
-	int	**map;
-	t_ray		ray;
-	t_mlx		mlx;
-	t_sprite	sprite;
-	t_player	player;
-	t_utilities	utilities;
-	t_screenres	screenres;
-	t_texture_path	texture_path;
+	t_fc	fc;
+	t_ray	ray;
+	t_mlx	mlx;
+	t_map	map;
+	t_uti	uti;
+	t_spr	spr;
+	t_res	res;
+	t_tex	tex[5];
 }				v_list;
 
-/*
-** ft_resolution.c
-*/
+int	ft_map_valid(char *line, v_list *c);
 
-void			ft_resolution(char *line, v_list *cube);
-
-/*
-** ft_textures.c
-*/
-
-void			ft_textures(char *line, v_list *cube);
-void			ft_texture_place(v_list *cube);
-
-/*
-** ft_initiation.c
-*/
-
-int			ft_initiation(v_list *cube);
-
-/*
-** ft_map.c
-*/
-
-int				ft_wall_checker(v_list *cube);
-int				ft_wall_check(v_list *cube);
-int				ft_map_free(v_list *cube);
-int				ft_map_allocator(v_list *cube);
-int				ft_array_insert(char *line, v_list *cube);
-
-/*
-** ft_mapcheck.c
-*/
-
-int				ft_mapsize(char *line, v_list *cube);
-int				ft_mapvalid(char *line, v_list *cube);
-int				ft_player_position(v_list *cube);
-
-/*
-** ft_sprite.c
-*/
-
-void				ft_sprite_order(v_list *cube);
-void				ft_sprite_display(v_list *cube);
-
-/*
-** ft_sprite_utilities.c
-*/
-
-int				ft_sprite_position(v_list *cube);
-void				ft_sprite_sort(v_list *cube);
-
-/*
-** ft_keys.c
-*/
-
-int				ft_keycode(int keycode, v_list *cube);
-
-/*
-** ft_move.c
-*/
-
-void				ft_rotate_right(v_list *cube);
-void				ft_rotate_left(v_list *cube);
-void				ft_move_vertical(v_list *cube, int option);
-void				ft_move_horizontal(v_list *cube, int option);
-
-/*
-** ft_visual_one.c
-*/
-
-void				ft_visual_initiation(v_list *cube);
-void				ft_orientation_initiation(v_list *cube);
-
-/*
-** ft_visual_two.c
-*/
-
-void				ft_height(v_list *cube);
-void				ft_delta(v_list *cube);
-
-/*
-** ft_exit.c
-*/
-
-int				ft_exit(v_list *cube);
-
-/*
-** get_next_line.c
-*/
-
-int				get_next_line(int fd, char **line);
-
-/*
-** get_next_line_utils.c
-*/
-
-size_t			ft_strlen(const char *s);
-char			*ft_substr(char const *s, unsigned int start, size_t len);
-char			*ft_strjoin(char const *s1, char const *s2);
-char			*ft_strcat_alpha(char *dest, char *src, int len);
-
-/*
-** ft_error_check.c
-*/
-
-int				ft_argnamecheck(char *argv);
-int				ft_argsavecheck(char *argv, v_list *cube);
-int				ft_error(int option, v_list *cube);
-
-/*
-** ft_utilities_one.c
-*/
-
-int				ft_atoi_char(char c);
-size_t				ft_strlen_alpha(const char *s);
-char				*ft_strchr(const char *s, int c);
-void				ft_pixel_get(v_list *cube, int i, int j, int *rgb);
-void				ft_mlx_swap(v_list *cube);
-
-/*
-** ft_save.c
-*/
-
-int				ft_save(v_list *cube);
+int	ft_args(char *argv, v_list *c);
+int	ft_argn(char *argv);
+int	ft_error(int option, v_list *c);
 
 #endif
