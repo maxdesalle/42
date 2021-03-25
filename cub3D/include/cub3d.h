@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 10:41:31 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/03/25 11:09:41 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,6 +218,8 @@ int				ft_exit(v_list *c);
 
 int				ft_key(int key, v_list *c);
 int				ft_start(v_list *c);
+
+int				ft_sprisual(v_list *c);
 
 size_t                  ft_strlen(const char *s);
 char                    *ft_substr(char const *s, unsigned int start, size_t len);
