@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/24 21:54:36 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/25 10:11:07 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,10 +206,35 @@ typedef struct	s_mainlist
 	t_tex	tex[5];
 }				v_list;
 
-int	ft_map_valid(char *line, v_list *c);
+int				ft_map_valid(char *line, v_list *c);
 
-int	ft_args(char *argv, v_list *c);
-int	ft_argn(char *argv);
-int	ft_error(int option, v_list *c);
+int				ft_args(char *argv, v_list *c);
+int				ft_argn(char *argv);
+int				ft_error(int option, v_list *c);
+
+int                             get_next_line(int fd, char **line);
+
+size_t                  ft_strlen(const char *s);
+char                    *ft_substr(char const *s, unsigned int start, size_t len);
+char                    *ft_strjoin(char const *s1, char const *s2);
+char                    *ft_strcat_alpha(char *dest, char *src, int len);
+
+int				ft_save(v_list *c);
+
+void				ft_visinit(v_list *c);
+void				ft_orinit(v_list *c);
+
+void				ft_height(v_list *c);
+void				ft_delta(v_list *c);
+
+int				ft_key(int key, v_list *c);
+
+void				ft_rright(v_list *c);
+void				ft_rleft(v_list *c);
+void				ft_vertical(v_list *c, int option);
+void				ft_horizontal(v_list *c, int option);
+
+void			ft_tex(char *line, v_list *c);
+void			ft_texplace(v_list *c);
 
 #endif

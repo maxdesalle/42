@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/24 19:54:25 by mdesalle          #+#    #+#              #
-#    Updated: 2021/03/24 21:52:02 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/03/25 10:09:37 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,15 @@ MLX = libmlx.dylib
 
 SRC = src/cub3d.c \
       src/ft_map_check.c \
-      sr/ft_error.c \
+      src/ft_error.c \
+      src/get_next_line.c \
+      src/get_next_line_utils.c \
+      src/ft_save.c \
+      src/ft_init.c \
+      src/ft_dh.c \
+      src/ft_key.c \
+      src/ft_move \
+      src/ft_texture \
 
 OBJ = $(SRC:.c=.o)
 

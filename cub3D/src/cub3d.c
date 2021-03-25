@@ -6,11 +6,67 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/24 21:47:54 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/25 08:30:24 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+static int	ft_raycast(v_list *c)
+{
+	if (c->uti.ext == 0)
+		return (0) ;
+	c->ray.rc = 0;
+	while (c->ray.rc < c->res.rx)
+	{
+		ft_visinit(c);
+		ft_texplace(c);
+		c->spr.zbf[c->ray.rc] = c->ray.prp;
+		c->ray.rc++;
+	}
+	ft_sprisual(c);
+	if (c->uti.sve == 1)
+		ft_save(c);
+	mlx_put_image_to_window(c->mlx.mlx, c->mlx.win, c->mlx.img, 0, 0);
+	ft_swap(c);
+	return (0);
+}
+
+static void	ft_start(v_list *c)
+{
+	c->uti.ext = 0;
+	mlx_hook(c->mlx.win, 17, 0, ft_exit, c);
+	mlx_hook(c->mlx.win, 2, 0, ft_key, c);
+	mlx_loop_hook(c->mlx.mlx, ft_raycast, c);
+	mlx_loop(c->mlx.mlx);
+}
+
+static int	ft_mlx(v_list *c)
+{
+	if (c->uti.err == 1)
+		return (0);
+	ft_orinit(c);
+	ft_tex(c);
+	c->mlx.mlx = mlx_init();
+	if (!(c->mlx.mlx))
+		return (ft_error(6, c));
+	mlx_get_screen_size(c->mlx.mlx, &c->res.sx, &c->res.sy);
+	if (c->res.rx > c->res.sx)
+		c->res.rx = c->res.sx;
+	if (c->res.ry > c->res.sy)
+		c->res.ry = c->res.sy;
+	c->mlx.img = mlx_new_image(c->mlx.mlx, c->res.rx, c->res.ry);
+	c->mlx.adr = (unsigned int *)mlx_get_data_addr(c->mlx.img,
+			&c->mlx.bpp, &c->mlx.sl, &c->mlx.end);
+	if (c->uti.sve == 1)
+		ft_raycast(c);
+	c->mlx.win = mlx_new_window(c->mlx.mlx, c->res.rx, c->res.ry, "Cub3D");
+	c->mlx.isp = mlx_new_image(c->mlx.mlx, c->res.rx, c->res.ry);
+	c->mlx.asp = (unsigned int *)mlx_get_data_addr(c->mlx.isp,
+			&c->mlx.bpp, &c->mlx.sl, &c->mlx.end);
+	ft_start(c);
+	return (0);
+}
 
 static int	ft_analytics(char *mapfile, v_list *c)
 {
