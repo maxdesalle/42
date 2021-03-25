@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 10:11:07 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/03/25 10:41:31 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,7 +184,7 @@ typedef	struct	s_res
 
 typedef struct	t_tex
 {
-	int	*adr;
+	unsigned int	*adr;
 	int	wdh;
 	int	hgt;
 	int	end;
@@ -214,6 +214,11 @@ int				ft_error(int option, v_list *c);
 
 int                             get_next_line(int fd, char **line);
 
+int				ft_exit(v_list *c);
+
+int				ft_key(int key, v_list *c);
+int				ft_start(v_list *c);
+
 size_t                  ft_strlen(const char *s);
 char                    *ft_substr(char const *s, unsigned int start, size_t len);
 char                    *ft_strjoin(char const *s1, char const *s2);
@@ -227,12 +232,15 @@ void				ft_orinit(v_list *c);
 void				ft_height(v_list *c);
 void				ft_delta(v_list *c);
 
-int				ft_key(int key, v_list *c);
-
 void				ft_rright(v_list *c);
 void				ft_rleft(v_list *c);
 void				ft_vertical(v_list *c, int option);
 void				ft_horizontal(v_list *c, int option);
+
+size_t				ft_strlen(const char *s);
+char				*ft_strchr(const char *s, int c);
+void				ft_swap(v_list *c);
+void				ft_init(v_list *c);
 
 void			ft_tex(char *line, v_list *c);
 void			ft_texplace(v_list *c);

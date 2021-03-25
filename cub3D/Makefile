@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/24 19:54:25 by mdesalle          #+#    #+#              #
-#    Updated: 2021/03/25 10:09:37 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/03/25 10:42:01 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,11 +26,12 @@ SRC = src/cub3d.c \
       src/get_next_line.c \
       src/get_next_line_utils.c \
       src/ft_save.c \
-      src/ft_init.c \
       src/ft_dh.c \
       src/ft_key.c \
       src/ft_move \
       src/ft_texture \
+      src/ft_exit.c \
+      src/ft_utils.c \
 
 OBJ = $(SRC:.c=.o)
 

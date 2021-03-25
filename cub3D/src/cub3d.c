@@ -6,11 +6,31 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 08:30:24 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/25 10:32:01 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+static int	ft_compute(v_list *c)
+{
+	int	i;
+
+	i = 0;
+	while (i <= 4)
+	{
+		c->tex[i].img = mlx_xpm_file_to_image( c->mlx.mlx,
+			c->tex[i].pth, &c->tex[i].wdh, &c->tex[i].hgt);
+		if (!(c->tex[i].img))
+			return (ft_error(6, c));
+		c->tex[i].adr = (unsigned int *)mlx_get_data_addr(c->tex[i]
+			.img, &c->tex[i].bpp, &c->tex[i].sl, &c->tex[i].end);
+		if (!(c->tex[i].adr))
+			return (ft_error(6, c));
+		i++;
+	}
+	return (0);
+}
 
 static int	ft_raycast(v_list *c)
 {
@@ -32,21 +52,12 @@ static int	ft_raycast(v_list *c)
 	return (0);
 }
 
-static void	ft_start(v_list *c)
-{
-	c->uti.ext = 0;
-	mlx_hook(c->mlx.win, 17, 0, ft_exit, c);
-	mlx_hook(c->mlx.win, 2, 0, ft_key, c);
-	mlx_loop_hook(c->mlx.mlx, ft_raycast, c);
-	mlx_loop(c->mlx.mlx);
-}
-
 static int	ft_mlx(v_list *c)
 {
 	if (c->uti.err == 1)
 		return (0);
 	ft_orinit(c);
-	ft_tex(c);
+	ft_compute(c);
 	c->mlx.mlx = mlx_init();
 	if (!(c->mlx.mlx))
 		return (ft_error(6, c));
