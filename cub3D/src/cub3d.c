@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 10:32:01 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/25 18:40:21 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ static int	ft_analytics(char *mapfile, v_list *c)
 	char	*line;
 
 	ft_init(c);
+	ft_count(mapfile, c);
 	fd = open(mapfile, O_RDONLY);
 	if (fd == -1)
 		return (ft_error(3, c));

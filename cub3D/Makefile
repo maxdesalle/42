@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/24 19:54:25 by mdesalle          #+#    #+#              #
-#    Updated: 2021/03/25 11:09:20 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/03/25 19:24:11 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC = src/cub3d.c \
       src/ft_exit.c \
       src/ft_utils.c \
       src/ft_sprisual.c \
+      src/ft_map.c \
 
 OBJ = $(SRC:.c=.o)
 

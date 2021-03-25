@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:34:25 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 10:41:51 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/25 18:44:26 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,28 @@ void	ft_init(v_list *c)
 	c->uti.mps = 0;
 	c->uti.ext = 0;
 	c->uti.sve = 0;
+}
+
+int	ft_count(char *mapfile, v_list *c)
+{
+	int	fd;
+	char	*line;
+
+	fd = open(mapfile, O_RDONLY);
+	if (fd == -1)
+		return (ft_error(3, c));
+	while (get_next_line(fd, &line) == 1)
+	{
+		if (ft_mapvalid(line, c) == 1)
+			if (c->uti.ms != 1)
+				c->uti.ms = 1;
+		if (c->uti.ms == 1)
+			c->uti.nbl++;
+		free(line);
+	}
+	close(fd);
+	c->map.map = malloc(c->uti.nbl * sizeof(char *));
+	if (!(c->map.map))
+                return (ft_error(5, c));
+	return (0);
 }
