@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:15:27 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 10:29:31 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/26 08:43:36 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_key(int key, v_list *c)
 	if (key == D)
 		ft_horizontal(c, 1);
 	if (key == W || key == FORWARD)
-		ft_vertical(cube, 1);
+		ft_vertical(c, 1);
 	if (key == S || key == BACKWARD)
 		ft_vertical(c, 0);
 	if (key == ESC)

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:03:57 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/24 21:57:05 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/03/26 10:56:36 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_map_valid(char *line, v_list *c)
 		return (0);
 	if (ft_strchr(line, '1') || ft_strchr(line, '0'))
 	{
-		while (line[i] != '\0')
+		while (line[i])
 		{
 			if (!(line[i] == ' ' || line[i] == '0'
 					|| line[i] == '1' || line[i] == '2'
@@ -43,12 +43,15 @@ int	ft_map_valid(char *line, v_list *c)
 					|| line[i] == 'E' || line[i] == 'W'
 					|| (line[i] >= 9 && line[i] <= 13)))
 			{
-				if (c->uti.mps == 1)
+				if (c->uti.mps == 1 && c->uti.chk == 1)
 					return (ft_error(4, c));
 				return (0);
 			}
 			i++;
 		}
+		if (c->uti.mps != 1 && c->uti.chk == 1)
+			c->uti.mps = 1;
 		return (1);
 	}
+	return (0);
 }

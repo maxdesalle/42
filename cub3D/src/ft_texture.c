@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 10:09:26 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/26 08:46:19 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	ft_path(char *line, int type, v_list *c)
 		return (ft_error(2, c));
 }
 
-static void	ft_texdir(v_list *cube)
+static void	ft_texdir(v_list *c)
 {
 	if (c->ray.sde == 0 && c->ray.rdx < 0)
 		c->mlx.tdr = 0;
@@ -52,7 +52,7 @@ static void	ft_texcol(v_list *c)
 	int	i;
 
 	i = c->ray.ds - 1;
-	ft_texdir(cube);
+	ft_texdir(c);
 	c->ray.stp = 1.0 * c->tex[0].hgt / c->ray.lh;
 	c->ray.tx = (int)(c->ray.wx * (double)c->tex[c->mlx.tdr].wdh);
 	if (c->ray.sde == 0 && c->ray.rdx > 0)
@@ -66,8 +66,8 @@ static void	ft_texcol(v_list *c)
 		c->ray.txp += c->ray.stp;
 		if (i < c->res.ry && c->ray.rc < c->res.rx)
 			c->mlx.adr[i * c->mlx.sl / 4 + c->ray.rc] =
-				c->mlx.tex[c->mlx.tdr].adr[c->ray.ty
-				* c->mlx.tex[c->mlx.tdr].sl / 4 + c->ray.tx];
+				c->tex[c->mlx.tdr].adr[c->ray.ty
+				* c->tex[c->mlx.tdr].sl / 4 + c->ray.tx];
 	}
 }
 
@@ -79,7 +79,7 @@ void	ft_texplace(v_list *c)
 	while (++i < c->ray.ds)
 		c->mlx.adr[c->mlx.sl / 4 * i + c->ray.rc] = c->fc.c;
 	if (i <= c->ray.de)
-		ft_texcol(cube);
+		ft_texcol(c);
 	i = c->ray.de - 1;
 	while (++i < c->res.ry)
 		c->mlx.adr[c->mlx.sl / 4 * i + c->ray.rc] = c->fc.f;

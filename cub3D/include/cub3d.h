@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 19:23:38 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/03/26 10:56:04 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <string.h>
 # include "../minilibX/mlx.h"
 
-# define BUFFER_SIZE = 32
+# define BUFFER_SIZE 32
 
 # define A 0
 # define S 1
@@ -141,6 +141,7 @@ typedef struct	s_uti
 	int	mps;
 	int	ext;
 	int	sve;
+	int	chk;
 }				t_uti;
 
 typedef struct	s_spr
@@ -206,6 +207,8 @@ typedef struct	s_mainlist
 	t_tex	tex[5];
 }				v_list;
 
+int				ft_raycast(v_list *c);
+
 int				ft_map_valid(char *line, v_list *c);
 
 int				ft_args(char *argv, v_list *c);
@@ -217,9 +220,10 @@ int                             get_next_line(int fd, char **line);
 int				ft_exit(v_list *c);
 
 int				ft_key(int key, v_list *c);
-int				ft_start(v_list *c);
+void				ft_start(v_list *c);
 
-int				ft_sprisual(v_list *c);
+void				ft_order(v_list *c);
+void				ft_sprisual(v_list *c);
 
 size_t                  ft_strlen(const char *s);
 char                    *ft_substr(char const *s, unsigned int start, size_t len);
@@ -249,5 +253,10 @@ void			ft_tex(char *line, v_list *c);
 void			ft_texplace(v_list *c);
 
 int				ft_map(char *line, v_list *c);
+
+void			ft_res(char *line, v_list *c);
+
+void			ft_sort(v_list *c);
+void			ft_sprosition(v_list *c);
 
 #endif

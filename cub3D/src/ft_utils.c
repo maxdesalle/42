@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:34:25 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 18:44:26 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/03/26 10:37:29 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	int	i;
 
 	i = 0;
+	if (s == 0)
+		return (0);
 	while (s[i] != '\0')
 		i++;
 	return (i);
@@ -70,11 +72,15 @@ int	ft_count(char *mapfile, v_list *c)
 		return (ft_error(3, c));
 	while (get_next_line(fd, &line) == 1)
 	{
-		if (ft_mapvalid(line, c) == 1)
-			if (c->uti.ms != 1)
-				c->uti.ms = 1;
-		if (c->uti.ms == 1)
+		if (ft_map_valid(line, c) == 1)
+			if (c->uti.mps != 1)
+				c->uti.mps = 1;
+		if (c->uti.mps == 1)
+		{
 			c->uti.nbl++;
+			if ((int)ft_strlen(line) > c->uti.ll)
+				c->uti.ll = (int)ft_strlen(line);
+		}
 		free(line);
 	}
 	close(fd);

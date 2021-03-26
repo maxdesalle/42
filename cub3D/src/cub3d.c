@@ -6,11 +6,12 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 18:40:21 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/03/26 11:56:11 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+#include <stdio.h>
 
 static int	ft_compute(v_list *c)
 {
@@ -32,23 +33,24 @@ static int	ft_compute(v_list *c)
 	return (0);
 }
 
-static int	ft_raycast(v_list *c)
+int	ft_raycast(v_list *c)
 {
 	if (c->uti.ext == 0)
-		return (0) ;
-	c->ray.rc = 0;
-	while (c->ray.rc < c->res.rx)
 	{
-		ft_visinit(c);
-		ft_texplace(c);
-		c->spr.zbf[c->ray.rc] = c->ray.prp;
-		c->ray.rc++;
+		c->ray.rc = 0;
+		while (c->ray.rc < c->res.rx)
+		{
+			ft_visinit(c);
+			ft_texplace(c);
+			c->spr.zbf[c->ray.rc] = c->ray.prp;
+			c->ray.rc++;
+		}
+		ft_sprisual(c);
+		if (c->uti.sve == 1)
+			ft_save(c);
+		mlx_put_image_to_window(c->mlx.mlx, c->mlx.win, c->mlx.img, 0, 0);
+		ft_swap(c);
 	}
-	ft_sprisual(c);
-	if (c->uti.sve == 1)
-		ft_save(c);
-	mlx_put_image_to_window(c->mlx.mlx, c->mlx.win, c->mlx.img, 0, 0);
-	ft_swap(c);
 	return (0);
 }
 
@@ -79,13 +81,30 @@ static int	ft_mlx(v_list *c)
 	return (0);
 }
 
+static void	test(v_list *c)
+{
+	int	i;
+	int	j;
+
+	j = -1;
+	while (++j < c->uti.nbl)
+	{
+		i = -1;
+		while (++i < c->uti.ll)
+			printf("%c", c->map.map[j][i]);
+		printf("\n");
+	}
+}
+
 static int	ft_analytics(char *mapfile, v_list *c)
 {
 	int		fd;
 	char	*line;
 
 	ft_init(c);
+	c->uti.chk = 1;
 	ft_count(mapfile, c);
+	c->uti.chk = 0;
 	fd = open(mapfile, O_RDONLY);
 	if (fd == -1)
 		return (ft_error(3, c));
@@ -98,6 +117,7 @@ static int	ft_analytics(char *mapfile, v_list *c)
 	}
 	close(fd);
 	ft_mlx(c);
+	test(c);
 	return (0);
 }
 

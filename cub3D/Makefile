@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/24 19:54:25 by mdesalle          #+#    #+#              #
-#    Updated: 2021/03/25 19:24:11 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/03/26 10:41:37 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = cub3D
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -fsanitize=address
 
 MLX_DIR = minilibX
 
@@ -28,12 +28,15 @@ SRC = src/cub3d.c \
       src/ft_save.c \
       src/ft_dh.c \
       src/ft_key.c \
-      src/ft_move \
-      src/ft_texture \
+      src/ft_move.c \
+      src/ft_texture.c \
       src/ft_exit.c \
       src/ft_utils.c \
       src/ft_sprisual.c \
       src/ft_map.c \
+      src/ft_res.c \
+      src/ft_sprutils.c \
+      src/ft_visinit.c
 
 OBJ = $(SRC:.c=.o)
 

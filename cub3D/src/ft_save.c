@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@s19.be>                  +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 09:59:55 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 08:37:22 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/26 08:42:35 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	ft_ihead(v_list *c, int fd)
 ** in the column processing, write the value of the address of the mlx loop
 */ 
 
-int			ft_save(v_list *cube)
+int			ft_save(v_list *c)
 {
 	int	i;
 	int	j;
