@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/26 08:46:19 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/26 17:01:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,9 @@ static void	ft_texcol(v_list *c)
 	{
 		c->ray.ty = (int)c->ray.txp & (c->tex[c->mlx.tdr].hgt - 1);
 		c->ray.txp += c->ray.stp;
-		if (i < c->res.ry && c->ray.rc < c->res.rx)
-			c->mlx.adr[i * c->mlx.sl / 4 + c->ray.rc] =
-				c->tex[c->mlx.tdr].adr[c->ray.ty
-				* c->tex[c->mlx.tdr].sl / 4 + c->ray.tx];
+		c->mlx.adr[i * c->mlx.sl / 4 + c->ray.rc] =
+			c->tex[c->mlx.tdr].adr[c->ray.ty
+			* c->tex[c->mlx.tdr].sl / 4 + c->ray.tx];
 	}
 }
 

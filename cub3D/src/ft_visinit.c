@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 08:42:04 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/26 09:23:22 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:54:11 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	ft_hit(v_list *c)
 			c->ray.my += c->ray.sy;
 			c->ray.sde = 1;
 		}
-		if (c->map.map[c->ray.my][c->ray.mx] == 1)
+		if (c->map.map[c->ray.my][c->ray.mx] == '1')
 			c->ray.hit = 1;
 	}
 }

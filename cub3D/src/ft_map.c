@@ -6,14 +6,14 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:56:14 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/26 11:54:52 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:49:00 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 #include <stdio.h>
 
-static char	ft_return(char a, v_list *c)
+static char	ft_return(char a, v_list *c, int j, int i)
 {
 	if (a == '0' || a == '1' || a == '2')
 		return (a);
@@ -21,6 +21,10 @@ static char	ft_return(char a, v_list *c)
 		return ('1');
 	else if (a == 'N' || a == 'E' || a == 'S' || a == 'W')
 	{
+		c->ray.px = (double)i + 0.5;
+		c->ray.py = (double)j + 0.5;
+		c->map.prx = i;
+		c->map.pry = j;
 		if (a == 'N')
 			c->map.ori = 3;
 		else if (a == 'E')
@@ -50,7 +54,7 @@ static void	ft_insert(char *line, v_list *c)
 			while (k-- > 0)
 				c->map.map[j][i++] = '1';
 		}
-		c->map.map[j][i] = ft_return(line[i], c);
+		c->map.map[j][i] = ft_return(line[i], c, j, i);
 	}
 	k = c->uti.ll - i;
 	while (k-- > 0)
