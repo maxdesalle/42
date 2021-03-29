@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/26 17:01:59 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/29 09:51:24 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static int	ft_compute(v_list *c)
 {
 	int	i;
 
-	i = 0;
-	while (i <= 4)
+	i = -1;
+	while (++i <= 4)
 	{
-		c->tex[i].img = mlx_xpm_file_to_image( c->mlx.mlx,
+		c->tex[i].img = mlx_xpm_file_to_image(c->mlx.mlx,
 			c->tex[i].pth, &c->tex[i].wdh, &c->tex[i].hgt);
 		if (!(c->tex[i].img))
 			return (ft_error(6, c));
@@ -28,7 +28,6 @@ static int	ft_compute(v_list *c)
 			.img, &c->tex[i].bpp, &c->tex[i].sl, &c->tex[i].end);
 		if (!(c->tex[i].adr))
 			return (ft_error(6, c));
-		i++;
 	}
 	return (0);
 }
@@ -59,10 +58,10 @@ static int	ft_mlx(v_list *c)
 	if (c->uti.err == 1)
 		return (0);
 	ft_orinit(c);
-	ft_compute(c);
 	c->mlx.mlx = mlx_init();
 	if (!(c->mlx.mlx))
 		return (ft_error(6, c));
+	ft_compute(c);
 	mlx_get_screen_size(c->mlx.mlx, &c->res.sx, &c->res.sy);
 	if (c->res.rx > c->res.sx)
 		c->res.rx = c->res.sx;
@@ -81,21 +80,6 @@ static int	ft_mlx(v_list *c)
 	return (0);
 }
 
-static void	test(v_list *c)
-{
-	int	i;
-	int	j;
-
-	j = -1;
-	while (++j < c->uti.nbl)
-	{
-		i = -1;
-		while (++i < c->uti.ll)
-			printf("%c", c->map.map[j][i]);
-		printf("\n");
-	}
-}
-
 static int	ft_analytics(char *mapfile, v_list *c)
 {
 	int		fd;
@@ -111,13 +95,14 @@ static int	ft_analytics(char *mapfile, v_list *c)
 	while (get_next_line(fd, &line) == 1)
 	{
 		ft_res(line, c);
+		ft_tex(line, c);
 		if (ft_map_valid(line, c) == 1)
 			ft_map(line, c);
 		free(line);
 	}
 	close(fd);
+	ft_sprosition(c);
 	ft_mlx(c);
-	test(c);
 	return (0);
 }
 
