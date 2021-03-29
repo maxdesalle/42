@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:21:12 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/25 09:44:57 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/29 13:48:38 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_rleft(v_list *c)
 	double	opx;
 
 	odx = c->ray.dx;
-	opx = c->ray.px;
+	opx = c->ray.plx;
 	c->ray.dx = c->ray.dx * cos(c->ray.rs) - c->ray.dy * sin(c->ray.rs);
 	c->ray.dy = odx * sin(c->ray.rs) + c->ray.dy * cos(c->ray.rs);
 	c->ray.plx = c->ray.plx * cos(c->ray.rs) -

@@ -6,12 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/29 09:51:24 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/29 13:45:18 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-#include <stdio.h>
 
 static int	ft_compute(v_list *c)
 {
@@ -36,17 +35,16 @@ int	ft_raycast(v_list *c)
 {
 	if (c->uti.ext == 0)
 	{
-		c->ray.rc = 0;
-		while (c->ray.rc < c->res.rx)
+		c->ray.rc = -1;
+		while (++c->ray.rc < c->res.rx)
 		{
 			ft_visinit(c);
 			ft_texplace(c);
 			c->spr.zbf[c->ray.rc] = c->ray.prp;
-			c->ray.rc++;
 		}
 		ft_sprisual(c);
 		if (c->uti.sve == 1)
-			ft_save(c);
+			return (ft_save(c));
 		mlx_put_image_to_window(c->mlx.mlx, c->mlx.win, c->mlx.img, 0, 0);
 		ft_swap(c);
 	}
