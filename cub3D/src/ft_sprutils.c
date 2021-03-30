@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:53:27 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/29 09:51:54 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/03/30 08:34:32 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ void	ft_sprosition(v_list *c)
 	while (++j < c->uti.nbl)
 	{
 		i = -1;
-		while (++i < c->uti.nbl)
+		while (++i < c->uti.ll)
 		{
-			if (c->map.map[j][i] == 2)
+			if (c->map.map[j][i] == '2')
 			{
 				c->spr.sx[k] = (double)i + 0.5;
 				c->spr.sy[k] = (double)j + 0.5;
