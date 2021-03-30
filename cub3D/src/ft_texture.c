@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/29 13:37:05 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/03/30 09:29:15 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void	ft_texplace(v_list *c)
 	int	i;
 
 	i = -1;
+	c->fc.c = 0 << 24 | c->fc.cre << 16 | c->fc.cgr << 8 | c->fc.cbl;
+	c->fc.f = 0 << 24 | c->fc.fre << 16 | c->fc.fgr << 8 | c->fc.fbl;
 	while (++i < c->ray.ds)
 		c->mlx.adr[c->mlx.sl / 4 * i + c->ray.rc] = c->fc.c;
 	if (i <= c->ray.de)

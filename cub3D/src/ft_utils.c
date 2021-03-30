@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:34:25 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/26 10:37:29 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/30 09:02:13 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	ft_init(v_list *c)
 	c->uti.ctr = 0;
 	c->uti.mps = 0;
 	c->uti.ext = 0;
-	c->uti.sve = 0;
 }
 
 int	ft_count(char *mapfile, v_list *c)

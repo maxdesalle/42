@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/26 10:56:04 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/03/30 09:14:13 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,6 +253,7 @@ void			ft_tex(char *line, v_list *c);
 void			ft_texplace(v_list *c);
 
 int				ft_map(char *line, v_list *c);
+void				ft_mfree(v_list *c);
 
 void			ft_res(char *line, v_list *c);
 

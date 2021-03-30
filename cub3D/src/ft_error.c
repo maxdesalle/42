@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:48:54 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/24 21:51:12 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/30 09:02:36 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	ft_args(char *argv, v_list *c)
 
 	i = 0;
 	save = "--save";
+	c->uti.sve = 0;
 	while (argv[i] == save[i])
 	{
 		if (argv[i] == '\0' && save[i] == '\0')

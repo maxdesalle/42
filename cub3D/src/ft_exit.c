@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:14:05 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/26 08:46:59 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/30 09:07:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_exit(v_list *c)
 {
 	c->uti.ext = 1;
-/*	ft_mfree(c);*/
+	ft_mfree(c);
 	free(c->spr.sx);
 	free(c->spr.sy);
 	free(c->spr.spd);
