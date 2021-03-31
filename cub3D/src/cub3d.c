@@ -6,12 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/30 09:19:11 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/31 11:27:13 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-#include <stdio.h>
 
 static int	ft_compute(v_list *c)
 {
@@ -54,7 +53,6 @@ int	ft_raycast(v_list *c)
 
 static int	ft_mlx(v_list *c)
 {
-	printf("%d\n", c->fc.c);
 	if (c->uti.err == 1)
 		return (0);
 	ft_orinit(c);
@@ -67,6 +65,8 @@ static int	ft_mlx(v_list *c)
 		c->res.rx = c->res.sx;
 	if (c->res.ry > c->res.sy)
 		c->res.ry = c->res.sy;
+	c->fc.c = 0 << 24 | c->fc.cre << 16 | c->fc.cgr << 8 | c->fc.cbl;
+        c->fc.f = 0 << 24 | c->fc.fre << 16 | c->fc.fgr << 8 | c->fc.fbl;
 	c->mlx.img = mlx_new_image(c->mlx.mlx, c->res.rx, c->res.ry);
 	c->mlx.adr = (unsigned int *)mlx_get_data_addr(c->mlx.img,
 			&c->mlx.bpp, &c->mlx.sl, &c->mlx.end);

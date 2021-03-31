@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:14:05 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/30 09:07:10 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/30 09:42:29 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	ft_exit(v_list *c)
 		mlx_destroy_image(c->mlx.mlx, c->tex[3].img);
 	if (c->tex[4].img)
 		mlx_destroy_image(c->mlx.mlx, c->tex[4].img);
-	if (c->mlx.win)
-		mlx_destroy_window(c->mlx.mlx, c->mlx.win);
+/*	if (c->mlx.win)
+		mlx_destroy_window(c->mlx.mlx, c->mlx.win);*/
 	exit(0);
 	return (0);
 }

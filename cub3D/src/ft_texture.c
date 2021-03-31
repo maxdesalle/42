@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/30 09:29:15 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/03/31 09:34:56 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ static void	ft_texcol(v_list *c)
 {
 	int	i;
 
-	i = c->ray.ds - 1;
 	ft_texdir(c);
+	i = c->ray.ds - 1;
 	c->ray.stp = 1.0 * c->tex[0].hgt / c->ray.lh;
 	c->ray.tx = (int)(c->ray.wx * (double)c->tex[c->mlx.tdr].wdh);
 	if (c->ray.sde == 0 && c->ray.rdx > 0)
@@ -64,9 +64,9 @@ static void	ft_texcol(v_list *c)
 	{
 		c->ray.ty = (int)c->ray.txp & (c->tex[c->mlx.tdr].hgt - 1);
 		c->ray.txp += c->ray.stp;
-		c->mlx.adr[i * c->mlx.sl / 4 + c->ray.rc] =
-			c->tex[c->mlx.tdr].adr[c->ray.ty
-			* c->tex[c->mlx.tdr].sl / 4 + c->ray.tx];
+		c->mlx.adr[c->mlx.sl / 4 * i + c->ray.rc] =
+			c->tex[c->mlx.tdr].adr[c->tex[c->mlx.tdr].sl / 4 *
+			c->ray.ty + c->ray.tx];
 	}
 }
 
@@ -75,8 +75,6 @@ void	ft_texplace(v_list *c)
 	int	i;
 
 	i = -1;
-	c->fc.c = 0 << 24 | c->fc.cre << 16 | c->fc.cgr << 8 | c->fc.cbl;
-	c->fc.f = 0 << 24 | c->fc.fre << 16 | c->fc.fgr << 8 | c->fc.fbl;
 	while (++i < c->ray.ds)
 		c->mlx.adr[c->mlx.sl / 4 * i + c->ray.rc] = c->fc.c;
 	if (i <= c->ray.de)
