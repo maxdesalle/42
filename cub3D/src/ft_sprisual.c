@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:45:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/26 09:13:04 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/01 18:36:53 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ void	ft_order(v_list *c)
 	while (++i < c->spr.spc)
 	{
 		c->spr.spo[i] = i;
-		c->spr.spd[i] = ((c->ray.px - c->spr.sx[i]) * (c->ray.px -
-			c->spr.sx[i]) + (c->ray.py - c->spr.sy[i])
-			* (c->ray.py - c->spr.sy[i]));
+		c->spr.spd[i] = ((c->ray.px - c->spr.sx[i]) * (c->ray.px
+					- c->spr.sx[i]) + (c->ray.py
+					- c->spr.sy[i])
+				* (c->ray.py - c->spr.sy[i]));
 	}
 }
 
@@ -48,10 +49,10 @@ static int	ft_draw(v_list *c, int i)
 	c->spr.spx = c->spr.sx[c->spr.spo[i]] - c->ray.px;
 	c->spr.spy = c->spr.sy[c->spr.spo[i]] - c->ray.py;
 	c->spr.inv = 1.0 / (c->ray.plx * c->ray.dy - c->ray.dx * c->ray.ply);
-	c->spr.tfx = c->spr.inv * (c->ray.dy * c->spr.spx -
-			c->ray.dx * c->spr.spy);
-	c->spr.tfy = c->spr.inv * (-c->ray.ply * c->spr.spx +
-			c->ray.plx * c->spr.spy);
+	c->spr.tfx = c->spr.inv * (c->ray.dy * c->spr.spx
+			- c->ray.dx * c->spr.spy);
+	c->spr.tfy = c->spr.inv * (-c->ray.ply * c->spr.spx
+			+ c->ray.plx * c->spr.spy);
 	c->spr.ssx = (int)((c->res.rx / 2) * (1 + c->spr.tfx / c->spr.tfy));
 	c->spr.sph = abs((int)(c->res.ry / c->spr.tfy));
 	ft_sprcalc(c);
@@ -65,9 +66,9 @@ static void	ft_sprender(v_list *c, int y, int tx, int stripe)
 
 	d = (y) * 256 - c->res.ry * 128 + c->spr.sph * 128;
 	ty = ((d * c->tex[4].hgt) / c->spr.sph) / 256;
-	if (c->tex[4].adr[ty * c->tex[4].sl / 4 + tx] != (unsigned)-16777216)
-		c->mlx.adr[y * c->mlx.sl / 4 + stripe] = c->tex[4].adr[ty *
-			c->tex[4].sl / 4 + tx];
+	if ((int)c->tex[4].adr[ty * c->tex[4].sl / 4 + tx] != -16777216)
+		c->mlx.adr[y * c->mlx.sl / 4 + stripe] = c->tex[4].adr[ty
+			* c->tex[4].sl / 4 + tx];
 }
 
 void	ft_sprisual(v_list *c)
@@ -83,11 +84,12 @@ void	ft_sprisual(v_list *c)
 		stripe = ft_draw(c, c->uti.i) - 1;
 		while (++stripe < c->spr.dex)
 		{
-			tx = (int)(256 * (stripe - (-c->spr.spw / 2 +
-				c->spr.ssx)) * c->tex[4].wdh /
-				c->spr.spw) / 256;
-			if (c->spr.tfy > 0 && stripe >= 0 && stripe < c->
-				res.rx && c->spr.tfy < c->spr.zbf[stripe])
+			tx = (int)(256 * (stripe - (-c->spr.spw / 2
+							+ c->spr.ssx))
+					* c->tex[4].wdh / c->spr.spw) / 256;
+			if (c->spr.tfy > 0 && stripe >= 0
+				&& stripe < c->res.rx
+				&& c->spr.tfy < c->spr.zbf[stripe])
 			{
 				y = c->spr.dsy - 1;
 				while (++y < c->spr.dey)

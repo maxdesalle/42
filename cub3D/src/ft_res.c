@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:07:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/26 10:33:37 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/01 17:25:33 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,22 @@ static int	ft_resvert(char *line, v_list *c)
 
 	result = 0;
 	while (line[c->uti.i] && ((line[c->uti.i] >= 9 && line[c->uti.i] <= 13)
-				|| line[c->uti.i] == ' '))
+			|| line[c->uti.i] == ' '))
 		c->uti.i++;
 	if (line[c->uti.i] == '+' || line[c->uti.i] == '-')
 		return (ft_error(1, c));
 	while (line[c->uti.i] && (line[c->uti.i] >= '0'
-				&& line[c->uti.i] <= '9'))
+			&& line[c->uti.i] <= '9'))
 		result = result * 10 + (line[c->uti.i++] - '0');
 	c->uti.i++;
 	return (result);
 }
 
-static void     ft_ceiling(char *line, v_list *c)
+static void	ft_ceiling(char *line, v_list *c)
 {
-	int     i;
+	int	i;
 	int	result;
-	int     counter;
+	int	counter;
 
 	i = 1;
 	counter = 0;
@@ -56,11 +56,11 @@ static void     ft_ceiling(char *line, v_list *c)
 	}
 }
 
-static void     ft_floor(char *line, v_list *c)
+static void	ft_floor(char *line, v_list *c)
 {
-	int     i;
+	int	i;
 	int	result;
-	int     counter;
+	int	counter;
 
 	i = 1;
 	counter = 0;

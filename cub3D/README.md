@@ -1,6 +1,8 @@
 # ```cub3D```
 The ```cub3D``` project is inspired by the world-famous eponymous 90’s game, which was the first FPS ever. The purpose of it is to explore ray-casting, by creating a dynamic view inside a maze.
 
+The way ray-casting works is that, from the player's perspective, rays are sent to each pixel column in order to calculate the distance at which these columns are from the player. This forces every game leveraging ray-casting to be in 2D, as it's essentially just bringing perspective in an image. Additionally, this makes it impossiblet to have vertical levels, so you can't have stairs, or jump in these types of games.
+
 <p align="center">
 	<img src="https://media.giphy.com/media/6G9sY8bDUueJKyR0fr/giphy.gif" width="50%" />
 </p>

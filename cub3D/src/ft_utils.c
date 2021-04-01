@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:34:25 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/30 09:02:13 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/04/01 18:11:26 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char    *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	if (c == '\0')
 	{
 		while (*s)
 			s++;
-		return ((char*)s);
+		return ((char *)s);
 	}
 	while (*s)
 		if (*s++ == c)
-			return ((char*)--s);
+			return ((char *)--s);
 	return (NULL);
 }
 
@@ -63,7 +63,7 @@ void	ft_init(v_list *c)
 
 int	ft_count(char *mapfile, v_list *c)
 {
-	int	fd;
+	int		fd;
 	char	*line;
 
 	fd = open(mapfile, O_RDONLY);
@@ -85,6 +85,6 @@ int	ft_count(char *mapfile, v_list *c)
 	close(fd);
 	c->map.map = malloc(c->uti.nbl * sizeof(char *));
 	if (!(c->map.map))
-                return (ft_error(5, c));
+		return (ft_error(5, c));
 	return (0);
 }

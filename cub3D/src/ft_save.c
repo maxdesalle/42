@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@s19.be>                  +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 09:59:55 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/30 09:04:35 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/01 17:57:51 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ static void	ft_ihead(v_list *c, int fd)
 ** it can't be done anohter way, because the image will be the other way around
 ** for each row, we process all the columns by initializing i to -1
 ** in the column processing, write the value of the address of the mlx loop
-*/ 
+*/
 
-int			ft_save(v_list *c)
+int	ft_save(v_list *c)
 {
 	int	i;
 	int	j;

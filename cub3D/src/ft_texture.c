@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 14:01:05 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/01 18:09:15 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ static void	ft_texcol(v_list *c)
 	{
 		c->ray.ty = (int)c->ray.txp & (c->tex[c->mlx.tdr].hgt - 1);
 		c->ray.txp += c->ray.stp;
-		c->mlx.adr[i * c->mlx.sl / 4 + c->ray.rc] =
-			c->tex[c->mlx.tdr].adr[c->tex[c->mlx.tdr].sl / 4 *
-			c->ray.ty + c->ray.tx];
+		c->mlx.adr[i * c->mlx.sl / 4 + c->ray.rc]
+			= c->tex[c->mlx.tdr].adr[c->tex[c->mlx.tdr].sl / 4
+			* c->ray.ty + c->ray.tx];
 	}
 }
 
@@ -89,11 +89,11 @@ void	ft_tex(char *line, v_list *c)
 	if (line[0] == 'N' && line[1] == 'O')
 		ft_path(line, 0, c);
 	if (line[0] == 'S' && line[1] == 'O')
-                ft_path(line, 1, c);
+		ft_path(line, 1, c);
 	if (line[0] == 'W' && line[1] == 'E')
-                ft_path(line, 2, c);
+		ft_path(line, 2, c);
 	if (line[0] == 'E' && line[1] == 'A')
-                ft_path(line, 3, c);
+		ft_path(line, 3, c);
 	if (line[0] == 'S' && line[1] == ' ')
 		ft_path(line, 4, c);
 }

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:53:27 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/30 08:34:32 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/01 18:08:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static int	ft_spralloc(v_list *c)
 
 void	ft_sort(v_list *c)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	double	k;
 
 	j = -1;

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:14:05 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/30 09:42:29 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/01 17:46:59 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_exit(v_list *c)
 {
-	c->uti.ext = 1;
 	ft_mfree(c);
 	free(c->spr.sx);
 	free(c->spr.sy);
@@ -23,6 +22,8 @@ int	ft_exit(v_list *c)
 	free(c->spr.zbf);
 	if (c->mlx.img)
 		mlx_destroy_image(c->mlx.mlx, c->mlx.img);
+	if (c->mlx.isp)
+		mlx_destroy_image(c->mlx.mlx, c->mlx.isp);
 	if (c->tex[0].img)
 		mlx_destroy_image(c->mlx.mlx, c->tex[0].img);
 	if (c->tex[1].img)
@@ -33,8 +34,8 @@ int	ft_exit(v_list *c)
 		mlx_destroy_image(c->mlx.mlx, c->tex[3].img);
 	if (c->tex[4].img)
 		mlx_destroy_image(c->mlx.mlx, c->tex[4].img);
-/*	if (c->mlx.win)
-		mlx_destroy_window(c->mlx.mlx, c->mlx.win);*/
+	if (c->mlx.win)
+		mlx_destroy_window(c->mlx.mlx, c->mlx.win);
 	exit(0);
 	return (0);
 }

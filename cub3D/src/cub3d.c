@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 10:09:42 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/01 17:27:38 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ static int	ft_compute(v_list *c)
 	while (++i <= 4)
 	{
 		c->tex[i].img = mlx_xpm_file_to_image(c->mlx.mlx,
-			c->tex[i].pth, &c->tex[i].hgt, &c->tex[i].wdh);
+				c->tex[i].pth, &c->tex[i].wdh, &c->tex[i].hgt);
 		if (!(c->tex[i].img))
 			return (ft_error(6, c));
-		c->tex[i].adr = (unsigned int *)mlx_get_data_addr(c->tex[i]
-			.img, &c->tex[i].bpp, &c->tex[i].sl, &c->tex[i].end);
+		c->tex[i].adr = (unsigned int *)mlx_get_data_addr(
+				c->tex[i].img, &c->tex[i].bpp, &c->tex[i].sl,
+				&c->tex[i].end);
 		if (!(c->tex[i].adr))
 			return (ft_error(6, c));
 	}
@@ -66,7 +67,7 @@ static int	ft_mlx(v_list *c)
 	if (c->res.ry > c->res.sy)
 		c->res.ry = c->res.sy;
 	c->fc.c = 0 << 24 | c->fc.cre << 16 | c->fc.cgr << 8 | c->fc.cbl;
-        c->fc.f = 0 << 24 | c->fc.fre << 16 | c->fc.fgr << 8 | c->fc.fbl;
+	c->fc.f = 0 << 24 | c->fc.fre << 16 | c->fc.fgr << 8 | c->fc.fbl;
 	c->mlx.img = mlx_new_image(c->mlx.mlx, c->res.rx, c->res.ry);
 	c->mlx.adr = (unsigned int *)mlx_get_data_addr(c->mlx.img,
 			&c->mlx.bpp, &c->mlx.sl, &c->mlx.end);
