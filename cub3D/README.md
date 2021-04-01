@@ -1,7 +1,9 @@
 # ```cub3D```
 The ```cub3D``` project is inspired by the world-famous eponymous 90’s game, whichwas the first FPS ever. The purpose of it is to explore ray-casting, by creating a dynamic view inside a maze.
 
-![](https://media.giphy.com/media/6G9sY8bDUueJKyR0fr/giphy.gif)
+<p align="center">
+	<img src="https://media.giphy.com/media/6G9sY8bDUueJKyR0fr/giphy.gif" width="60%" />
+</p>
 
 ## How to use it
 
