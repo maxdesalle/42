@@ -1,8 +1,8 @@
 # ```cub3D```
-The ```cub3D``` project is inspired by the world-famous eponymous 90’s game, whichwas the first FPS ever. The purpose of it is to explore ray-casting, by creating a dynamic view inside a maze.
+The ```cub3D``` project is inspired by the world-famous eponymous 90’s game, which was the first FPS ever. The purpose of it is to explore ray-casting, by creating a dynamic view inside a maze.
 
 <p align="center">
-	<img src="https://media.giphy.com/media/6G9sY8bDUueJKyR0fr/giphy.gif" width="60%" />
+	<img src="https://media.giphy.com/media/6G9sY8bDUueJKyR0fr/giphy.gif" width="50%" />
 </p>
 
 ## How to use it
@@ -25,7 +25,7 @@ If you want to save a screenshot of the initial in-game view, execute this comma
 ```
 
 ## What I have learned
-```cub3D``` was definitely not an easy project. I have had to rewrite it from scratch as my code was just becoming too messy. In order to fix this situation, I started using much shorter variable names, used a more structured architecture and changed the way the struct is organized.
+```cub3D``` was definitely not an easy project. I had to rewrite it from scratch near the end as my code was just becoming too messy. In order to fix this situation, I started using much shorter variable names, used a more structured architecture and changed the way the main struct is organized.
 
 Additionally, it has obviously introduced me to raycasting, a technology I hadn't heard of before that. 
 
