@@ -1,14 +1,14 @@
 R 820 540
 
 SO ./textures/brick.xpm
-WE ./textures/metal.xpm
-NO ./textures/stone.xpm
+WE ./textures/grey.xpm
+NO ./textures/blue.xpm
 EA ./textures/wood.xpm
 
 S ./textures/barrel.xpm
 
-F 156, 204, 156
-C 195, 200, 255
+F 224,172,105
+C 205,249,255
 
         1111111111111111111111111
         1000000000110000000000001

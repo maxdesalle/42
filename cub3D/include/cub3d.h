@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/31 11:26:59 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/01 13:54:38 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ typedef struct	ray
 	int	tx;
 	int	ty;
 
-	int	wx;
+	double	wx;
 
 	int	sx;
 	int	sy;

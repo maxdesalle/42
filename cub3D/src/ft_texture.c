@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/31 09:34:56 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/01 14:01:05 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ static void	ft_texcol(v_list *c)
 	if (c->ray.sde == 1 && c->ray.rdy < 0)
 		c->ray.tx = c->tex[c->mlx.tdr].wdh - c->ray.tx - 1;
 	c->ray.txp = (c->ray.ds - c->res.ry / 2 + c->ray.lh / 2) * c->ray.stp;
-	while (++i <= c->ray.de)
+	while (++i < c->ray.de)
 	{
 		c->ray.ty = (int)c->ray.txp & (c->tex[c->mlx.tdr].hgt - 1);
 		c->ray.txp += c->ray.stp;
-		c->mlx.adr[c->mlx.sl / 4 * i + c->ray.rc] =
+		c->mlx.adr[i * c->mlx.sl / 4 + c->ray.rc] =
 			c->tex[c->mlx.tdr].adr[c->tex[c->mlx.tdr].sl / 4 *
 			c->ray.ty + c->ray.tx];
 	}
