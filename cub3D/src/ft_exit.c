@@ -6,13 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:14:05 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 17:46:59 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:43:02 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-int	ft_exit(v_list *c)
+/* frees everything and destroys the mlx images and windows */
+
+int	ft_exit(t_list *c)
 {
 	ft_mfree(c);
 	free(c->spr.sx);

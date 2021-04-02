@@ -6,14 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:07:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 17:25:33 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:44:15 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-#include <stdio.h>
 
-static int	ft_resvert(char *line, v_list *c)
+/* saves the resolution in the c struct using an atoi-like function */
+
+static int	ft_resvert(char *line, t_list *c)
 {
 	long	result;
 
@@ -30,7 +31,10 @@ static int	ft_resvert(char *line, v_list *c)
 	return (result);
 }
 
-static void	ft_ceiling(char *line, v_list *c)
+/* converts the color values in the .cub file in three separate values to
+ * maintain the rgb values */
+
+static void	ft_ceiling(char *line, t_list *c)
 {
 	int	i;
 	int	result;
@@ -56,7 +60,10 @@ static void	ft_ceiling(char *line, v_list *c)
 	}
 }
 
-static void	ft_floor(char *line, v_list *c)
+/* converts the color values in the .cub file in three sperate values to
+ * maintain the rgb values */
+
+static void	ft_floor(char *line, t_list *c)
 {
 	int	i;
 	int	result;
@@ -82,7 +89,10 @@ static void	ft_floor(char *line, v_list *c)
 	}
 }
 
-void	ft_res(char *line, v_list *c)
+/* checks if the indicating letter .cub line and redirects to the right
+ * functions */
+
+void	ft_res(char *line, t_list *c)
 {
 	c->uti.i = 1;
 	if (line[0] == 'R')

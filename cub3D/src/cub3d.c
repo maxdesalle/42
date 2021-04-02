@@ -6,13 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 17:27:38 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:42:29 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-static int	ft_compute(v_list *c)
+/* assigns the address and struct image pointer to the right texture */
+
+static int	ft_compute(t_list *c)
 {
 	int	i;
 
@@ -32,7 +34,10 @@ static int	ft_compute(v_list *c)
 	return (0);
 }
 
-int	ft_raycast(v_list *c)
+/* processes the visuals for every column of pixels, computes the sprites
+ * and swaps the image and address with temporary ones to reduce lag */
+
+int	ft_raycast(t_list *c)
 {
 	if (c->uti.ext == 0)
 	{
@@ -52,7 +57,10 @@ int	ft_raycast(v_list *c)
 	return (0);
 }
 
-static int	ft_mlx(v_list *c)
+/* initiates the mlx pointer, computes the screen size, floor and ceiling
+ * colors, and inities all the needed mlx pointers */
+
+static int	ft_mlx(t_list *c)
 {
 	if (c->uti.err == 1)
 		return (0);
@@ -61,11 +69,11 @@ static int	ft_mlx(v_list *c)
 	if (!(c->mlx.mlx))
 		return (ft_error(6, c));
 	ft_compute(c);
-	mlx_get_screen_size(c->mlx.mlx, &c->res.sx, &c->res.sy);
+/*	mlx_get_screen_size(c->mlx.mlx, &c->res.sx, &c->res.sy);
 	if (c->res.rx > c->res.sx)
 		c->res.rx = c->res.sx;
 	if (c->res.ry > c->res.sy)
-		c->res.ry = c->res.sy;
+		c->res.ry = c->res.sy;*/
 	c->fc.c = 0 << 24 | c->fc.cre << 16 | c->fc.cgr << 8 | c->fc.cbl;
 	c->fc.f = 0 << 24 | c->fc.fre << 16 | c->fc.fgr << 8 | c->fc.fbl;
 	c->mlx.img = mlx_new_image(c->mlx.mlx, c->res.rx, c->res.ry);
@@ -81,7 +89,10 @@ static int	ft_mlx(v_list *c)
 	return (0);
 }
 
-static int	ft_analytics(char *mapfile, v_list *c)
+/* opens the .cub file, reads and analyzes the files and stores the
+ * information in the c struct */
+
+static int	ft_analytics(char *mapfile, t_list *c)
 {
 	int		fd;
 	char	*line;
@@ -107,9 +118,11 @@ static int	ft_analytics(char *mapfile, v_list *c)
 	return (0);
 }
 
+/* does this really need an explainer? */
+
 int	main(int argc, char **argv)
 {
-	v_list	c;
+	t_list	c;
 
 	if (argc == 2 && ft_argn(argv[1]))
 		ft_analytics(argv[1], &c);

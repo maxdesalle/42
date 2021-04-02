@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:48:54 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/30 09:02:36 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:42:53 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** checks if the argument save is correctly given. returns 1 if yes, 0 if not.
 */
 
-int	ft_args(char *argv, v_list *c)
+int	ft_args(char *argv, t_list *c)
 {
 	int		i;
 	char	*save;
@@ -61,7 +61,7 @@ int	ft_argn(char *argv)
 ** returns an error based on the given option.
 */
 
-int	ft_error(int option, v_list *c)
+int	ft_error(int option, t_list *c)
 {
 	c->uti.err = 1;
 	if (option == 0)

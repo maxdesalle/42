@@ -6,11 +6,13 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:03:57 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 17:21:54 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:43:41 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+/* checks if the map line is only made of spaces */
 
 static int	ft_map_space(char *line)
 {
@@ -26,7 +28,9 @@ static int	ft_map_space(char *line)
 	return (1);
 }
 
-int	ft_map_valid(char *line, v_list *c)
+/* checks the validity of the map, and returns an error if needed */
+
+int	ft_map_valid(char *line, t_list *c)
 {
 	if (ft_map_space(line) == 0)
 		return (0);

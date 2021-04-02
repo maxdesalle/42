@@ -6,14 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:56:14 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/30 09:13:49 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/04/02 09:43:20 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-#include <stdio.h>
 
-static char	ft_return(char a, v_list *c, int j, int i)
+/* checks the map value and returns an other one if needed */
+
+static char	ft_return(char a, t_list *c, int j, int i)
 {
 	if (a == '0' || a == '1' || a == '2')
 		return (a);
@@ -38,7 +39,9 @@ static char	ft_return(char a, v_list *c, int j, int i)
 	return ('1');
 }
 
-static void	ft_insert(char *line, v_list *c)
+/* inserts the values read in the .cub file in the map array */
+
+static void	ft_insert(char *line, t_list *c)
 {
 	int	i;
 	int	j;
@@ -61,7 +64,9 @@ static void	ft_insert(char *line, v_list *c)
 		c->map.map[j][i++] = '1';
 }
 
-int	ft_map(char *line, v_list *c)
+/* checks if map line is valid, mallocs it and calls the insert function */
+
+int	ft_map(char *line, t_list *c)
 {
 	int	j;
 
@@ -78,7 +83,9 @@ int	ft_map(char *line, v_list *c)
 	return (0);
 }
 
-void	ft_mfree(v_list *c)
+/* frees the whole map */
+
+void	ft_mfree(t_list *c)
 {
 	while (--c->uti.nbl >= 0)
 		free(c->map.map[c->uti.nbl]);

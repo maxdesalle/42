@@ -6,13 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:21:12 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 17:57:01 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:43:58 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	ft_rright(v_list *c)
+/* rotates the player's perspective to the right */
+
+void	ft_rright(t_list *c)
 {
 	double	odx;
 	double	opx;
@@ -26,7 +28,9 @@ void	ft_rright(v_list *c)
 	c->ray.ply = opx * sin(-c->ray.rs) + c->ray.ply * cos(-c->ray.rs);
 }
 
-void	ft_rleft(v_list *c)
+/* rotates the player's perspective to the left */
+
+void	ft_rleft(t_list *c)
 {
 	double	odx;
 	double	opx;
@@ -40,7 +44,9 @@ void	ft_rleft(v_list *c)
 	c->ray.ply = opx * sin(c->ray.rs) + c->ray.ply * cos(c->ray.rs);
 }
 
-void	ft_horizontal(v_list *c, int option)
+/* moves the player from left to right */
+
+void	ft_horizontal(t_list *c, int option)
 {
 	if (option == RIGHT_MOVE)
 	{
@@ -48,7 +54,7 @@ void	ft_horizontal(v_list *c, int option)
 			* c->ray.ms)] == '0')
 			c->ray.px += c->ray.dy * c->ray.ms;
 		if (c->map.map[(int)(c->ray.py
-			- c->ray.dx * c->ray.ms)]
+				- c->ray.dx * c->ray.ms)]
 				[(int)(c->ray.px)] == '0')
 			c->ray.py -= c->ray.dx * c->ray.ms;
 	}
@@ -58,12 +64,14 @@ void	ft_horizontal(v_list *c, int option)
 			- c->ray.dy * c->ray.ms)] == '0')
 			c->ray.px -= c->ray.dy * c->ray.ms;
 		if (c->map.map[(int)(c->ray.py + c->ray.dx
-			* c->ray.ms)][(int)(c->ray.px)] == '0')
+				* c->ray.ms)][(int)(c->ray.px)] == '0')
 			c->ray.py += c->ray.dx * c->ray.ms;
 	}
 }
 
-void	ft_vertical(v_list *c, int option)
+/* moves the player backward and forward */
+
+void	ft_vertical(t_list *c, int option)
 {
 	if (option == FORWARD_MOVE)
 	{
@@ -71,7 +79,7 @@ void	ft_vertical(v_list *c, int option)
 			+ c->ray.dx * c->ray.ms)] == '0')
 			c->ray.px += c->ray.dx * c->ray.ms;
 		if (c->map.map[(int)(c->ray.py + c->ray.dy
-			* c->ray.ms)][(int)(c->ray.px)] == '0')
+				* c->ray.ms)][(int)(c->ray.px)] == '0')
 			c->ray.py += c->ray.dy * c->ray.ms;
 	}
 	if (option == BACK_MOVE)
@@ -80,7 +88,7 @@ void	ft_vertical(v_list *c, int option)
 			- c->ray.dx * c->ray.ms)] == '0')
 			c->ray.px -= c->ray.dx * c->ray.ms;
 		if (c->map.map[(int)(c->ray.py - c->ray.dy
-			* c->ray.ms)][(int)c->ray.px] == '0')
+				* c->ray.ms)][(int)c->ray.px] == '0')
 			c->ray.py -= c->ray.dy * c->ray.ms;
 	}
 }

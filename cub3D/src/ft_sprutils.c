@@ -6,13 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:53:27 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 18:08:10 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:45:18 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-static void	ft_sprounter(v_list *c)
+/* counts the number of sprites in the map */
+
+static void	ft_sprounter(t_list *c)
 {
 	int	i;
 	int	j;
@@ -30,7 +32,9 @@ static void	ft_sprounter(v_list *c)
 	}
 }
 
-static int	ft_spralloc(v_list *c)
+/* mallocs the requires sprite elements */
+
+static int	ft_spralloc(t_list *c)
 {
 	c->spr.sx = malloc(c->spr.spc * sizeof(double));
 	c->spr.sy = malloc(c->spr.spc * sizeof(double));
@@ -42,7 +46,9 @@ static int	ft_spralloc(v_list *c)
 	return (0);
 }
 
-void	ft_sort(v_list *c)
+/* sorts all the sprites */
+
+void	ft_sort(t_list *c)
 {
 	int		i;
 	int		j;
@@ -68,7 +74,9 @@ void	ft_sort(v_list *c)
 	}
 }
 
-void	ft_sprosition(v_list *c)
+/* detects sprites in the map and gives them the right position value */
+
+void	ft_sprosition(t_list *c)
 {
 	int	i;
 	int	j;

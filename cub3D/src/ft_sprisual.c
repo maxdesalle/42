@@ -6,13 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:45:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 18:36:53 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:44:59 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-static void	ft_sprcalc(v_list *c)
+/* calculates the drawstart and drawend values for the sprites */
+
+static void	ft_sprcalc(t_list *c)
 {
 	c->spr.dsy = -c->spr.sph / 2 + c->res.ry / 2;
 	c->spr.dey = c->spr.sph / 2 + c->res.ry / 2;
@@ -29,7 +31,9 @@ static void	ft_sprcalc(v_list *c)
 		c->spr.dex = c->res.rx;
 }
 
-void	ft_order(v_list *c)
+/* computes the sprite distance */
+
+void	ft_order(t_list *c)
 {
 	int	i;
 
@@ -44,7 +48,9 @@ void	ft_order(v_list *c)
 	}
 }
 
-static int	ft_draw(v_list *c, int i)
+/* calculates the sprite position, height... */
+
+static int	ft_draw(t_list *c, int i)
 {
 	c->spr.spx = c->spr.sx[c->spr.spo[i]] - c->ray.px;
 	c->spr.spy = c->spr.sy[c->spr.spo[i]] - c->ray.py;
@@ -59,7 +65,10 @@ static int	ft_draw(v_list *c, int i)
 	return (c->spr.dsx);
 }
 
-static void	ft_sprender(v_list *c, int y, int tx, int stripe)
+/* renders the sprites by assigning the texture addresses to
+ * the mlx address */
+
+static void	ft_sprender(t_list *c, int y, int tx, int stripe)
 {
 	int	d;
 	int	ty;
@@ -71,7 +80,9 @@ static void	ft_sprender(v_list *c, int y, int tx, int stripe)
 			* c->tex[4].sl / 4 + tx];
 }
 
-void	ft_sprisual(v_list *c)
+/* goes through each sprite and renders them one by one */
+
+void	ft_sprisual(t_list *c)
 {
 	int	y;
 	int	tx;

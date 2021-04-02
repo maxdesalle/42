@@ -6,13 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 08:42:04 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 10:15:06 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:46:18 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-static void	ft_camray(v_list *c)
+/* initiates all the values for each ray column */
+
+static void	ft_camray(t_list *c)
 {
 	c->ray.hit = 0;
 	c->ray.prp = 0;
@@ -25,7 +27,9 @@ static void	ft_camray(v_list *c)
 	c->ray.rs = 0.1;
 }
 
-static void	ft_sdcalc(v_list *c)
+/* calculates the sidedistance */
+
+static void	ft_sdcalc(t_list *c)
 {
 	if (c->ray.rdx < 0)
 	{
@@ -49,7 +53,9 @@ static void	ft_sdcalc(v_list *c)
 	}
 }
 
-static void	ft_hit(v_list *c)
+/* checks if a wall was hit */
+
+static void	ft_hit(t_list *c)
 {
 	while (c->ray.hit == 0)
 	{
@@ -70,7 +76,9 @@ static void	ft_hit(v_list *c)
 	}
 }
 
-void	ft_visinit(v_list *c)
+/* calls the right functions */
+
+void	ft_visinit(t_list *c)
 {
 	ft_camray(c);
 	ft_delta(c);
@@ -79,7 +87,9 @@ void	ft_visinit(v_list *c)
 	ft_height(c);
 }
 
-void	ft_orinit(v_list *c)
+/* initiates the orientation values (dirX/Y and planeX/Y) */
+
+void	ft_orinit(t_list *c)
 {
 	if (c->map.ori == 3)
 	{

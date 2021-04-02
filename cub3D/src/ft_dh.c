@@ -6,13 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:05:52 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 17:31:16 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:42:40 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	ft_height(v_list *c)
+/* calculates drawstart, drawend, perpwalldistance and lineheight */
+
+void	ft_height(t_list *c)
 {
 	if (c->ray.sde == 0)
 		c->ray.prp = ((double)c->ray.mx - c->ray.px
@@ -29,7 +31,9 @@ void	ft_height(v_list *c)
 		c->ray.de = c->res.ry - 1;
 }
 
-void	ft_delta(v_list *c)
+/* calculates the deltadistance */
+
+void	ft_delta(t_list *c)
 {
 	if (c->ray.rdy == 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@s19.be>                  +#+  +:+       +#+       */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 09:59:55 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 17:57:51 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:44:34 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** source: https://bit.ly/3s30LKB
 */
 
-static void	ft_fhead(v_list *c, int fd)
+static void	ft_fhead(t_list *c, int fd)
 {
 	int	fhead;
 
@@ -43,7 +43,7 @@ static void	ft_fhead(v_list *c, int fd)
 ** finish by writing 6 times the 0 value on 4 bytes
 */
 
-static void	ft_ihead(v_list *c, int fd)
+static void	ft_ihead(t_list *c, int fd)
 {
 	int	ihead;
 
@@ -71,7 +71,7 @@ static void	ft_ihead(v_list *c, int fd)
 ** in the column processing, write the value of the address of the mlx loop
 */
 
-int	ft_save(v_list *c)
+int	ft_save(t_list *c)
 {
 	int	i;
 	int	j;

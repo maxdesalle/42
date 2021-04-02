@@ -6,13 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 18:09:15 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:45:42 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-static int	ft_path(char *line, int type, v_list *c)
+/* computes the path to the texture file */
+
+static int	ft_path(char *line, int type, t_list *c)
 {
 	int	i;
 	int	j;
@@ -30,7 +32,9 @@ static int	ft_path(char *line, int type, v_list *c)
 		return (ft_error(2, c));
 }
 
-static void	ft_texdir(v_list *c)
+/* computes the texture direction being used to render on screen */
+
+static void	ft_texdir(t_list *c)
 {
 	if (c->ray.sde == 0 && c->ray.rdx < 0)
 		c->mlx.tdr = 0;
@@ -47,7 +51,9 @@ static void	ft_texdir(v_list *c)
 	c->ray.wx -= floor((c->ray.wx));
 }
 
-static void	ft_texcol(v_list *c)
+/* assigns the right texture address to the mlx address */
+
+static void	ft_texcol(t_list *c)
 {
 	int	i;
 
@@ -70,7 +76,9 @@ static void	ft_texcol(v_list *c)
 	}
 }
 
-void	ft_texplace(v_list *c)
+/* computes the ceiling, floor and column colors */
+
+void	ft_texplace(t_list *c)
 {
 	int	i;
 
@@ -84,7 +92,9 @@ void	ft_texplace(v_list *c)
 		c->mlx.adr[c->mlx.sl / 4 * i + c->ray.rc] = c->fc.f;
 }
 
-void	ft_tex(char *line, v_list *c)
+/* calls the path computation function with the right arguments */
+
+void	ft_tex(char *line, t_list *c)
 {
 	if (line[0] == 'N' && line[1] == 'O')
 		ft_path(line, 0, c);

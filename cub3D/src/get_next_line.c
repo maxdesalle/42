@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 18:29:04 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:48:00 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** everything is OK.
 */
 
-static int	ft_return(t_list *box, int option)
+static int	ft_return(t_gnl *box, int option)
 {
 	if (option == 1)
 	{
@@ -80,7 +80,7 @@ static int	ft_eol(char *str, int option, int i)
 ** strcat function, in the new newstr string and we return it.
 */
 
-static char	*ft_string(char *str, int len, t_list *box)
+static char	*ft_string(char *str, int len, t_gnl *box)
 {
 	char	*newstr;
 
@@ -129,7 +129,7 @@ static char	*ft_string(char *str, int len, t_list *box)
 int	get_next_line(int fd, char **line)
 {
 	char		*buff;
-	t_list		box;
+	t_gnl		box;
 	static char	*str[OPEN_MAX];
 
 	ft_return(&box, 0);

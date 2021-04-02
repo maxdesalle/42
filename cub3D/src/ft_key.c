@@ -6,13 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:15:27 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/03/26 08:43:36 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:43:30 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void	ft_start(v_list *c)
+/* detects key presses and calls the required functions */
+
+void	ft_start(t_list *c)
 {
 	c->uti.ext = 0;
 	mlx_hook(c->mlx.win, 17, 0, ft_exit, c);
@@ -21,7 +23,9 @@ void	ft_start(v_list *c)
 	mlx_loop(c->mlx.mlx);
 }
 
-int	ft_key(int key, v_list *c)
+/* redirects to the right functions when a key is pressed */
+
+int	ft_key(int key, t_list *c)
 {
 	if (key == A)
 		ft_horizontal(c, 0);

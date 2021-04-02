@@ -3,10 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: mdesalle <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/02 09:41:44 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/04/02 10:06:33 by mdesalle         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/01 17:36:23 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 09:40:15 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +50,13 @@
 # define RIGHT_MOVE 1
 # define LEFT_MOVE 0
 
-typedef struct	s_list
+typedef struct s_gnl
 {
 	int	check;
 	int	reader;
-}				t_list;
+}				t_gnl;
 
-typedef struct	s_fc
+typedef struct s_fc
 {
 	int	c;
 	int	f;
@@ -58,27 +70,27 @@ typedef struct	s_fc
 	int	fbl;
 }				t_fc;
 
-typedef struct	ray
+typedef struct s_ray
 {
-	int	hit;
-	int	sde;
+	int		hit;
+	int		sde;
 
-	int	mx;
-	int	my;
+	int		mx;
+	int		my;
 
-	int	tx;
-	int	ty;
+	int		tx;
+	int		ty;
+
+	int		sx;
+	int		sy;
+
+	int		ds;
+	int		de;
+
+	int		lh;
+	int		rc;
 
 	double	wx;
-
-	int	sx;
-	int	sy;
-
-	int	ds;
-	int	de;
-
-	int	lh;
-	int	rc;
 
 	double	stp;
 	double	txp;
@@ -108,30 +120,30 @@ typedef struct	ray
 	double	ddy;
 }				t_ray;
 
-typedef struct	s_mlx
+typedef struct s_mlx
 {
-	int	end;
-	int	tdr;
-	int	sl;
-	int	bpp;
-	void	*img;
-	void	*win;
-	void	*mlx;
+	int				end;
+	int				tdr;
+	int				sl;
+	int				bpp;
+	void			*img;
+	void			*win;
+	void			*mlx;
 	unsigned int	*adr;
 
-	void	*isp;
+	void			*isp;
 	unsigned int	*asp;
 }				t_mlx;
 
-typedef struct	s_map
+typedef struct s_map
 {
-	int	prx;
-	int	pry;
-	int	ori;
+	int		prx;
+	int		pry;
+	int		ori;
 	char	**map;
 }				t_map;
 
-typedef struct	s_uti
+typedef struct s_uti
 {
 	int	i;
 	int	err;
@@ -144,21 +156,21 @@ typedef struct	s_uti
 	int	chk;
 }				t_uti;
 
-typedef struct	s_spr
+typedef struct s_spr
 {
-	int	dsx;
-	int	dex;
+	int		dsx;
+	int		dex;
 
-	int	dsy;
-	int	dey;
+	int		dsy;
+	int		dey;
 
-	int	*spo;
-	int	spc;
+	int		*spo;
+	int		spc;
 
-	int	spw;
-	int	sph;
+	int		spw;
+	int		sph;
 
-	int	ssx;
+	int		ssx;
 
 	double	*sx;
 	double	*sy;
@@ -175,7 +187,7 @@ typedef struct	s_spr
 	double	*spd;
 }				t_spr;
 
-typedef	struct	s_res
+typedef struct s_res
 {
 	int	rx;
 	int	ry;
@@ -183,19 +195,19 @@ typedef	struct	s_res
 	int	sy;
 }				t_res;
 
-typedef struct	t_tex
+typedef struct s_tex
 {
 	unsigned int	*adr;
-	int	wdh;
-	int	hgt;
-	int	end;
-	int	sl;
-	int	bpp;
-	char	*pth;
-	void	*img;
+	int				wdh;
+	int				hgt;
+	int				end;
+	int				sl;
+	int				bpp;
+	char			*pth;
+	void			*img;
 }				t_tex;
 
-typedef struct	s_mainlist
+typedef struct s_list
 {
 	t_fc	fc;
 	t_ray	ray;
@@ -205,59 +217,59 @@ typedef struct	s_mainlist
 	t_spr	spr;
 	t_res	res;
 	t_tex	tex[5];
-}				v_list;
+}				t_list;
 
-int				ft_raycast(v_list *c);
+int					ft_raycast(t_list *c);
 
-int				ft_map_valid(char *line, v_list *c);
+int					ft_map_valid(char *line, t_list *c);
 
-int				ft_args(char *argv, v_list *c);
-int				ft_argn(char *argv);
-int				ft_error(int option, v_list *c);
+int					ft_args(char *argv, t_list *c);
+int					ft_argn(char *argv);
+int					ft_error(int option, t_list *c);
 
-int                             get_next_line(int fd, char **line);
+int					get_next_line(int fd, char **line);
 
-int				ft_exit(v_list *c);
+int					ft_exit(t_list *c);
 
-int				ft_key(int key, v_list *c);
-void				ft_start(v_list *c);
+int					ft_key(int key, t_list *c);
+void				ft_start(t_list *c);
 
-void				ft_order(v_list *c);
-void				ft_sprisual(v_list *c);
+void				ft_order(t_list *c);
+void				ft_sprisual(t_list *c);
 
-size_t                  ft_strlen(const char *s);
-char                    *ft_substr(char const *s, unsigned int start, size_t len);
-char                    *ft_strjoin(char const *s1, char const *s2);
-char                    *ft_strcat_alpha(char *dest, char *src, int len);
+size_t				ft_strlen(const char *s);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
+char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strcat_alpha(char *dest, char *src, int len);
 
-int				ft_save(v_list *c);
+int					ft_save(t_list *c);
 
-void				ft_visinit(v_list *c);
-void				ft_orinit(v_list *c);
+void				ft_visinit(t_list *c);
+void				ft_orinit(t_list *c);
 
-void				ft_height(v_list *c);
-void				ft_delta(v_list *c);
+void				ft_height(t_list *c);
+void				ft_delta(t_list *c);
 
-void				ft_rright(v_list *c);
-void				ft_rleft(v_list *c);
-void				ft_vertical(v_list *c, int option);
-void				ft_horizontal(v_list *c, int option);
+void				ft_rright(t_list *c);
+void				ft_rleft(t_list *c);
+void				ft_vertical(t_list *c, int option);
+void				ft_horizontal(t_list *c, int option);
 
 size_t				ft_strlen(const char *s);
 char				*ft_strchr(const char *s, int c);
-void				ft_swap(v_list *c);
-void				ft_init(v_list *c);
-int				ft_count(char *mapfile, v_list *c);
+void				ft_swap(t_list *c);
+void				ft_init(t_list *c);
+int					ft_count(char *mapfile, t_list *c);
 
-void			ft_tex(char *line, v_list *c);
-void			ft_texplace(v_list *c);
+void				ft_tex(char *line, t_list *c);
+void				ft_texplace(t_list *c);
 
-int				ft_map(char *line, v_list *c);
-void				ft_mfree(v_list *c);
+int					ft_map(char *line, t_list *c);
+void				ft_mfree(t_list *c);
 
-void			ft_res(char *line, v_list *c);
+void				ft_res(char *line, t_list *c);
 
-void			ft_sort(v_list *c);
-void			ft_sprosition(v_list *c);
+void				ft_sort(t_list *c);
+void				ft_sprosition(t_list *c);
 
 #endif
