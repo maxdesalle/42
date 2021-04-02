@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 09:42:29 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 15:11:09 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ static int	ft_compute(t_list *c)
 	int	i;
 
 	i = -1;
+	if (c->fc.cre == -1 || c->fc.cgr == -1 || c->fc.cbl == -1
+		|| c->fc.fre == -1 || c->fc.fgr == -1 || c->fc.fbl == -1)
+		return (ft_error(9, c));
 	while (++i <= 4)
 	{
 		c->tex[i].img = mlx_xpm_file_to_image(c->mlx.mlx,
@@ -69,11 +72,11 @@ static int	ft_mlx(t_list *c)
 	if (!(c->mlx.mlx))
 		return (ft_error(6, c));
 	ft_compute(c);
-/*	mlx_get_screen_size(c->mlx.mlx, &c->res.sx, &c->res.sy);
+	mlx_get_screen_size(c->mlx.mlx, &c->res.sx, &c->res.sy);
 	if (c->res.rx > c->res.sx)
 		c->res.rx = c->res.sx;
 	if (c->res.ry > c->res.sy)
-		c->res.ry = c->res.sy;*/
+		c->res.ry = c->res.sy;
 	c->fc.c = 0 << 24 | c->fc.cre << 16 | c->fc.cgr << 8 | c->fc.cbl;
 	c->fc.f = 0 << 24 | c->fc.fre << 16 | c->fc.fgr << 8 | c->fc.fbl;
 	c->mlx.img = mlx_new_image(c->mlx.mlx, c->res.rx, c->res.ry);
@@ -113,6 +116,7 @@ static int	ft_analytics(char *mapfile, t_list *c)
 		free(line);
 	}
 	close(fd);
+	ft_wall(c);
 	ft_sprosition(c);
 	ft_mlx(c);
 	return (0);

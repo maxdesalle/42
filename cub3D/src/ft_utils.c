@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:34:25 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 09:45:56 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 13:33:02 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,34 +67,10 @@ void	ft_init(t_list *c)
 	c->uti.ctr = 0;
 	c->uti.mps = 0;
 	c->uti.ext = 0;
-}
-
-/* counts all the lines, computes the map line length and mallocs it */
-
-int	ft_count(char *mapfile, t_list *c)
-{
-	int		fd;
-	char	*line;
-
-	fd = open(mapfile, O_RDONLY);
-	if (fd == -1)
-		return (ft_error(3, c));
-	while (get_next_line(fd, &line) == 1)
-	{
-		if (ft_map_valid(line, c) == 1)
-			if (c->uti.mps != 1)
-				c->uti.mps = 1;
-		if (c->uti.mps == 1)
-		{
-			c->uti.nbl++;
-			if ((int)ft_strlen(line) > c->uti.ll)
-				c->uti.ll = (int)ft_strlen(line);
-		}
-		free(line);
-	}
-	close(fd);
-	c->map.map = malloc(c->uti.nbl * sizeof(char *));
-	if (!(c->map.map))
-		return (ft_error(5, c));
-	return (0);
+	c->fc.cre = -1;
+	c->fc.cgr = -1;
+	c->fc.cbl = -1;
+	c->fc.fre = -1;
+	c->fc.fgr = -1;
+	c->fc.fbl = -1;
 }

@@ -3,22 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdesalle <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/02 09:41:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 10:06:33 by mdesalle         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 09:40:15 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/02 14:02:59 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +134,7 @@ typedef struct s_map
 typedef struct s_uti
 {
 	int	i;
+	int	fd;
 	int	err;
 	int	nbl;
 	int	ll;
@@ -222,9 +211,13 @@ typedef struct s_list
 int					ft_raycast(t_list *c);
 
 int					ft_map_valid(char *line, t_list *c);
+int					ft_count(char *mapfile, t_list *c);
+int					ft_wall(t_list *c);
 
 int					ft_args(char *argv, t_list *c);
 int					ft_argn(char *argv);
+
+int					ft_errcheck(t_list *c);
 int					ft_error(int option, t_list *c);
 
 int					get_next_line(int fd, char **line);
@@ -259,7 +252,6 @@ size_t				ft_strlen(const char *s);
 char				*ft_strchr(const char *s, int c);
 void				ft_swap(t_list *c);
 void				ft_init(t_list *c);
-int					ft_count(char *mapfile, t_list *c);
 
 void				ft_tex(char *line, t_list *c);
 void				ft_texplace(t_list *c);
