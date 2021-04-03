@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:03:57 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 15:12:32 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/03 13:19:53 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,41 +83,46 @@ int	ft_count(char *mapfile, t_list *c)
 	return (0);
 }
 
-/* checks the vertical borders of the inserted map array */
+/* checks the vertical borders vertically of the inserted map array */
 
-static int	ft_border(t_list *c)
+int	ft_vborder(t_list *c)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	while (c->map.map[i][c->uti.ll - 1] == '1' && i < c->uti.nbl - 1)
-		i++;
-	if (i != c->uti.nbl - 1)
-		return (ft_error(4, c));
-	i = 0;
-	while (c->map.map[i][0] == '1' && i < c->uti.nbl - 1)
-		i++;
-	if (i != c->uti.nbl - 1)
-		return (ft_error(4, c));
+	j = -1;
+	while (++j < c->uti.ll)
+	{
+		i = -1;
+		while (++i < c->uti.nbl && c->map.map[i][j] != '1')
+			if (c->map.map[i][j] != '4')
+				return (ft_error(4, c));
+		i = c->uti.nbl;
+		while (--i > 0 && c->map.map[i][j] != '1')
+			if (c->map.map[i][j] != '4')
+				return (ft_error(4, c));
+	}
 	return (0);
 }
 
-/* check the walls of the map, after its been inserted in the map array */
+/* checks the vertical borders horizontally of the inserted map array */
 
-int	ft_wall(t_list *c)
+int	ft_hborder(t_list *c)
 {
 	int	i;
+	int	j;
 
-	i = 0;
-	ft_border(c);
-	while (c->map.map[0][i] == '1')
-		i++;
-	if (i != c->uti.ll)
-		return (ft_error(4, c));
-	i = 0;
-	while (c->map.map[c->uti.nbl - 1][i] == '1')
-		i++;
-	if (i != c->uti.ll)
-		return (ft_error(4, c));
+	j = -1;
+	while (++j < c->uti.nbl)
+	{
+		i = -1;
+		while (++i < c->uti.ll && c->map.map[j][i] != '1')
+			if (c->map.map[j][i] != '4')
+				return (ft_error(4, c));
+		i = c->uti.ll;
+		while (--i > 0 && c->map.map[j][i] != '1')
+			if (c->map.map[j][i] != '4')
+				return (ft_error(4, c));
+	}
 	return (0);
 }

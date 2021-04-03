@@ -6,11 +6,12 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:56:14 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 14:56:56 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/03 12:17:09 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+#include <stdio.h>
 
 /* checks the map value and returns an other one if needed */
 
@@ -39,29 +40,38 @@ static char	ft_return(char a, t_list *c, int j, int i)
 	return ('1');
 }
 
+/* detects spaces before of after the map bordes compared to the line length */
+
+static void	ft_bawall(char *line, t_list *c)
+{
+	int	i;
+
+	i = 0;
+	while (line[i] != '1' && line[i] != '0' && line[i] != '2')
+		c->map.map[c->uti.ctr][i++] = '4';
+	c->uti.j = i;
+	while (line[i] == '0' || line[i] == '1' || line[i] == '2'
+		|| line[i] == ' ' || line[i] == 'N'
+		|| line[i] == 'E' || line[i] == 'S'
+		|| line[i] == 'W')
+		i++;
+	c->uti.k = i;
+	while (i < c->uti.ll)
+		c->map.map[c->uti.ctr][i++] = '4';
+}
+
 /* inserts the values read in the .cub file in the map array */
 
 static void	ft_insert(char *line, t_list *c)
 {
 	int	i;
 	int	j;
-	int	k;
 
-	i = -1;
 	j = c->uti.ctr;
-	while (line[++i] != '\0')
-	{
-		if (line[i] == '\t')
-		{
-			k = 8;
-			while (k-- > 0)
-				c->map.map[j][i++] = '1';
-		}
+	ft_bawall(line, c);
+	i = c->uti.j - 1;
+	while (line[++i] != '\0' && i < c->uti.k)
 		c->map.map[j][i] = ft_return(line[i], c, j, i);
-	}
-	k = c->uti.ll - i;
-	while (k-- > 0)
-		c->map.map[j][i++] = '1';
 }
 
 /* checks if map line is valid, mallocs it and calls the insert function */
@@ -81,13 +91,4 @@ int	ft_map(char *line, t_list *c)
 		c->uti.ctr++;
 	}
 	return (0);
-}
-
-/* frees the whole map */
-
-void	ft_mfree(t_list *c)
-{
-	while (--c->uti.nbl >= 0)
-		free(c->map.map[c->uti.nbl]);
-	free(c->map.map);
 }

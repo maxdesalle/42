@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:34:25 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 13:33:02 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/03 12:02:05 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,5 @@ void	ft_init(t_list *c)
 	c->fc.fre = -1;
 	c->fc.fgr = -1;
 	c->fc.fbl = -1;
+	c->uti.stt = 0;
 }

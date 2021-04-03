@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 14:02:59 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/03 13:20:49 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,8 @@ typedef struct s_map
 typedef struct s_uti
 {
 	int	i;
+	int	j;
+	int	k;
 	int	fd;
 	int	err;
 	int	nbl;
@@ -143,6 +145,8 @@ typedef struct s_uti
 	int	ext;
 	int	sve;
 	int	chk;
+	int	stt;
+	int	map;
 }				t_uti;
 
 typedef struct s_spr
@@ -212,7 +216,6 @@ int					ft_raycast(t_list *c);
 
 int					ft_map_valid(char *line, t_list *c);
 int					ft_count(char *mapfile, t_list *c);
-int					ft_wall(t_list *c);
 
 int					ft_args(char *argv, t_list *c);
 int					ft_argn(char *argv);
@@ -257,11 +260,13 @@ void				ft_tex(char *line, t_list *c);
 void				ft_texplace(t_list *c);
 
 int					ft_map(char *line, t_list *c);
-void				ft_mfree(t_list *c);
 
 void				ft_res(char *line, t_list *c);
 
 void				ft_sort(t_list *c);
 void				ft_sprosition(t_list *c);
+
+int					ft_hborder(t_list *c);
+int					ft_vborder(t_list *c);
 
 #endif

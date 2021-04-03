@@ -6,11 +6,12 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 15:11:09 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/03 13:24:08 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+#include <stdio.h>
 
 /* assigns the address and struct image pointer to the right texture */
 
@@ -97,17 +98,17 @@ static int	ft_mlx(t_list *c)
 
 static int	ft_analytics(char *mapfile, t_list *c)
 {
-	int		fd;
 	char	*line;
 
 	ft_init(c);
+	c->uti.map = 0;
 	c->uti.chk = 1;
 	ft_count(mapfile, c);
 	c->uti.chk = 0;
-	fd = open(mapfile, O_RDONLY);
-	if (fd == -1)
+	c->uti.fd = open(mapfile, O_RDONLY);
+	if (c->uti.fd == -1)
 		return (ft_error(3, c));
-	while (get_next_line(fd, &line) == 1)
+	while (get_next_line(c->uti.fd, &line) == 1)
 	{
 		ft_res(line, c);
 		ft_tex(line, c);
@@ -115,8 +116,10 @@ static int	ft_analytics(char *mapfile, t_list *c)
 			ft_map(line, c);
 		free(line);
 	}
-	close(fd);
-	ft_wall(c);
+	c->uti.map = 1;
+	close(c->uti.fd);
+	ft_hborder(c);
+	ft_vborder(c);
 	ft_sprosition(c);
 	ft_mlx(c);
 	return (0);
