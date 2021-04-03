@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/03 13:20:49 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:49:26 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,6 +255,7 @@ size_t				ft_strlen(const char *s);
 char				*ft_strchr(const char *s, int c);
 void				ft_swap(t_list *c);
 void				ft_init(t_list *c);
+void				ft_remap(t_list *c);
 
 void				ft_tex(char *line, t_list *c);
 void				ft_texplace(t_list *c);

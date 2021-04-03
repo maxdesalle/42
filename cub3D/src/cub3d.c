@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/03 13:24:08 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:50:22 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ static int	ft_analytics(char *mapfile, t_list *c)
 	char	*line;
 
 	ft_init(c);
-	c->uti.map = 0;
 	c->uti.chk = 1;
 	ft_count(mapfile, c);
 	c->uti.chk = 0;
@@ -121,6 +120,7 @@ static int	ft_analytics(char *mapfile, t_list *c)
 	ft_hborder(c);
 	ft_vborder(c);
 	ft_sprosition(c);
+	ft_remap(c);
 	ft_mlx(c);
 	return (0);
 }

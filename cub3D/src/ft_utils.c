@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:34:25 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/03 12:02:05 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/03 17:50:46 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,22 @@ void	ft_init(t_list *c)
 	c->fc.fgr = -1;
 	c->fc.fbl = -1;
 	c->uti.stt = 0;
+	c->uti.map = 0;
+}
+
+/* replaces '4' value indicators with '1' value walls in the map array */
+
+void	ft_remap(t_list *c)
+{
+	int	i;
+	int	j;
+
+	j = -1;
+	while (++j < c->uti.nbl)
+	{
+		i = -1;
+		while (++i < c->uti.ll)
+			if (c->map.map[j][i] == '4')
+				c->map.map[j][i] = '1';
+	}
 }
