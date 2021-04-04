@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 08:42:04 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 09:46:18 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 10:43:39 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static void	ft_camray(t_list *c)
 	c->ray.rdy = c->ray.dy + (c->ray.ply * c->ray.cx);
 	c->ray.mx = (int)c->ray.px;
 	c->ray.my = (int)c->ray.py;
-	c->ray.ms = 0.2;
-	c->ray.rs = 0.1;
+	c->ray.ms = 0.125;
+	c->ray.rs = 0.075;
 }
 
 /* calculates the sidedistance */
