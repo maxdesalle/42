@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/04 14:41:08 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 21:35:21 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <string.h>
+# include <stdio.h>
 # include "../minilibX/mlx.h"
 
 # define BUFFER_SIZE 32
@@ -148,6 +149,8 @@ typedef struct s_uti
 	int	stt;
 	int	map;
 	int	tex;
+	int	ult;
+	int	arg;
 }				t_uti;
 
 typedef struct s_spr

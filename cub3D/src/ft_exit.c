@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:14:05 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/04 14:44:03 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 21:31:53 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static void	ft_mfree(t_list *c)
 {
-	if (c->map.map && c->uti.map == 1)
+	if (c->map.map && c->uti.map == 1 && c->uti.ult != 1)
 	{
 		while (--c->uti.nbl >= 0)
 			free(c->map.map[c->uti.nbl]);

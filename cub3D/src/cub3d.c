@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/03 17:50:22 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 21:37:15 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ static int	ft_analytics(char *mapfile, t_list *c)
 	char	*line;
 
 	ft_init(c);
-	c->uti.chk = 1;
 	ft_count(mapfile, c);
 	c->uti.chk = 0;
 	c->uti.fd = open(mapfile, O_RDONLY);
@@ -131,11 +130,17 @@ int	main(int argc, char **argv)
 {
 	t_list	c;
 
+	c.uti.arg = 0;
 	if (argc == 2 && ft_argn(argv[1]))
+	{
+		c.uti.arg = 1;
 		ft_analytics(argv[1], &c);
+	}
 	else if (argc == 3 && ft_argn(argv[1]) && ft_args(argv[2], &c))
+	{
+		c.uti.arg = 1;
 		ft_analytics(argv[1], &c);
+	}
 	else
 		return (ft_error(0, &c));
-	return (0);
 }

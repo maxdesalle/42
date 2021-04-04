@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:07:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/04 15:45:19 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 22:02:24 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,15 @@
 
 static int	ft_resvert(char *line, t_list *c)
 {
+	int		i;
 	long	result;
 
+	i = c->uti.i;
 	result = 0;
+	while (line[i] && !(line[i] >= '0' && line[i] <= '9'))
+		i++;
+	if (line[i] == '\0')
+		return (ft_error(1, c));
 	while (line[c->uti.i] && ((line[c->uti.i] >= 9 && line[c->uti.i] <= 13)
 			|| line[c->uti.i] == ' '))
 		c->uti.i++;
@@ -60,7 +66,7 @@ static void	ft_ceiling(char *line, t_list *c)
 	i = 1;
 	counter = 0;
 	ft_comma(line, c);
-	while (counter < 3)
+	while (counter < 3 && line[i])
 	{
 		result = 0;
 		while (!(line[i] >= '0' && line[i] <= '9'))
@@ -90,7 +96,7 @@ static void	ft_floor(char *line, t_list *c)
 	i = 1;
 	counter = 0;
 	ft_comma(line, c);
-	while (counter < 3)
+	while (counter < 3 && line[i])
 	{
 		result = 0;
 		while (!(line[i] >= '0' && line[i] <= '9'))
@@ -113,14 +119,17 @@ static void	ft_floor(char *line, t_list *c)
 
 void	ft_res(char *line, t_list *c)
 {
-	c->uti.i = 1;
-	if (line[0] == 'R')
+	c->uti.i = 0;
+	while (line[c->uti.i] == ' ' || line[c->uti.i] == '\t')
+		c->uti.i++;
+	if (line[c->uti.i] == 'R')
 	{
+		c->uti.i += 1;
 		c->res.rx = ft_resvert(line, c);
 		c->res.ry = ft_resvert(line, c);
 	}
-	else if (line[0] == 'C')
+	else if (line[c->uti.i] == 'C')
 		ft_ceiling(line, c);
-	else if (line[0] == 'F')
+	else if (line[c->uti.i] == 'F')
 		ft_floor(line, c);
 }

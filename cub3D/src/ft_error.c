@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:48:54 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/04 15:45:04 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 21:32:11 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	ft_terror(t_list *c)
 		if (c->tex[i].pth[j] != '.' || c->tex[i].pth[j + 1] != 'x'
 			|| c->tex[i].pth[j + 2] != 'p'
 			|| c->tex[i].pth[j + 3] != 'm')
+		{
+			c->uti.ult = 1;
 			return (ft_error(9, c));
+		}
 	}
 	return (0);
 }

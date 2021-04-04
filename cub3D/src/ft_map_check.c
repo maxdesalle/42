@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:03:57 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/03 13:19:53 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 21:21:26 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ int	ft_hborder(t_list *c)
 	int	j;
 
 	j = -1;
+	ft_terror(c);
 	while (++j < c->uti.nbl)
 	{
 		i = -1;
