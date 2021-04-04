@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:14:05 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/03 13:22:09 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 14:44:03 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	ft_mfree(t_list *c)
 
 static void	ft_pfree(t_list *c)
 {
-	if (c->uti.map == 1)
+	if (c->uti.tex == 1)
 	{
 		if (c->tex[0].pth)
 			free(c->tex[0].pth);

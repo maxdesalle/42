@@ -6,11 +6,28 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:48:54 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/03 12:20:05 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 15:45:04 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+int	ft_terror(t_list *c)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i <= 4)
+	{
+		j = ft_strlen(c->tex[i].pth) - 4;
+		if (c->tex[i].pth[j] != '.' || c->tex[i].pth[j + 1] != 'x'
+			|| c->tex[i].pth[j + 2] != 'p'
+			|| c->tex[i].pth[j + 3] != 'm')
+			return (ft_error(9, c));
+	}
+	return (0);
+}
 
 /*
 ** returns an error based on the given option.

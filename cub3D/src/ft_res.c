@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:07:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 11:48:31 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 15:45:19 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,23 @@ static int	ft_resvert(char *line, t_list *c)
 	return (result);
 }
 
+/* checks if there are three commas with numbers in between */
+
+static int	ft_comma(char *line, t_list *c)
+{
+	int	i;
+	int	counter;
+
+	i = -1;
+	counter = 0;
+	while (line[++i])
+		if (line[i] == ',')
+			counter += 1;
+	if (counter != 2)
+		return (ft_error(9, c));
+	return (0);
+}
+
 /* converts the color values in the .cub file in three separate values to
  * maintain the rgb values */
 
@@ -42,6 +59,7 @@ static void	ft_ceiling(char *line, t_list *c)
 
 	i = 1;
 	counter = 0;
+	ft_comma(line, c);
 	while (counter < 3)
 	{
 		result = 0;
@@ -71,6 +89,7 @@ static void	ft_floor(char *line, t_list *c)
 
 	i = 1;
 	counter = 0;
+	ft_comma(line, c);
 	while (counter < 3)
 	{
 		result = 0;

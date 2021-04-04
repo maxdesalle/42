@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/03 17:49:26 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 14:41:08 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ typedef struct s_uti
 	int	chk;
 	int	stt;
 	int	map;
+	int	tex;
 }				t_uti;
 
 typedef struct s_spr
@@ -220,7 +221,7 @@ int					ft_count(char *mapfile, t_list *c);
 int					ft_args(char *argv, t_list *c);
 int					ft_argn(char *argv);
 
-int					ft_errcheck(t_list *c);
+int					ft_terror(t_list *c);
 int					ft_error(int option, t_list *c);
 
 int					get_next_line(int fd, char **line);

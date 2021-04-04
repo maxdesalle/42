@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 09:45:42 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/04 18:38:44 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,19 @@ void	ft_texplace(t_list *c)
 
 void	ft_tex(char *line, t_list *c)
 {
-	if (line[0] == 'N' && line[1] == 'O')
+	int	i;
+
+	i = 0;
+	while (line[i] && (line[i] == ' ' || line[i] == '\t'))
+		i++;
+	if (line[i] == 'N' && line[i + 1] == 'O')
 		ft_path(line, 0, c);
-	if (line[0] == 'S' && line[1] == 'O')
+	if (line[i] == 'S' && line[i + 1] == 'O')
 		ft_path(line, 1, c);
-	if (line[0] == 'W' && line[1] == 'E')
+	if (line[i] == 'W' && line[i + 1] == 'E')
 		ft_path(line, 2, c);
-	if (line[0] == 'E' && line[1] == 'A')
+	if (line[i] == 'E' && line[i + 1] == 'A')
 		ft_path(line, 3, c);
-	if (line[0] == 'S' && line[1] == ' ')
+	if (line[i] == 'S' && line[i + 1] == ' ')
 		ft_path(line, 4, c);
 }
