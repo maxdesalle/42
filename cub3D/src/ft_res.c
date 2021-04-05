@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:07:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/04 22:02:24 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/05 08:37:50 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ static int	ft_comma(char *line, t_list *c)
 
 	i = -1;
 	counter = 0;
+	while (line[++i] && !(line[i] >= '0' && line[i] <= '9'))
+		if (line[i] == ',')
+			return (ft_error(9, c));
+	i = -1;
 	while (line[++i])
 		if (line[i] == ',')
 			counter += 1;

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/04 18:38:44 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/05 08:48:53 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static int	ft_path(char *line, int type, t_list *c)
 	{
 		j = ft_strlen(line) - i;
 		c->tex[type].pth = ft_substr(line, i, j);
+		c->uti.pth[type] = 1;
 		return (0);
 	}
 	else

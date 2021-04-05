@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:34:25 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/04 21:36:35 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/05 08:48:08 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ void	ft_init(t_list *c)
 	c->uti.tex = 0;
 	c->uti.ult = 0;
 	c->uti.chk = 1;
+	c->uti.pth[0] = 0;
+	c->uti.pth[1] = 0;
+	c->uti.pth[2] = 0;
+	c->uti.pth[3] = 0;
+	c->uti.pth[4] = 0;
 }
 
 /* replaces '4' value indicators with '1' value walls in the map array */
