@@ -39,6 +39,7 @@ Additionally, it has obviously introduced me to raycasting, a technology I hadn'
 - Iciamyplant's [Cub3d-Linux](https://github.com/iciamyplant/Cub3d-Linux)
 - Yaroslav Soroko's [Cub3D](https://github.com/Ysoroko/Cub3D)
 - Udy Hirawale's [image processing article](https://medium.com/sysf/bits-to-bitmaps-a-simple-walkthrough-of-bmp-image-format-765dc6857393)
+- Dustin Krecisz's [cub3d_destroyer](https://github.com/Dustin42Codam/cub3d_destroyer)
 
 ## Warning
 The structure of this repository does **not** follow the guidelines.
