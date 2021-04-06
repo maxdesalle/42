@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 09:35:06 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/20 15:29:54 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/06 18:46:26 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,20 @@
 ** everything is OK.
 */
 
-static int	ft_return(t_list *box)
+static int	ft_return(t_list *box, int option)
 {
-	if (!box->check)
-		return (-1);
-	else if (!box->reader)
-		return (0);
-	else
-		return (1);
+	if (option == 1)
+	{
+		if (!box->check)
+			return (-1);
+		else if (!box->reader)
+			return (0);
+		else
+			return (1);
+	}
+	box->check = 1;
+	box->reader = 1;
+	return (0);
 }
 
 /*
@@ -83,7 +89,8 @@ static char	*ft_string(char *str, int len, t_list *box)
 		free(str);
 		return (NULL);
 	}
-	if (!(newstr = malloc(sizeof(char) * (ft_strlen(str) - len + 1))))
+	newstr = malloc(sizeof(char) * (ft_strlen(str) - len + 1));
+	if (!newstr)
 	{
 		free(str);
 		box->check = 0;
@@ -119,29 +126,31 @@ static char	*ft_string(char *str, int len, t_list *box)
 ** otherwise we return 1 as everything went well.
 */
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	char		*buff;
 	t_list		box;
 	static char	*str[OPEN_MAX];
 
-	box.check = 1;
-	box.reader = 1;
-	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || !line ||
-			(!(buff = malloc(sizeof(char) * (BUFFER_SIZE + 1)))))
+	ft_return(&box, 0);
+	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (fd < 0 || fd > OPEN_MAX || BUFFER_SIZE <= 0 || !line || !buff)
 		return (-1);
 	while ((!ft_eol(str[fd], 1, 0)) && box.reader != 0)
 	{
-		if ((box.reader = read(fd, buff, BUFFER_SIZE)) == -1)
+		box.reader = read(fd, buff, BUFFER_SIZE);
+		if (box.reader == -1)
 			return (ft_free(&buff));
 		buff[box.reader] = '\0';
-		if (!(str[fd] = ft_strjoin(str[fd], buff)))
+		str[fd] = ft_strjoin(&box, str[fd], buff);
+		if (!str[fd])
 			return (ft_free(&buff));
 	}
 	free(buff);
-	if (!(*line = ft_substr(str[fd], 0, (size_t)ft_eol(str[fd], 0, 0))))
+	*line = ft_substr(str[fd], 0, (size_t)ft_eol(str[fd], 0, 0));
+	if (!(*line))
 		return (-1);
 	if (!(box.reader == 0 && !str[fd]))
 		str[fd] = ft_string(str[fd], ft_eol(str[fd], 0, 0), &box);
-	return (ft_return(&box));
+	return (ft_return(&box, 1));
 }

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 16:07:40 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/01/20 11:12:33 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/06 18:47:57 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (s == 0)
@@ -44,7 +44,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	while (s[j])
 		j++;
-	if (!(substring = malloc(sizeof(char) * (len + 1))))
+	substring = malloc(sizeof(char) * (len + 1));
+	if (!substring)
 		return (NULL);
 	if (start < j)
 	{
@@ -63,11 +64,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 ** joins two strings in a new memory-allocated string.
 */
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(t_list *box, char const *s1, char const *s2)
 {
-	int		i;
-	int		j;
-	int		len;
 	char	*newstring;
 
 	if (!s1 && !s2)
@@ -75,19 +73,20 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		free((char *)s1);
 		return (0);
 	}
-	i = ft_strlen((char *)s1);
-	j = ft_strlen((char *)s2);
-	len = i + j;
-	if (!(newstring = malloc(sizeof(char) * (len + 1))))
+	box->i = ft_strlen((char *)s1);
+	box->j = ft_strlen((char *)s2);
+	box->len = box->i + box->j;
+	newstring = malloc(sizeof(char) * (box->len + 1));
+	if (!newstring)
 	{
 		free((char *)s1);
 		return (0);
 	}
-	newstring[len] = '\0';
-	while (j-- > 0)
-		newstring[--len] = s2[j];
-	while (i-- > 0)
-		newstring[--len] = s1[i];
+	newstring[box->len] = '\0';
+	while (box->j-- > 0)
+		newstring[--box->len] = s2[box->j];
+	while (box->i-- > 0)
+		newstring[--box->len] = s1[box->i];
 	free((char *)s1);
 	return (newstring);
 }
