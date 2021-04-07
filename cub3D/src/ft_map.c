@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:56:14 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/04 14:43:20 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/07 09:45:05 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_map(char *line, t_list *c)
 		if (!(c->map.map[j]))
 			return (ft_error(5, c));
 		ft_insert(line, c);
-		c->uti.ctr++;
+		c->uti.ctr--;
 	}
 	return (0);
 }

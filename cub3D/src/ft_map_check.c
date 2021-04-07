@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:03:57 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/06 14:54:27 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/07 09:46:23 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int	ft_count(char *mapfile, t_list *c)
 	c->map.map = malloc(c->uti.nbl * sizeof(char *));
 	if (!(c->map.map))
 		return (ft_error(5, c));
+	c->uti.ctr = c->uti.nbl - 1;
 	return (0);
 }
 
