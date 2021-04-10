@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:56:14 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/07 09:45:05 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/10 17:54:08 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ static char	ft_return(char a, t_list *c, int j, int i)
 		c->map.pry = j;
 		if (a == 'N')
 			c->map.ori = 3;
-		else if (a == 'E')
-			c->map.ori = 4;
 		else if (a == 'S')
+			c->map.ori = 4;
+		else if (a == 'E')
 			c->map.ori = 5;
 		else if (a == 'W')
 			c->map.ori = 6;
