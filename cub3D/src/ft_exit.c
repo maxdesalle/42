@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:14:05 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/04 21:31:53 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/10 16:15:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,26 +71,29 @@ static void	ft_stop(t_list *c)
 
 int	ft_exit(t_list *c)
 {
-	ft_mfree(c);
-	ft_pfree(c);
-	ft_stop(c);
-	ft_sfree(c);
-	if (c->mlx.img)
-		mlx_destroy_image(c->mlx.mlx, c->mlx.img);
-	if (c->mlx.isp)
-		mlx_destroy_image(c->mlx.mlx, c->mlx.isp);
-	if (c->tex[0].img)
-		mlx_destroy_image(c->mlx.mlx, c->tex[0].img);
-	if (c->tex[1].img)
-		mlx_destroy_image(c->mlx.mlx, c->tex[1].img);
-	if (c->tex[2].img)
-		mlx_destroy_image(c->mlx.mlx, c->tex[2].img);
-	if (c->tex[3].img)
-		mlx_destroy_image(c->mlx.mlx, c->tex[3].img);
-	if (c->tex[4].img)
-		mlx_destroy_image(c->mlx.mlx, c->tex[4].img);
-	if (c->mlx.win)
-		mlx_destroy_window(c->mlx.mlx, c->mlx.win);
+	if (c->uti.arg == 1)
+	{
+		ft_mfree(c);
+		ft_pfree(c);
+		ft_stop(c);
+		ft_sfree(c);
+		if (c->mlx.img)
+			mlx_destroy_image(c->mlx.mlx, c->mlx.img);
+		if (c->mlx.isp)
+			mlx_destroy_image(c->mlx.mlx, c->mlx.isp);
+		if (c->tex[0].img)
+			mlx_destroy_image(c->mlx.mlx, c->tex[0].img);
+		if (c->tex[1].img)
+			mlx_destroy_image(c->mlx.mlx, c->tex[1].img);
+		if (c->tex[2].img)
+			mlx_destroy_image(c->mlx.mlx, c->tex[2].img);
+		if (c->tex[3].img)
+			mlx_destroy_image(c->mlx.mlx, c->tex[3].img);
+		if (c->tex[4].img)
+			mlx_destroy_image(c->mlx.mlx, c->tex[4].img);
+		if (c->mlx.win)
+			mlx_destroy_window(c->mlx.mlx, c->mlx.win);
+	}
 	exit(0);
 	return (0);
 }

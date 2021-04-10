@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:21:12 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/03 12:17:34 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/10 16:39:21 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_horizontal(t_list *c, int option)
 			* c->ray.ms)] == '0')
 			c->ray.px += c->ray.dy * c->ray.ms;
 		if (c->map.map[(int)(c->ray.py
-			- c->ray.dx * c->ray.ms)]
+				- c->ray.dx * c->ray.ms)]
 				[(int)(c->ray.px)] == '0')
 			c->ray.py -= c->ray.dx * c->ray.ms;
 	}
@@ -64,7 +64,7 @@ void	ft_horizontal(t_list *c, int option)
 			- c->ray.dy * c->ray.ms)] == '0')
 			c->ray.px -= c->ray.dy * c->ray.ms;
 		if (c->map.map[(int)(c->ray.py + c->ray.dx
-			* c->ray.ms)][(int)(c->ray.px)] == '0')
+				* c->ray.ms)][(int)(c->ray.px)] == '0')
 			c->ray.py += c->ray.dx * c->ray.ms;
 	}
 }
@@ -79,7 +79,7 @@ void	ft_vertical(t_list *c, int option)
 			+ c->ray.dx * c->ray.ms)] == '0')
 			c->ray.px += c->ray.dx * c->ray.ms;
 		if (c->map.map[(int)(c->ray.py + c->ray.dy
-			* c->ray.ms)][(int)(c->ray.px)] == '0')
+				* c->ray.ms)][(int)(c->ray.px)] == '0')
 			c->ray.py += c->ray.dy * c->ray.ms;
 	}
 	if (option == BACK_MOVE)
@@ -88,7 +88,7 @@ void	ft_vertical(t_list *c, int option)
 			- c->ray.dx * c->ray.ms)] == '0')
 			c->ray.px -= c->ray.dx * c->ray.ms;
 		if (c->map.map[(int)(c->ray.py - c->ray.dy
-			* c->ray.ms)][(int)c->ray.px] == '0')
+				* c->ray.ms)][(int)c->ray.px] == '0')
 			c->ray.py -= c->ray.dy * c->ray.ms;
 	}
 }

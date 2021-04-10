@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:45:48 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 09:44:59 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/10 16:38:51 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ static void	ft_sprender(t_list *c, int y, int tx, int stripe)
 	int	d;
 	int	ty;
 
-	d = (y) * 256 - c->res.ry * 128 + c->spr.sph * 128;
+	d = y * 256 - c->res.ry * 128 + c->spr.sph * 128;
 	ty = ((d * c->tex[4].hgt) / c->spr.sph) / 256;
 	if ((int)c->tex[4].adr[ty * c->tex[4].sl / 4 + tx] != -16777216)
 		c->mlx.adr[y * c->mlx.sl / 4 + stripe] = c->tex[4].adr[ty
