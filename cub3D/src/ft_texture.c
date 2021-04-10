@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/10 16:34:39 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/10 17:43:53 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ static void	ft_texdir(t_list *c)
 	if (c->ray.sde == 0 && c->ray.rdx < 0)
 		c->mlx.tdr = 0;
 	if (c->ray.sde == 0 && c->ray.rdx >= 0)
-		c->mlx.tdr = 1;
+		c->mlx.tdr = 3;
 	if (c->ray.sde == 1 && c->ray.rdy < 0)
 		c->mlx.tdr = 2;
 	if (c->ray.sde == 1 && c->ray.rdy >= 0)
-		c->mlx.tdr = 3;
+		c->mlx.tdr = 1;
 	if (c->ray.sde == 0)
 		c->ray.wx = c->ray.py + c->ray.prp * c->ray.rdy;
 	else
@@ -105,11 +105,11 @@ void	ft_tex(char *line, t_list *c)
 	if (line[i] == 'N' && line[i + 1] == 'O')
 		ft_path(line, 0, c);
 	if (line[i] == 'S' && line[i + 1] == 'O')
-		ft_path(line, 3, c);
+		ft_path(line, 1, c);
 	if (line[i] == 'W' && line[i + 1] == 'E')
 		ft_path(line, 2, c);
 	if (line[i] == 'E' && line[i + 1] == 'A')
-		ft_path(line, 1, c);
+		ft_path(line, 3, c);
 	if (line[i] == 'S' && line[i + 1] == ' ')
 		ft_path(line, 4, c);
 }
