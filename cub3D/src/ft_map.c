@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 17:56:14 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/10 17:54:08 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/10 18:18:04 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ static char	ft_return(char a, t_list *c, int j, int i)
 		return ('1');
 	else if (a == 'N' || a == 'E' || a == 'S' || a == 'W')
 	{
+		if (c->uti.dep == 1)
+			ft_error(3, c);
+		else
+			c->uti.dep = 1;
 		c->ray.px = (double)i + 0.5;
 		c->ray.py = (double)j + 0.5;
 		c->map.prx = i;

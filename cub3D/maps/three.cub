@@ -1,4 +1,4 @@
-R 1080 720
+R 720 540
 
 SO ./textures/brick.xpm
 WE ./textures/grey.xpm

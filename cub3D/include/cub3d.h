@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/10 16:16:07 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/10 18:15:01 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ typedef struct s_uti
 	int	tex;
 	int	ult;
 	int	arg;
+	int	dep;
 	int	pth[5];
 }				t_uti;
 

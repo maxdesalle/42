@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:07:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/05 08:37:50 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/12 09:43:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_resvert(char *line, t_list *c)
 	int		i;
 	long	result;
 
-	i = c->uti.i;
+	i = c->uti.i - 1;
 	result = 0;
 	while (line[i] && !(line[i] >= '0' && line[i] <= '9'))
 		i++;
@@ -44,8 +44,14 @@ static int	ft_comma(char *line, t_list *c)
 	int	i;
 	int	counter;
 
-	i = -1;
+	i = c->uti.i;
 	counter = 0;
+	while (line[++i])
+		if (line[i] != ' ' && line[i] != ',' && !(line[i] >= '0'
+				&& line[i] <= '9')
+			&& !(line[i] >= 9 && line[i] <= 13))
+			return (ft_error(9, c));
+	i = -1;
 	while (line[++i] && !(line[i] >= '0' && line[i] <= '9'))
 		if (line[i] == ',')
 			return (ft_error(9, c));
@@ -77,6 +83,8 @@ static void	ft_ceiling(char *line, t_list *c)
 			i++;
 		while ((line[i] >= '0' && line[i] <= '9') && line[i] != ',')
 			result = result * 10 + (line[i++] - '0');
+		if (result > 255)
+			ft_error(9, c);
 		if (counter == 0)
 			c->fc.cre = result;
 		else if (counter == 1)
@@ -107,6 +115,8 @@ static void	ft_floor(char *line, t_list *c)
 			i++;
 		while ((line[i] >= '0' && line[i] <= '9') && line[i] != ',')
 			result = result * 10 + (line[i++] - '0');
+		if (result > 255)
+			ft_error(9, c);
 		if (counter == 0)
 			c->fc.fre = result;
 		else if (counter == 1)
@@ -124,7 +134,8 @@ static void	ft_floor(char *line, t_list *c)
 void	ft_res(char *line, t_list *c)
 {
 	c->uti.i = 0;
-	while (line[c->uti.i] == ' ' || line[c->uti.i] == '\t')
+	while (line[c->uti.i] == ' '
+		|| (line[c->uti.i] >= 9 && line[c->uti.i] <= 13))
 		c->uti.i++;
 	if (line[c->uti.i] == 'R')
 	{

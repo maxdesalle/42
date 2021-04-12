@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 10:34:25 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/05 08:48:08 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/10 18:15:33 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	ft_init(t_list *c)
 	c->uti.tex = 0;
 	c->uti.ult = 0;
 	c->uti.chk = 1;
+	c->uti.dep = 0;
 	c->uti.pth[0] = 0;
 	c->uti.pth[1] = 0;
 	c->uti.pth[2] = 0;

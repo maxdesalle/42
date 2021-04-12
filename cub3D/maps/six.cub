@@ -1,4 +1,4 @@
-R 1920 1080
+R 720 540
 
 NO ./textures/brick.xpm
 SO ./textures/grey.xpm
@@ -6,9 +6,8 @@ WE ./textures/blue.xpm
 EA ./textures/wood.xpm
 S ./textures/barrel.xpm
 
-F 0,0,0
-C 0,0,0
-
+F 224,172,105
+C 205,249,255
 
 
                                                  111111111111111111111 11111111111111               
