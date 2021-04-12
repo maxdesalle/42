@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:07:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/12 09:43:10 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/12 15:20:15 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,8 +134,8 @@ static void	ft_floor(char *line, t_list *c)
 void	ft_res(char *line, t_list *c)
 {
 	c->uti.i = 0;
-	while (line[c->uti.i] == ' '
-		|| (line[c->uti.i] >= 9 && line[c->uti.i] <= 13))
+	while (line[c->uti.i] && (line[c->uti.i] == ' '
+			|| (line[c->uti.i] >= 9 && line[c->uti.i] <= 13)))
 		c->uti.i++;
 	if (line[c->uti.i] == 'R')
 	{

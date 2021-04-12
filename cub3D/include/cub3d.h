@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/10 18:15:01 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/12 15:03:17 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <fcntl.h>
 # include <limits.h>
 # include <string.h>
-# include <stdio.h>
 # include "../minilibX/mlx.h"
 
 # define BUFFER_SIZE 32

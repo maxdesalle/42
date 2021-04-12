@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/10 18:04:40 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/12 15:20:56 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,16 +100,22 @@ void	ft_tex(char *line, t_list *c)
 	int	i;
 
 	i = 0;
-	while (line[i] && (line[i] == ' ' || line[i] == '\t'))
+	while (line[i] && (line[i] == ' '
+			|| (line[i] >= 9 && line[i] <= 13)))
 		i++;
-	if (line[i] == 'N' && line[i + 1] == 'O')
+	if (line[i] == 'N' && line[i + 1] == 'O' && (line[i + 2] == ' '
+			|| (line[i + 2] >= 9 && line[i + 2] <= 13)))
 		ft_path(line, 0, c);
-	if (line[i] == 'S' && line[i + 1] == 'O')
+	if (line[i] == 'S' && line[i + 1] == 'O' && (line[i + 2] == ' '
+			|| (line[i + 2] >= 9 && line[i + 2] <= 13)))
 		ft_path(line, 3, c);
-	if (line[i] == 'W' && line[i + 1] == 'E')
+	if (line[i] == 'W' && line[i + 1] == 'E' && (line[i + 2] == ' '
+			|| (line[i + 2] >= 9 && line[i + 2] <= 13)))
 		ft_path(line, 2, c);
-	if (line[i] == 'E' && line[i + 1] == 'A')
+	if (line[i] == 'E' && line[i + 1] == 'A' && (line[i + 2] == ' '
+			|| (line[i + 2] >= 9 && line[i + 2] <= 13)))
 		ft_path(line, 1, c);
-	if (line[i] == 'S' && line[i + 1] == ' ')
+	if (line[i] == 'S' && (line[i + 1] == ' '
+			|| (line[i + 1] >= 9 && line[i + 1] <= 13)))
 		ft_path(line, 4, c);
 }

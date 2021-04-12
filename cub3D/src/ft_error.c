@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:48:54 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/05 08:46:45 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/12 15:03:12 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_terror(t_list *c)
 	int	j;
 
 	i = -1;
+	if (c->res.rx <= 0 || c->res.ry <= 0)
+		return (ft_error(9, c));
 	while (++i <= 4)
 	{
 		if (c->uti.pth[i] == 0)

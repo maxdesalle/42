@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/10 16:16:17 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/12 14:54:13 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ int	main(int argc, char **argv)
 	t_list	c;
 
 	c.uti.arg = 0;
+	c.res.rx = -1;
+	c.res.ry = -1;
 	if (argc == 2 && ft_argn(argv[1]))
 	{
 		c.uti.arg = 1;
