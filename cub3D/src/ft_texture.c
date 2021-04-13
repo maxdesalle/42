@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/12 15:20:56 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/13 12:33:11 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,16 @@ static int	ft_path(char *line, int type, t_list *c)
 	int	j;
 
 	i = 0;
+	if (type != 4)
+		i = c->uti.i + 2;
+	else if (type == 4)
+		i = c->uti.i + 1;
 	while (line[i] != '\0' && line[i] != '.')
+	{
+		if (!(line[i] >= 9 && line[i] <= 13) && line[i] != ' ')
+			return (ft_error(9, c));
 		i++;
+	}
 	if (line[i] == '.')
 	{
 		j = ft_strlen(line) - i;
@@ -97,25 +105,27 @@ void	ft_texplace(t_list *c)
 
 void	ft_tex(char *line, t_list *c)
 {
-	int	i;
-
-	i = 0;
-	while (line[i] && (line[i] == ' '
-			|| (line[i] >= 9 && line[i] <= 13)))
-		i++;
-	if (line[i] == 'N' && line[i + 1] == 'O' && (line[i + 2] == ' '
-			|| (line[i + 2] >= 9 && line[i + 2] <= 13)))
+	c->uti.i = 0;
+	while (line[c->uti.i] && (line[c->uti.i] == ' '
+			|| (line[c->uti.i] >= 9 && line[c->uti.i] <= 13)))
+		c->uti.i++;
+	if (line[c->uti.i] == 'N' && line[c->uti.i + 1] == 'O'
+			&& (line[c->uti.i + 2] == ' '
+			|| (line[c->uti.i + 2] >= 9 && line[c->uti.i + 2] <= 13)))
 		ft_path(line, 0, c);
-	if (line[i] == 'S' && line[i + 1] == 'O' && (line[i + 2] == ' '
-			|| (line[i + 2] >= 9 && line[i + 2] <= 13)))
+	if (line[c->uti.i] == 'S' && line[c->uti.i + 1] == 'O'
+			&& (line[c->uti.i + 2] == ' '
+			|| (line[c->uti.i + 2] >= 9 && line[c->uti.i + 2] <= 13)))
 		ft_path(line, 3, c);
-	if (line[i] == 'W' && line[i + 1] == 'E' && (line[i + 2] == ' '
-			|| (line[i + 2] >= 9 && line[i + 2] <= 13)))
+	if (line[c->uti.i] == 'W' && line[c->uti.i + 1] == 'E'
+			&& (line[c->uti.i + 2] == ' '
+			|| (line[c->uti.i + 2] >= 9 && line[c->uti.i + 2] <= 13)))
 		ft_path(line, 2, c);
-	if (line[i] == 'E' && line[i + 1] == 'A' && (line[i + 2] == ' '
-			|| (line[i + 2] >= 9 && line[i + 2] <= 13)))
+	if (line[c->uti.i] == 'E' && line[c->uti.i + 1] == 'A'
+			&& (line[c->uti.i + 2] == ' '
+			|| (line[c->uti.i + 2] >= 9 && line[c->uti.i + 2] <= 13)))
 		ft_path(line, 1, c);
-	if (line[i] == 'S' && (line[i + 1] == ' '
-			|| (line[i + 1] >= 9 && line[i + 1] <= 13)))
+	if (line[c->uti.i] == 'S' && (line[c->uti.i + 1] == ' '
+			|| (line[c->uti.i + 1] >= 9 && line[c->uti.i + 1] <= 13)))
 		ft_path(line, 4, c);
 }

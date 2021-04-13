@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:07:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/12 15:20:15 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/13 11:52:19 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,9 @@ static void	ft_floor(char *line, t_list *c)
 
 void	ft_res(char *line, t_list *c)
 {
+	int	i;
+
+	i = 0;
 	c->uti.i = 0;
 	while (line[c->uti.i] && (line[c->uti.i] == ' '
 			|| (line[c->uti.i] >= 9 && line[c->uti.i] <= 13)))
@@ -140,6 +143,11 @@ void	ft_res(char *line, t_list *c)
 	if (line[c->uti.i] == 'R')
 	{
 		c->uti.i += 1;
+		i = c->uti.i - 1;
+		while (line[++i])
+			if (!(line[i] >= 9 && line[i] <= 13) && line[i] != ' '
+					&& !(line[i] >= '0' && line[i] <= '9'))
+				ft_error(1, c);
 		c->res.rx = ft_resvert(line, c);
 		c->res.ry = ft_resvert(line, c);
 	}
