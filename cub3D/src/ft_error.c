@@ -6,11 +6,20 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:48:54 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/12 15:03:12 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/14 10:06:44 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+int	ft_param(char *line, int i, t_list *c)
+{
+	if (line[i] != 'S' && line[i] != 'W' && line[i] != 'N'
+		&& line[i] != 'E' && line[i] != 'R' && line[i] != 'C'
+		&& line[i] != 'F' && line[i] != '1' && line[i] != '\0')
+		return (ft_error(3, c));
+	return (0);
+}
 
 int	ft_terror(t_list *c)
 {

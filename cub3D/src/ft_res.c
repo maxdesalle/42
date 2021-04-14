@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:07:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/14 08:33:33 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/14 10:07:50 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,4 +155,6 @@ void	ft_res(char *line, t_list *c)
 		ft_ceiling(line, c);
 	else if (line[c->uti.i] == 'F')
 		ft_floor(line, c);
+	else
+		ft_param(line, c->uti.i, c);
 }

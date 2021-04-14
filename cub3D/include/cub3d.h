@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/12 15:03:17 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/14 10:07:23 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,6 +227,7 @@ int					ft_argn(char *argv);
 
 int					ft_terror(t_list *c);
 int					ft_error(int option, t_list *c);
+int					ft_param(char *line, int i, t_list *c);
 
 int					get_next_line(int fd, char **line);
 
