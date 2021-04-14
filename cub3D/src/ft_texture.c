@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:46:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/14 08:33:18 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/14 10:38:19 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	ft_path(char *line, int type, t_list *c)
 		j = ft_strlen(line) - i;
 		c->tex[type].pth = ft_substr(line, i, j);
 		c->uti.pth[type] = 1;
-		return (0);
+		return (1);
 	}
 	else
 		return (ft_error(2, c));
@@ -112,20 +112,20 @@ void	ft_tex(char *line, t_list *c)
 	if (line[c->uti.i] == 'N' && line[c->uti.i + 1] == 'O'
 		&& (line[c->uti.i + 2] == ' '
 			|| (line[c->uti.i + 2] >= 9 && line[c->uti.i + 2] <= 13)))
-		ft_path(line, 0, c);
+		c->uti.no += ft_path(line, 0, c);
 	if (line[c->uti.i] == 'S' && line[c->uti.i + 1] == 'O'
 		&& (line[c->uti.i + 2] == ' '
 			|| (line[c->uti.i + 2] >= 9 && line[c->uti.i + 2] <= 13)))
-		ft_path(line, 3, c);
+		c->uti.so += ft_path(line, 3, c);
 	if (line[c->uti.i] == 'W' && line[c->uti.i + 1] == 'E'
 		&& (line[c->uti.i + 2] == ' '
 			|| (line[c->uti.i + 2] >= 9 && line[c->uti.i + 2] <= 13)))
-		ft_path(line, 2, c);
+		c->uti.we += ft_path(line, 2, c);
 	if (line[c->uti.i] == 'E' && line[c->uti.i + 1] == 'A'
 		&& (line[c->uti.i + 2] == ' '
 			|| (line[c->uti.i + 2] >= 9 && line[c->uti.i + 2] <= 13)))
-		ft_path(line, 1, c);
+		c->uti.ea += ft_path(line, 1, c);
 	if (line[c->uti.i] == 'S' && (line[c->uti.i + 1] == ' '
 			|| (line[c->uti.i + 1] >= 9 && line[c->uti.i + 1] <= 13)))
-		ft_path(line, 4, c);
+		c->uti.s += ft_path(line, 4, c);
 }

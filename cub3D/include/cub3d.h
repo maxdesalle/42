@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/14 10:07:23 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/14 10:37:46 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,14 @@ typedef struct s_uti
 	int	i;
 	int	j;
 	int	k;
+	int	s;
+	int	r;
+	int	f;
+	int	c;
+	int	so;
+	int	no;
+	int	we;
+	int	ea;
 	int	fd;
 	int	err;
 	int	nbl;
@@ -225,6 +233,8 @@ int					ft_count(char *mapfile, t_list *c);
 int					ft_args(char *argv, t_list *c);
 int					ft_argn(char *argv);
 
+void					ft_parinit(t_list *c);
+int					ft_dparam(t_list *c);
 int					ft_terror(t_list *c);
 int					ft_error(int option, t_list *c);
 int					ft_param(char *line, int i, t_list *c);

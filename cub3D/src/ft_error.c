@@ -6,11 +6,32 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:48:54 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/14 10:06:44 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/14 10:37:33 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+void	ft_parinit(t_list *c)
+{
+	c->uti.s = 0;
+	c->uti.r = 0;
+	c->uti.f = 0;
+	c->uti.c = 0;
+	c->uti.so = 0;
+	c->uti.no = 0;
+	c->uti.we = 0;
+	c->uti.ea = 0;
+}
+
+int	ft_dparam(t_list *c)
+{
+	if (c->uti.r != 1 || c->uti.s != 1 || c->uti.f != 1 || c->uti.c != 1
+		|| c->uti.so != 1 || c->uti.no != 1 || c->uti.we != 1
+		|| c->uti.ea != 1)
+		return (ft_error(9, c));
+	return (0);
+}
 
 int	ft_param(char *line, int i, t_list *c)
 {

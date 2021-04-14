@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:07:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/14 10:07:50 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/14 10:30:47 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,16 @@ static int	ft_comma(char *line, t_list *c)
 /* converts the color values in the .cub file in three separate values to
  * maintain the rgb values */
 
-static void	ft_ceiling(char *line, t_list *c)
+static int	ft_ceiling(char *line, t_list *c)
 {
 	int	i;
 	int	result;
 	int	counter;
 
-	i = 1;
+	i = c->uti.i;
 	counter = 0;
 	ft_comma(line, c);
-	while (counter < 3 && line[i])
+	while (counter < 3 && line[++i])
 	{
 		result = 0;
 		while (!(line[i] >= '0' && line[i] <= '9'))
@@ -84,31 +84,31 @@ static void	ft_ceiling(char *line, t_list *c)
 		while ((line[i] >= '0' && line[i] <= '9') && line[i] != ',')
 			result = result * 10 + (line[i++] - '0');
 		if (result > 255)
-			ft_error(9, c);
+			return (ft_error(9, c));
 		if (counter == 0)
 			c->fc.cre = result;
 		else if (counter == 1)
 			c->fc.cgr = result;
 		else if (counter == 2)
 			c->fc.cbl = result;
-		i++;
 		counter++;
 	}
+	return (1);
 }
 
 /* converts the color values in the .cub file in three sperate values to
  * maintain the rgb values */
 
-static void	ft_floor(char *line, t_list *c)
+static int	ft_floor(char *line, t_list *c)
 {
 	int	i;
 	int	result;
 	int	counter;
 
-	i = 1;
+	i = c->uti.i;
 	counter = 0;
 	ft_comma(line, c);
-	while (counter < 3 && line[i])
+	while (counter < 3 && line[++i])
 	{
 		result = 0;
 		while (!(line[i] >= '0' && line[i] <= '9'))
@@ -116,16 +116,16 @@ static void	ft_floor(char *line, t_list *c)
 		while ((line[i] >= '0' && line[i] <= '9') && line[i] != ',')
 			result = result * 10 + (line[i++] - '0');
 		if (result > 255)
-			ft_error(9, c);
+			return (ft_error(9, c));
 		if (counter == 0)
 			c->fc.fre = result;
 		else if (counter == 1)
 			c->fc.fgr = result;
 		else if (counter == 2)
 			c->fc.fbl = result;
-		i++;
 		counter++;
 	}
+	return (1);
 }
 
 /* checks if the indicating letter .cub line and redirects to the right
@@ -142,6 +142,7 @@ void	ft_res(char *line, t_list *c)
 		c->uti.i++;
 	if (line[c->uti.i] == 'R')
 	{
+		c->uti.r += 1;
 		c->uti.i += 1;
 		i = c->uti.i - 1;
 		while (line[++i])
@@ -152,9 +153,9 @@ void	ft_res(char *line, t_list *c)
 		c->res.ry = ft_resvert(line, c);
 	}
 	else if (line[c->uti.i] == 'C')
-		ft_ceiling(line, c);
+		c->uti.c += ft_ceiling(line, c);
 	else if (line[c->uti.i] == 'F')
-		ft_floor(line, c);
+		c->uti.f += ft_floor(line, c);
 	else
 		ft_param(line, c->uti.i, c);
 }

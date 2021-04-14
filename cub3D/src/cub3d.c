@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/13 12:38:45 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/14 10:39:32 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int	ft_compute(t_list *c)
 	int	i;
 
 	i = -1;
+	ft_dparam(c);
 	if (c->fc.cre == -1 || c->fc.cgr == -1 || c->fc.cbl == -1
 		|| c->fc.fre == -1 || c->fc.fgr == -1 || c->fc.fbl == -1)
 		return (ft_error(9, c));
@@ -133,6 +134,7 @@ int	main(int argc, char **argv)
 	c.uti.arg = 0;
 	c.res.rx = -1;
 	c.res.ry = -1;
+	ft_parinit(&c);
 	if (argc == 2 && ft_argn(argv[1]))
 	{
 		c.uti.arg = 1;
