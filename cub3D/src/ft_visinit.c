@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 08:42:04 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/12 09:32:20 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/14 08:46:54 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ void	ft_visinit(t_list *c)
 
 void	ft_orinit(t_list *c)
 {
+	if (c->uti.dep != 1)
+		ft_error(4, c);
 	if (c->map.ori == 3)
 	{
 		c->ray.dx = -1;
