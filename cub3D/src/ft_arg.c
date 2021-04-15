@@ -6,11 +6,28 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/02 11:17:38 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/02 11:18:38 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/15 15:28:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+int	ft_rcheck(char *line, t_list *c)
+{
+	int	i;
+	int	counter;
+
+	i = -1;
+	counter = 0;
+	while (line[++i])
+		if (line[i] >= '0' && line[i] <= '9' && (line[i + 1] == ' '
+				|| (line[i + 1] >= 9 && line[i + 1] <= 13)
+				|| line[i + 1] == '\0'))
+			counter++;
+	if (counter != 2)
+		return (ft_error(1, c));
+	return (0);
+}
 
 /*
 ** checks if the argument save is correctly given. returns 1 if yes, 0 if not.

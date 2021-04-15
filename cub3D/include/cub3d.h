@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:16:13 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/14 10:59:16 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/15 15:35:28 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,8 +228,9 @@ typedef struct s_list
 int					ft_raycast(t_list *c);
 
 int					ft_map_valid(char *line, t_list *c);
-int					ft_count(char *mapfile, t_list *c);
+void				ft_count(char *mapfile, t_list *c);
 
+int					ft_rcheck(char *line, t_list *c);
 int					ft_args(char *argv, t_list *c);
 int					ft_argn(char *argv);
 
@@ -243,6 +244,7 @@ int					get_next_line(int fd, char **line);
 
 int					ft_exit(t_list *c);
 
+int					ft_compute(t_list *c);
 int					ft_key(int key, t_list *c);
 void				ft_start(t_list *c);
 

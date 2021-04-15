@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 08:07:18 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/14 10:30:47 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/15 15:39:17 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	ft_resvert(char *line, t_list *c)
 
 	i = c->uti.i - 1;
 	result = 0;
+	ft_rcheck(line, c);
 	while (line[i] && !(line[i] >= '0' && line[i] <= '9'))
 		i++;
 	if (line[i] == '\0')
@@ -133,10 +134,8 @@ static int	ft_floor(char *line, t_list *c)
 
 void	ft_res(char *line, t_list *c)
 {
-	int	i;
-
-	i = 0;
 	c->uti.i = 0;
+	c->uti.j = 0;
 	while (line[c->uti.i] && (line[c->uti.i] == ' '
 			|| (line[c->uti.i] >= 9 && line[c->uti.i] <= 13)))
 		c->uti.i++;
@@ -144,10 +143,12 @@ void	ft_res(char *line, t_list *c)
 	{
 		c->uti.r += 1;
 		c->uti.i += 1;
-		i = c->uti.i - 1;
-		while (line[++i])
-			if (!(line[i] >= 9 && line[i] <= 13) && line[i] != ' '
-				&& !(line[i] >= '0' && line[i] <= '9'))
+		c->uti.j = c->uti.i - 1;
+		while (line[++c->uti.j])
+			if (!(line[c->uti.j] >= 9 && line[c->uti.j] <= 13)
+				&& line[c->uti.j] != ' '
+				&& !(line[c->uti.j] >= '0'
+					&& line[c->uti.j] <= '9'))
 				ft_error(1, c);
 		c->res.rx = ft_resvert(line, c);
 		c->res.ry = ft_resvert(line, c);

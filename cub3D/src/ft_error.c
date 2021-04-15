@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:48:54 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/14 10:37:33 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/15 15:39:46 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,23 @@ int	ft_param(char *line, int i, t_list *c)
 	if (line[i] != 'S' && line[i] != 'W' && line[i] != 'N'
 		&& line[i] != 'E' && line[i] != 'R' && line[i] != 'C'
 		&& line[i] != 'F' && line[i] != '1' && line[i] != '\0')
+		return (ft_error(3, c));
+	if (line[i] == 'R' && (line[i + 1] != ' '
+			|| !(line[i + 1] >= 9 && line[i + 1] <= 13)))
+		return (ft_error(3, c));
+	if (line[i] == 'S' && line[i + 1] != 'O' && line[i + 1] != ' '
+		&& (line[i + 2] != ' '
+			|| !(line[i + 2] >= 9 && line[i + 2] <= 13)
+			|| line[i + 2] != '.'))
+		return (ft_error(3, c));
+	if (line[i] == 'W' && line[i + 1] != 'E' && (line[i + 2] != ' '
+			|| !(line[i + 2] >= 9 && line[i + 2] <= 13)))
+		return (ft_error(3, c));
+	if (line[i] == 'E' && line[i + 1] != 'A' && (line[i + 2] != ' '
+			|| !(line[i + 2] >= 9 && line[i + 2] <= 13)))
+		return (ft_error(3, c));
+	if (line[i] == 'N' && line[i + 1] != 'O' && (line[i + 2] != ' '
+			|| !(line[i + 2] >= 9 && line[i + 2] <= 13)))
 		return (ft_error(3, c));
 	return (0);
 }

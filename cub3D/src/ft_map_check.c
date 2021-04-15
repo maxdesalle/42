@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:03:57 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/07 09:46:23 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/15 15:39:30 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static int	ft_map_space(char *line)
 	i = 0;
 	if (!line)
 		return (0);
-	while (line[i] != '\0' && line[i] == ' ')
+	while (line[i] != '\0' && (line[i] == ' '
+			|| (line[i] >= 9 && line[i] <= 13)))
 		i++;
 	if (line[i] == '\0')
 		return (0);
@@ -57,22 +58,24 @@ int	ft_map_valid(char *line, t_list *c)
 
 /* counts all the lines, computes the map line length and mallocs it */
 
-int	ft_count(char *mapfile, t_list *c)
+void	ft_count(char *mapfile, t_list *c)
 {
 	char	*line;
 
 	c->uti.fd = open(mapfile, O_RDONLY);
 	if (c->uti.fd == -1)
-		return (ft_error(3, c));
+		ft_error(3, c);
 	while (get_next_line(c->uti.fd, &line) == 1)
 	{
 		if (ft_map_valid(line, c) == 1 && c->uti.mps != 1)
 			c->uti.mps = 1;
 		if (c->uti.mps == 1)
 		{
-			c->uti.nbl++;
+			if (ft_map_valid(line, c) == 0)
+				ft_error(4, c);
 			if ((int)ft_strlen(line) > c->uti.ll)
 				c->uti.ll = (int)ft_strlen(line);
+			c->uti.nbl++;
 		}
 		free(line);
 	}
@@ -80,9 +83,8 @@ int	ft_count(char *mapfile, t_list *c)
 	close(c->uti.fd);
 	c->map.map = malloc(c->uti.nbl * sizeof(char *));
 	if (!(c->map.map))
-		return (ft_error(5, c));
+		ft_error(5, c);
 	c->uti.ctr = c->uti.nbl - 1;
-	return (0);
 }
 
 /* checks the vertical borders vertically of the inserted map array */

@@ -6,37 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 19:54:41 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/04/14 10:39:32 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/04/15 15:42:49 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-
-/* assigns the address and struct image pointer to the right texture */
-
-static int	ft_compute(t_list *c)
-{
-	int	i;
-
-	i = -1;
-	ft_dparam(c);
-	if (c->fc.cre == -1 || c->fc.cgr == -1 || c->fc.cbl == -1
-		|| c->fc.fre == -1 || c->fc.fgr == -1 || c->fc.fbl == -1)
-		return (ft_error(9, c));
-	while (++i <= 4)
-	{
-		c->tex[i].img = mlx_xpm_file_to_image(c->mlx.mlx,
-				c->tex[i].pth, &c->tex[i].wdh, &c->tex[i].hgt);
-		if (!(c->tex[i].img))
-			return (ft_error(6, c));
-		c->tex[i].adr = (unsigned int *)mlx_get_data_addr(
-				c->tex[i].img, &c->tex[i].bpp, &c->tex[i].sl,
-				&c->tex[i].end);
-		if (!(c->tex[i].adr))
-			return (ft_error(6, c));
-	}
-	return (0);
-}
 
 /* processes the visuals for every column of pixels, computes the sprites
  * and swaps the image and address with temporary ones to reduce lag */
@@ -61,6 +35,32 @@ int	ft_raycast(t_list *c)
 	return (0);
 }
 
+static int	ft_mlx_alpha(t_list *c)
+{
+	c->mlx.img = mlx_new_image(c->mlx.mlx, c->res.rx, c->res.ry);
+	if (!(c->mlx.img))
+		return (ft_error(6, c));
+	c->mlx.adr = (unsigned int *)mlx_get_data_addr(c->mlx.img,
+			&c->mlx.bpp, &c->mlx.sl, &c->mlx.end);
+	if (!(c->mlx.adr))
+		return (ft_error(6, c));
+	if (c->uti.sve == 1)
+		ft_raycast(c);
+	c->mlx.win = mlx_new_window(c->mlx.mlx,
+			c->res.rx, c->res.ry, "Cub3D");
+	if (!(c->mlx.win))
+		return (ft_error(6, c));
+	c->mlx.isp = mlx_new_image(c->mlx.mlx, c->res.rx, c->res.ry);
+	if (!(c->mlx.isp))
+		return (ft_error(6, c));
+	c->mlx.asp = (unsigned int *)mlx_get_data_addr(c->mlx.isp,
+			&c->mlx.bpp, &c->mlx.sl, &c->mlx.end);
+	if (!(c->mlx.asp))
+		return (ft_error(6, c));
+	ft_start(c);
+	return (0);
+}
+
 /* initiates the mlx pointer, computes the screen size, floor and ceiling
  * colors, and inities all the needed mlx pointers */
 
@@ -80,16 +80,7 @@ static int	ft_mlx(t_list *c)
 		c->res.ry = c->res.sy;
 	c->fc.c = 0 << 24 | c->fc.cre << 16 | c->fc.cgr << 8 | c->fc.cbl;
 	c->fc.f = 0 << 24 | c->fc.fre << 16 | c->fc.fgr << 8 | c->fc.fbl;
-	c->mlx.img = mlx_new_image(c->mlx.mlx, c->res.rx, c->res.ry);
-	c->mlx.adr = (unsigned int *)mlx_get_data_addr(c->mlx.img,
-			&c->mlx.bpp, &c->mlx.sl, &c->mlx.end);
-	if (c->uti.sve == 1)
-		ft_raycast(c);
-	c->mlx.win = mlx_new_window(c->mlx.mlx, c->res.rx, c->res.ry, "Cub3D");
-	c->mlx.isp = mlx_new_image(c->mlx.mlx, c->res.rx, c->res.ry);
-	c->mlx.asp = (unsigned int *)mlx_get_data_addr(c->mlx.isp,
-			&c->mlx.bpp, &c->mlx.sl, &c->mlx.end);
-	ft_start(c);
+	ft_mlx_alpha(c);
 	return (0);
 }
 
