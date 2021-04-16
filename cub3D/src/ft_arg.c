@@ -12,6 +12,8 @@
 
 #include "../include/cub3d.h"
 
+/* checks if the resolution is has 2 numbers, and not 3 or 1 for example */
+
 int	ft_rcheck(char *line, t_list *c)
 {
 	int	i;

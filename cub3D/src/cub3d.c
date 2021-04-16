@@ -35,6 +35,8 @@ int	ft_raycast(t_list *c)
 	return (0);
 }
 
+/* the follow-up function of ft_mlx() */
+
 static int	ft_mlx_alpha(t_list *c)
 {
 	c->mlx.img = mlx_new_image(c->mlx.mlx, c->res.rx, c->res.ry);

@@ -12,6 +12,8 @@
 
 #include "../include/cub3d.h"
 
+/* initiates the texture checks */
+
 void	ft_parinit(t_list *c)
 {
 	c->uti.s = 0;
@@ -24,6 +26,8 @@ void	ft_parinit(t_list *c)
 	c->uti.ea = 0;
 }
 
+/* checks if all the textures are there, and if there aren't two of the same */
+
 int	ft_dparam(t_list *c)
 {
 	if (c->uti.r != 1 || c->uti.s != 1 || c->uti.f != 1 || c->uti.c != 1
@@ -32,6 +36,9 @@ int	ft_dparam(t_list *c)
 		return (ft_error(9, c));
 	return (0);
 }
+
+/* checks if the given key ('S' for example) in the map file, 
+** is correctly entered, and if it really exists */
 
 int	ft_param(char *line, int i, t_list *c)
 {
@@ -58,6 +65,9 @@ int	ft_param(char *line, int i, t_list *c)
 		return (ft_error(3, c));
 	return (0);
 }
+
+/* checks if the resolution were initiated, if the textures
+** have the right path, as well as the right extension. */
 
 int	ft_terror(t_list *c)
 {
