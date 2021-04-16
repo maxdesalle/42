@@ -31,6 +31,8 @@ If you want to save a screenshot of the initial in-game view, execute this comma
 ## What I have learned
 ```cub3D``` was definitely not an easy project. I had to rewrite it from scratch near the end as my code was just becoming too messy. In order to fix this situation, I started using much shorter variable names, used a more structured architecture and changed the way the main struct is organized.
 
+But most importantly, it taught me the importance of clean code, and planning the architecture before starting to code, instead of doing it while coding. This was my big mistake. I hadn't really planned how to do things beforehand, which made me lose a lot of valuable time.
+
 Additionally, it has obviously introduced me to raycasting, a technology I hadn't heard of before that. 
 
 ## Acknowledgments
