@@ -1,5 +1,5 @@
 # ```libasm```
-The aim of this project is to get familiar with assembly language.
+The aim of this project is to get familiar with the Assembly language.
 
 ## Warning
 The structure of this repository does **not** follow the guidelines.
