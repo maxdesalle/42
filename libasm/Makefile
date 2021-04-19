@@ -12,7 +12,8 @@
 
 NAME =		libasm.a
 
-SRC =		src/ft_strlen.s
+SRC =		src/ft_strlen.s \
+		src/ft_write.s
 
 OBJ =		$(SRC:.s=.o)
 
