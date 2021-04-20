@@ -11,6 +11,8 @@ Most available maps (except the first one) were created by [Yaroslav Soroko](htt
 
 ## How to use it
 
+> Note: the installation of the MinilibX library is required for this to work correctly.
+
 Clone the repository and get into the folder:
 ```bash
 cd 42/cub3D/
