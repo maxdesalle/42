@@ -19,6 +19,7 @@
 
 size_t	ft_strlen(const char *s);
 ssize_t	ft_write(int fd, const void *buf, size_t count);
+ssize_t	ft_read(int fd, void *buf, size_t count);
 
 void	green(void)
 {
@@ -32,7 +33,13 @@ void	reset(void)
 
 int	main(void)
 {
-	printf("\n");
+	int	fd;
+	int	reader;
+	char	*buff;
+
+	buff = malloc(sizeof(char) * (32 + 1));
+	if (!buff)
+		return (0);
 	printf("---------------");
 	printf("\n   ft_strlen \n");
 	printf("---------------");
@@ -53,31 +60,48 @@ int	main(void)
 	printf("\nstrlen:\t\t%d", (int)strlen("this is a very very very very very long test"));
 	printf("\n\n");
 	printf("---------------");
-        printf("\n   ft_write \n");
-        printf("---------------");
+	printf("\n   ft_write \n");
+	printf("---------------");
 	green();
-        printf("\n\n\"test\"");
+	printf("\n\n\"test\"");
 	reset();
 	printf("\n");
 	write(1, "ft_write:\t", 10);
 	ft_write(1, "test\n", 5);
 	write(1, "write:\t\t", 8);
-        write(1, "test\n", 5);
+	write(1, "test\n", 5);
 	green();
-        printf("\n\"this is a test\"");
+	printf("\n\"this is a test\"");
 	reset();
 	printf("\n");
 	write(1, "ft_write:\t", 10);
-        ft_write(1, "this is a test\n", 15);
+	ft_write(1, "this is a test\n", 15);
 	write(1, "write:\t\t", 8);
-        write(1, "this is a test\n", 15);
+	write(1, "this is a test\n", 15);
 	green();
-        printf("\n\"this is a very very very very very long test\"");
+	printf("\n\"this is a very very very very very long test\"");
 	reset();
 	printf("\n");
 	write(1, "ft_write\t", 10);
-        ft_write(1, "this is a very very very very very long test\n", 45);
+	ft_write(1, "this is a very very very very very long test\n", 45);
 	write(1, "write:\t\t", 8);
-        write(1, "this is a very very very very very long test\n", 45);
+	write(1, "this is a very very very very very long test\n", 45);
+	printf("\n\n");
+	printf("---------------");
+	printf("\n    ft_read\n");
+	printf("---------------");
+	green();
+	printf("\n\n\"# ******************************\"");
+	reset();
+	printf("\n\n");
+	fd = open("./Makefile", O_RDONLY);
+	reader = ft_read(fd, buff, 32);
+	close(fd);
+	printf("ft_read:\n- read:\t\"%s\"\n- ret:\t%d\n", buff, reader);
+	printf("\n");
+	fd = open("./Makefile", O_RDONLY);
+	reader = read(fd, buff, 32);
+	close(fd);
+	printf("read:\n- read:\t\"%s\"\n- ret:\t%d\n", buff, reader);
 	return (0);
 }
