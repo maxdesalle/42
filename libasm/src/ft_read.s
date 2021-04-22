@@ -1,6 +1,6 @@
 global	ft_read
 section	.text
-
+extern __errno_location
 
 ft_read:
 	mov rax, 0	; write syscall number
@@ -10,3 +10,8 @@ ft_read:
 	ret		; exit return
 
 error:
+	push rax		; save rax on the stack
+	call __errno_location	; call the error function
+	pop qword[rax]		; retrieve the rax value from the stack
+	mov rax, -1		; set rax equal to -1
+	ret			; exit return;
