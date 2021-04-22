@@ -16,6 +16,10 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
+MLX = libmlx.dylib
+
+MLX_DIR = minilibX
+
 SRC = src/cub3d.c \
       src/ft_map_check.c \
       src/ft_error.c \
