@@ -17,6 +17,10 @@ Clone the repository and get into the folder:
 ```bash
 cd 42/cub3D/
 ```
+Unzip the MinilibX library:
+```bash
+unzip minilibX/minilibX.zip -d minilibX && rm minilibX/minilibX.zip
+```
 Now compile the files:
 ```bash
 make

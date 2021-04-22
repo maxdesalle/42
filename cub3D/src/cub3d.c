@@ -75,11 +75,11 @@ static int	ft_mlx(t_list *c)
 	if (!(c->mlx.mlx))
 		return (ft_error(6, c));
 	ft_compute(c);
-/*	mlx_get_screen_size(c->mlx.mlx, &c->res.sx, &c->res.sy);
+	mlx_get_screen_size(c->mlx.mlx, &c->res.sx, &c->res.sy);
 	if (c->res.rx > c->res.sx)
 		c->res.rx = c->res.sx;
 	if (c->res.ry > c->res.sy)
-		c->res.ry = c->res.sy;*/
+		c->res.ry = c->res.sy;
 	c->fc.c = 0 << 24 | c->fc.cre << 16 | c->fc.cgr << 8 | c->fc.cbl;
 	c->fc.f = 0 << 24 | c->fc.fre << 16 | c->fc.fgr << 8 | c->fc.fbl;
 	ft_mlx_alpha(c);

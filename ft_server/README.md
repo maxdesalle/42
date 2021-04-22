@@ -4,6 +4,10 @@
 ## How to use it
 To use this project to create a Docker-based, phpMyAdmin and MySQL powered WordPress blog, simply execute the following commands in your command line tool (make sure to install Docker first).
 
+Unzip the source files:
+```bash
+unzip srcs/utilities.zip -d srcs && rm -f srcs/utilities.zip
+```
 Build the image:
 ```bash
 docker build -t ft_server .

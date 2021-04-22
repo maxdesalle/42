@@ -41,8 +41,10 @@ ccgreen = "\033[0;92m"
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@$(CC) -lmlx -framework OpenGL -framework AppKit $(CFLAGS) $(SRC) -o $(NAME)
+$(NAME): 	$(OBJ)
+		$(CC) $(CFLAGS) -o $(NAME) $(OBJ) -L $(MLX_DIR) -lmlx
+		@install_name_tool -change $(MLX) @loader_path/$(MLX_DIR)/$(MLX) $(NAME)
+	#	@$(CC) -lmlx -framework OpenGL -framework AppKit $(CFLAGS) $(SRC) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)

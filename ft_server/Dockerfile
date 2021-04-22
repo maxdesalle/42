@@ -10,6 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
+
 # Linux distribution & version
 FROM debian:buster
 
@@ -22,7 +23,6 @@ RUN apt-get -y upgrade
 
 # Install the required tools
 RUN apt-get -y install wget nginx mariadb-server
-RUN unzip srcs/utilities.zip && rm srcs/utilities.zip
 
 # Install PHP
 RUN apt-get -y install php7.3 php-mysql php-fpm php-cli php-mbstring
