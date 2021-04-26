@@ -16,12 +16,9 @@ section .text
 
 ft_strlen:
 	xor rax, rax		; i = 0
-	jmp compare		; go to compare
-
-increment:
-	inc rax			; i++
 
 compare:
+	inc rax			; i++
 	cmp BYTE [rdi + rax], 0	; is str[i] == '\0' ?
-	jne increment		; if not, go to increment
+	jne compare		; if not, start the loop again
 	ret			; exit return
