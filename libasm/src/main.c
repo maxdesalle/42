@@ -26,12 +26,19 @@ int	main(void)
 {
 	int	fd;
 	int	reader;
+	char	*src;
+	char	*dst;
 	char	*buff;
 
+	src = malloc(sizeof(char) * (4 + 1));
+	if (!src)
+		return (0);
+	dst = malloc(sizeof(char) * (4 + 1));
+	if (!dst)
+		return (0);
 	buff = malloc(sizeof(char) * (32 + 1));
 	if (!buff)
 		return (0);
-
 	printf("---------------");
 	printf("\n   ft_strlen \n");
 	printf("---------------");
@@ -89,11 +96,15 @@ int	main(void)
 	reset();
 	printf("\n\n");
 	fd = open("./Makefile", O_RDONLY);
+	if (fd == -1)
+		return (0);
 	reader = ft_read(fd, buff, 32);
 	close(fd);
 	printf("ft_read:\n- read:\t\t\"%s\"\n- ret:\t\t%d\n", buff, reader);
 	printf("\n");
 	fd = open("./Makefile", O_RDONLY);
+	if (fd == -1)
+		return (0);
 	reader = read(fd, buff, 32);
 	close(fd);
 	printf("read:\n- read:\t\t\"%s\"\n- ret:\t\t%d\n", buff, reader);
@@ -120,5 +131,25 @@ int	main(void)
 	printf("\n");
 	printf("ft_strcmp:\t%d\n", ft_strcmp("testz", "test"));
 	printf("strcmp:\t\t%d\n", strcmp("testz", "test"));
+	printf("\n\n");
+
+	printf("---------------");
+        printf("\n   ft_strcpy \n");
+        printf("---------------");
+	green();
+	printf("\n\n\"this is a very very very very very very long test\"");
+	reset();
+	printf("\n");
+	src = "this is a very very very very very very long test";
+	printf("ft_strcpy:\t%s\n", ft_strcpy(dst, src));
+	memset(dst, 0, strlen(dst));
+	printf("strcpy:\t\t%s\n", strcpy(dst, src));
+	printf("\n\n");
+
+	printf("---------------");
+        printf("\n   ft_strdup \n");
+        printf("---------------");
+	green();
+	printf("\n\n");
 	return (0);
 }
