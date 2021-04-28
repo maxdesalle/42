@@ -26,17 +26,19 @@ int	main(void)
 {
 	int	fd;
 	int	reader;
+	char	*s1;
+	char	*s2;
 	char	*src;
 	char	*dst;
 	char	*buff;
 
-	src = malloc(sizeof(char) * (4 + 1));
+	src = calloc(100 + 1, sizeof(char));
 	if (!src)
 		return (0);
-	dst = malloc(sizeof(char) * (4 + 1));
+	dst = calloc(100 + 1, sizeof(char));
 	if (!dst)
 		return (0);
-	buff = malloc(sizeof(char) * (32 + 1));
+	buff = calloc(32 + 1, sizeof(char));
 	if (!buff)
 		return (0);
 	printf("---------------");
@@ -150,6 +152,16 @@ int	main(void)
         printf("\n   ft_strdup \n");
         printf("---------------");
 	green();
-	printf("\n\n");
+	printf("\n\n\"this is a test\"");
+	reset();
+	printf("\n");
+	s1 = ft_strdup("this is a test");
+	printf("ft_strdup:\t%s\n", s1);
+	s2 = strdup("this is a test");
+	printf("strdup:\t\t%s\n", s2);
+	free(buff);
+	free(dst);
+	free(s1);
+	free(s2);
 	return (0);
 }
