@@ -36,11 +36,12 @@ $(NAME):	$(OBJ)
 		ar rcs $(NAME) $(OBJ)
 
 test:		
-		$(CC) -fsanitize=address src/main.c $(NAME) -o test
+		$(CC) src/main.c $(NAME) -o test
 
 clean:
 		rm -rf $(OBJ)
 		rm -rf test
+		rm -rf test.txt
 		@printf $(ccgreen)
 		@echo "Successfully cleaned"
 
@@ -48,6 +49,7 @@ fclean:
 		rm -rf $(OBJ)
 		rm -rf $(NAME)
 		rm -rf test
+		rm -rf test.txt
 		@printf $(ccgreen)
 		@echo "Successfully cleaned, including the excecutable"
 
@@ -55,5 +57,6 @@ fcleanre:
 		rm -rf $(OBJ)
 		rm -rf $(NAME)
 		rm -rf test
+		rm -rf test.txt
 
 re:		fcleanre all

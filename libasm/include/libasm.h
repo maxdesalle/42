@@ -7,6 +7,7 @@
 # include <errno.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include <sys/stat.h>
 
 size_t	ft_strlen(const char *s);
 ssize_t	ft_write(int fd, const void *buf, size_t count);
