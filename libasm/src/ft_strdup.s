@@ -7,6 +7,8 @@ extern ft_strcpy
 extern malloc
 
 ft_strdup:
+	cmp rdi, 0
+	je return
 	push rdi		; save rdi on the stack
 
 length:

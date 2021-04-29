@@ -1,9 +1,8 @@
 global	ft_strlen
-
 section .text
 
 ft_strlen:
-	xor rax, rax		; i = 0
+	mov rax, -1		; i = -1
 
 compare:
 	inc rax			; i++

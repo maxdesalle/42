@@ -11,8 +11,9 @@ ft_write:
 	ret			; exit return
 
 error:
+	neg rax
 	push rax		; save rax on the stack
 	call __errno_location	; call the error function
-	pop qword[rax]		; retrieve the rax value from the stack
+	pop qword [rax]		; retrieve the rax value from the stack
 	mov rax, -1		; set rax equal to -1
 	ret			; exit return;

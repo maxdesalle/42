@@ -22,7 +22,7 @@ overflow:
 	sub al, bl	; substract al with bl
 	jnc return	; if no substraction overflow, go to return
 	mov cl, 255	; if substraction overflow, move 255 in cl (255 is the max value in 8 bit)
-	sub  cl, al	; substract cl with al
+	sub cl, al	; substract cl with al
 	mov al, cl	; and finally move cl in al
 	inc rax		; increment rax
 	ret		; exit return

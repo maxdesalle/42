@@ -36,7 +36,7 @@ $(NAME):	$(OBJ)
 		ar rcs $(NAME) $(OBJ)
 
 test:		
-		$(CC) src/main.c $(NAME) -o test
+		$(CC) -fsanitize=address src/main.c $(NAME) -o test
 
 clean:
 		rm -rf $(OBJ)

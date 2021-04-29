@@ -31,13 +31,16 @@ int	main(void)
 	char	*src;
 	char	*dst;
 	char	*buff;
+	char	*ret;
 
-	src = calloc(100 + 1, sizeof(char));
+	src = malloc(46);
 	if (!src)
 		return (0);
-	dst = calloc(100 + 1, sizeof(char));
+	dst = malloc(46);
 	if (!dst)
 		return (0);
+	memcpy(src, "this is a very very very very very long test", 45);
+	memcpy(dst, "hello world", 12);
 	buff = calloc(32 + 1, sizeof(char));
 	if (!buff)
 		return (0);
@@ -68,26 +71,38 @@ int	main(void)
 	printf("\n\n\"test\"");
 	reset();
 	printf("\n");
+	errno = 0;
 	write(1, "ft_write:\t", 10);
 	ft_write(1, "test\n", 5);
+	printf("errno:\t%d\n", errno);
+	errno = 0;
 	write(1, "write:\t\t", 8);
 	write(1, "test\n", 5);
+	printf("errno:\t%d\n", errno);
 	green();
 	printf("\n\"this is a test\"");
 	reset();
 	printf("\n");
+	errno = 0;
 	write(1, "ft_write:\t", 10);
 	ft_write(1, "this is a test\n", 15);
+	printf("errno:\t%d\n", errno);
+	errno = 0;
 	write(1, "write:\t\t", 8);
 	write(1, "this is a test\n", 15);
+	printf("errno:\t%d\n", errno);
 	green();
 	printf("\n\"this is a very very very very very long test\"");
 	reset();
 	printf("\n");
+	errno = 0;
 	write(1, "ft_write:\t", 10);
 	ft_write(1, "this is a very very very very very long test\n", 45);
+	printf("errno:\t%d\n", errno);
+	errno = 0;
 	write(1, "write:\t\t", 8);
 	write(1, "this is a very very very very very long test\n", 45);
+	printf("errno:\t%d\n", errno);
 	printf("\n\n");
 
 	printf("---------------");
@@ -100,16 +115,18 @@ int	main(void)
 	fd = open("./Makefile", O_RDONLY);
 	if (fd == -1)
 		return (0);
+	errno = 0;
 	reader = ft_read(fd, buff, 32);
 	close(fd);
-	printf("ft_read:\n- read:\t\t\"%s\"\n- ret:\t\t%d\n", buff, reader);
+	printf("ft_read:\n- read:\t\t\"%s\"\n- ret:\t\t%d\n- errno:\t%d\n", buff, reader, errno);
 	printf("\n");
 	fd = open("./Makefile", O_RDONLY);
 	if (fd == -1)
 		return (0);
+	errno = 0;
 	reader = read(fd, buff, 32);
 	close(fd);
-	printf("read:\n- read:\t\t\"%s\"\n- ret:\t\t%d\n", buff, reader);
+	printf("read:\n- read:\t\t\"%s\"\n- ret:\t\t%d\n- errno:\t%d\n", buff, reader, errno);
 	printf("\n\n");
 
 	printf("---------------");
@@ -139,13 +156,11 @@ int	main(void)
         printf("\n   ft_strcpy \n");
         printf("---------------");
 	green();
-	printf("\n\n\"this is a very very very very very very long test\"");
+	printf("\n\n\"this is a very very very very very long test\"");
 	reset();
 	printf("\n");
-	src = "this is a very very very very very very long test";
-	printf("ft_strcpy:\t%s\n", ft_strcpy(dst, src));
-	memset(dst, 0, strlen(dst));
-	printf("strcpy:\t\t%s\n", strcpy(dst, src));
+	ret = ft_strcpy(dst, src);
+	printf("ft_strcpy:\n- src:\t%s\n- dst:\t%s\n- ret:\t%s\n", src, dst, ret);
 	printf("\n\n");
 
 	printf("---------------");
