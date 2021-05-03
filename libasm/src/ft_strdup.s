@@ -7,8 +7,8 @@ extern ft_strcpy
 extern malloc
 
 ft_strdup:
-	cmp rdi, 0
-	je return
+	cmp rdi, 0		; check if the given string (stored in rdi) is valid
+	je return		; if not, go to return
 	push rdi		; save rdi on the stack
 
 length:

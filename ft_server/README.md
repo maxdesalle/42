@@ -17,7 +17,7 @@ Run the image:
 docker run -it -p 80:80 -p 443:443 ft_server
 ```
 
-## What I have learned
+## What I learned
 I had been waiting for quite some time now for this project, as I was very interested in the use of Docker. And I wasn't disappointed. Docker is an insanely powerful tool. I truly love it. It has its risks, but if used correctly it can be very useful. Additionally, I also learned about how phpMyAdmin, WordPress and MySQL go hand in hand together.
 
 ## Acknowledgements

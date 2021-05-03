@@ -23,7 +23,7 @@ You should now have an executable called ```gnl```. I have included two test fil
 ```
 If everything works correctly, it should have a similar behaviour as the ```cat``` command.
 
-## What I have learned
+## What I learned
 This is the first "big" project I have created in C, as [**```libft```**](https://github.com/maxdesalle/42/tree/main/libft) was more a collection of little functions, than a real big function. Aside from that, I also learned how the ```read``` function works, as well as everything about static variables of course.
 
 ## Acknowledgements
