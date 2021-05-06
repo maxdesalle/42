@@ -9,11 +9,11 @@ RUN apk update
 RUN apk upgrade
 
 # Install the required tools
-RUN apk add mysql mysql-client telegraf
+RUN apk add telegraf
 
 # Set up Telegraf
 RUN rm /etc/telegraf.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/
 
 # Listen to the required port
-EXPOSE 3306
+EXPOSE	21 990

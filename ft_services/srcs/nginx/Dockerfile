@@ -9,11 +9,16 @@ RUN apk update
 RUN apk upgrade
 
 # Install the required tools
-RUN apk add mysql mysql-client telegraf
+RUN apk add openssl openrc telegraf
+
+# Set up Nginx
+COPY ./srcs/nginx.conf /etc/nginx/conf.d
+RUN mkdir -p /run/nginx
+RUN rm /etc/nginx/conf.d/default.conf
 
 # Set up Telegraf
 RUN rm /etc/telegraf.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/
 
 # Listen to the required port
-EXPOSE 3306
+EXPOSE	80 443

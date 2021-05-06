@@ -9,11 +9,14 @@ RUN apk update
 RUN apk upgrade
 
 # Install the required tools
-RUN apk add mysql mysql-client telegraf
+RUN apk add influxdb telegraf
 
 # Set up Telegraf
 RUN rm /etc/telegraf.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/
 
+# Set up InfluxDB
+COPY ./influxdb.conf /etc/influxdb/ 
+
 # Listen to the required port
-EXPOSE 3306
+EXPOSE 8086
