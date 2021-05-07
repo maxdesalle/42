@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
+  name: nginx
 spec:
   selector:
     matchLabels:
-      app: wordpress
+      app: nginx
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
+        app: nginx
     spec:
       containers:
-      - image: my_wordpress
-        name: wordpress
+      - image: my_nginx
+        name: nginx

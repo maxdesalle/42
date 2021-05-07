@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
+  name: phpmyadmin
 spec:
   selector:
     matchLabels:
-      app: wordpress
+      app: phpmyadmin
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
+        app: phpmyadmin
     spec:
       containers:
-      - image: my_wordpress
-        name: wordpress
+      - image: my_phpmyadmin
+        name: phpmyadmin

@@ -20,3 +20,6 @@ COPY ./srcs/grafana.db /usr/share/grafana/data/
 
 # Listen to the required port
 EXPOSE 3000
+
+# Start the required services
+CMD service influxdb start ; service telegraf start ; sleep 5 ; cd ./grafana/bin/ && ./grafana-server ; sleep infinity

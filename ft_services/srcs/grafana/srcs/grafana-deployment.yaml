@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress
+  name: grafana
 spec:
   selector:
     matchLabels:
-      app: wordpress
+      app: grafana
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
+        app: grafana
     spec:
       containers:
-      - image: my_wordpress
-        name: wordpress
+      - image: my_grafana
+        name: grafana

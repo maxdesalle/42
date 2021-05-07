@@ -21,4 +21,4 @@ RUN rm /etc/telegraf.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/
 
 # Listen to the required port
-EXPOSE	80 443
+EXPOSE	22 80 443

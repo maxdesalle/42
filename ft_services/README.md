@@ -1,5 +1,5 @@
 # ```ft_services```
-This project consist to clusturing an docker-compose application and deploy it with Kubernetes.
+This project consist to clustering a docker-compose application and deploy it with Kubernetes.
 
 ## Warning
 The structure of this repository does **not** follow the guidelines.
