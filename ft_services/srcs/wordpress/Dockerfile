@@ -30,3 +30,6 @@ COPY ./srcs/telegraf.conf /etc/telegraf/
 
 # Listen to the required port
 EXPOSE 5050
+
+# Start the required services
+CMD service telegraf start ; service php-fpm7 start ; service nginx start ; sleep infinity

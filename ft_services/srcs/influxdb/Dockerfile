@@ -20,3 +20,6 @@ COPY ./influxdb.conf /etc/influxdb/
 
 # Listen to the required port
 EXPOSE 8086
+
+# Start the required services
+CMD service telegraf start

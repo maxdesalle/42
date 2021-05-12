@@ -17,3 +17,6 @@ COPY ./srcs/telegraf.conf /etc/telegraf/
 
 # Listen to the required port
 EXPOSE 3306
+
+# Start the required services
+CMD service telegraf start ; sleep infinity

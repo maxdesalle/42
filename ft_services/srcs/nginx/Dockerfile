@@ -22,3 +22,6 @@ COPY ./srcs/telegraf.conf /etc/telegraf/
 
 # Listen to the required port
 EXPOSE	22 80 443
+
+# Start the required services
+CMD service telegraf start
