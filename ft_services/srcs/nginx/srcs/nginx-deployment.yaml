@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginx-deployment
 spec:
   selector:
     matchLabels:
@@ -16,3 +16,4 @@ spec:
       containers:
       - image: my_nginx
         name: nginx
+        imagePullPolicy: Never

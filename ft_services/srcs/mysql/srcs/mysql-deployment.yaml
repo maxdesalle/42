@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql
+  name: mysql-service
 spec:
   selector:
     matchLabels:
@@ -16,6 +16,7 @@ spec:
       containers:
       - image: my_mysql
         name: mysql
+        imagePullPolicy: Never
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql

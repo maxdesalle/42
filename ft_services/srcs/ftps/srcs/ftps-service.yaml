@@ -1,9 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ftps
-  annotations:
-    metallb.universe.tf/allow-shared-ip: shared
+  name: ftps-service
 spec:
   ports:
   - { port: 20, targetPort: 20, name: ftp-data }
@@ -22,4 +20,4 @@ spec:
   selector:
     app: ftps
   type: LoadBalancer
-  loadBalancerIP: 172.17.0.2
+  loadBalancerIP: 172.17.0.6

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: influxdb
+  name: influxdb-deployment
 spec:
   selector:
     matchLabels:
@@ -16,6 +16,7 @@ spec:
       containers:
       - image: my_influxdb
         name: influxdb
+        imagePullPolicy: Never
         volumeMounts:
         - name: influxdb-persistent-storage
           mountPath: /var/lib/influxdb

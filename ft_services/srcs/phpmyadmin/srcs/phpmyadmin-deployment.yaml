@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: phpmyadmin
+  name: phpmyadmin-deployment
 spec:
   selector:
     matchLabels:
@@ -16,3 +16,4 @@ spec:
       containers:
       - image: my_phpmyadmin
         name: phpmyadmin
+        imagePullPolicy: Never
