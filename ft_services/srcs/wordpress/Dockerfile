@@ -9,7 +9,7 @@ RUN apk update
 RUN apk upgrade
 
 # Install the required tools
-RUN apk add wget telegraf nginx php7.3 php-mysql php-fpm php-cli php-mbstring
+RUN apk add wget telegraf nginx php7 php-mysqli php-fpm php-cli php-mbstring
 
 # Install WordPress
 RUN wget https://wordpress.org/latest.tar.gz

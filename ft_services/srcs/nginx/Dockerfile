@@ -16,6 +16,10 @@ COPY ./srcs/nginx.conf /etc/nginx/conf.d
 RUN mkdir -p /run/nginx
 RUN rm /etc/nginx/conf.d/default.conf
 
+# openssl setup
+RUN mkdir /etc/nginx/ssl
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/private.key -out /etc/nginx/ssl/certificate.crt -subj "/C=BE/ST=Belgium/L=Brussels/O=19/CN=virtual-machine"
+
 # Set up Telegraf
 RUN rm /etc/telegraf.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/
@@ -24,4 +28,4 @@ COPY ./srcs/telegraf.conf /etc/telegraf/
 EXPOSE	22 80 443
 
 # Start the required services
-CMD service telegraf start
+CMD service telegraf start ; nginx -g 'daemon off;'
