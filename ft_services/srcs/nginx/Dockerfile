@@ -14,7 +14,6 @@ RUN apk add openssl openrc telegraf
 # Set up Nginx
 COPY ./srcs/nginx.conf /etc/nginx/conf.d
 RUN mkdir -p /run/nginx
-RUN rm /etc/nginx/conf.d/default.conf
 
 # openssl setup
 RUN mkdir /etc/nginx/ssl
@@ -25,7 +24,7 @@ RUN rm /etc/telegraf.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/
 
 # Listen to the required port
-EXPOSE	22 80 443
+EXPOSE 80 443
 
 # Start the required services
 CMD service telegraf start ; nginx -g 'daemon off;'
