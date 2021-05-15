@@ -2,7 +2,7 @@
 
 minikube start --driver=docker --cpus=2
 
-eval $(minkube docker-env)
+eval $(minikube docker-env)
 
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/metallb.yaml
