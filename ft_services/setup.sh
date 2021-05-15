@@ -41,7 +41,7 @@ do
 		echo -en $GREEN
 		echo "Successfully set up the Docker container for $service"
 		echo -e $WHITE
-	elif [ -e srcs/$service/srcs/$service-deployment.yaml ]
+	if [ -e srcs/$service/srcs/$service-deployment.yaml ]
 	then
 		echo -en $PURPLE
 		echo "Deploying $service..."
@@ -50,7 +50,7 @@ do
 		echo -en $GREEN
 		echo "Successfully deployed $service"
 		echo -en $WHITE
-	elif [ -e srcs/$service/srcs/$service-service.yaml ]
+	if [ -e srcs/$service/srcs/$service-service.yaml ]
 	then
 		echo -en $PURPLE
 		echo "Exposing $service..."
@@ -59,7 +59,7 @@ do
 		echo -en $GREEN
 		echo "Successfully exposed $service"
 		echo -en $WHITE
-	elif [ -e srcs/$service/srcs/$service-volume.yaml ]
+	if [ -e srcs/$service/srcs/$service-volume.yaml ]
 	then
 		echo -en $PURPLE
 		echo "Creating $service volume..."
@@ -69,7 +69,6 @@ do
 		echo "Successfully created $service volume"
 		echo -en $WHITE
 	fi
-done
 
 echo -en $GREEN
 echo "Kubernetes cluster is ready to use!"
