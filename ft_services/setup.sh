@@ -11,16 +11,16 @@ do
 	if [ -e srcs/$service/Dockerfile ]
 	then
 		docker build -t my_${service} srcs/$service/
-	if [ -e srcs/$service/$service-deployment.yaml ]
+	elif [ -e srcs/$service/$service-deployment.yaml ]
 	then
 	kubectl apply -f srcs/$service/$service-deployment.yaml
-	if [ -e srcs/$service/$service-service.yaml ]
+	elif [ -e srcs/$service/$service-service.yaml ]
 	then
 	kubectl apply -f srcs/$service/$service-service.yaml
-	if [ -e srcs/$service/$service-volume.yaml ]
+	elif [ -e srcs/$service/$service-volume.yaml ]
 	then
 	kubectl apply -f srcs/$service/$service-volume.yaml
-	if [ -e srcs/$service/$service-configmap.yaml ]
+	elif [ -e srcs/$service/$service-configmap.yaml ]
 	then
 	kubectl apply -f srcs/$service/$service-configmap.yaml
 	fi
