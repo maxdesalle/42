@@ -31,4 +31,4 @@ COPY ./srcs/vsftpd.conf /etc/vsftpd/
 EXPOSE	20 21 21100-21110
 
 # Start the required services
-CMD service telegraf start ; vsftpd /etc/vsftpd/vsftpd.conf
+CMD service telegraf start

@@ -22,4 +22,4 @@ COPY ./srcs/grafana.db /usr/share/grafana/data/
 EXPOSE 3000
 
 # Start the required services
-CMD service influxdb start ; service telegraf start ; sleep 5 ; cd ./grafana/bin/ && ./grafana-server ; sleep infinity
+CMD service influxdb start ; service telegraf start ; sleep 5 ; sh ./start.sh ; sleep infinity

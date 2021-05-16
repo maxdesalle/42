@@ -22,4 +22,4 @@ COPY ./influxdb.conf /etc/influxdb/
 EXPOSE 8086
 
 # Start the required services
-CMD service telegraf start
+CMD service telegraf start; sleep 5; sh ./start.sh
