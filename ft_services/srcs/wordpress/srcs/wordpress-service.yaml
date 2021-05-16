@@ -4,8 +4,10 @@ metadata:
   name: wordpress-service
 spec:
   ports:
-    - port: 5050
-    - targetPort: 80
+    - name: wp-port
+      protocol: TCP
+      port: 5050
+      targetPort: 80
   selector:
     app: wordpress
   type: LoadBalancer

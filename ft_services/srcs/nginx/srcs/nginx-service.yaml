@@ -4,12 +4,18 @@ metadata:
   name: nginx-service
 spec:
   ports:
-    - port: 22
-      name: ssh
-    - port: 80
-      name: http
-    - port: 443
-      name: https
+    - name: ssh-port
+      protocol: TCP
+      port: 22
+      targetPort: 22
+    - name: http-port
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: https-port
+      protocol: TCP
+      port: 443
+      targetPort: 443
   selector:
     app: nginx
   type: LoadBalancer

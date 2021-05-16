@@ -4,8 +4,10 @@ metadata:
   name: phpmyadmin-service
 spec:
   ports:
-    - port: 5000
-    - targetPort: 80
+    - name: php-port
+      protocol: TCP
+      port: 5000
+      targetPort: 80
   selector:
     app: phpmyadmin
   type: LoadBalancer

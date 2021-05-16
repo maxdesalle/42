@@ -32,4 +32,4 @@ COPY ./srcs/telegraf.conf /etc/telegraf/
 EXPOSE 5050
 
 # Start the required services
-CMD service telegraf start ; service php-fpm7 start ; service nginx start ; sleep infinity
+CMD service telegraf start ; service php-fpm start ; service nginx start ; sleep infinity

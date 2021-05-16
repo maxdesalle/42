@@ -4,8 +4,10 @@ metadata:
   name: grafana-service
 spec:
   ports:
-    - port: 3000
-    - targetPort: 3000
+    - name: graf-port
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
   selector:
     app: grafana
   type: LoadBalancer
