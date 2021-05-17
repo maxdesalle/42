@@ -17,3 +17,10 @@ spec:
       - image: my_nginx
         name: nginx
         imagePullPolicy: Never
+        ports:
+          - name: ssh-port
+            containerPort: 22
+          - name: http-port
+            containerPort: 80
+          - name: https-port
+            containerPort: 443
