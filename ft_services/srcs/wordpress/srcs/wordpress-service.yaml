@@ -7,7 +7,7 @@ spec:
     - name: wp-port
       protocol: TCP
       port: 5050
-      targetPort: 80
+      targetPort: 5050
   selector:
     app: wordpress
   type: LoadBalancer

@@ -13,11 +13,11 @@ RUN apk add wget telegraf nginx php7 php-mysqli php-fpm php-cli php-mbstring
 
 # Install WordPress
 RUN wget https://wordpress.org/latest.tar.gz
-RUN	tar -xzvf latest.tar.gz
-RUN	rm -f latest.tar.gz
+RUN tar -xzvf latest.tar.gz
+RUN rm -f latest.tar.gz
 COPY ./srcs/wp-config.php wordpress/
-RUN	chmod -R 755 wordpress
-RUN	mv wordpress var/www/
+RUN chmod -R 755 wordpress
+RUN mv wordpress var/www/
 
 # Set up Nginx
 COPY ./srcs/nginx.conf /etc/nginx/conf.d

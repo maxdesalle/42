@@ -20,4 +20,4 @@ spec:
   selector:
     app: ftps
   type: LoadBalancer
-  loadBalancerIP: 172.17.0.6
+  loadBalancerIP: 172.17.0.2

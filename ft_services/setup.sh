@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Some nice little colors
 RED="\e[91m"
 GREEN="\e[92m"
 YELLOW="\e[93m"
@@ -8,14 +9,17 @@ PURPLE="\e[95m"
 CYAN="\e[96m"
 WHITE="\e[97m"
 
+# Set color to white
 echo -en $WHITE
 
+# Delete a potential previous instance and start a new one with required addons
 minikube delete
 minikube start --driver=docker --cpus=2
 minikube addons enable metrics-server
 minikube addons enable dashboard
 minikube addons enable metallb
 
+# If the metallb config map exists, apply it with kubectl
 if [ -e srcs/metallb/metallb-configmap.yaml ]
 then
 	kubectl apply -f srcs/metallb/metallb-configmap.yaml
@@ -24,12 +28,15 @@ then
 	echo -en $WHITE
 fi
 
+# Required to fix the latest tag issue in Dockerfile
 eval $(minikube docker-env)
 
+# Set up metallb
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/namespace.yaml
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manifests/metallb.yaml
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 
+# Build for each service the Dockerfile (if it exists), and apply the existing yaml files
 for service in phpmyadmin influxdb mysql grafana wordpress ftps nginx
 do
 	if [ -e srcs/$service/Dockerfile ]
@@ -74,6 +81,7 @@ do
 	fi
 done
 
+# Success message
 echo -en $GREEN
 echo "Kubernetes cluster is ready to use!"
 echo -en $WHITE

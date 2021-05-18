@@ -15,4 +15,4 @@ spec:
   selector:
     app: nginx
   type: LoadBalancer
-  loadBalancerIP: 172.17.0.4
+  loadBalancerIP: 172.17.0.2

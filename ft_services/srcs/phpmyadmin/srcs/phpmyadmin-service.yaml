@@ -7,8 +7,8 @@ spec:
     - name: php-port
       protocol: TCP
       port: 5000
-      targetPort: 80
+      targetPort: 5000
   selector:
     app: phpmyadmin
   type: LoadBalancer
-  loadBalancerIP: 172.17.0.3
+  loadBalancerIP: 172.17.0.2
