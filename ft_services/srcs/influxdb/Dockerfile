@@ -15,11 +15,11 @@ RUN apk add influxdb telegraf
 RUN rm /etc/telegraf.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/
 
-# Set up InfluxDB
-COPY ./influxdb.conf /etc/influxdb/ 
-
+# Set up start.sh file
+COPY ./srcs/start.sh ./
 # Listen to the required port
 EXPOSE 8086
 
 # Start the required services
-CMD service telegraf start; sleep 5; sh ./start.sh
+CMD service telegraf start
+CMD ./start.sh

@@ -15,11 +15,10 @@ RUN apk add wget grafana telegraf
 RUN rm /etc/telegraf.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/
 
-# Set up Grafana DB
-COPY ./srcs/grafana.db /usr/share/grafana/data/ 
-
 # Listen to the required port
 EXPOSE 3000
 
 # Start the required services
-CMD service influxdb start ; service telegraf start ; sleep 5 ; sh ./start.sh ; sleep infinity
+CMD service telegraf start
+CMD cd ./grafana/bin/ && ./grafana-server
+CMD sleep infinity

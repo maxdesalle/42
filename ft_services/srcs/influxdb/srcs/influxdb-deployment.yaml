@@ -17,6 +17,9 @@ spec:
       - image: my_influxdb
         name: influxdb
         imagePullPolicy: Never
+        ports:
+        - name: idb-port
+          containerPort: 8086
         volumeMounts:
         - name: influxdb-persistent-storage
           mountPath: /var/lib/influxdb

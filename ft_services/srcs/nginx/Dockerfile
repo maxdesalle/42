@@ -27,4 +27,5 @@ COPY ./srcs/telegraf.conf /etc/telegraf/
 EXPOSE 80 443
 
 # Start the required services
-CMD service telegraf start; nginx -g 'daemon off;'
+CMD service telegraf start
+CMD nginx -g 'daemon off;'
