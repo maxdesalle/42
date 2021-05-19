@@ -28,8 +28,11 @@ RUN rm /etc/nginx/conf.d/default.conf
 RUN rm /etc/telegraf.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/
 
+# Copy the start script over to the system
+COPY ./srcs/start.sh .
+
 # Listen to the required port
 EXPOSE 5050
 
 # Start the required services
-CMD service telegraf start ; service php-fpm start ; service nginx start ; sleep infinity
+CMD ./start.sh 
