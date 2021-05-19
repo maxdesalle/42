@@ -1,1 +1,1 @@
-cd ./grafana-7.5.3/bin/ && ./grafana-server
+/usr/sbin/grafana-server --homepath=/usr/share/grafana
