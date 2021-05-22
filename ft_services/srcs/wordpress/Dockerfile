@@ -29,10 +29,10 @@ RUN rm /etc/telegraf.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/
 
 # Copy the start script over to the system
-COPY ./srcs/start.sh .
+COPY ./srcs/start.sh ./
 
 # Listen to the required port
-EXPOSE 5050
+EXPOSE 80 5050
 
 # Start the required services
 CMD ./start.sh 

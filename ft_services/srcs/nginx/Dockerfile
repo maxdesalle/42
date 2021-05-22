@@ -12,7 +12,7 @@ RUN apk upgrade
 RUN apk add openssl telegraf nginx openrc
 
 # Set up Nginx
-COPY ./srcs/nginx.conf /etc/nginx/conf.d
+COPY ./srcs/nginx.conf /etc/nginx/conf.d/nginx.conf
 RUN mkdir -p /run/nginx
 
 # openssl setup
@@ -25,6 +25,9 @@ COPY ./srcs/telegraf.conf /etc/telegraf/
 
 # Listen to the required port
 EXPOSE 80 443
+
+# Copy the index.html file over to the system
+COPY ./srcs/index.html /var/www/
 
 # Start the required services
 CMD service telegraf start
