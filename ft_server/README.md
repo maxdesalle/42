@@ -26,7 +26,7 @@ I had been waiting for quite some time now for this project, as I was very inter
 - Filippo Valsorda's [mkcert](https://github.com/FiloSottile/mkcert)
 
 ## Warning
-The structure of this repository does **not** follow the guidelines.
+The structure of this repository does **not** necessarily follow the guidelines.
 The reason for this is to add some clarity in how the files are structured.
 
 ## License

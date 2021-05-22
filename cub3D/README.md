@@ -50,7 +50,7 @@ Additionally, it has obviously introduced me to raycasting, a technology I hadn'
 - Dustin Krecisz's [cub3d_destroyer](https://github.com/Dustin42Codam/cub3d_destroyer)
 
 ## Warning
-The structure of this repository does **not** follow the guidelines.
+The structure of this repository does **not** necessarily follow the guidelines.
 The reason for this is to add some clarity in how the files are structured.
 
 ## License

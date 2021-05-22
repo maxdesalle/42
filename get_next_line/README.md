@@ -31,7 +31,7 @@ This is the first "big" project I have created in C, as [**```libft```**](https:
 - Romain Challier's [get_next_line](https://github.com/rchallie/get_next_line)
 
 ## Warning
-This repository does **not** respect the project's guidelines in terms of structure. This is done on purpose to add some clarity.
+This repository does **not** necessarily respect the project's guidelines in terms of structure. If this is the case, it's done on purpose to add some clarity.
 
 ## License
 Everything in this repository is released under the [Unlicense](https://github.com/maxdesalle/42/blob/main/LICENSE).
