@@ -30,5 +30,8 @@ COPY ./srcs/vsftpd.conf /etc/vsftpd/
 # Listen to the required port
 EXPOSE	20 21 21100-21110
 
-# Start the required services
-CMD service telegraf start
+# Copy the start script over to the system
+COPY ./srcs/start.sh .
+
+# Run the start script
+CMD ./start.sh
