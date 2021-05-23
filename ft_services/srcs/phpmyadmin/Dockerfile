@@ -31,5 +31,8 @@ COPY ./srcs/telegraf.conf /etc/telegraf/
 # Listen to the required port
 EXPOSE 80 5000
 
-# Start the required services
-CMD service telegraf start ; service php-fpm7 start ; service nginx start ; sleep infinity
+# Copy the start script over to the system
+COPY ./srcs/start.sh ./
+
+# Run the start script
+CMD ./start.sh
