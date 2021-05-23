@@ -17,6 +17,7 @@ COPY ./srcs/telegraf.conf /etc/telegraf/
 
 # Set up start.sh file
 COPY ./srcs/start.sh ./
+
 # Listen to the required port
 EXPOSE 8086
 

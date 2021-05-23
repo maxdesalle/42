@@ -11,6 +11,11 @@ RUN apk upgrade
 # Install the required tools
 RUN apk add mysql mysql-client telegraf
 
+# Set up MySQL
+COPY ./srcs/my.cnf .
+RUN mkdir -p /run/mysqld
+RUN mv my.cnf /etc/
+
 # Set up Telegraf
 RUN rm /etc/telegraf.conf
 COPY ./srcs/telegraf.conf /etc/telegraf/
@@ -18,5 +23,8 @@ COPY ./srcs/telegraf.conf /etc/telegraf/
 # Listen to the required port
 EXPOSE 3306
 
-# Start the required services
-CMD service telegraf start ; sleep infinity
+# Copy the start script over to the system
+COPY ./srcs/start.sh ./
+
+# Start the script
+CMD ./start.sh
