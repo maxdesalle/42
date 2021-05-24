@@ -21,6 +21,5 @@ COPY ./srcs/start.sh ./
 # Listen to the required port
 EXPOSE 8086
 
-# Start the required services
-CMD service telegraf start
+# Run the starting script
 CMD ./start.sh

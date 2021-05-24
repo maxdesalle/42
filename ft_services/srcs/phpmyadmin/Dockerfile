@@ -9,10 +9,11 @@ RUN apk update
 RUN apk upgrade
 
 # Install the required tools
-RUN apk add wget telegraf nginx php7 php-mysqli php-fpm php-cli php-mbstring
+RUN apk add telegraf nginx
+RUN apk add php7 php7-mysqli php7-fpm php7-cli php7-session php7-mbstring php7-json 
 
 # Install phpMyAdmin
-RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-english.tar.gz
+ADD https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-english.tar.gz .
 RUN tar -xzvf phpMyAdmin-5.0.4-english.tar.gz
 RUN rm -f phpMyAdmin-5.0.4-english.tar.gz
 RUN mv phpMyAdmin-5.0.4-english phpmyadmin
