@@ -9,31 +9,30 @@ RUN apk update
 RUN apk upgrade
 
 # Install the required tools
-RUN apk add telegraf nginx
-RUN apk add php7 php7-mysqli php7-fpm php7-cli php7-session php7-mbstring php7-json 
+RUN apk add telegraf nginx openrc mariadb mariadb-common mariadb-client
+RUN apk add php7-fpm php7-mbstring php7-json php7-mysqli php7-session php7-cli
+
+# Set up openrc
+RUN openrc
+RUN touch run/openrc/softlevel
 
 # Install phpMyAdmin
 ADD https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-english.tar.gz .
 RUN tar -xzvf phpMyAdmin-5.0.4-english.tar.gz
 RUN rm -f phpMyAdmin-5.0.4-english.tar.gz
 RUN mv phpMyAdmin-5.0.4-english phpmyadmin
-COPY ./srcs/config.inc.php phpmyadmin
-RUN mv phpmyadmin var/www/
+RUN mv phpmyadmin /var/www/phpmyadmin
 
-# Set up Nginx
-COPY ./srcs/nginx.conf /etc/nginx/conf.d
-RUN mkdir -p /run/nginx
-RUN rm /etc/nginx/conf.d/default.conf
+# Copy the required files over to the system
+COPY ./srcs/default.conf etc/nginx/conf.d/default.conf
+COPY ./srcs/telegraf.conf /etc/
+COPY ./srcs/config.inc.php /var/www/phpmyadmin
 
-# Set up Telegraf
-RUN rm /etc/telegraf.conf
-COPY ./srcs/telegraf.conf /etc/telegraf/
+# Set up MySQL
+RUN /etc/init.d/mariadb setup
 
-# Listen to the required port
+# Listen to the required ports
 EXPOSE 80 5000
 
-# Copy the start script over to the system
-COPY ./srcs/start.sh ./
-
-# Run the start script
-CMD ./start.sh
+# Start the required services
+CMD service telegraf start ; service php-fpm7 start ; service mariadb start ; service nginx start ; sleep infinity

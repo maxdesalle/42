@@ -1,13 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-service
+  name: mysql
 spec:
   selector:
     matchLabels:
       app: mysql
   strategy:
     type: Recreate
+  replicas: 1
   template:
     metadata:
       labels:
@@ -20,6 +21,9 @@ spec:
         volumeMounts:
         - name: mysql-persistent-storage
           mountPath: /var/lib/mysql
+        ports:
+        - name: mysql-port
+          containerPort: 3306
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:

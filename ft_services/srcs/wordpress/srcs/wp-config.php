@@ -23,19 +23,13 @@
 define( 'DB_NAME', 'wordpress' );
 
 /** MySQL database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'wordpress_user' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'password' );
 
 /** MySQL hostname */
 define( 'DB_HOST', 'mysql-service' );
-
-/** WordPress hostpage */
-define('WP_HOME', 'http://172.17.0.2:5050');
-
-/** WordPress hosturl */
-define('wP_SITEURL', 'http://172.17.0.2:5050');
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -52,6 +46,7 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
+
 define( 'AUTH_KEY',         'put your unique phrase here' );
 define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
 define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
