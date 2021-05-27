@@ -1,9 +1,3 @@
-#!/bin/sh
-
 echo "create database telegraf" | influx
-echo "create user telegrafuser with password 'password'" | influx
-echo "grant ALL on telegraf to telegrafuser" | influx
-
-telegraf &
-influxd &
-sleep infinity
+echo "create user admin with password 'password'" | influx
+echo "grant ALL on telegraf to admin" | influx

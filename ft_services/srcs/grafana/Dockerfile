@@ -9,18 +9,19 @@ RUN apk update
 RUN apk upgrade
 
 # Install the required tools
-RUN apk add telegraf grafana
+RUN apk add telegraf grafana influxdb openrc
 
-# Set up Telegraf
-RUN rm /etc/telegraf.conf
-COPY ./srcs/telegraf.conf /etc/telegraf/
+# Set up openrc
+RUN openrc
+RUN touch run/openrc/softlevel
 
-# Copy the start script over to the system
-COPY ./srcs/start.sh .
+# Copy the required files over to the system
+COPY ./srcs/start.sh ./
+COPY ./srcs/telegraf.conf /etc/
+COPY ./srcs/default.yaml /usr/share/grafana/conf/provisioning/datasources/
 
 # Listen to the required port
 EXPOSE 3000
 
 # Start the required services
-CMD service telegraf start
-CMD sh ./start.sh
+CMD service influxdb start ; service telegraf start ; sleep 5 ; sh start.sh
