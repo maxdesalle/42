@@ -8,14 +8,15 @@ spec:
       app: influxdb
   strategy:
     type: Recreate
+  replicas: 1
   template:
     metadata:
       labels:
         app: influxdb
     spec:
       containers:
-      - image: my_influxdb
-        name: influxdb
+      - name: influxdb
+        image: my_influxdb
         imagePullPolicy: Never
         ports:
         - name: idb-port
