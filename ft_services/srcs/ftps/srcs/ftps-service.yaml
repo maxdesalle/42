@@ -3,23 +3,30 @@ kind: Service
 metadata:
   name: ftps-service
   annotations:
-    metallb.universe.tf/allow-shared-ip: shared
+   metallb.universe.tf/allow-shared-ip: shared
 spec:
-  ports:
-  - { port: 20, targetPort: 20, name: ftp-data }
-  - { port: 21, targetPort: 21, name: ftp }
-  - { port: 21100, targetPort: 21100, name: pasv0 }
-  - { port: 21101, targetPort: 21101, name: pasv1 }
-  - { port: 21102, targetPort: 21102, name: pasv2 }
-  - { port: 21103, targetPort: 21103, name: pasv3 }
-  - { port: 21104, targetPort: 21104, name: pasv4 }
-  - { port: 21105, targetPort: 21105, name: pasv5 }
-  - { port: 21106, targetPort: 21106, name: pasv6 }
-  - { port: 21107, targetPort: 21107, name: pasv7 }
-  - { port: 21108, targetPort: 21108, name: pasv8 }
-  - { port: 21109, targetPort: 21109, name: pasv9 }
-  - { port: 21110, targetPort: 21110, name: pasv10 }
   selector:
     app: ftps
+  ports:
+  - name: ftp
+    protocol: TCP
+    port: 20
+    targetPort: 20
+  - name: ftps
+    protocol: TCP
+    port: 21
+    targetPort: 21
+  - name: pasv0
+    protocol: TCP
+    port: 21009
+    targetPort: 21009
+  - name: pasv1
+    protocol: TCP
+    port: 21010
+    targetPort: 21010
+  - name: pasv2
+    protocol: TCP
+    port: 21011
+    targetPort: 21011
   type: LoadBalancer
   loadBalancerIP: 172.17.0.2
