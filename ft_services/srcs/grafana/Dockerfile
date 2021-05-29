@@ -18,7 +18,17 @@ RUN touch run/openrc/softlevel
 # Copy the required files over to the system
 COPY ./srcs/start.sh ./
 COPY ./srcs/telegraf.conf /etc/
-COPY ./srcs/default.yaml /usr/share/grafana/conf/provisioning/datasources/
+
+# Copy the datasources, providers and dashboards over to Grafana
+COPY ./srcs/datasources/default.yaml /usr/share/grafana/conf/provisioning/datasources/
+COPY ./srcs/providers/default.yaml /usr/share/grafana/conf/provisioning/dashboards/
+COPY ./srcs/dashboards/ftps-dashboard.json /usr/share/grafana/conf/provisioning/dashboards/
+COPY ./srcs/dashboards/grafana-dashboard.json /usr/share/grafana/conf/provisioning/dashboards/
+COPY ./srcs/dashboards/influxdb-dashboard.json /usr/share/grafana/conf/provisioning/dashboards/
+COPY ./srcs/dashboards/wordpress-dashboard.json /usr/share/grafana/conf/provisioning/dashboards/
+COPY ./srcs/dashboards/phpmyadmin-dashboard.json /usr/share/grafana/conf/provisioning/dashboards/
+COPY ./srcs/dashboards/mysql-dashboard.json /usr/share/grafana/conf/provisioning/dashboards/
+COPY ./srcs/dashboards/nginx-dashboard.json /usr/share/grafana/conf/provisioning/dashboards/
 
 # Listen to the required port
 EXPOSE 3000
