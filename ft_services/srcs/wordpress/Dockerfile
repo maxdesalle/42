@@ -29,6 +29,12 @@ COPY ./srcs/telegraf.conf /etc/
 COPY ./srcs/wp-config.php /var/www/wordpress
 COPY ./srcs/start.sh .
 
+# Install WordPress CLI
+RUN apk add php-phar curl
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
+
 # Set up MySQL
 RUN /etc/init.d/mariadb setup
 

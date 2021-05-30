@@ -37,7 +37,7 @@ kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.6/manife
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" &> /dev/null
 
 # If the metallb config map exists, apply it with kubectl
-if [ -e srcs/metallb/metallb-configmap.yaml ]
+if [ -e "srcs/metallb/metallb-configmap.yaml" ]
 then
 	kubectl apply -f srcs/metallb/metallb-configmap.yaml &> /dev/null
 	echo -en $GREEN
@@ -50,7 +50,7 @@ fi
 # Build for each service the Dockerfile (if it exists), and apply the existing yaml files
 for service in phpmyadmin influxdb mysql grafana wordpress ftps nginx
 do
-	if [ -e srcs/$service/Dockerfile ]
+	if [ -e "srcs/$service/Dockerfile" ]
 	then
 		echo -en $BLUE
 		echo "Building $service..."
@@ -60,7 +60,7 @@ do
 		echo "Successfully set up the Docker container for $service"
 		echo -e $WHITE
 	fi
-	if [ -e srcs/$service/srcs/$service-deployment.yaml ]
+	if [ -e "srcs/$service/srcs/$service-deployment.yaml" ]
 	then
 		echo -en $BLUE
 		echo "Deploying $service..."
@@ -71,7 +71,7 @@ do
 		echo ""
 		echo -en $WHITE
 	fi
-	if [ -e srcs/$service/srcs/$service-service.yaml ]
+	if [ -e "srcs/$service/srcs/$service-service.yaml" ]
 	then
 		echo -en $BLUE
 		echo "Exposing $service..."
@@ -82,7 +82,7 @@ do
 		echo ""
 		echo -en $WHITE
 	fi
-	if [ -e srcs/$service/srcs/$service-volume.yaml ]
+	if [ -e "srcs/$service/srcs/$service-volume.yaml" ]
 	then
 		echo -en $BLUE
 		echo "Creating $service volume..."
@@ -99,4 +99,18 @@ done
 # Success message
 echo -en $GREEN
 echo "Kubernetes cluster is ready to use!"
+echo ""
+echo -en $WHITE
+echo "WordPress: 172.17.0.2:5050"
+echo "PhpMyAdmin: 172.17.0.2:5000"
+echo "Grafana: 172.17.0.2:3000"
+echo "FTPS: 172.17.0.2:21"
+echo ""
+echo -en $GREEN
+echo "---------------------------"
+echo -en $WHITE
+echo "Username: admin"
+echo "Password: admin"
+echo -en $GREEN
+echo "---------------------------"
 echo -en $WHITE
