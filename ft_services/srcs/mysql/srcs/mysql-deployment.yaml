@@ -24,6 +24,14 @@ spec:
         ports:
         - name: mysql-port
           containerPort: 3306
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - "service telegraf status"
+          initialDelaySeconds: 5
+          periodSeconds: 5
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:

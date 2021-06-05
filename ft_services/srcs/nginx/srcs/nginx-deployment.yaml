@@ -23,3 +23,11 @@ spec:
             containerPort: 80
           - name: https
             containerPort: 443
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - "service telegraf status && ps nginx"
+          initialDelaySeconds: 5
+          periodSeconds: 5

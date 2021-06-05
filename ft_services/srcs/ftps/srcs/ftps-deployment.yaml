@@ -27,3 +27,11 @@ spec:
           containerPort: 21010
         - name: pasv2
           containerPort: 21011
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - "ps vsftpd"
+          initialDelaySeconds: 5
+          periodSeconds: 5
