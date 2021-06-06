@@ -6,25 +6,36 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 10:52:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/06 11:56:25 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/06 14:03:14 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../include/push_swap.h"
 
-static int	check(char *str)
+static int	num_check(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (!is_num(str[i]))
-		{
-			write(2, "Error\n", 6);
-			return (0);
-		}
+		if (!is_num(str[i]) && !is_sign(str[i]))
+			return (error());
 		i++;
+	}
+	return (1);
+}
+
+static int	double_check(t_node *head, t_node *value)
+{
+	t_node	*tmp;
+
+	tmp = head;
+	while (tmp != NULL)
+	{
+		if (value->value == tmp->value)
+			return (error());
+		tmp = tmp->next;
 	}
 	return (1);
 }
@@ -47,16 +58,12 @@ t_node	*save(int argc, char **argv)
 	head = NULL;
 	while (argc > 1)
 	{
-		if (check(argv[argc - 1]))
+		if (num_check(argv[argc - 1]))
 		{
 			tmp = create(ft_atoi(argv[argc - 1]));
+			double_check(head, tmp);
 			tmp->next = head;
 			head = tmp;
-		}
-		else
-		{
-			exit(EXIT_FAILURE);
-			return (0);
 		}
 		argc--;
 	}

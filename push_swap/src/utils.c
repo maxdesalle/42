@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 11:01:19 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/06 11:15:31 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/06 14:02:52 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,17 @@ int	ft_atoi(char *str)
 	i += is_sign(str[i]);
 	while (str[i] && is_num(str[i]))
 		result = result * 10 + (str[i++] - '0');
-	return (sign * result);
+	result *= sign;
+	if (result > 0 && sign < 0)
+		return (error());
+	if (result < 0 && sign > 0)
+		return (error());
+	return (result);
+}
+
+int	error(void)
+{
+	write(2, "Error\n", 6);
+	exit(EXIT_FAILURE);
+	return (0);
 }
