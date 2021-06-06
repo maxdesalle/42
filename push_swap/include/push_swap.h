@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/06 11:17:00 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/06 11:26:47 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ t_node	*save(int argc, char **argv);
 
 /* utils.c */
 int	ft_atoi(char *str);
-int	is_empty(char c)
-int	is_sign(char c)
-int	is_num(char c)
+int	is_empty(char c);
+int	is_sign(char c);
+int	is_num(char c);
 
 #endif
