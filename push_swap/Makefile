@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/06/06 09:32:59 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/06/06 11:12:59 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src/push_swap.c
+SRC = src/push_swap.c \
+      src/list.c \
+      src/utils.c
 
 OBJ = $(SRC:.c=.o)
 

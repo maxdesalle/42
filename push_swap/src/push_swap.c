@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/06 11:17:00 by mdesalle         ###   ########.fr       */
+/*   Created: 2021/06/06 09:45:10 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/06/06 10:57:26 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+# include "../include/push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_node
+int	main(int argc, char **argv)
 {
-	int	value;
-	struct s_node *previous;
-	struct s_node *next;
-}		t_node;
+	t_node	*head;
 
-/* list.c */
-t_node	*save(int argc, char **argv);
-
-/* utils.c */
-int	ft_atoi(char *str);
-int	is_empty(char c)
-int	is_sign(char c)
-int	is_num(char c)
-
-#endif
+	head = save(argc, argv);
+	sort(head);
+	return (0);
+}
