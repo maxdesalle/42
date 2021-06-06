@@ -6,11 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 11:01:19 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/06 14:02:52 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/06 15:40:09 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/push_swap.h"
+#include "../include/push_swap.h"
 
 int	is_empty(char c)
 {

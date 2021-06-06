@@ -6,17 +6,16 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:45:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/06 12:09:16 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/06 15:41:20 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../include/push_swap.h"
-
-/* #include <stdio.h>
+#include "../include/push_swap.h"
+#include <stdio.h>
 
 void	print(t_node *head)
 {
-	t_node *tmp;
+	t_node	*tmp;
 
 	tmp = head;
 	while (tmp != NULL)
@@ -24,7 +23,7 @@ void	print(t_node *head)
 		printf("%d\n", tmp->value);
 		tmp = tmp->next;
 	}
-}*/
+}
 
 int	main(int argc, char **argv)
 {
@@ -36,6 +35,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	head = save(argc, argv);
-/*	print(head);*/
+	print(head);
 	return (0);
 }
