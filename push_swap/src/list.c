@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 10:52:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/06 15:39:56 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/06 15:52:37 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ static t_node	*create(int value)
 	t_node	*result;
 
 	result = malloc(sizeof(t_node));
+	if (!result)
+		return (NULL);
 	result->value = value;
 	result->next = NULL;
 	return (result);

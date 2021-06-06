@@ -6,14 +6,13 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:45:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/06 15:41:20 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/06 15:51:58 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-#include <stdio.h>
 
-void	print(t_node *head)
+static void	print(t_node *head)
 {
 	t_node	*tmp;
 
