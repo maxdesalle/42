@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 14:16:09 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/07 14:17:27 by mdesalle         ###   ########.fr       */
+/*   Created: 2021/06/07 11:33:08 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/06/07 14:52:12 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_swap(int *a, int *b)
+static int	two(t_node *head, int argc)
 {
-	int	tmp;
+	int		swap;
+	t_node	*tmp;
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
+	tmp = head->next;
+	if (head->value > tmp->value)
+	{
+		ft_swap(&head->value, &tmp->value);
+		instruct(SA);
+	}
+	return (normal(0));
+}
+
+void	sort(t_node *head, int argc)
+{
+	if (argc == 3)
+		two(head, argc);
 }

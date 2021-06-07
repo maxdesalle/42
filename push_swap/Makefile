@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/06/06 11:12:59 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/06/07 14:19:19 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,28 +20,33 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = src/push_swap.c \
       src/list.c \
-      src/utils.c
+      src/utils.c \
+      src/sort.c \
+      src/atoi.c \
+      src/return.c
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
+	@printf $(ccgreen)
+	@echo "Successfully compiled"
 
 $(NAME):
-	$(CC) $(SRC) -o $(NAME)
+	@$(CC) $(SRC) -o $(NAME)
 
 clean:
-	rm -rf $(OBJ)
+	@rm -rf $(OBJ)
 	@printf $(ccgreen)
 	@echo "Successfully cleaned"
 
 fclean:
-	rm -rf $(OBJ)
-	rm -rf $(NAME)
+	@rm -rf $(OBJ)
+	@rm -rf $(NAME)
 	@printf $(ccgreen)
 	@echo "Successfully cleaned, including the executable"
 
 fcleanre:
-	rm -rf $(OBJ)
-	rm -rf $(NAME)
+	@rm -rf $(OBJ)
+	@rm -rf $(NAME)
 
 re:	fcleanre all
