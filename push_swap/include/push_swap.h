@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/07 14:26:30 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/07 19:45:05 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@
 # define RRA 8
 # define RRB 9
 # define RRR 10
+
+# define ZERO_ARGUMENT 1
+# define TWO_ARGUMENTS 3
 
 typedef struct s_node
 {

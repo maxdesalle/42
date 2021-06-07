@@ -6,11 +6,21 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 11:01:19 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/07 14:10:20 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/07 19:48:14 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+static int	ft_return(int result, int sign)
+{
+	result *= sign;
+	if (result > 0 && sign < 0)
+		return (error());
+	if (result < 0 && sign > 0)
+		return (error());
+	return (result);
+}
 
 int	is_empty(char c)
 {
@@ -43,10 +53,5 @@ int	ft_atoi(char *str)
 	i += is_sign(str[i]);
 	while (str[i] && is_num(str[i]))
 		result = result * 10 + (str[i++] - '0');
-	result *= sign;
-	if (result > 0 && sign < 0)
-		return (error());
-	if (result < 0 && sign > 0)
-		return (error());
-	return (result);
+	return (ft_return(result, sign));
 }

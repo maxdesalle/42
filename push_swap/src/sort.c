@@ -6,13 +6,13 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:33:08 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/07 14:52:12 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/07 19:44:18 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int	two(t_node *head, int argc)
+static int	two(t_node *head)
 {
 	int		swap;
 	t_node	*tmp;
@@ -28,6 +28,6 @@ static int	two(t_node *head, int argc)
 
 void	sort(t_node *head, int argc)
 {
-	if (argc == 3)
-		two(head, argc);
+	if (argc == TWO_ARGUMENTS)
+		two(head);
 }
