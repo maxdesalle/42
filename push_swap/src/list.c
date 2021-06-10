@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 10:52:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/10 21:52:45 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/10 22:00:55 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ static int	d_check(t_node *head, int value, int i)
 	t_node	*tmp;
 
 	tmp = head;
-	while (tmp != NULL && i > 0)
+	while (tmp != NULL && i-- > 0)
 	{
 		if (value == tmp->value)
 			return (error());
 		tmp = tmp->next;
-		i--;
 	}
 	return (1);
 }
@@ -58,11 +57,8 @@ static void	create(t_node **head, t_node **tail, int value, int i)
 		*head = result;
 		return ;
 	}
-	while (tmp->next != NULL && i > 0)
-	{
+	while (tmp->next != NULL && i-- > 0)
 		tmp = tmp->next;
-		i--;
-	}
 	tmp->next = result;
 	result->prev = tmp;
 	*tail = result;
