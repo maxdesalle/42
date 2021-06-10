@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:33:08 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/10 13:15:57 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/10 13:35:46 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ static int	two(t_node *head)
 
 void	sort(t_node **head, int argc)
 {
-	if (argc == TWO_ARGUMENTS)
+	if (argc == TWO_ARG)
 		two(*head);
 }

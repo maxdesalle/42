@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 10:52:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/10 13:15:37 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:42:42 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,45 +26,56 @@ static int	num_check(char *str)
 	return (1);
 }
 
-static int	double_check(t_node *head, t_node *value)
+static int	d_check(t_node *head, int value, int i)
 {
 	t_node	*tmp;
 
 	tmp = head;
-	while (tmp != NULL)
+	while (tmp != NULL && i > 0)
 	{
-		if (value->value == tmp->value)
+		if (value == tmp->value)
 			return (error());
 		tmp = tmp->next;
+		i--;
 	}
 	return (1);
 }
 
-static t_node	*create(int value)
-{
-	t_node	*result;
-
-	result = malloc(sizeof(t_node));
-	if (!result)
-		return (NULL);
-	result->value = value;
-	result->next = NULL;
-	return (result);
-}
-
-void	save(t_node **head, int argc, char **argv)
+static void	create(t_node **head, t_node **tail, int value)
 {
 	t_node	*tmp;
+	t_node	*result;
 
-	while (argc > 1)
+	tmp = *head;
+	result = malloc(sizeof(t_node));
+	if (!result)
+		return ;
+	result->value = value;
+	result->next = NULL;
+	if (*head == NULL)
 	{
-		if (num_check(argv[argc - 1]))
-		{
-			tmp = create(ft_atoi(argv[argc - 1]));
-			double_check(*head, tmp);
-			tmp->next = *head;
-			*head = tmp;
-		}
-		argc--;
+		result->prev = NULL;
+		*head = result;
+		return ;
+	}
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = result;
+	result->prev = tmp;
+	*tail = result;
+	(*tail)->next = *head;
+	(*head)->prev = *tail;
+}
+
+void	save(t_node **head, t_node **tail, int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (num_check(argv[i]) && d_check(*head, ft_atoi(argv[i]), i))
+			create(head, tail, ft_atoi(argv[i]));
+		i++;
 	}
 }

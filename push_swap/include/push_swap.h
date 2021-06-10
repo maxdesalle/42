@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/10 13:16:16 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:24:25 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,19 @@
 # define RRB 9
 # define RRR 10
 
-# define ZERO_ARGUMENT 1
-# define TWO_ARGUMENTS 3
+# define ZERO_ARG 1
+# define ONE_ARG 2
+# define TWO_ARG 3
 
 typedef struct s_node
 {
 	int				value;
 	struct s_node	*next;
+	struct s_node	*prev;
 }				t_node;
 
 /* list.c */
-void	save(t_node **head, int argc, char **argv);
+void	save(t_node **head, t_node **tail, int argc, char **argv);
 
 /* atoi.c */
 int		is_empty(char c);
