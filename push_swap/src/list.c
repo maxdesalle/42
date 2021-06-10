@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 10:52:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/07 13:56:04 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/06/10 13:15:37 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,19 @@ static t_node	*create(int value)
 	return (result);
 }
 
-t_node	*save(int argc, char **argv)
+void	save(t_node **head, int argc, char **argv)
 {
-	t_node	*head;
 	t_node	*tmp;
 
-	head = NULL;
 	while (argc > 1)
 	{
 		if (num_check(argv[argc - 1]))
 		{
 			tmp = create(ft_atoi(argv[argc - 1]));
-			double_check(head, tmp);
-			tmp->next = head;
-			head = tmp;
+			double_check(*head, tmp);
+			tmp->next = *head;
+			*head = tmp;
 		}
 		argc--;
 	}
-	return (head);
 }

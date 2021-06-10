@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/06/07 14:19:19 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/06/10 12:03:55 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = push_swap
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 SRC = src/push_swap.c \
       src/list.c \
@@ -32,7 +32,7 @@ all: $(NAME)
 	@echo "Successfully compiled"
 
 $(NAME):
-	@$(CC) $(SRC) -o $(NAME)
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJ)
