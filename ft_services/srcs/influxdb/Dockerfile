@@ -23,4 +23,4 @@ COPY ./srcs/telegraf.conf /etc/
 EXPOSE 8086
 
 # Start the required services
-CMD service telegraf start ; sleep 5 ; service influxdb start ; sleep 5 ; sh start.sh ; sleep infinity
+CMD service telegraf start ; sh start.sh

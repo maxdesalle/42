@@ -32,6 +32,6 @@ spec:
             command:
             - sh
             - -c
-            - "ps vsftpd"
+            - "service telegraf status && pgrep vsftpd"
           initialDelaySeconds: 5
           periodSeconds: 5

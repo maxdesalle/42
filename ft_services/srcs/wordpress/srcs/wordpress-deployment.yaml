@@ -21,3 +21,11 @@ spec:
         ports:
         - name: wp-port
           containerPort: 5050
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - -c
+            - "service telegraf status && service mariadb status && service nginx status && service php-fpm7 status"
+          initialDelaySeconds: 5
+          periodSeconds: 5

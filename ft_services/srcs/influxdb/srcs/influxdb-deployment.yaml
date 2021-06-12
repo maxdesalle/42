@@ -29,7 +29,7 @@ spec:
             command:
               - sh
               - -c
-              - "service influxdb status"
+              - "service telegraf status && service influxdb status"
           initialDelaySeconds: 5
           periodSeconds: 5
       volumes:

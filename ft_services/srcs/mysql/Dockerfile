@@ -24,4 +24,4 @@ COPY ./srcs/my.cnf /etc/my.cnf
 EXPOSE 3306
 
 # Start the required services
-CMD /etc/init.d/mariadb setup ; service mariadb start ; sh ./start.sh ; service telegraf start ; sleep infinity
+CMD service telegraf start ; sh ./start.sh

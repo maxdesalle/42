@@ -27,6 +27,7 @@ RUN mv phpmyadmin /var/www/phpmyadmin
 COPY ./srcs/default.conf etc/nginx/conf.d/default.conf
 COPY ./srcs/telegraf.conf /etc/
 COPY ./srcs/config.inc.php /var/www/phpmyadmin
+COPY ./srcs/start.sh .
 
 # Set up MySQL
 RUN /etc/init.d/mariadb setup
@@ -35,4 +36,4 @@ RUN /etc/init.d/mariadb setup
 EXPOSE 80 5000
 
 # Start the required services
-CMD service telegraf start ; service php-fpm7 start ; service mariadb start ; service nginx start ; sleep infinity
+CMD service telegraf start ; sh ./start.sh

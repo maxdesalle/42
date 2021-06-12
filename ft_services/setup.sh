@@ -10,7 +10,7 @@ CYAN="\e[96m"
 WHITE="\e[97m"
 
 # Print ascii art
-echo -e $WHITE
+echo -en $WHITE
 echo "  __ _                         _               "
 echo " / _| |                       (_)              "
 echo "| |_| |_   ___  ___ _ ____   ___  ___ ___  ___ "
@@ -19,14 +19,14 @@ echo "| | | |_  \__ \  __/ |   \ V /| | (_|  __/\__ \\"
 echo "|_|  \__| |___/\___|_|    \_/ |_|\___\___||___/"
 echo "      ______                                   "
 echo "     |______|                                  "
-echo -e $WHITE
+echo "                                               "
+echo -en $WHITE
 
 
 # Delete a potential previous instance and start a new one with required addons
 minikube delete
 minikube start --driver=docker --cpus=2
 minikube addons enable dashboard
-minikube addons enable metallb
 
 # Required to fix the latest tag issue in Dockerfile
 eval $(minikube docker-env)
@@ -58,7 +58,7 @@ do
 		docker build -t my_${service} srcs/$service/ | grep "Step"
 		echo -en $GREEN
 		echo "Successfully set up the Docker container for $service"
-		echo -e $WHITE
+		echo -en $WHITE
 	fi
 	if [ -e "srcs/$service/srcs/$service-deployment.yaml" ]
 	then

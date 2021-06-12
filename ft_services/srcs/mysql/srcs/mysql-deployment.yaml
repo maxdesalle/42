@@ -29,7 +29,7 @@ spec:
             command:
             - sh
             - -c
-            - "service telegraf status"
+            - "service telegraf status && service mariadb status"
           initialDelaySeconds: 5
           periodSeconds: 5
       volumes:

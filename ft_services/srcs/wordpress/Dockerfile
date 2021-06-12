@@ -42,4 +42,4 @@ RUN /etc/init.d/mariadb setup
 EXPOSE 80 5000
 
 # Start the required services
-CMD service telegraf start ; service php-fpm7 start ; service mariadb start ; service nginx start ; sleep 5 ; sh ./start.sh ; sleep infinity
+CMD service telegraf start ; sh ./start.sh
