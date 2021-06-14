@@ -17,5 +17,6 @@ def my_var():
     print(a, "est de type", a.__class__)
     a = set()
     print(a, "est de type", a.__class__)
+
 if __name__ == '__main__':
     my_var()
