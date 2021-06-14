@@ -1,4 +1,4 @@
-def main():
+def numbers():
     for line in open("numbers.txt", "r"):
         value = line.split(",")
     for i in value:
@@ -6,4 +6,4 @@ def main():
         print(i)
 
 if __name__ == '__main__':
-    main()
+    numbers()
