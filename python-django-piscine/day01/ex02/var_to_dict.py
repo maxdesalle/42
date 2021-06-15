@@ -22,8 +22,9 @@ def var_to_dict():
     ('Burton','1939')
     ]
     my_dict = dict(d)
+    my_dict = {value:key for key, value in my_dict.items()}
     for i in my_dict:
-        print(my_dict[i], ":", i)
+        print(i, ":", my_dict[i])
 
 if __name__ == '__main__':
     var_to_dict()
