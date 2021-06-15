@@ -21,6 +21,18 @@ def stripper(li):
     return li
 
 
+def space_between(li):
+
+    counter = 0
+
+    for i in li:
+        i = " ".join(i.split())
+        li[counter] = i
+        counter += 1
+
+    return li
+
+
 def search_cities(city, option, state):
 
     capital_cities = {
@@ -84,7 +96,7 @@ def all_in(argv):
         return
 
     s = argv[1]
-    li = stripper(space_remover(list(s.split(","))))
+    li = space_between(stripper(space_remover(list(s.split(",")))))
 
     city_state(li)
 
