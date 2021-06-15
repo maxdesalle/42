@@ -1,6 +1,20 @@
 import sys
 
-def capital_city(argv):
+def search_states(state, states):
+    for key, value in states.items():
+        if key == state:
+            return value
+    else:
+        print("Unknown state")
+        return
+
+def search_cities(value, capital_cities):
+    for i, key in capital_cities.items():
+        if value == i:
+            print(key)
+            return
+
+def state(argv):
     if len(argv) != 2:
         return
     states = {
@@ -15,17 +29,7 @@ def capital_city(argv):
             "NJ": "Trenton",
             "CO": "Denver"
             }
-    for key, value in states.items():
-        if key == argv[1]:
-            key = value
-            break
-    else:
-        print("Unknown state")
-        return
-    for i, value in capital_cities.items():
-        if i == key:
-            print(value)
-            return
+    search_cities(search_states(argv[1], states), capital_cities)
 
 if __name__ == '__main__':
-    capital_city(sys.argv)
+    state(sys.argv)
