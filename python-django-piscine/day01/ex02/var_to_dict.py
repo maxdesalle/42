@@ -1,11 +1,29 @@
-def reverse_non_unique_mapping(old_dict):
+def reverse_mapping(old_dict):
+
     new_dict = {}
+
     for key, value in old_dict.items():
         if value in new_dict:
             new_dict[value].append(key)
         else:
             new_dict[value] = [key]
+
     return new_dict
+
+
+def dict_print(my_dict):
+
+    for key, values in my_dict.items():
+        counter = 1
+        print(key, end=" ")
+        print(":", end=" ")
+        for value in values:
+            if counter != len(values):
+                print(value, end=" ")
+            else:
+                print(value)
+            counter += 1
+
 
 def var_to_dict():
 
@@ -33,18 +51,8 @@ def var_to_dict():
     ]
     
     my_dict = dict(d)
-    my_dict = reverse_non_unique_mapping(my_dict)
-
-    for key, values in my_dict.items():
-        counter = 1
-        print(key, end=" ")
-        print(":", end=" ")
-        for value in values:
-            if counter != len(values):
-                print(value, end=" ")
-            else:
-                print(value)
-            counter += 1
+    my_dict = reverse_mapping(my_dict)
+    dict_print(my_dict)
 
 if __name__ == '__main__':
     var_to_dict()

@@ -1,4 +1,5 @@
 def my_sort():
+
     d = {
             'Hendrix':'1942',
             'Allman':'1946',
@@ -21,10 +22,9 @@ def my_sort():
             'Thompson':'1949',
             'Burton':'1939',
         }
-    for w in sorted(d, key=d.get):
-        print(w)
-    for w in sorted(d):
-        print(w)
+
+    my_dict = sorted([(key, value) for key, value in d.items()], key=lambda my_dict : (my_dict[1], my_dict[0]))
+    [print(d[0]) for d in my_dict]
 
 
 if __name__ == '__main__':
