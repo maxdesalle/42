@@ -1,3 +1,11 @@
-<p>"-Who are you?
--A {name}!"</p>
-{name}
+	<head>
+		<title>{title}</title>
+	</head>
+	<body>
+		<ul>
+			<li>Name: {name}</li>
+			<li>Surname: {surname}</li>
+			<li>Age: {age}</li>
+			<li>Profession: {profession}</li>
+		</ul>
+	</body>
