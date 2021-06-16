@@ -1,4 +1,4 @@
-class HotBeverage(object):
+class HotBeverage:
 
     def __init__(self, price = 0.30, name = "hot beverage"):
         self.price = price
@@ -49,17 +49,11 @@ class Cappuccino(HotBeverage):
 
 def test():
 
-    hot_beverage = HotBeverage()
-    coffee = Coffee()
-    tea = Tea()
-    chocolate = Chocolate()
-    cappuccino = Cappuccino()
-
-    print("--- Hot Beverage ---", hot_beverage)
-    print("\n--- Coffee ---", coffee)
-    print("\n--- Tea ---", tea)
-    print("\n--- Chocolate ---", chocolate)
-    print("\n--- Cappuccino ---", cappuccino)
+    print("--- Hot Beverage ---", HotBeverage())
+    print("\n--- Coffee ---", Coffee())
+    print("\n--- Tea ---", Tea())
+    print("\n--- Chocolate ---", Chocolate())
+    print("\n--- Cappuccino ---", Cappuccino())
 
 
 if __name__ == '__main__':

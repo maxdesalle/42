@@ -1,5 +1,5 @@
 import random
-from beverages import *
+from beverages import HotBeverage, Coffee, Tea, Chocolate, Cappuccino
 
 
 class CoffeeMachine(object):
