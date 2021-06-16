@@ -1,6 +1,6 @@
 class Intern:
 
-    def __init__(self, Name="My name?  I’m nobody, an intern, I have no name."):
+    def __init__(self, Name = "My name? I’m nobody, an intern, I have no name."):
         self.name = Name
 
     def __str__(self):
