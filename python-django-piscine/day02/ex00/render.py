@@ -3,10 +3,6 @@ import sys, re, os, settings
 
 def render(argv):
 
-    intro = "<!DOCTYPE html>"
-    midtro= "\n\n<html>\n"
-    outro = "</html>"
-
     if (len(argv) != 2):
         return
 
@@ -23,10 +19,7 @@ def render(argv):
 
     try:
         with open("myCV.html", 'w') as w:
-            w.write(intro)
-            w.write(midtro)
             w.write(line)
-            w.write(outro)
     except IOError:
         return
 
