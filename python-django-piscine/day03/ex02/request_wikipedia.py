@@ -4,6 +4,7 @@ import requests, json, dewiki, sys
 def request_api(argv):
     
     if (len(argv) != 2):
+        print("Error\nPlease provide only one argument aside from the Python file")
         return
     
     try:
