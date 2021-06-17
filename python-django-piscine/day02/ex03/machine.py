@@ -1,5 +1,5 @@
 import random
-from beverages import *
+from beverages import HotBeverage, Coffee, Tea, Chocolate, Cappuccino
 
 
 class CoffeeMachine(object):
@@ -28,11 +28,7 @@ class CoffeeMachine(object):
             raise self.BrokenMachineException()
         else:
             self.servings += 1
-            ret = random.randint(0, 1)
-            if (ret == 0):
-                return uparam
-            else:
-                self.EmptyCup()
+            return (random.choice([uparam, self.EmptyCup()]))
 
 
 def test():

@@ -1,6 +1,7 @@
 def numbers():
-    for line in open("numbers.txt", "r"):
-        value = line.split(",")
+    with open("numbers.txt", "r") as fd:
+        data = fd.read()
+        value = data.split(",")
     for i in value:
         i = int(i)
         print(i)
