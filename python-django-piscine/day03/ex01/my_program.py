@@ -4,11 +4,8 @@ import path
 def my_program():
 
     x = path.__file__
-
-    while True:
-        if (x.endswith("ex01/")):
-            break
-        else:
+    
+    while not (x.endswith("ex01/")):
             x = x.rstrip(x[-1])
 
     d = path.Path("%s%s" % (x, "folder/"))
