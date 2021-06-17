@@ -4,6 +4,9 @@ import requests, sys
 
 def findlink(string, option):
 
+    baracuda = ""
+    result = []
+
     base_url = "https://en.wikipedia.org"
 
     if (option == 1):
@@ -12,20 +15,21 @@ def findlink(string, option):
         response = requests.get(string)
 
     soup = BeautifulSoup(response.content, 'html.parser')
-    baracuda = "help:"
-    test = soup.select_one("p > a")
+    test = soup.select_one("p a[href]")
     if (not test):
-        return
-    baracuda = test
+        return 
+    if "help:" not in str(test).casefold() and "#" not in str(test).casefold():
+        result = test
 
-    if "help:" in str(baracuda).casefold():
+    if "help:" in str(test).casefold() or "#" in str(test).casefold():
         test = test.find_next_siblings("a")
         for i in range(len(test)):
-            if "help:" not in str(test[i]).casefold():
-                baracuda = test[i]
-                break
-            
-    baracuda = base_url + baracuda['href']
+            if "help:" not in str(test[i]).casefold() and "<i" not in str(test[i].parent) and "<sup" not in str(test[i].parent):
+                    result = test[i]
+                    break
+    
+    if (len(result) > 0):
+        baracuda = base_url + result['href']
     return baracuda
 
 
@@ -44,6 +48,9 @@ def roads_to_philosophy(argv):
 
     history = []
     baracuda = findlink(argv[1], 1)
+    if (baracuda == "https://en.wikipedia.org/wiki/Wikipedia:Stub"):
+        print("Invalid search")
+        return
     original_request = baracuda
 
     while True:
@@ -54,8 +61,9 @@ def roads_to_philosophy(argv):
         if ("https://en.wikipedia.org/wiki/Philosophy" == baracuda):
             print(len(history), "roads from", original_request, "to philosophy")
             break
+        print(history)
         if (duplicheck(history) == 1):
-            print("It leadsto an infinite loop !")
+            print("It leads to an infinite loop !")
             return
         baracuda = findlink(baracuda, 0)
         if not baracuda:
