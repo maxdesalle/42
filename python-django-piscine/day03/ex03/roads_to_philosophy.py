@@ -1,3 +1,5 @@
+# DOES NOT WORK!!!
+
 from bs4 import BeautifulSoup
 import requests, sys
 
@@ -18,7 +20,7 @@ def findlink(string, option):
     test = soup.select_one("p a[href]")
     if (not test):
         return 
-    if "help:" not in str(test).casefold() and "#" not in str(test).casefold():
+    if "Help:" not in str(test) and "#" not in str(test).casefold():
         result = test
 
     if "help:" in str(test).casefold() or "#" in str(test).casefold():
