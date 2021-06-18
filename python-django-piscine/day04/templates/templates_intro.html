@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ex01: Template engine.{% endblock title %}
+
+{% block style %}
+h2 {
+	margin: 20px;
+}
+{% endblock style %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'style2.css' %}">
+{% endblock link %}
+
+{% block content %}
+	<h2>Ex01: Template engine.</h2>
+	<p>Blocks are incredibly powerful syntax modules which allow you to leverage a base template in order to not have to write a whole new HTML page when creating one.</p>
+	<p>Similarly, you can also add some type of control flow in these blocks wih for loops, if conditions and much more.</p>
+{% endblock %}

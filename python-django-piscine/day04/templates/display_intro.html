@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Ex01: Display process of a static page.{% endblock title %}
+
+{% block style %}
+h2 {
+	margin: 20px;
+}
+{% endblock style %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'style1.css' %}">
+{% endblock link %}
+
+{% block content %}
+	<h2>Ex01: Display process of a static page.</h2>
+	<p>Django works with requests, so when a request is made to the views.py file in a Django app, Django checks in the urls.py file in the project directory to find the matching URL.</p>
+{% endblock %}
