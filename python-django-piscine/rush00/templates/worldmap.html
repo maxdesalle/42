@@ -1,0 +1,641 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Worldmap{% endblock title %}
+{% block link %}<link rel="stylesheet" href="{% static 'style.css' %}">{% endblock link %}
+
+{% block style %}
+
+html {
+	background: url('https://i.ibb.co/c2Q7GnY/gameboy.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+th, td, tr{
+  border: 0px solid black;
+  width: 10px;
+  height: 60px;
+  text-align: center;
+}
+
+img {
+	max-width: 40%;
+	height: auto;
+}
+button {
+	font-size: 0;
+    background:transparent;
+    border:none;
+    outline:none;
+    display:block;
+    height:80px;
+    width:80px;
+	cursor:pointer;
+	border-radius: 50%;
+}
+
+button:AB {
+	
+}
+
+
+{% endblock style %}
+
+{% block content %}
+<h1 style="text-align: center;">Worldmap</h1>
+<div>
+	<table style="height:80%;width:80%; top: 0; bottom: 0; left: 0; right: 0;border:1px; margin-left: auto; margin-right: auto;">
+	<tr>
+		{% if position == 1 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 2 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 3 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 4 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 5 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 6 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 7 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 8 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 9 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 10 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+	</tr>
+	<tr>
+		{% if position == 11 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 12 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 13 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 14 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 15 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 16 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 17 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 18 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 19 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 20 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+	</tr>
+	<tr>
+		{% if position == 21 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 22 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 23 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 24 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 25 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 26 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 27 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 28 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 29 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 30 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+	</tr>
+	<tr>
+		{% if position == 31 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 32 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 33 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 34 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 35 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 36 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 37 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 38 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 39 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 40 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+	</tr>
+	<tr>
+		{% if position == 41 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 42 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 43 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 44 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 45 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 46 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 47 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 48 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 49 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 50 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+	</tr>
+	<tr>
+		{% if position == 51 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 52 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 53 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 54 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 55 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 56 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 57 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 58 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 59 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 60 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+	</tr>
+	<tr>
+		{% if position == 61 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 62 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 63 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 64 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 65 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 66 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 67 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 68 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 69 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 70 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+	</tr>
+	<tr>
+		{% if position == 71 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 72 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 73 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 74 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 75 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 76 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 77 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 78 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 79 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 80 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+	</tr>
+	<tr>
+		{% if position == 81 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 82 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 83 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 84 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 85 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 86 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 87 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 88 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 89 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 90 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+	</tr>
+	<tr>
+		{% if position == 91 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 92 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 93 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 94 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 95 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 96 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 97 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 98 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 99 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+		{% if position == 100 %}
+		<td><img style="border-radius: 50%;"src="http://i.imgur.com/EIFX1Zz.gif" alt=""></td>
+		{% else %}
+		<td></td>
+		{% endif %}
+	</tr>
+	</table>
+</div>
+	<div style="position: absolute; top: 74%; left: 16%;">
+		{% if moviemoncatch == True %}
+		<button name="button" type="submit" onclick="location.href=''">Up</button>
+		{% else %}
+		<button name="button" type="submit" onclick="location.href='up_move'">Up</button>
+		{% endif %}
+	</div>
+	<div style="position: absolute; top: 79%; left: 7%;">
+		{% if moviemoncatch == True %}
+		<button name="button" type="submit" onclick="location.href=''">Left</button>
+		{% else %}
+		<button name="button" type="submit" onclick="location.href='left_move'">Left</button>
+		{% endif %}
+	</div>
+	<div style="position: absolute; top: 85%; left: 16%;">
+		{% if moviemoncatch == True %}
+		<button name="button" type="submit" onclick="location.href=''">Down</button>
+		{% else %}
+		<button name="button" type="submit" onclick="location.href='down_move'">Down</button>
+		{% endif %}
+	</div>
+	<div style="position: absolute; top: 79%; left: 25%;">
+		{% if moviemoncatch == True %}
+		<button name="button" type="submit" onclick="location.href=''">Right</button>
+		{% else %}
+		<button name="button" type="submit" onclick="location.href='right_move'">Right</button>
+		{% endif %}
+	</div>
+
+
+	<div >
+		<div class="AB" style="position: absolute; top: 80%; left: 67%;">
+			<button name="button" type="submit" onclick="location.href=''">B</button>
+		</div>
+			{% if moviemoncatch == True %}
+			<div style="position: absolute; top: 76%; left: 85%;">
+			<button name="button" type="submit" onclick="location.href='http://127.0.0.1:8000/battle/{{moviemonid}}'">A</button>
+			</div>
+			<div style="position: absolute; top: 69%; left: 50%;">
+				<h1 style="color: red; font-size: 90px;">--------></h1>
+			</div>
+			{% else %}
+			<div style="position: absolute; top: 76%; left: 85%;">
+			<button name="button" type="submit" onclick="location.href=''">A</button>
+			</div>
+			{% endif %}
+	</div>
+
+	<div >
+		<div class="AB" style="position: absolute; top: 88%; left: 34%;">
+			<a href="http://127.0.0.1:8000/moviedex'"><button name="button" type="submit" onclick="location.href=''">SELECT</button></a>
+		</div>
+		<div style="position: absolute; top: 89%; left: 51%;">
+			<a href="http://127.0.0.1:8000/options/"><button name="button" type="submit">START</button></a>
+		</div>
+	</div>
+</div>
+
+<div style="color: blue; position: absolute; top: 97%; left: 2%;">
+	<p>Numbers of Movieballs left: {{ movieballs }}</p>
+</div>
+{% if movieballcatch == True %}
+<div style="color: blue; position: absolute; top: 30%; left: 40%;">
+	<h1>You found a movieball!</h1>
+</div>
+{% endif %}
+
+
+{% endblock %}

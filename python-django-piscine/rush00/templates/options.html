@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<h1 style="text-align: center; padding-top: 60px;">Options</h1>
+</br>
+{% endblock title %}
+
+{% block style %}
+
+html {
+	background: url('https://i.ibb.co/c2Q7GnY/gameboy.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+{% endblock style %}
+
+{% block content %}
+<div style="text-align: center;">
+	<button style="color: red; width: 100px; height: 100px; top: 300px; left: 200px; position: absolute;" name="button" type="submit" onclick="location.href='start'">Start</button>
+	<button style="color: blue; width: 100px; height: 100px; top: 300px; left: 400px; position: absolute;" name="button" type="submit" onclick="location.href='save_game'">A - Save</button>
+	<button style="color: green; width: 100px; height: 100px; top: 300px; left: 600px; position: absolute;" name="button" type="submit" onclick="location.href='titlescreen'">B - Link</button>
+</div>
+{% endblock content %}

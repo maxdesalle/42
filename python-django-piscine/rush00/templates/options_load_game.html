@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Options
+{% endblock title %}
+
+{% block style %}
+html {
+ width: 50%;
+ text-align: center;
+ margin: auto;
+ }
+ {% endblock style %}
+
+{% block content %}
+
+<h1 style="text-align: center; padding-top: 60px;">Options</h1></br>
+
+{% if selected == 1 and slot_a == True%}
+<p style="background-color: black; color: white;">Slot A: {{captured_a}}/10</p>
+{% elif selected == 1 and slot_a == False %}
+<p style="background-color: black; color: white;">Slot A - Free</p>
+{% elif selected != 1 and slot_a == False %}
+<p>Slot A - Free</p>
+{% elif selected != 1 and slot_a == True %}
+<p>Slot A: {{captured_a}}/10</p>
+{% endif %}
+
+{% if selected == 2 and slot_b == True%}
+<p style="background-color: black; color: white;">Slot B: {{captured_b}}/10</p>
+{% elif selected == 2 and slot_b == False %}
+<p style="background-color: black; color: white;">Slot B - Free</p>
+{% elif selected != 2 and slot_b == False %}
+<p>Slot B - Free</p>
+{% elif selected != 2 and slot_b == True %}
+<p>Slot B: {{captured_b}}/10</p>
+{% endif %}
+
+{% if selected == 3 and slot_c == True%}
+<p style="background-color: black; color: white;">Slot C: {{captured_c}}/10</p>
+{% elif selected == 3 and slot_c == False %}
+<p style="background-color: black; color: white;">Slot C - Free</p>
+{% elif selected != 3 and slot_c == False %}
+<p>Slot C - Free</p>
+{% elif selected != 3 and slot_c == True %}
+<p>Slot C: {{captured_c}}/10</p>
+{% endif %}
+
+<div style="text-align: center; padding-top: 0%;">
+    <div>
+		<button name="button" type="submit" onclick="location.href='/options/load_game/top'">Top</button>
+		<button name="button" type="submit" onclick="location.href='/options/load_game/bottom'">Bottom</button>
+    </div>
+</div>
+
+<div style="text-align: center; padding-top: 0%;">
+    <div>
+		{% if selected == 1 and slot_a == True and loaded_a == True %}
+		<button name="button" type="submit" onclick="location.href='/worldmap/'">A - start game</button>
+		{% elif selected == 2 and slot_b == True and loaded_b == True %}
+		<button name="button" type="submit" onclick="location.href='/worldmap/'">A - start game</button>
+		{% elif selected == 3 and slot_c == True and loaded_c == True %}
+		<button name="button" type="submit" onclick="location.href='/worldmap/'">A - start game</button>
+		{% else %}
+		<button name="button" type="submit" onclick="location.href='/options/load_game/load_a'">A - load</button>
+		{% endif %}
+		<button name="button" type="submit" onclick="location.href='/options/'">B - Cancel</button>
+    </div>
+</div>
+{% endblock content %}

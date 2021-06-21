@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Titlescreen{% endblock title %}
+
+{% block style %}
+
+html {
+	background: url('https://i.pinimg.com/564x/24/04/91/2404918faac44d214bbd657468b43cc0.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+{% endblock style %}
+
+{% block link %}<link rel="stylesheet" href="{% static 'style.css' %}">{% endblock link %}
+
+{% block content %}
+<h1 style="left: 400px; position: absolute; top: 115px; font-family: 'Courier';font-smooth: never; text-align: center;">Moviemon</h1>
+<button style="color: green; width: 100px; height: 100px; top: 300px; left: 350px; position: absolute;" onclick="location.href='/worldmap'" type="button">A - New Game</button>
+<button style="color: blue; width: 100px; height: 100px; top: 300px; left: 500px; position: absolute;" onclick="location.href='/options/load_game'" type="button">B - Load</button>
+{% endblock %}

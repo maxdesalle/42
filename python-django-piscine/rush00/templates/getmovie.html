@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<h1 style="text-align: center; padding-top: 60px;">Vous êtes entré en combat avec un Moviemon !</h1>
+</br>
+<h2 style="text-align: center;">{{ titlemon }}</h2>
+{% endblock title %}
+
+{% block style %}
+
+html {
+	background: url('https://i.ibb.co/cgBSmkW/2404918faac44d214bbd657468b43cc0.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+
+
+{% endblock style %}
+
+{% block content %}
+<div>
+	<img style=" height: 340px; left: 500px; position: absolute;" src="{{ poster }}" alt="Affiche du film">
+</div>
+<h2 style="position: absolute; left: 100px; top: 35px; font-family: 'Courier';">Force du Moviemon : <strong>{{ imdbrating }}</strong> </h2>
+
+<h2 style="position: absolute; left: 100px; font-family: 'Courier';">Chance de capture : {{ capturerate }}%</h2>
+
+<h2 style="position: absolute; left: 165px; top: 550px; font-family: 'Courier';">Votre Inventaire :</h2>
+<h3 style="position: absolute; left: 430px; top: 555px; font-family: 'Courier';">Movieball(<strong>{{ movieballs }}</strong>)</h3>
+
+{% if movieballs > 0  and moviemoncaught != True %}
+<div style="position: absolute; top: 60%; left: 10%;">
+	<button name="button" type="submit" onclick="location.href='http://127.0.0.1:8000/battle/{{moviemonid}}/attack'"><h1>A - Throw a movieball</h1></button>
+</div>
+{% else %}
+<div style="position: absolute; top: 60%; left: 10%;">
+	<button name="button" type="submit" onclick="location.href=''"><h1>A - Throw a movieball</h1></button>
+</div>
+{% endif %}
+<div style="position: absolute; top: 60%; left: 50%;">
+	<button name="button" type="submit" onclick="location.href='http://127.0.0.1:8000/worldmap/return/'"><h1>B - Back to worldpage</h1></button>
+</div>
+
+
+{% if moviemoncaught == True %}
+<div style="top: 90%; text-align: center;">
+	<h1 style="left: 300px; position: absolute; top: 400px;">! !You caught it! !</h1>
+</div>
+{% endif %}
+
+
+{% endblock content %}

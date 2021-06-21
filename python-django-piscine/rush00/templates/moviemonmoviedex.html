@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<h1 style="text-align: center; padding-top: 60px;">{{ Title }}</h1>
+</br>
+{% endblock title %}
+
+{% block style %}
+
+html {
+	background: url('https://i.ibb.co/cgBSmkW/2404918faac44d214bbd657468b43cc0.jpg') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+img {
+    
+}
+
+
+{% endblock style %}
+
+{% block content%}
+<div>
+    <div style="height: auto; width: auto; text-align: center;">
+        {{ Poster }}
+    </div>
+
+    <div>
+        <h2>Plot </h2>
+        {{ Synopsis }}
+    </div>
+
+    <div>
+        <h2>Actors : </h2>
+        {{ Actors }}
+
+        <p>Directed by {{ Director }}</p>
+    </div>
+</div>
+
+{% endblock content%}
