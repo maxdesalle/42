@@ -5,12 +5,6 @@
 User registration
 {% endblock title %}
 
-{% if user.is_authenticated %}
-{% block nav %}{{ user.username }}{% endblock nav %}
-{% else %}
-{% block nav %}{{ username }}{% endblock nav %}
-{% endif %}
-
 {% block content %}
   <h2>Sign up</h2>
   <form method="post">
