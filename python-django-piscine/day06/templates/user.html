@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block title %}
-User login
+Life Pro Tips
 {% endblock title %}
 
-{% block meta %}<meta http-equiv="refresh" content="42" >{% endblock meta %}
+{% block meta %} http-equiv="refresh" content="42" {% endblock meta %}
 
-{% block nav %}Hello {{ username }}!{% endblock nav %}
+{% block nav %}{{ request.user.username }}{% endblock nav %}
 
 {% block content %}
 {% endblock content %}

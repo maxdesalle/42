@@ -6,11 +6,19 @@
     <head>
         <title>{% block title %}{% endblock title %}</title>
 		<meta charset="UTF-8">
-		<meta>{% block meta %}{% endblock meta %}</meta>
-		<script>{% block script %}{% endblock script %}</script>
+		<meta {% block meta %}{% endblock meta %}>
 		<style>{% block style %}{% endblock style %}</style>
 		{% block link %}{% endblock link %}
-		<nav>{% block nav %}{% endblock nav %}</nav>
+		<nav>
+			<a style="font-weight: bold;" href="http://127.0.0.1:8000">Life Pro Tips</a>
+			{% if user.is_authenticated %}
+			<a href="{% url 'logout' %}">Log Out</a>
+			{% else %}
+			<a href="/registration/">Registration</a>
+			<a href="/login/">Login</a>
+			{% endif %}
+			<p>Hello {% block nav %}{% endblock %}!</p>
+		</nav>
     </head>
 
     <body>
