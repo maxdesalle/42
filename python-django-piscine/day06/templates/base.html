@@ -3,12 +3,12 @@
 
 <html lang="en">
 
-    <head>
-        <title>{% block title %}{% endblock title %}</title>
+	<head>
+		<title>{% block title %}{% endblock title %}</title>
 		<meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<meta {% block meta %}{% endblock meta %}>
+		<meta {% block meta %}{% endblock meta %}>
 		<style>
 html {
 	font-family: 'Helvetica', 'Arial', sans-serif;
@@ -18,27 +18,27 @@ html {
 }
 
 .helptext{
-  visibility: hidden;
+	visibility: hidden;
 }
 
 #id_content
-{
-	margin-right: 400px;
+	{
+	margin-right: 1000px;
 	margin-bottom: 2px;
 }
 
 #id_author
-{
+	{
 	margin-right: 1000px;
 	margin-bottom: 2px;
 }
 
 #id_date
-{
+	{
 	margin-right: 1000px;
 	margin-bottom: 2px;
 }
-{% block style %}{% endblock style %}</style>
+		{% block style %}{% endblock style %}</style>
 		{% block link %}{% endblock link %}
 		<nav>
 			<a style="color: #05f; font-weight: bold;" href="http://127.0.0.1:8000">Life Pro Tips</a>
@@ -50,16 +50,16 @@ html {
 			{% endif %}
 			{% block nav %}{% endblock %}
 		</nav>
-    </head>
-  <body>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-8">
-          <hr class="mt-0 mb-4">
-          {% block content %}
-          {% endblock %}
-        </div>
-      </div>
-    </div>
-  </body>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-8">
+					<hr class="mt-0 mb-4">
+					{% block content %}
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

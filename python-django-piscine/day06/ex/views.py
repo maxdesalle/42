@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.forms import ValidationError
 from d06.settings import usernames
 from random import choice
 from django.contrib.auth import login, authenticate
@@ -25,6 +26,21 @@ def homepage(request):
             obj.date = form.cleaned_data.get('date')
             obj.save()
             return redirect('http://127.0.0.1:8000')
+        else:
+            form = TipForm()
+            if username:
+                context.update({'username': username})
+                context.update({'form': form})
+                context.update({'error': 'An error occurred, please try again with correct values'})
+                return render(request, "user.html", context)
+            else:
+                data = choice(usernames)
+                context.update({'username': data})
+                context.update({'form': form})
+                context.update({'error': 'An error occurred, please try again with correct values'})
+                html = render(request, "user.html", context)
+                html.set_cookie('42-cookie', data, max_age = 42)
+                return html
     else:
         form = TipForm()
         if username:
@@ -54,22 +70,8 @@ def registration(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('http://127.0.0.1:8000')
+        else:
+            return redirect('http://127.0.0.1:8000/registration')
     else:
         form = UserCreationForm()
         return render(request, 'registration.html', {'form': form})
-
-
-def test(request):
-
-    if request.method == 'POST':
-        form = TipForm(request.POST)
-        if form.is_valid():
-            obj = Tip()
-            obj.content = form.cleaned_data.get('content')
-            obj.author = form.cleaned_data.get('author')
-            obj.date = form.cleaned_data.get('date')
-            obj.save()
-            return redirect('http://127.0.0.1:8000')
-    else:
-        form = TipForm()
-        return render(request, 'test.html', {'form': form})
