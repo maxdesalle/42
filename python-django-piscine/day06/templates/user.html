@@ -31,6 +31,9 @@ Life Pro Tips
 <br>
 {% endif %}
 {% for obj in tip %}
-<p>{{ obj.content}} - by {{ obj.author }} - on {{ obj.date }}</p>
+<p>{{ obj.content}} - by {{ obj.author }} - on {{ obj.date }} - {{ obj.upstats }} - {{ obj.downstats }}
+<button type="button" name="{{ obj.upvote }}" onclick="location.href='http://127.0.0.1:8000/upvote/{{ obj.id }}'">Upvote</button>
+<button type="button" name="{{ obj.downvote }}" onclick="location.href='http://127.0.0.1:8000/downvote/{{ obj.id }}'">Downvote</button>
+<button type="button" name="{{ obj.delete }}" onclick="location.href='http://127.0.0.1:8000/delete/{{ obj.id }}'">Delete</button></p>
 {% endfor %}
 {% endblock content %}

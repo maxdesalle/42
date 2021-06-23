@@ -75,3 +75,29 @@ def registration(request):
     else:
         form = UserCreationForm()
         return render(request, 'registration.html', {'form': form})
+
+def objdelete(request, id):
+    Tip.objects.filter(id=id).delete()
+    return redirect('http://127.0.0.1:8000')
+
+def upvote(request, id):
+    obj = Tip.objects.get(id=id)
+    if (obj.upstats > 0):
+        obj.upstats -= 1
+    else:
+        obj.upstats += 1
+    if (obj.downstats < 0):
+        obj.downstats += 1
+    obj.save()
+    return redirect('http://127.0.0.1:8000')
+
+def downvote(request, id):
+    obj = Tip.objects.get(id=id)
+    if (obj.downstats < 0):
+        obj.downstats += 1
+    else:
+        obj.downstats -= 1
+    if (obj.upstats > 0):
+        obj.upstats -= 1
+    obj.save()
+    return redirect('http://127.0.0.1:8000')
