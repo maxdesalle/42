@@ -16,15 +16,11 @@ Life Pro Tips
 {% endblock nav %}
 
 {% block content %}
-{% if user.is_authenticated %}
 <h2>Leave a tip</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Submit</button>
 </form>
-{% endif %}
-{% for obj in tip %}
-<p>{{ obj.content}} - by {{ obj.author }} - on {{ obj.date }}</p>
-{% endfor %}
+
 {% endblock content %}
