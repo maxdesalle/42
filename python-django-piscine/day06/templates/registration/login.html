@@ -12,6 +12,6 @@ User login
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Log In</button>
+  <button style="font-weight: bold; display: inline-flex; margin-top: 10px; background-color: #05f; padding: 0.4rem; cursor: pointer; background-image: linear-gradient(170deg, #00a6ff, #0f); font-size: 1.5vh; display: block; color: white;" type="submit" class="btn btn-success">Log in</button>
 </form>
 {% endblock content %}
