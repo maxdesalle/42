@@ -7,7 +7,13 @@ Life Pro Tips
 
 {% block meta %} http-equiv="refresh" content="42" {% endblock meta %}
 
-{% block nav %}{{ request.user.username }}{% endblock nav %}
+{% block nav %}
+{% if user.is_authenticated %}
+<p>Hello {{ request.user.username }}!</p>
+{% else %}
+<p>Hello {{ username }}!</p>
+{% endif %}
+{% endblock nav %}
 
 {% block content %}
 {% endblock content %}

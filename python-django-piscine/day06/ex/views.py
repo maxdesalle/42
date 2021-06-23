@@ -7,6 +7,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
 
+
 def homepage(request):
 
     username = request.COOKIES.get('42-cookie')
