@@ -19,7 +19,6 @@ FlashWall
 	<p>{{ error }}</p>
 	<hr>
 {% for obj in flash %}
-<p>{{ obj.title}}</p> <img src="media/{{ obj.img }}">
-<button class="deletebutton" type="button" name="{{ obj.delete }}" onclick="location.href='http://127.0.0.1:8000/delete/{{ obj.id }}'">Delete</button>
+<img src="media/{{ obj.img }}"><h3>{{ obj.title}}</h3><button class="deletebutton" type="button" name="{{ obj.delete }}" onclick="location.href='http://127.0.0.1:8000/delete/{{ obj.id }}'">Delete</button>
 {% endfor %}
 {% endblock content %}
