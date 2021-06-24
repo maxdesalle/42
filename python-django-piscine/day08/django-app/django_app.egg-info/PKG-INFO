@@ -1,0 +1,44 @@
+Metadata-Version: 1.2
+Name: django-app
+Version: 0.1
+Summary: A Django app to create your own image-based social sharing website.
+Home-page: https://maxdesalle.com
+Author: Maxime Desalle
+Author-email: hey@maxdesalle.com
+License: The Unlicense
+Description: =====
+        FlashWall
+        =====
+        
+        FlashWall is an image-based social sharing website.
+        
+        Quick start
+        -----------
+        
+        1. Add "app" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+                'app',
+            ]
+        
+        2. Run ``python manage.py migrate`` to create the flash models.
+        
+        3. Start the development server and visit http://127.0.0.1:8000/ to get started!
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.6
