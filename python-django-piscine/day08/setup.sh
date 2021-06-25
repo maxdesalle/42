@@ -44,7 +44,8 @@ echo "Successfully installed Nginx!"
 echo $BLUE
 echo "Setting up Nginx..."
 echo $WHITE
-cp nginx/nginx.conf ~/.brew/etc/nginx/ > /dev/null
+sed -i "" "s/USER/$USER/g" nginx/nginx.conf
+cp nginx/nginx.conf ~/.brew/etc/nginx/servers > /dev/null
 echo $GREEN
 echo "Successfully installed Nginx!"
 

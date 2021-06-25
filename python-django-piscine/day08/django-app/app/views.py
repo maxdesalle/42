@@ -12,7 +12,7 @@ def homepage(request):
         form = FlashForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('http://127.0.0.1:8000')
+            return redirect('/')
         else:
             form = FlashForm()
             context.update({'form': form})
@@ -28,4 +28,4 @@ def homepage(request):
 
 def objdelete(request, id):
     Flash.objects.filter(id=id).delete()
-    return redirect('http://127.0.0.1:8000')
+    return redirect('/')
