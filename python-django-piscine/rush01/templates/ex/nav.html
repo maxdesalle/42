@@ -1,0 +1,29 @@
+
+<nav class="navbar navbar-expand-xl navbar navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="{% url 'index' %}">
+        ForumBase
+      </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="navbar-collapse collapse" id="navbarsExample06" style="">
+    <ul class="navbar-nav mr-auto">
+        {% if user.is_authenticated %}
+        <li  class="nav-item active"><a class="nav-link" href="{% url 'forum' %}"><i class="fa fa-fw fa-home"></i> Forum</a></li>
+        <li  class="nav-item active"><a class="nav-link" href="{% url 'create' %}">&nbsp;<i class="fa fa-pencil-square" aria-hidden="true"></i>&nbsp; Create</a></li>
+        <li  class="nav-item active"><a class="nav-link" href="{% url 'profile' %}">&nbsp;<i class="fa fa-user" aria-hidden="true"></i>&nbsp; Profile</a></li>
+        <li  class="nav-item active" style="float:right;"><a class="nav-link" href="{% url 'logout' %}">&nbsp;<i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Logout</a></li>
+        {% else %}
+            <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+            <li class="nav-item active"><a class="nav-link" href="{% url 'register' %}"><i class="fa fa-id-card" aria-hidden="true"></i> Register</a></li>
+        {% endif %}
+
+        {% if request.get_full_path == "/forum" %}
+            {% if user.is_authenticated %}
+            <li  class="nav-item active " style="float: right"><a class="nav-link" >Hello {{ user.username }}</a></li>
+            {% endif %}
+        {% endif %}
+    </ul>
+  </div>
+  </nav>

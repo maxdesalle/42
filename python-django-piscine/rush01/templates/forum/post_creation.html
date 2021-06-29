@@ -1,0 +1,20 @@
+{% extends 'ex/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="container mt-3">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4"> New Post </legend>
+                {{ PostForm|crispy }}
+            </fieldset>
+            <button class="btn btn-primary" type="submit"> Create </button>
+        </form>
+    </div>
+{% else %}
+    <p>You need to be logged in to create posts</p>
+    <a  href="{% url 'login' %}"> Login </a>
+    <a class="nav-link" href="{% url 'register' %}">register</a>
+{% endif %}
+{% endblock %}

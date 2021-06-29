@@ -1,0 +1,72 @@
+{% extends 'ex/base.html' %}
+
+{% block content %}
+    {% for post in page_obj %}
+    <br>
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <!--<div class="row justify-content-start"> -->
+                                <div class="row justify-content-start">
+                                    <div class="col-3 ">
+                                        <p> {{ post.title }} </p>
+                                    </div>
+                                    <div class="col-3"> 
+                                        <small>by {{ post.author }}</small>
+                                    </div>
+                                     <div class="col float-right"> <p class=" text-muted small float-right text-end" >{{ post.date }}</div>
+                                </div>
+                                <hr>
+                                <div class="row ">
+                                    <div class="col">
+                                        <p> Upvotes: {{ post.upstats }} </p>
+                                        <p> Downvotes: {{ post.downstats }} </p>
+                                    </div>
+                                    <div class="col-4">
+                                        <div> <p> Upvoting users: {{ post.l_upusers }} </p> </div>
+                                        <div> <p> Downvoting users: {{ post.l_downusers }} </p> </div>
+                                    </div>
+                                </div>
+                           
+                        </div>
+                        <div class="card-body">
+                            <p> {{ post.content }} </p>
+                        </div>
+                        <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
+                            {% if user.is_authenticated %}
+							<div class="px-4 pt-3"> <button style="background-color: green;" type="button" class="btn btn-primary" onclick="location.href='upvote/{{ post.id }}/'"><i class="ion ion-md-create"></i>&nbsp; Upvote</button> </div>
+                            <div class="px-4 pt-3"> <button style="background-color: red;" type="button" class="btn btn-primary" onclick="location.href='downvote/{{ post.id }}/'"><i class="ion ion-md-create"></i>&nbsp; Downvote</button> </div>
+                            {% endif %}
+                            {% if user.is_superuser %}
+                            <div class="px-4 pt-3"> <button type="button" class="btn btn-primary" onclick="location.href='delete/{{ post.id }}/'"><i class="ion ion-md-create"></i>&nbsp; Delete</button> </div>
+							{% endif %}
+							<div class="px-4 pt-3"> <button type="button" class="btn btn-primary" onclick='location.href="{% url 'post_details' post.id %}"'><i class="ion ion-md-create"></i>&nbsp; Details</button> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- for comment in post.comment,.... -->
+        
+    {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}

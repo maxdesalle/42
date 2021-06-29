@@ -1,0 +1,113 @@
+{% extends 'ex/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<br>
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="card mb-4 border-dark">
+                <div class="card-header">
+                    <div class="row justify-content-start">
+                        <div class="col-3">
+                            {{ post.author }}
+                        </div>
+                        <div class="col-3">
+                            <div>
+                                <p> {{ post.title }} </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-muted small">{{ post.date }}</div>
+                </div>
+                <div class="card-body">
+                    <p> {{ post.content }} </p>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-info dropdown-toggle pull-right" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Comment
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="container">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <fieldset class="form-group">
+                                    <legend class="border-bottom mb-4"> New Form </legend>
+                                    {{ comment_form|crispy }}
+                                </fieldset>
+                                <button class="btn btn-primary" type="submit"> Comment </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container ml-0">
+    {% for comment in comments%}
+    <div class="col-md-10 mt-3 " style="margin-left: {{ forloop.counter0 }}em ;">
+        <div class="card border ">
+            <div class="card-header">
+                <div class="row ">
+                    <div class="col-md-4">
+                        {{ comment.name }}
+                    </div>
+                    <!--<div class="col-3">
+                        <small>Reply #{{ comment.id }} </small>
+                    </div>-->
+                    <div class="col-md-5 offset-md-3 ">
+                        <small>
+                                Replying to :
+                        {% if comment.parent.id == None %}
+                            Original post
+                        {% else %}
+                            Reply #{{ comment.parent.id }}
+                        {% endif %}
+                        </small>
+                    </div>
+
+                </div>
+                <div class="text-muted small">{{ comment.created|date:"M d, Y" }}</div>
+            </div>
+            <div class="container px-3 mt-1">
+                <p> {{ comment.content }}</p>
+            </div>
+            <div class="dropdown ">
+                
+                <button class="btn btn-info dropdown-toggle pull-right" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    reply
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="container">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                <legend class="border-bottom mb-4"> Reply </legend>
+                                {{ comment_form|crispy }}
+                            </fieldset>
+                            <input type="hidden" name="parent_id" value="{{ comment.id }}">
+                            <button class="btn btn-primary" type="submit"> Post </button>
+                        </form>
+                    </div>
+
+                </div>
+          
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>You need to be logged in to access post details</p>
+<div class="container">
+    <a class="nav-link" href="{% url 'login' %}"> Login </a>
+    <a class="nav-link" href="{% url 'register' %}"> Register</a>
+</div>
+{% endif %}
+
+{% endblock %}
