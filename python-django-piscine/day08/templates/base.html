@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+		<title>{% block title %}{% endblock title %}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<meta {% block meta %}{% endblock meta %}>
+		{% block link %}{% endblock link %}
+		<nav>
+			<img src="https://i.imgur.com/aMk3EkM.png">
+			<a style="color: #05f; font-weight: bold;" href="http://127.0.0.1:8000"><h2>FlashWall</h2></a>
+			{% block nav %}{% endblock %}
+		</nav>
+	</head>
+	<body>
+		<div>
+			<div>
+				<div>
+					<hr>
+					{% block content %}
+					{% endblock %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

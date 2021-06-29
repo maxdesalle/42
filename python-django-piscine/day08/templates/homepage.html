@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+FlashWall
+{% endblock title %}
+
+{% block nav %}
+{% endblock nav %}
+
+{% block link %}<link rel="stylesheet" href="{% static 'style.css' %}">{% endblock link %}
+
+{% block content %}
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="uploadbutton" type="submit">Upload</button>
+    </form>
+	<p>{{ error }}</p>
+	<hr>
+{% for obj in flash %}
+<img src="media/{{ obj.img }}"><h3>{{ obj.title}}</h3><button class="deletebutton" type="button" name="{{ obj.delete }}" onclick="location.href='http://127.0.0.1:8000/delete/{{ obj.id }}'">Delete</button>
+{% endfor %}
+{% endblock content %}
