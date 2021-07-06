@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:45:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/06 13:00:11 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/06 13:11:57 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@ int	main(int argc, char **argv)
 #if 0
 	sa(&a_head, argc - 1);
 #endif
-#if 1
+#if 0
 	ra(&a_head);
+#endif
+#if 0
+	rra(&a_head);
 #endif
 #if 1
 	i = 8;

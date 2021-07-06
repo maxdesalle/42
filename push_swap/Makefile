@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/07/06 12:59:29 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/07/06 13:09:40 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC = src/push_swap.c \
       src/atoi.c \
       src/return.c \
       src/moves/sa.c \
-      src/moves/ra.c
+      src/moves/ra.c \
+      src/moves/rra.c
 
 TEST = test/tester.c \
        src/atoi.c \
