@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/06 13:10:58 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/06 14:07:48 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,14 @@ int		normal(int return_code);
 int		error(void);
 
 /* moves/.c */
-void	sa(t_node **head, int len);
-void	ra(t_node **head);
+void	sa(t_node **a_head, int len);
+void	sb(t_node **b_head, int len);
+void	ss(t_node **a_head, t_node **b_head, int a_len, int b_len);
+void	ra(t_node **a_head);
+void	rb(t_node **b_head);
+void	rr(t_node **a_head, t_node **b_head);
 void	rra(t_node **a_head);
+void	rrb(t_node **b_head);
+void	rrr(t_node **a_head, t_node **b_head);
 
 #endif
