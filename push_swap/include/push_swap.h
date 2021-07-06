@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/05 11:00:08 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/06 10:55:26 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_node
 }				t_node;
 
 /* list.c */
-void	save(t_node **head, t_node **tail, int argc, char **argv);
+void	save(t_node **head, int argc, char **argv);
 
 /* atoi.c */
 int		is_empty(char c);
@@ -56,6 +56,9 @@ int		error(void);
 
 /* sort.c */
 void	sort(t_node **head, int argc);
+
+/* moves/sa.c */
+void	sa(t_node **head, int len);
 
 /* utils.c */
 void	ft_swap(int *a, int *b);
