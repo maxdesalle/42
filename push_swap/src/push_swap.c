@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:45:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/06 13:54:27 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/06 17:19:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ int	main(int argc, char **argv)
 	t_node	*a_head;
 	t_node	*b_head;
 
-	a_head = NULL;
-	b_head = NULL;
 	if (argc == ZERO_ARG)
 		return (error());
 	save(&a_head, argc, argv);
@@ -45,6 +43,9 @@ int	main(int argc, char **argv)
 	rra(&a_head);
 #endif
 #if 1
+	pb(&a_head, &b_head);
+#endif
+#if 1
 	i = 8;
 	tmp = a_head;
 	while (i-- > 0)
@@ -52,6 +53,10 @@ int	main(int argc, char **argv)
 		printf("%d - ", tmp->value);
 		tmp = tmp->next;
 	}
+	printf("\n");
+#endif
+#if 1
+	printf("b: %d\n", b_head->value);
 #endif
 	return (0);
 }

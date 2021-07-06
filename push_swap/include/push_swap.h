@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/06 14:07:48 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/06 16:11:15 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ void	instruct(int option);
 int		normal(int return_code);
 int		error(void);
 
+/* utils.c */
+void	init(t_node **a_head);
+
 /* moves/.c */
 void	sa(t_node **a_head, int len);
 void	sb(t_node **b_head, int len);
@@ -64,5 +67,7 @@ void	rr(t_node **a_head, t_node **b_head);
 void	rra(t_node **a_head);
 void	rrb(t_node **b_head);
 void	rrr(t_node **a_head, t_node **b_head);
+void	pa(t_node **a_head, t_node **b_head);
+void	pb(t_node **a_head, t_node **b_head);
 
 #endif
