@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/06 10:55:26 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/06 12:59:36 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,8 @@ void	instruct(int option);
 int		normal(int return_code);
 int		error(void);
 
-/* sort.c */
-void	sort(t_node **head, int argc);
-
-/* moves/sa.c */
+/* moves/.c */
 void	sa(t_node **head, int len);
-
-/* utils.c */
-void	ft_swap(int *a, int *b);
+void	ra(t_node **head);
 
 #endif

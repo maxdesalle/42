@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 14:16:09 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/06/07 14:17:27 by mdesalle         ###   ########.fr       */
+/*   Created: 2021/07/06 09:58:44 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/07/06 12:53:56 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-void	ft_swap(int *a, int *b)
+void	ra(t_node **a_head)
 {
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
+	*a_head = (*a_head)->next;
 }

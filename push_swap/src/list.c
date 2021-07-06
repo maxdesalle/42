@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 10:52:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/06 09:53:40 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/06 12:56:27 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static int	num_check(char *str)
 	return (1);
 }
 
-static int	d_check(t_node *head, int value, int i)
+static int	d_check(t_node *a_head, int value, int i)
 {
 	t_node	*tmp;
 
-	tmp = head;
+	tmp = a_head;
 	while (tmp != NULL && i-- > 0)
 	{
 		if (value == tmp->value)
@@ -40,7 +40,7 @@ static int	d_check(t_node *head, int value, int i)
 	return (1);
 }
 
-static void	create(t_node **head, int value)
+static void	create(t_node **a_head, int value)
 {
 	t_node	*tmp;
 	t_node	*new_node;
@@ -51,20 +51,20 @@ static void	create(t_node **head, int value)
 	new_node->value = value;
 	new_node->next = NULL;
 	new_node->prev = NULL;
-	if (*head == NULL)
+	if (*a_head == NULL)
 	{
-		*head = new_node;
+		*a_head = new_node;
 		return ;
 	}
-	else if (*head != NULL && (*head)->next == NULL)
+	else if (*a_head != NULL && (*a_head)->next == NULL)
 	{
-		(*head)->next = new_node;
-		new_node->prev = *head;
+		(*a_head)->next = new_node;
+		new_node->prev = *a_head;
 		return;
 	}
 	else
 	{
-		tmp = *head;
+		tmp = *a_head;
 		while (tmp->next != NULL)
 			tmp = tmp->next;
 		tmp->next = new_node;
@@ -72,7 +72,7 @@ static void	create(t_node **head, int value)
 	}
 }
 
-void	save(t_node **head, int argc, char **argv)
+void	save(t_node **a_head, int argc, char **argv)
 {
 	int	i;
 	t_node	*tmp;
@@ -80,13 +80,13 @@ void	save(t_node **head, int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (num_check(argv[i]) && d_check(*head, ft_atoi(argv[i]), i))
-			create(head, ft_atoi(argv[i]));
+		if (num_check(argv[i]) && d_check(*a_head, ft_atoi(argv[i]), i))
+			create(a_head, ft_atoi(argv[i]));
 		i++;
 	}
-	tmp = *head;
+	tmp = *a_head;
 	while (tmp->next != NULL)
 		tmp = tmp->next;
-	tmp->next = *head;
-	(*head)->prev = tmp;
+	tmp->next = *a_head;
+	(*a_head)->prev = tmp;
 }
