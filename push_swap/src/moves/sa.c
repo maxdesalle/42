@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 09:58:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/07 15:05:10 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/07 15:56:01 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	sa(t_node **a_head)
 	three = two->next;
 	tail = (*a_head)->prev;
 	if (len == 1)
-		return ;
+		;
 	else if (len == 2)
 		two_link(a_head, &one, &two);
 	else
@@ -55,4 +55,5 @@ void	sa(t_node **a_head)
 	}
 	if (len == 3)
 		tail->prev = one;
+	instruct(SA);
 }

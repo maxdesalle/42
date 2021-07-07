@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 09:58:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/07 15:39:52 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/07 15:52:22 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,5 @@ void	pa(t_node **a_head, t_node **b_head)
 		emptylink(a_head, b_head);
 	else
 		bink(a_head, b_head);
+	instruct(PA);
 }

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 09:58:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/06 14:04:11 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/07 15:53:12 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	rrr(t_node **a_head, t_node **b_head)
 {
 	rra(a_head);
 	rrb(b_head);
+	instruct(RRR);
 }

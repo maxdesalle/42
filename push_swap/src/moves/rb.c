@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 09:58:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/06 13:57:16 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/07 15:52:44 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,5 @@
 void	rb(t_node **b_head)
 {
 	*b_head = (*b_head)->next;
+	instruct(RB);
 }
