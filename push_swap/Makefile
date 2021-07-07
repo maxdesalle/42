@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/07/06 21:49:53 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/07/07 13:14:21 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,13 @@ TESTER = tester
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -fsanitize=address
 
 SRC = src/push_swap.c \
       src/list.c \
       src/atoi.c \
       src/return.c \
+      src/utils.c \
       src/moves/sa.c \
       src/moves/sb.c \
       src/moves/ss.c \
@@ -36,9 +37,7 @@ SRC = src/push_swap.c \
       src/moves/pa.c \
       src/moves/pb.c
 
-TEST = test/tester.c \
-       src/atoi.c \
-       src/return.c
+TEST = test/tester.c
 
 OBJ = $(SRC:.c=.o)
 
