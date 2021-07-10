@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/07 15:03:31 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/10 19:11:14 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@
 # define ONE_ARG 2
 # define TWO_ARG 3
 
+# define STDOUT 1
+# define STDERR 2
+
 typedef struct s_node
 {
 	int				value;
@@ -40,8 +43,15 @@ typedef struct s_node
 	struct s_node	*prev;
 }				t_node;
 
-/* list.c */
-void	save(t_node **head, int argc, char **argv);
+/* multi_save.c */
+void	multi_save(t_node **head, int argc, char **argv);
+
+/* one_save.c */
+int		one_save(t_node **a_head, char **argv);
+
+/* create.c */
+int		d_check(t_node *a_head, int value, int i);
+void	create(t_node **a_head, int value);
 
 /* atoi.c */
 int		is_empty(char c);
