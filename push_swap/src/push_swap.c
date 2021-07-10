@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:45:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/10 20:25:19 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/10 20:39:30 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,5 @@ int	main(int argc, char **argv)
 		one_save(&a_head, argv);
 	else
 		multi_save(&a_head, argc, argv);
-
-	t_node *tmp;
-	tmp = a_head;
-	int i = 10;
-	while (i-- > 0)
-	{
-		printf("%d - ", tmp->value);
-		tmp = tmp->next;
-	}
 	return (0);
 }

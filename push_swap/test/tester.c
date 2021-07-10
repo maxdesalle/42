@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 10:27:09 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/07 11:11:20 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/10 20:39:16 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define STDOUT 1
+#define STDERR 1
+
 static void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	write(STDOUT, &c, 1);
 }
 
 static void	ft_putnbr(int n)
@@ -59,8 +62,8 @@ static void	ft_random(int n)
 	i = 0;
 	random_number = 0;
 	srand(time(NULL));
-	write(1, "export ARG=", 11);
-	write(1, "\"", 1);
+	write(STDOUT, "export ARG=", 11);
+	write(STDOUT, "\"", 1);
 	while (n > 0)
 	{
 		random_number = rand() % 10000;
@@ -69,17 +72,17 @@ static void	ft_random(int n)
 		history[i] = random_number;
 		ft_putnbr(random_number);
 		if (n != 1)
-			write(1, " ", 1);
+			write(STDOUT, " ", 1);
 		i++;
 		n--;
 	}
-	write(1, "\"", 1);
-	write(1, "\n", 1);
+	write(STDOUT, "\"", 1);
+	write(STDOUT, "\n", 1);
 }
 
 static int	error(void)
 {
-	write(2, "Error\n", 6);
+	write(STDERR, "Error\n", 6);
 	exit(EXIT_FAILURE);
 	return (0);
 }
@@ -135,7 +138,7 @@ int	main(int argc, char **argv)
 	n = 0;
 	if (argc != 2)
 	{
-		write(2, "An error occurred\n", 18);
+		write(STDERR, "An error occurred\n", 18);
 		return (0);
 	}
 	n = ft_atoi(argv[1]);

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 19:09:56 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/10 20:25:52 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/10 20:30:12 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	lencalc(char *str)
 		i += 1;
 	}
 	if (str[i] != '\0')
-		return (-1);
+		return (error());
 	return (len);
 }
 
@@ -58,7 +58,7 @@ static int	*lister(char *str, int len)
 	while ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ' || str[i] == '\0'
 			|| str[i] == '-')
 	{
-		if ((str[i] >= '0' && str[i] <= '9') && space_check(str, i))
+		if ((str[i] == '-' || (str[i] >= '0' && str[i] <= '9')) && space_check(str, i))
 		{
 			array[size] = ft_atoi(&str[i]);
 			size += 1;
