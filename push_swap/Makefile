@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/07/12 13:49:59 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/07/12 14:08:58 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,14 @@ SRC = src/push_swap.c \
       src/list/one_save.c \
       src/list/multi_save.c \
       src/utilities/atoi.c \
-      src/utilities/return.c \
-      src/utilities/utils.c \
+	  src/utilities/return.c \
+	  src/utilities/utils.c \
 	  src/algorithm/five_or_less.c \
 	  src/algorithm/utils.c \
 	  src/conditions/next.c \
 	  src/conditions/prev.c \
-      src/moves/sa.c \
+	  src/conditions/b.c \
+	  src/moves/sa.c \
       src/moves/sb.c \
       src/moves/ss.c \
       src/moves/ra.c \

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/12 13:49:37 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/12 21:35:46 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,13 @@ int		error(void);
 
 /* utilities/utils.c */
 int		listlen(t_node *head);
+void	listprint(t_node *head);
 
 /* algorithm/utils.c */
 int		is_sorted(t_node **head);
+int		place_calc(t_node *a_head, t_node *b_head);
+int		highest(t_node *a_head);
+int		lowest(t_node *a_head);
 
 /* algorithm/five_or_less.c */
 void	five_or_less(t_node **a_head, t_node **b_head);
@@ -80,6 +84,12 @@ int		next_smaller(t_node *head);
 /* conditions/prev.c */
 int		prev_bigger(t_node *head);
 int		prev_smaller(t_node *head);
+
+/* conditions/b.c */
+int		b_bigger(t_node *a_head, t_node *b_head);
+int		b_smaller(t_node *a_head, t_node *b_head);
+int		b_first(t_node *a_head, t_node *b_head);
+int		b_last(t_node *a_head, t_node *b_head);
 
 /* moves/.c */
 void	sa(t_node **a_head);

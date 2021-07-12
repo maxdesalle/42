@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 10:27:09 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/10 20:39:16 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/12 22:45:30 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,34 +18,9 @@
 #define STDOUT 1
 #define STDERR 1
 
-static void	ft_putchar(char c)
-{
-	write(STDOUT, &c, 1);
-}
-
-static void	ft_putnbr(int n)
-{
-	long	x;
-
-	x = n;
-	if (x < 0)
-	{
-		ft_putchar('-');
-		x *= -1;
-	}
-	if (x > 9)
-	{
-		ft_putnbr(x / 10);
-		ft_putnbr(x % 10);
-	}
-	else
-		ft_putchar(x + '0');
-}
-
 static int	history_check(int *history, int number, int i)
 {
-	while (i > 0)
-	{
+	while (i > 0) {
 		if (history[i] == number)
 			return (0);
 		i--;
@@ -53,31 +28,106 @@ static int	history_check(int *history, int number, int i)
 	return (1);
 }
 
+static size_t	ft_strlen(const char *s)
+{
+	int	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
+}
+
+static char	*ft_strcat(char *dest, const char *src)
+{
+	size_t	i;
+	size_t	j;
+
+	j = 0;
+	i = ft_strlen(dest);
+	while (src[j] != '\0')
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	dest[i + j] = '\0';
+	return (dest);
+}
+
+static size_t	ft_intlen(long x)
+{
+	int		len;
+	long	tmp;
+
+	len = 0;
+	tmp = x;
+	if (x == 0)
+		return (++len);
+	while (tmp)
+	{
+		tmp /= 10;
+		len++;
+	}
+	if (x < 0)
+		len++;
+	return (len);
+}
+
+static char	*ft_itoa(int n)
+{
+	int		len;
+	long	x;
+	char	*s;
+
+	x = n;
+	len = ft_intlen(x);
+	if (!(s = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	s[len--] = '\0';
+	if (x == 0)
+		s[0] = '0';
+	if (x < 0)
+	{
+		s[0] = '-';
+		x *= -1;
+	}
+	while (x > 0)
+	{
+		s[len--] = x % 10 + '0';
+		x /= 10;
+	}
+	return (s);
+}
+
 static void	ft_random(int n)
 {
 	int	i;
+	int	snapshot;
 	int	history[n];
 	int	random_number;
+	char	dest[50000];
 
 	i = 0;
+	snapshot = n;
 	random_number = 0;
 	srand(time(NULL));
-	write(STDOUT, "export ARG=", 11);
-	write(STDOUT, "\"", 1);
 	while (n > 0)
 	{
 		random_number = rand() % 10000;
 		while (history_check(history, random_number, i) == 0)
 			random_number = rand() % 10000;
 		history[i] = random_number;
-		ft_putnbr(random_number);
-		if (n != 1)
-			write(STDOUT, " ", 1);
+		if (snapshot != n && n != 0)
+			ft_strcat(dest, " ");
+		ft_strcat(dest, ft_itoa(random_number));
 		i++;
 		n--;
 	}
-	write(STDOUT, "\"", 1);
-	write(STDOUT, "\n", 1);
+#if 1
+	char	*args[] = {"./push_swap", dest, NULL};
+	if (execvp("./push_swap", args) == -1)
+		perror("error");
+#endif
 }
 
 static int	error(void)

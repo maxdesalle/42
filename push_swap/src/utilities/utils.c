@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 12:01:58 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/12 13:53:07 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/12 21:36:38 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,22 @@ int	listlen(t_node *head)
 		tmp = tmp->next;
 	}
 	return (len);
+}
+
+void	listprint(t_node *head)
+{
+	int		len;
+	t_node	*tmp;
+
+	len = listlen(head);
+	tmp = head;
+	while (len > 0)
+	{
+		len -= 1;
+		if (len == 0)
+			printf("%d\n", tmp->value);
+		else
+			printf("%d - ", tmp->value);
+		tmp = tmp->next;
+	}
 }
