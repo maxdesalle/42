@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/07/10 19:06:12 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/07/12 13:49:59 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,16 @@ CC = gcc
 CFLAGS = -Wall -Wextra -fsanitize=address
 
 SRC = src/push_swap.c \
-      src/create.c \
-      src/one_save.c \
-      src/multi_save.c \
-      src/atoi.c \
-      src/return.c \
-      src/utils.c \
+      src/list/create.c \
+      src/list/one_save.c \
+      src/list/multi_save.c \
+      src/utilities/atoi.c \
+      src/utilities/return.c \
+      src/utilities/utils.c \
+	  src/algorithm/five_or_less.c \
+	  src/algorithm/utils.c \
+	  src/conditions/next.c \
+	  src/conditions/prev.c \
       src/moves/sa.c \
       src/moves/sb.c \
       src/moves/ss.c \

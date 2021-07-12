@@ -6,11 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 14:09:35 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/10 20:28:26 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/12 13:53:00 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	instruct(int option)
 {

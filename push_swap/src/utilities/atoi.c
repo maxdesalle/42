@@ -6,11 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 11:01:19 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/05 11:00:00 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/12 13:52:54 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 static int	ft_return(int result, int sign)
 {

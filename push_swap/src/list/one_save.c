@@ -6,11 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 19:09:56 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/10 20:30:12 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/12 13:53:35 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 static int	lencalc(char *str)
 {

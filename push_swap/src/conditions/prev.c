@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   prev.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/07 12:01:58 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/07 15:40:10 by mdesalle         ###   ########.fr       */
+/*   Created: 2021/07/12 13:39:26 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/07/12 13:48:53 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int	listlen(t_node *head)
+int	prev_bigger(t_node *head)
 {
-	int		len;
-	t_node	*tmp;
-
-	len = 1;
-	tmp = head;
-	if (head == NULL)
+	if (!head || !head->prev)
 		return (0);
-	if (tmp->next == head)
+	if (head->value < head->prev->value)
 		return (1);
-	while (tmp->next != head)
-	{
-		len += 1;
-		tmp = tmp->next;
-	}
-	return (len);
+	return (0);
+}
+
+int	prev_smaller(t_node *head)
+{
+	if (!head || !head->prev)
+		return (0);
+	if (head->value > head->prev->value)
+		return (1);
+	return (0);
 }

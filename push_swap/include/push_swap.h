@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/10 19:11:14 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/12 13:49:37 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,29 +43,43 @@ typedef struct s_node
 	struct s_node	*prev;
 }				t_node;
 
-/* multi_save.c */
+/* list/multi_save.c */
 void	multi_save(t_node **head, int argc, char **argv);
 
-/* one_save.c */
+/* list/one_save.c */
 int		one_save(t_node **a_head, char **argv);
 
-/* create.c */
+/* list/create.c */
 int		d_check(t_node *a_head, int value, int i);
 void	create(t_node **a_head, int value);
 
-/* atoi.c */
+/* utilities/atoi.c */
 int		is_empty(char c);
 int		is_sign(char c);
 int		is_num(char c);
 int		ft_atoi(char *str);
 
-/* return.c */
+/* utilities/return.c */
 void	instruct(int option);
 int		normal(int return_code);
 int		error(void);
 
-/* utils.c */
+/* utilities/utils.c */
 int		listlen(t_node *head);
+
+/* algorithm/utils.c */
+int		is_sorted(t_node **head);
+
+/* algorithm/five_or_less.c */
+void	five_or_less(t_node **a_head, t_node **b_head);
+
+/* conditions/next.c */
+int		next_bigger(t_node *head);
+int		next_smaller(t_node *head);
+
+/* conditions/prev.c */
+int		prev_bigger(t_node *head);
+int		prev_smaller(t_node *head);
 
 /* moves/.c */
 void	sa(t_node **a_head);

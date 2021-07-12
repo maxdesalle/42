@@ -6,11 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 18:55:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/10 18:56:06 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/12 13:53:18 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 static void	linker(t_node **a_head, t_node **new_node)
 {
