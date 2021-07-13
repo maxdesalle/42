@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/07/13 11:05:29 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/07/13 16:56:29 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ SRC = src/push_swap.c \
 	  src/utilities/utils.c \
 	  src/algorithm/five_or_less.c \
 	  src/algorithm/utils.c \
+	  src/algorithm/value.c \
+	  src/algorithm/check.c \
 	  src/conditions/next.c \
 	  src/conditions/prev.c \
 	  src/conditions/b.c \
@@ -49,7 +51,9 @@ TEST = test/src/tester.c \
 	   test/src/ft_intlen.c \
 	   test/src/ft_strlen.c \
 	   test/src/ft_strcat.c \
-	   test/src/ft_atoi.c
+	   test/src/ft_atoi.c \
+	   test/src/ft_putnbr.c \
+	   test/src/ft_putchar.c
 
 OBJ = $(SRC:.c=.o)
 

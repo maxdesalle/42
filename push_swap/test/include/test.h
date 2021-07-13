@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 11:26:20 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 15:22:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,11 @@ char	*ft_strcat(char *dest, const char *src);
 
 /* ft_strlen.c */
 size_t	ft_strlen(const char *s);
+
+/* ft_putnbr.c */
+void	ft_putnbr(int n);
+
+/* ft_putchar.c */
+void	ft_putchar(char c);
 
 #endif

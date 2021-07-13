@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 09:39:52 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 11:21:56 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 21:15:05 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,19 @@ static void	placer(t_node **a_head, t_node **b_head, int option)
 {
 	int	len;
 
-	len = 0;
+	len = pcalc(*a_head, *b_head);
 	if (option == 1)
 	{
-		len = place_calc(*a_head, *b_head);
-		while (len-- > 0)
-			ra(a_head);
+		if (len < 0)
+		{
+			while (len++ < 0)
+				rra(a_head);
+		}
+		else
+		{
+			while (len-- > 0)
+				ra(a_head);
+		}
 		pa(a_head, b_head);
 		return ;
 	}
@@ -50,13 +57,21 @@ static void	placer(t_node **a_head, t_node **b_head, int option)
 	else if (b_last(*a_head, *b_head))
 	{
 		pa(a_head, b_head);
-		ra(a_head);
+		len = pcalc(*a_head, *b_head);
+		if (len >= 0)
+			ra(a_head);
 	}
 	else
 	{
-		len = place_calc(*a_head, *b_head);
-		while (len-- > 0)
-			ra(a_head);
+		if (len < 0) {
+			while (len++ < 0)
+				rra(a_head);
+		}
+		else
+		{
+			while (len-- > 0)
+				ra(a_head);
+		}
 		pa(a_head, b_head);
 	}
 }
@@ -70,8 +85,16 @@ static void	four_nodes(t_node **a_head, t_node **b_head)
 	three_nodes(a_head);
 	placer(a_head, b_head, 0);
 	low = lowest(*a_head);
-	while ((*a_head)->value != low)
-		ra(a_head);
+	if (rotate_calc(*a_head, low) == 0)
+	{
+		while ((*a_head)->value != low)
+			ra(a_head);
+	}
+	else
+	{
+		while ((*a_head)->value != low)
+			rra(a_head);
+	}
 }
 
 static void	five_nodes(t_node **a_head, t_node **b_head)
@@ -85,8 +108,16 @@ static void	five_nodes(t_node **a_head, t_node **b_head)
 	placer(a_head, b_head, 0);
 	placer(a_head, b_head, 1);
 	low = lowest(*a_head);
-	while ((*a_head)->value != low)
-		ra(a_head);
+	if (rotate_calc(*a_head, low) == 0)
+	{
+		while ((*a_head)->value != low)
+			ra(a_head);
+	}
+	else
+	{
+		while ((*a_head)->value != low)
+			rra(a_head);
+	}
 }
 
 void	five_or_less(t_node **a_head, t_node **b_head)

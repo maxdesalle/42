@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/06 09:45:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 15:14:53 by mdesalle         ###   ########.fr       */
+/*   Created: 2020/11/29 18:38:11 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/07/13 15:22:49 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/test.h"
 
-int	main(int argc, char **argv)
+void	ft_putchar(char c)
 {
-	t_node	*a_head;
-	t_node	*b_head;
-
-	a_head = NULL;
-	b_head = NULL;
-	if (argc == ZERO_ARG)
-		return (error());
-	else if (argc == ONE_ARG)
-		one_save(&a_head, argv);
-	else
-		multi_save(&a_head, argc, argv);
-	if (listlen(a_head) <= 5)
-		five_or_less(&a_head, &b_head);
-	listprint(a_head);
-	is_valid(a_head);
-	return (normal(0));
+	write(1, &c, 1);
 }

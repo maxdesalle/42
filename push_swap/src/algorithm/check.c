@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/06 09:45:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 15:14:53 by mdesalle         ###   ########.fr       */
+/*   Created: 2021/07/13 16:44:16 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/07/13 17:22:44 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int	main(int argc, char **argv)
+int	sec_smaller(t_node *a_head, t_node *b_head)
 {
-	t_node	*a_head;
-	t_node	*b_head;
+	int	a_high;
+	int	a_sec_high;
+	int	b_high;
 
-	a_head = NULL;
-	b_head = NULL;
-	if (argc == ZERO_ARG)
-		return (error());
-	else if (argc == ONE_ARG)
-		one_save(&a_head, argv);
-	else
-		multi_save(&a_head, argc, argv);
-	if (listlen(a_head) <= 5)
-		five_or_less(&a_head, &b_head);
-	listprint(a_head);
-	is_valid(a_head);
-	return (normal(0));
+	a_high = highest(a_head);
+	a_sec_high = sec_highest(a_head);
+	b_high = highest(b_head);
+	if (b_head->value == b_high && a_head->value == a_high && b_high < a_high
+		&& a_sec_high < b_high)
+		return (1);
+	return (0);
 }

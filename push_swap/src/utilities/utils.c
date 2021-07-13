@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 12:01:58 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 14:03:44 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 15:11:56 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	listprint(t_node *head)
 
 	len = listlen(head);
 	tmp = head;
-	printf("--------------------\n");
+	printf("------------------\n");
 	while (len-- > 0)
 	{
 		if (len == 0)

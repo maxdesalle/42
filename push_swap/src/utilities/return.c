@@ -6,11 +6,13 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 14:09:35 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/12 13:53:00 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 15:11:49 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
+
+int len;
 
 void	instruct(int option)
 {
@@ -35,10 +37,13 @@ void	instruct(int option)
 	else if (option == RRR)
 		write(STDOUT, "rrr", 3);
 	write(STDOUT, "\n", 1);
+	len += 1;
 }
 
 int	normal(int return_code)
 {
+	printf(" Instructions: %d\n", len);
+	printf("------------------\n");
 	exit(EXIT_SUCCESS);
 	return (return_code);
 }

@@ -6,14 +6,13 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 10:27:09 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 13:46:31 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 15:23:18 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/test.h"
 
-static int	history_check(int *history, int number, int i)
-{
+static int	history_check(int *history, int number, int i) {
 	while (i > 0)
 	{
 		if (history[i] == number)
@@ -92,6 +91,17 @@ static void	ft_random(int n)
 		n--;
 	}
 	dest = saver(randlen(snapshot, history), snapshot, history);
+	n = snapshot;
+	write(1, "------------------\n", 19);
+	while (n-- > 0)
+	{
+		ft_putnbr(history[n]);
+		if (n != 0)
+			write(STDOUT, " - ", 3);
+		else
+			write(1, "\n", 1);
+	}
+	write(1, "------------------\n", 19);
 	caller(dest);
 	free(dest);
 }
