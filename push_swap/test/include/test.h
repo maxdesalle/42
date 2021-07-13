@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 09:36:12 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 11:26:20 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-#include <time.h>
+# include <time.h>
 
 # define STDOUT 1
 # define STDERR 2

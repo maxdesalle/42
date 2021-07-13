@@ -6,13 +6,13 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 09:17:14 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 09:24:05 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 11:29:04 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/test.h"
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		len;
 	long	x;
@@ -20,7 +20,8 @@ char		*ft_itoa(int n)
 
 	x = n;
 	len = ft_intlen(x);
-	if (!(s = malloc(sizeof(char) * (len + 1))))
+	s = malloc(sizeof(char) * (len + 1));
+	if (!s)
 		return (NULL);
 	s[len--] = '\0';
 	if (x == 0)

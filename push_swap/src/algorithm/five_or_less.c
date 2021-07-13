@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 09:39:52 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 11:18:03 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 11:21:56 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,8 @@ static void	placer(t_node **a_head, t_node **b_head, int option)
 	if (option == 1)
 	{
 		len = place_calc(*a_head, *b_head);
-		while (len > 0)
-		{
+		while (len-- > 0)
 			ra(a_head);
-			len -= 1;
-		}
 		pa(a_head, b_head);
 		return ;
 	}

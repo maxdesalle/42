@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 10:52:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/12 13:53:27 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 11:25:57 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ static int	num_check(char *str)
 	}
 	return (1);
 }
-
 
 void	multi_save(t_node **a_head, int argc, char **argv)
 {

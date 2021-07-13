@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 19:09:56 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/12 13:53:35 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 11:25:48 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static int	lencalc(char *str)
 	i = 0;
 	len = 0;
 	while ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ' || str[i] == '\0'
-			|| str[i] == '-')
+		|| str[i] == '-')
 	{
 		if ((str[i] == ' ' || str[i] == '\0')
-				&& (str[i - 1] >= '0' && str[i - 1] <= '9'))
+			&& (str[i - 1] >= '0' && str[i - 1] <= '9'))
 			len += 1;
 		if (str[i] == '\0')
 			break ;
@@ -56,9 +56,10 @@ static int	*lister(char *str, int len)
 	if (!array)
 		return (NULL);
 	while ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ' || str[i] == '\0'
-			|| str[i] == '-')
+		|| str[i] == '-')
 	{
-		if ((str[i] == '-' || (str[i] >= '0' && str[i] <= '9')) && space_check(str, i))
+		if ((str[i] == '-' || (str[i] >= '0' && str[i] <= '9'))
+			&& space_check(str, i))
 		{
 			array[size] = ft_atoi(&str[i]);
 			size += 1;
@@ -73,9 +74,9 @@ static int	*lister(char *str, int len)
 
 int	one_save(t_node **a_head, char **argv)
 {
-	int	i;
-	int	len;
-	int	*list;
+	int		i;
+	int		len;
+	int		*list;
 	t_node	*tmp;
 
 	i = 0;

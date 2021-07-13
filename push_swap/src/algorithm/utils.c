@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 09:53:20 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/12 22:02:00 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 11:24:54 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,11 @@ int	place_calc(t_node *a_head, t_node *b_head)
 	{
 		if (b_smaller(tmp, b_head) && b_bigger(tmp->prev, b_head))
 			break ;
-		else if (b_head->value > high && b_bigger(tmp->prev, b_head) && tmp->prev->value == high)
+		else if (b_head->value > high && b_bigger(tmp->prev, b_head)
+			&& tmp->prev->value == high)
 			break ;
-		else if (b_head->value < low && b_smaller(tmp, b_head) && tmp->value == low)
+		else if (b_head->value < low && b_smaller(tmp, b_head)
+			&& tmp->value == low)
 			break ;
 		tmp = tmp->next;
 		len += 1;

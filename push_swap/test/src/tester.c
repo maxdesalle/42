@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 10:27:09 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 11:04:34 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 11:40:16 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static int	history_check(int *history, int number, int i)
 {
-	while (i > 0) {
+	while (i > 0)
+	{
 		if (history[i] == number)
 			return (0);
 		i--;
@@ -66,7 +67,6 @@ static char	*saver(int len, int snapshot, int *history)
 static void	ft_random(int n)
 {
 	int		i;
-	int		len;
 	int		snapshot;
 	int		history[n];
 	int		random_number;
@@ -85,9 +85,9 @@ static void	ft_random(int n)
 		i++;
 		n--;
 	}
-	len = randlen(snapshot, history);
-	dest = saver(len, snapshot, history);
+	dest = saver(randlen(snapshot, history), snapshot, history);
 	caller(dest);
+	free(dest);
 }
 
 int	main(int argc, char **argv)
