@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/07/12 14:08:58 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/07/13 11:05:29 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,11 +44,16 @@ SRC = src/push_swap.c \
       src/moves/pa.c \
       src/moves/pb.c
 
-TEST = test/tester.c
+TEST = test/src/tester.c \
+	   test/src/ft_itoa.c \
+	   test/src/ft_intlen.c \
+	   test/src/ft_strlen.c \
+	   test/src/ft_strcat.c \
+	   test/src/ft_atoi.c
 
 OBJ = $(SRC:.c=.o)
 
-all: $(NAME)
+all: $(NAME) $(TESTER)
 	@printf $(ccgreen)
 	@echo "Successfully compiled"
 
