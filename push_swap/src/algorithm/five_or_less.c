@@ -6,17 +6,11 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 09:39:52 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/12 22:02:15 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 11:18:03 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
-
-static void	two_nodes(t_node **a_head)
-{
-	if (next_smaller(*a_head))
-		sa(a_head);
-}
 
 static void	three_nodes(t_node **a_head)
 {
@@ -70,6 +64,19 @@ static void	placer(t_node **a_head, t_node **b_head, int option)
 	}
 }
 
+static void	four_nodes(t_node **a_head, t_node **b_head)
+{
+	int	low;
+
+	low = 0;
+	pb(a_head, b_head);
+	three_nodes(a_head);
+	placer(a_head, b_head, 0);
+	low = lowest(*a_head);
+	while ((*a_head)->value != low)
+		ra(a_head);
+}
+
 static void	five_nodes(t_node **a_head, t_node **b_head)
 {
 	int	low;
@@ -91,11 +98,14 @@ void	five_or_less(t_node **a_head, t_node **b_head)
 
 	len = listlen(*a_head);
 	if (len == 2)
-		two_nodes(a_head);
+	{
+		if (next_smaller(*a_head))
+			sa(a_head);
+	}
 	else if (len == 3)
 		three_nodes(a_head);
 	else if (len == 4)
-		;
+		four_nodes(a_head, b_head);
 	else if (len == 5)
 		five_nodes(a_head, b_head);
 }
