@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 12:01:58 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/12 21:36:38 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 14:03:44 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,36 @@ void	listprint(t_node *head)
 
 	len = listlen(head);
 	tmp = head;
-	while (len > 0)
+	printf("--------------------\n");
+	while (len-- > 0)
 	{
-		len -= 1;
 		if (len == 0)
 			printf("%d\n", tmp->value);
 		else
 			printf("%d - ", tmp->value);
 		tmp = tmp->next;
 	}
+}
+
+void	is_valid(t_node *a_head)
+{
+	int		len;
+	t_node	*tmp;
+
+	len = listlen(a_head);
+	tmp = a_head;
+	while (--len > 0)
+	{
+		if (tmp->next->value < tmp->value)
+		{
+			printf("--------------------\n");
+			printf(" Invalid results ❌\n");
+			printf("--------------------\n");
+			return ;
+		}
+		tmp = tmp->next;
+	}
+	printf("------------------\n");
+	printf(" Valid results ✅\n");
+	printf("------------------\n");
 }

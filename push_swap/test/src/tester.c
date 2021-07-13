@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 10:27:09 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 11:40:16 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 13:46:31 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,16 @@ static int	history_check(int *history, int number, int i)
 
 static void	caller(char *dest)
 {
+	int		n;
+	char	buf[1025];
 	char	*args[] = {"./push_swap", dest, NULL};
 
 	if (execvp("./push_swap", args) == -1)
 		perror("Error");
+	if ((n = read(0, buf, 1024)) >= 0) {
+		buf[n] = 0;
+		printf("%s\n", buf);
+	}
 }
 
 static int	randlen(int snapshot, int *history)

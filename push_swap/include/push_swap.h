@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/12 21:35:46 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 13:56:37 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int		error(void);
 /* utilities/utils.c */
 int		listlen(t_node *head);
 void	listprint(t_node *head);
+void	is_valid(t_node *a_head);
 
 /* algorithm/utils.c */
 int		is_sorted(t_node **head);

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:45:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 11:24:10 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/13 14:03:55 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int	main(int argc, char **argv)
 	if (listlen(a_head) <= 5)
 		five_or_less(&a_head, &b_head);
 	listprint(a_head);
+	is_valid(a_head);
 	return (0);
 }
