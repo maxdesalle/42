@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 10:52:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 11:25:57 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/14 10:14:52 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,23 @@ static int	num_check(char *str)
 	return (1);
 }
 
-void	multi_save(t_node **a_head, int argc, char **argv)
+int	*multi_save(t_node **a_head, int argc, char **argv)
 {
 	int		i;
+	int		*array;
 	t_node	*tmp;
 
 	i = 1;
+	array = malloc(sizeof(int) * (argc));
+	if (!array)
+		return (0);
 	while (i < argc)
 	{
 		if (num_check(argv[i]) && d_check(*a_head, ft_atoi(argv[i]), i))
+		{
 			create(a_head, ft_atoi(argv[i]));
+			array[i - 1] = ft_atoi(argv[i]);
+		}
 		i += 1;
 	}
 	tmp = *a_head;
@@ -43,4 +50,5 @@ void	multi_save(t_node **a_head, int argc, char **argv)
 		tmp = tmp->next;
 	tmp->next = *a_head;
 	(*a_head)->prev = tmp;
+	return (array);
 }

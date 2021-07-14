@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 09:39:52 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 21:15:05 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/14 11:39:29 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	three_nodes(t_node **a_head)
 	int	len;
 
 	len = listlen(*a_head);
-	if (is_sorted(a_head))
+	if (is_sorted(*a_head))
 		return ;
 	if (next_bigger(*a_head) && prev_smaller(*a_head))
 	{
@@ -120,7 +120,7 @@ static void	five_nodes(t_node **a_head, t_node **b_head)
 	}
 }
 
-void	five_or_less(t_node **a_head, t_node **b_head)
+void	five(t_node **a_head, t_node **b_head)
 {
 	int	len;
 

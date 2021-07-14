@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 19:09:56 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 11:25:48 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/14 11:32:33 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	*lister(char *str, int len)
 
 	i = 0;
 	size = 0;
-	array = malloc(sizeof(int) * (len));
+	array = malloc(sizeof(int) * (len + 1));
 	if (!array)
 		return (NULL);
 	while ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ' || str[i] == '\0'
@@ -72,17 +72,16 @@ static int	*lister(char *str, int len)
 	return (array);
 }
 
-int	one_save(t_node **a_head, char **argv)
+int	*one_save(t_node **a_head, char **argv, int *len)
 {
 	int		i;
-	int		len;
 	int		*list;
 	t_node	*tmp;
 
 	i = 0;
-	len = lencalc(argv[1]);
-	list = lister(argv[1], len);
-	while (i < len)
+	*len = lencalc(argv[1]);
+	list = lister(argv[1], *len);
+	while (i < *len)
 	{
 		if (d_check(*a_head, list[i], i))
 			create(a_head, list[i]);
@@ -93,5 +92,5 @@ int	one_save(t_node **a_head, char **argv)
 		tmp = tmp->next;
 	tmp->next = *a_head;
 	(*a_head)->prev = tmp;
-	return (0);
+	return (list);
 }

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 17:23:08 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/14 11:41:20 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,17 @@ typedef struct s_node
 }				t_node;
 
 /* list/multi_save.c */
-void	multi_save(t_node **head, int argc, char **argv);
+int		*multi_save(t_node **head, int argc, char **argv);
 
 /* list/one_save.c */
-int		one_save(t_node **a_head, char **argv);
+int		*one_save(t_node **a_head, char **argv, int *len);
 
 /* list/create.c */
 int		d_check(t_node *a_head, int value, int i);
 void	create(t_node **a_head, int value);
+
+/* list/median.c */
+int		median_finder(int *list, int len);
 
 /* utilities/atoi.c */
 int		is_empty(char c);
@@ -70,7 +73,7 @@ void	listprint(t_node *head);
 void	is_valid(t_node *a_head);
 
 /* algorithm/utils.c */
-int		is_sorted(t_node **head);
+int		is_sorted(t_node *head);
 int		place_calc(t_node *a_head, t_node *b_head);
 int		inv_place_calc(t_node *a_head, t_node *b_head);
 int		pcalc(t_node *a_head, t_node *b_head);
@@ -78,14 +81,13 @@ int		rotate_calc(t_node *head, int low);
 
 /* algorithm/value.c */
 int		highest(t_node *head);
-int		sec_highest(t_node *head);
 int		lowest(t_node *head);
 
-/* algorithm/five_or_less.c */
-void	five_or_less(t_node **a_head, t_node **b_head);
+/* algorithm/five.c */
+void	five(t_node **a_head, t_node **b_head);
 
-/* algorithm/check.c */
-int		sec_smaller(t_node *a_head, t_node *b_head);
+/* algorithm/hundred.c */
+void	hundred(t_node **a_head, t_node **b_head, int median);
 
 /* conditions/next.c */
 int		next_bigger(t_node *head);

@@ -6,11 +6,12 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/07/13 16:56:29 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/07/14 11:40:08 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ccgreen = "\033[0;92m"
+ccwhite = "\033[0;0m"
 
 NAME = push_swap
 
@@ -24,13 +25,14 @@ SRC = src/push_swap.c \
       src/list/create.c \
       src/list/one_save.c \
       src/list/multi_save.c \
+      src/list/median.c \
       src/utilities/atoi.c \
 	  src/utilities/return.c \
 	  src/utilities/utils.c \
-	  src/algorithm/five_or_less.c \
+	  src/algorithm/five.c \
+	  src/algorithm/hundred.c \
 	  src/algorithm/utils.c \
 	  src/algorithm/value.c \
-	  src/algorithm/check.c \
 	  src/conditions/next.c \
 	  src/conditions/prev.c \
 	  src/conditions/b.c \
@@ -60,6 +62,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME) $(TESTER)
 	@printf $(ccgreen)
 	@echo "Successfully compiled"
+	@printf $(ccwhite)
 
 $(NAME):
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
