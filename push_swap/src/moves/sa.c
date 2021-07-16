@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 09:58:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/07 15:56:01 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/14 14:56:26 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	bink(t_node **one, t_node **two, t_node **three, t_node **tail)
 	(*tail)->next = *two;
 }
 
-void	sa(t_node **a_head)
+void	sa(t_node **a_head, int option)
 {
 	int		len;
 	t_node	*one;
@@ -55,5 +55,6 @@ void	sa(t_node **a_head)
 	}
 	if (len == 3)
 		tail->prev = one;
-	instruct(SA);
+	if (option)
+		instruct(SA);
 }

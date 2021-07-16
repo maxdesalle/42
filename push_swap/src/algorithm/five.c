@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   five_or_less.c                                     :+:      :+:    :+:   */
+/*   five.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 09:39:52 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/14 11:39:29 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/14 15:01:50 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ static void	three_nodes(t_node **a_head)
 		return ;
 	if (next_bigger(*a_head) && prev_smaller(*a_head))
 	{
-		rra(a_head);
+		rra(a_head, 1);
 		return ;
 	}
 	if (prev_bigger(*a_head) && next_bigger(*a_head))
-		sa(a_head);
+		sa(a_head, 1);
 	if (prev_smaller(*a_head))
-		ra(a_head);
+		ra(a_head, 1);
 	if (next_smaller(*a_head))
-		sa(a_head);
+		sa(a_head, 1);
 }
 
 static void	placer(t_node **a_head, t_node **b_head, int option)
@@ -42,12 +42,12 @@ static void	placer(t_node **a_head, t_node **b_head, int option)
 		if (len < 0)
 		{
 			while (len++ < 0)
-				rra(a_head);
+				rra(a_head, 1);
 		}
 		else
 		{
 			while (len-- > 0)
-				ra(a_head);
+				ra(a_head, 1);
 		}
 		pa(a_head, b_head);
 		return ;
@@ -59,18 +59,18 @@ static void	placer(t_node **a_head, t_node **b_head, int option)
 		pa(a_head, b_head);
 		len = pcalc(*a_head, *b_head);
 		if (len >= 0)
-			ra(a_head);
+			ra(a_head, 1);
 	}
 	else
 	{
 		if (len < 0) {
 			while (len++ < 0)
-				rra(a_head);
+				rra(a_head, 1);
 		}
 		else
 		{
 			while (len-- > 0)
-				ra(a_head);
+				ra(a_head, 1);
 		}
 		pa(a_head, b_head);
 	}
@@ -88,12 +88,12 @@ static void	four_nodes(t_node **a_head, t_node **b_head)
 	if (rotate_calc(*a_head, low) == 0)
 	{
 		while ((*a_head)->value != low)
-			ra(a_head);
+			ra(a_head, 1);
 	}
 	else
 	{
 		while ((*a_head)->value != low)
-			rra(a_head);
+			rra(a_head, 1);
 	}
 }
 
@@ -111,12 +111,12 @@ static void	five_nodes(t_node **a_head, t_node **b_head)
 	if (rotate_calc(*a_head, low) == 0)
 	{
 		while ((*a_head)->value != low)
-			ra(a_head);
+			ra(a_head, 1);
 	}
 	else
 	{
 		while ((*a_head)->value != low)
-			rra(a_head);
+			rra(a_head, 1);
 	}
 }
 
@@ -128,7 +128,7 @@ void	five(t_node **a_head, t_node **b_head)
 	if (len == 2)
 	{
 		if (next_smaller(*a_head))
-			sa(a_head);
+			sa(a_head, 1);
 	}
 	else if (len == 3)
 		three_nodes(a_head);

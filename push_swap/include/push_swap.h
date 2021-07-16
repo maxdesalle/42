@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/14 11:41:20 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/16 14:51:47 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,15 @@ void	is_valid(t_node *a_head);
 
 /* algorithm/utils.c */
 int		is_sorted(t_node *head);
+int		place_len(t_node *head, t_node *node);
+
+/* algorithm/calc.c */
 int		place_calc(t_node *a_head, t_node *b_head);
 int		inv_place_calc(t_node *a_head, t_node *b_head);
 int		pcalc(t_node *a_head, t_node *b_head);
 int		rotate_calc(t_node *head, int low);
+int		a_swap_calc(t_node *head, t_node *node);
+int		b_swap_calc(t_node *head, t_node *node);
 
 /* algorithm/value.c */
 int		highest(t_node *head);
@@ -104,14 +109,14 @@ int		b_first(t_node *a_head, t_node *b_head);
 int		b_last(t_node *a_head, t_node *b_head);
 
 /* moves/.c */
-void	sa(t_node **a_head);
-void	sb(t_node **b_head);
+void	sa(t_node **a_head, int option);
+void	sb(t_node **b_head, int option);
 void	ss(t_node **a_head, t_node **b_head);
-void	ra(t_node **a_head);
-void	rb(t_node **b_head);
+void	ra(t_node **a_head, int option);
+void	rb(t_node **b_head, int option);
 void	rr(t_node **a_head, t_node **b_head);
-void	rra(t_node **a_head);
-void	rrb(t_node **b_head);
+void	rra(t_node **a_head, int option);
+void	rrb(t_node **b_head, int option);
 void	rrr(t_node **a_head, t_node **b_head);
 void	pa(t_node **a_head, t_node **b_head);
 void	pb(t_node **a_head, t_node **b_head);

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 14:09:35 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/13 15:11:49 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/14 14:47:57 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	instruct(int option)
 	else if (option == RA)
 		write(STDOUT, "ra", 2);
 	else if (option == RB)
-		write(STDOUT, "sb", 2);
+		write(STDOUT, "rb", 2);
 	else if (option == RRA)
 		write(STDOUT, "rra", 3);
 	else if (option == RRB)

@@ -6,14 +6,15 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 09:58:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/07 15:52:44 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/14 14:58:34 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	rb(t_node **b_head)
+void	rb(t_node **b_head, int option)
 {
 	*b_head = (*b_head)->next;
-	instruct(RB);
+	if (option)
+		instruct(RB);
 }
