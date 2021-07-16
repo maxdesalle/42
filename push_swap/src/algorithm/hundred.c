@@ -6,13 +6,13 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 11:41:36 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/16 15:02:05 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/16 18:27:19 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-static void	b_sort(t_node **b_head)
+static void	b_sort(t_node **a_head, t_node **b_head)
 {
 	int		i;
 	int		var;
@@ -36,11 +36,10 @@ static void	b_sort(t_node **b_head)
 			header = var - counter;
 			while (var-- > 0)
 				rb(b_head, 1);
+			pa(a_head, b_head);
 			while (counter -- > 0)
-			{
 				rrb(b_head, 1);
-				sb(b_head, 1);
-			}
+			pb(a_head, b_head);
 			while (header-- > 0)
 				rrb(b_head, 1);
 		}
@@ -52,7 +51,7 @@ static void	b_sort(t_node **b_head)
 	}
 }
 
-static void	a_sort(t_node **a_head)
+static void	a_sort(t_node **a_head, t_node **b_head)
 {
 	int		i;
 	int		var;
@@ -76,11 +75,10 @@ static void	a_sort(t_node **a_head)
 			header = var - counter;
 			while (var-- > 0)
 				ra(a_head, 1);
+			pb(a_head, b_head);
 			while (counter -- > 0)
-			{
 				rra(a_head, 1);
-				sa(a_head, 1);
-			}
+			pa(a_head, b_head);
 			while (header-- > 0)
 				rra(a_head, 1);
 		}
@@ -104,8 +102,8 @@ void	hundred(t_node **a_head, t_node **b_head, int median)
 		else
 			ra(a_head, 0);
 	}
-	a_sort(a_head);
-	b_sort(b_head);
+	a_sort(a_head, b_head);
+	b_sort(a_head, b_head);
 	len = listlen(*b_head);
 	while (len--)
 		pa(a_head, b_head);
