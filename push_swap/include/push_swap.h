@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/16 14:51:47 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/24 18:22:04 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int		lowest(t_node *head);
 void	five(t_node **a_head, t_node **b_head);
 
 /* algorithm/hundred.c */
-void	hundred(t_node **a_head, t_node **b_head, int median);
+void	hundred(t_node **a_head, t_node **b_head);
 
 /* conditions/next.c */
 int		next_bigger(t_node *head);

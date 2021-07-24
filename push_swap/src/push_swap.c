@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:45:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/16 15:04:09 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/24 18:21:40 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 	if (listlen(a_head) <= 5)
 		five(&a_head, &b_head);
 	else if (listlen(a_head) > 5 && listlen(a_head) <= 100)
-		hundred(&a_head, &b_head, median_finder(list, len));
+		hundred(&a_head, &b_head);
 	listprint(a_head);
 	listprint(b_head);
 	is_valid(a_head);
