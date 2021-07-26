@@ -23,12 +23,16 @@ If you want to launch the tester program on repeat, simply start the following b
 If you want to use your own numbers, simply execute the program as indicated below:
 
 ```bash
-./push_swap <your list of unique numbers separated by spaces>
-# like this: ./push_swap 30 60 2 849 303 3
+./push_swap <your list of unique numbers separated by spaces> # ./push_swap 30 60 2 849 303 3
 ```
 
 ## What I learned
 This project was relatively short compared to others, but was incredibly instructive on the algorithm side (obviously), but also on the linked list side. Before ```push_swap```, I must admit I wasn't really comfortable with linked lists, especially when adding fancy additions like circularity and/or two ways to iterate through it (with next previous pointers).
+
+## Acknowledgements
+- Jamie Dawson's [blog post](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
+- Leo Fu's [blog post](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)
+- Michael Sambol's [videos](https://www.youtube.com/user/mikeysambol)
 
 ## Warning
 The structure of this repository does **not** follow the guidelines.
