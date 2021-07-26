@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/07/16 09:15:12 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/07/26 17:39:38 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRC = src/push_swap.c \
 	  src/algorithm/hundred.c \
 	  src/algorithm/utils.c \
 	  src/algorithm/calc.c \
+	  src/algorithm/placer.c \
 	  src/algorithm/value.c \
 	  src/conditions/next.c \
 	  src/conditions/prev.c \

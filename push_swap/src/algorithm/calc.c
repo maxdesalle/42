@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 09:14:27 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/16 14:58:10 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/26 16:58:27 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,48 +109,31 @@ int	rotate_calc(t_node *head, int low)
 		return (0);
 }
 
-int	a_swap_calc(t_node *head, t_node *node)
+int	lower(t_node *head, int value)
 {
-	int		i;
 	int		len;
-	int		val;
+	int		a_len;
+	int		b_len;
 	t_node	*tmp;
 
-	i = 0;
-	len = place_len(head, node);
-	val = node->value;
+	len = listlen(head);
+	a_len = 0;
+	b_len = 0;
 	tmp = head;
-	if (val == highest(head))
-		return (0);
-	while (i < len)
+	while (a_len++ < len)
 	{
-		if (val < tmp->value)
-			return (len - i);
-		i += 1;
+		if (value <= tmp->value)
+			break ;
 		tmp = tmp->next;
 	}
-	return (0);
-}
-
-int	b_swap_calc(t_node *head, t_node *node)
-{
-	int		i;
-	int		len;
-	int		val;
-	t_node	*tmp;
-
-	i = 0;
-	len = place_len(head, node);
-	val = node->value;
-	tmp = head;
-	if (val == lowest(head))
-		return (0);
-	while (i < len)
+	while (b_len++ < len)
 	{
-		if (val > tmp->value)
-			return (len - i);
-		i += 1;
-		tmp = tmp->next;
+		if (value <= tmp->value)
+			break ;
+		tmp = tmp->prev;
 	}
-	return (0);
+	if (a_len >= b_len)
+		return (1);
+	else
+		return (-1);
 }

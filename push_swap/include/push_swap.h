@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/24 18:22:04 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/07/26 17:40:04 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define STDOUT 1
 # define STDERR 2
 
+/* struct used for doubly circular linked list */
 typedef struct s_node
 {
 	int				value;
@@ -81,8 +82,7 @@ int		place_calc(t_node *a_head, t_node *b_head);
 int		inv_place_calc(t_node *a_head, t_node *b_head);
 int		pcalc(t_node *a_head, t_node *b_head);
 int		rotate_calc(t_node *head, int low);
-int		a_swap_calc(t_node *head, t_node *node);
-int		b_swap_calc(t_node *head, t_node *node);
+int		lower(t_node *head, int value);
 
 /* algorithm/value.c */
 int		highest(t_node *head);
@@ -91,8 +91,11 @@ int		lowest(t_node *head);
 /* algorithm/five.c */
 void	five(t_node **a_head, t_node **b_head);
 
+/* algorithm/placer.c */
+void	placer(t_node **a_head, t_node **b_head, int option);
+
 /* algorithm/hundred.c */
-void	hundred(t_node **a_head, t_node **b_head);
+void	hundred(t_node **a_head, t_node **b_head, int option);
 
 /* conditions/next.c */
 int		next_bigger(t_node *head);
