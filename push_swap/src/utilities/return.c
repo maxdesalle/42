@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 14:09:35 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/27 08:53:10 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/07/27 09:41:21 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ int	normal(int return_code, t_node *head)
 
 	len = listlen(head);
 	while (len-- > 0)
-    {
+	{
 		tmp = head;
 		head = tmp->next;
 		free(tmp);
-    }
+	}
 	printf(" Instructions: %d\n", g_len);
 	printf("------------------\n");
 	exit(EXIT_SUCCESS);

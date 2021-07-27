@@ -35,6 +35,7 @@ This project was relatively short compared to others, but was incredibly instruc
 - Jamie Dawson's [blog post](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
 - Leo Fu's [blog post](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)
 - Michael Sambol's [videos](https://www.youtube.com/user/mikeysambol)
+- Timour Petit's [tester](https://github.com/TimourP/Cursus19/tree/main/push_swap/push_swap_tester)
 
 ## Warning
 The structure of this repository does **not** follow the guidelines.

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 18:55:21 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/12 13:53:18 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/27 09:30:18 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ void	create(t_node **a_head, int value)
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
+	{
+		error();
 		return ;
+	}
 	new_node->value = value;
 	new_node->next = NULL;
 	new_node->prev = NULL;

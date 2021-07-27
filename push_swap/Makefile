@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/07/27 09:08:28 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/07/27 09:40:54 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ TESTER = tester
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
 SRC = src/push_swap.c \
       src/list/create.c \

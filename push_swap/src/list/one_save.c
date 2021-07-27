@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 19:09:56 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/27 09:06:16 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/07/27 10:02:09 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,18 @@ static int	space_check(char *str, int i)
 		return (0);
 }
 
-static int	*lister(char *str, int len)
+static int	*lister(char *str, int len, int i)
 {
-	int	i;
 	int	size;
 	int	*array;
 
-	i = 0;
 	size = 0;
 	array = malloc(sizeof(int) * (len + 1));
 	if (!array)
+	{
+		error();
 		return (NULL);
+	}
 	while ((str[i] >= '0' && str[i] <= '9') || str[i] == ' ' || str[i] == '\0'
 		|| str[i] == '-')
 	{
@@ -80,7 +81,7 @@ void	one_save(t_node **a_head, char **argv, int *len)
 
 	i = 0;
 	*len = lencalc(argv[1]);
-	list = lister(argv[1], *len);
+	list = lister(argv[1], *len, i);
 	while (i < *len)
 	{
 		if (d_check(*a_head, list[i], i))
@@ -93,5 +94,4 @@ void	one_save(t_node **a_head, char **argv, int *len)
 	tmp->next = *a_head;
 	(*a_head)->prev = tmp;
 	free(list);
-	return ;
 }
