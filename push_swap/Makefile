@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/07/26 17:39:38 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/07/27 09:08:28 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SRC = src/push_swap.c \
       src/list/create.c \
       src/list/one_save.c \
       src/list/multi_save.c \
-      src/list/median.c \
       src/utilities/atoi.c \
 	  src/utilities/return.c \
 	  src/utilities/utils.c \

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/10 19:09:56 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/14 11:32:33 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/27 09:06:16 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static int	*lister(char *str, int len)
 	return (array);
 }
 
-int	*one_save(t_node **a_head, char **argv, int *len)
+void	one_save(t_node **a_head, char **argv, int *len)
 {
 	int		i;
 	int		*list;
@@ -92,5 +92,6 @@ int	*one_save(t_node **a_head, char **argv, int *len)
 		tmp = tmp->next;
 	tmp->next = *a_head;
 	(*a_head)->prev = tmp;
-	return (list);
+	free(list);
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/26 17:40:04 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/07/27 09:08:09 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,14 @@ typedef struct s_node
 }				t_node;
 
 /* list/multi_save.c */
-int		*multi_save(t_node **head, int argc, char **argv);
+void	multi_save(t_node **head, int argc, char **argv);
 
 /* list/one_save.c */
-int		*one_save(t_node **a_head, char **argv, int *len);
+void	one_save(t_node **a_head, char **argv, int *len);
 
 /* list/create.c */
 int		d_check(t_node *a_head, int value, int i);
 void	create(t_node **a_head, int value);
-
-/* list/median.c */
-int		median_finder(int *list, int len);
 
 /* utilities/atoi.c */
 int		is_empty(char c);
@@ -65,7 +62,7 @@ int		ft_atoi(char *str);
 
 /* utilities/return.c */
 void	instruct(int option);
-int		normal(int return_code);
+int		normal(int return_code, t_node *head);
 int		error(void);
 
 /* utilities/utils.c */

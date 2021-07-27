@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 09:58:44 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/14 14:56:10 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/07/27 09:16:04 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	sb(t_node **b_head, int option)
 	two = (*b_head)->next;
 	three = two->next;
 	tail = (*b_head)->prev;
-	if (len == 1)
-		;
+	if (len == 0 || len == 1)
+		return ;
 	else if (len == 2)
 		two_link(b_head, &one, &two);
 	else

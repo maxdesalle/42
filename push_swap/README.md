@@ -1,6 +1,8 @@
 # ```push_swap```
 This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. Please view the [subject](https://github.com/maxdesalle/42/blob/main/push_swap/en.subject.pdf) for more information.
 
+The ```push_swap``` program uses on average 8 instructions to sort 5 numbers, 750 to sort 100 numbers and 7500 to sort 500 numbers. This might seem enormous, and it is, but is due to the limited set of available instructions given by the [subject](https://github.com/maxdesalle/42/blob/main/push_swap/en.subject.pdf).
+
 ## How to use it
 My ```push_swap``` comes along with a built-in tester, to compile all the necessary files, execute the following command after cloning and entering the repository in your terminal:
 
