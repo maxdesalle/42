@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:45:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/27 09:06:01 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/07/27 10:47:54 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 		five(&a_head, &b_head);
 	else if (listlen(a_head) > 5 && listlen(a_head) <= 100)
 		hundred(&a_head, &b_head, 20);
-	else if (listlen(a_head) > 100 && listlen(a_head) <= 500)
+	else if (listlen(a_head) > 100)
 		hundred(&a_head, &b_head, 50);
 	else
 		return (error());
