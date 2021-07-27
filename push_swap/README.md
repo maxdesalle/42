@@ -13,7 +13,7 @@ make re
 A file called ```tester``` should now have been created (among other files), to try out the program, simply execute the tester program along with the number of numbers you want to give over to the push_swap program:
 
 ```bash
-./tester 392 # the tester will generate 392 unique random numbers and execute the push_swap program with those
+./tester 392 # the tester will generate 392 unique random numbers and execute the push_swap program with them
 ```
 
 If you want to launch the tester program on repeat, simply start the following bash script with the number of numbers to give to ```push_swap``` as argument:
