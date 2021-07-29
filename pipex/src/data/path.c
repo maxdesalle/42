@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 10:54:21 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/29 11:20:15 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/07/29 11:23:26 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,6 @@ char	**path_finder(char **envp)
 	char	**tab;
 
 	path = finder(envp);
-	if (!path)
-		return (NULL);
 	tab = ft_split(path, ':');
-	if (!tab)
-		return (NULL);
 	return (tab);
 }
