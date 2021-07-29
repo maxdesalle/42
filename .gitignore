@@ -3,3 +3,4 @@ __pycache__/
 db.sqlite3
 *.o
 checker_Mac
+.DS_Store
