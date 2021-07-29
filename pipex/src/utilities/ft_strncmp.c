@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/28 17:00:58 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/29 11:14:31 by maxdesall        ###   ########.fr       */
+/*   Created: 2021/07/29 11:07:27 by maxdesall         #+#    #+#             */
+/*   Updated: 2021/07/29 11:07:48 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../../include/pipex.h"
 
-int	main(int argc, char **argv, char **envp)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	**path;
+	size_t	i;
 
-	path = path_finder(envp);
-	return (0);
+	i = 0;
+	if (!n)
+		return (0);
+	while (s1[i] && s1[i] == s2[i] && i < (n - 1))
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

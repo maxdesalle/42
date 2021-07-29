@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   return.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/28 17:00:58 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/29 11:14:31 by maxdesall        ###   ########.fr       */
+/*   Created: 2021/07/29 11:17:08 by maxdesall         #+#    #+#             */
+/*   Updated: 2021/07/29 11:18:58 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../../include/pipex.h"
 
-int	main(int argc, char **argv, char **envp)
+int	normal(int return_code)
 {
-	char	**path;
+	exit(EXIT_SUCCESS);
+	return (return_code);
+}
 
-	path = path_finder(envp);
+int	error(void)
+{
+	exit(EXIT_FAILURE);
 	return (0);
 }

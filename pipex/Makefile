@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/07/28 16:59:52 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/07/29 11:20:02 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,13 @@ NAME = pipex
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -fsanitize=address
 
-SRC = src/pipex.c
+SRC = src/pipex.c \
+	  src/data/path.c \
+	  src/utilities/ft_split.c \
+	  src/utilities/ft_strncmp.c \
+	  src/misc/return.c
 
 OBJ = $(SRC:.c=.o)
 
