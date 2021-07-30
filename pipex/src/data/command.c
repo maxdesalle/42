@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 17:12:36 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/30 09:24:11 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/07/30 09:38:53 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	executer(char **args)
 {
-	char	*envp[] = {NULL};
+	char	**envp;
 
+	envp = NULL;
 	if (execve(args[0], args, envp) == -1)
 		perror("Error");
 }
@@ -35,5 +36,6 @@ char	*command(char **path, char *cmd)
 			return (path[i]);
 		i += 1;
 	}
+	error();
 	return (NULL);
 }

@@ -1,47 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   path.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/29 10:54:21 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/30 09:35:48 by maxdesall        ###   ########.fr       */
+/*   Created: 2021/07/30 09:54:43 by maxdesall         #+#    #+#             */
+/*   Updated: 2021/07/30 09:55:30 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/pipex.h"
 
-static char	*finder(char **envp)
+size_t	ft_strlen(const char *s)
 {
-	int		i;
-	char	*path;
+	int	len;
 
-	i = 0;
-	path = NULL;
-	while (envp[i])
-	{
-		if (!ft_strncmp(envp[i], "PATH", 4))
-		{
-			path = envp[i];
-			break ;
-		}
-		i += 1;
-	}
-	return (path);
-}
-
-char	**path_finder(char **envp)
-{
-	char	*path;
-	char	**tab;
-
-	path = finder(envp);
-	tab = ft_split(path, ':');
-	if (!tab)
-	{
-		error();
-		return (NULL);
-	}
-	return (tab);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }
