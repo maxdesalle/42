@@ -4,9 +4,8 @@
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/28 17:00:58 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/29 17:57:14 by maxdesall        ###   ########.fr       */
+/*                                                +#+#+#+#+#+   +#+           */ /*   Created: 2021/07/28 17:00:58 by maxdesall         #+#    #+#             */
+/*   Updated: 2021/07/29 18:48:28 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +13,17 @@
 
 int	main(int argc, char **argv, char **envp)
 {
-	char	*comm;
-	char	**path;
+	t_node	s;
 
 	if (argc != 2)
 		return (error());
-	path = path_finder(envp);
-	if (!path)
+	s.path = path_finder(envp);
+	if (!s.path)
 		return (error());
-	comm = command(path, argv[1]);
-	if (!comm)
+	s.args1 = ft_split(argv[1], ' ');
+	s.args1[0] = command(s.path, argv[1]);
+	if (!s.args1[0])
 		return (error());
-	executer(comm);
+	executer(s.args1);
 	return (0);
 }

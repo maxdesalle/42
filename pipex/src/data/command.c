@@ -6,18 +6,17 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 17:12:36 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/29 17:44:14 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/07/30 09:24:11 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/pipex.h"
 
-void	executer(char *comm)
+void	executer(char **args)
 {
-	char	*args[] = {comm, NULL};
 	char	*envp[] = {NULL};
 
-	if (execve(comm, args, envp) == -1)
+	if (execve(args[0], args, envp) == -1)
 		perror("Error");
 }
 

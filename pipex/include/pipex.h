@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/29 17:31:36 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/07/30 09:24:23 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,19 @@
 # include <stdlib.h>
 # include <stdio.h>
 
+typedef struct s_node
+{
+	char	**path;
+	char	**args1;
+	char	**args2;
+}				t_node;
+
 /* data/path.c */
 char	**path_finder(char **envp);
 
 /* data/command.c */
 char	*command(char **path, char *cmd);
-void	executer(char *comm);
+void	executer(char **args);
 
 /* utilities/ft_split.c */
 char	**ft_split(char const *s, char c);
