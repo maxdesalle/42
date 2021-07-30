@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/30 09:55:49 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/07/30 11:52:13 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,23 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
+# include <fcntl.h>
 
 typedef struct s_node
 {
+	char	*file1;
+	char	*file2;
+
 	char	**path;
+
 	char	**args1;
 	char	**args2;
 }				t_node;
 
 /* data/path.c */
 char	**path_finder(char **envp);
+int		filer(char **file1, char **argv);
 
 /* data/command.c */
 char	*command(char **path, char *cmd);
@@ -39,6 +46,9 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /* utilities/ft_strjoin.c */
 char	*ft_strjoin(char const *s1, char const *s2);
+
+/* utilities/ft_strjoin.c */
+char	*ft_strdup(const char *s);
 
 /* utilities/ft_strlen.c */
 size_t	ft_strlen(const char *s);

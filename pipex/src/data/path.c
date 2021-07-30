@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 10:54:21 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/30 09:35:48 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/07/30 11:51:59 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,19 @@ char	**path_finder(char **envp)
 		return (NULL);
 	}
 	return (tab);
+}
+
+int	filer(char **file1, char **argv)
+{
+	int	fd;
+
+	if (access(argv[1], 0) != 0)
+		return (error());
+	fd = open(argv[1], O_RDWR);
+	if (fd < 0 || fd > OPEN_MAX)
+		return (error());
+	*file1 = ft_strdup(argv[2]);
+	*file1 = ft_strjoin(*file1, " ");
+	*file1 = ft_strjoin(*file1, argv[1]);
+	return (0);
 }

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/28 17:00:58 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/30 11:52:49 by maxdesall        ###   ########.fr       */
+/*   Created: 2021/07/30 11:14:17 by maxdesall         #+#    #+#             */
+/*   Updated: 2021/07/30 11:14:30 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/pipex.h"
+#include "../../include/pipex.h"
 
-int	main(int argc, char **argv, char **envp)
+char	*ft_strdup(const char *s)
 {
-	t_node	s;
+	int		len;
+	char	*newstring;
 
-	if (argc != 3)
-		return (error());
-	s.path = path_finder(envp);
-	filer(&s.file1, argv);
-	s.args1 = ft_split(s.file1, ' ');
-	s.args1[0] = command(s.path, s.file1);
-	executer(s.args1);
-	return (0);
+	len = 0;
+	while (s[len])
+		len++;
+	if (!(newstring = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	newstring[len] = '\0';
+	while (len-- > 0)
+		newstring[len] = s[len];
+	return (newstring);
 }
