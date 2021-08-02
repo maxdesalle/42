@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 10:54:21 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/30 11:51:59 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/02 14:31:27 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,22 @@ char	**path_finder(char **envp)
 	return (tab);
 }
 
-int	filer(char **file1, char **argv)
+int	filer1(int *fd, char **file, char *argv1, char *argv2)
 {
-	int	fd;
+	*fd = open(argv1, O_RDWR);
+	if (*fd < 0 || *fd > OPEN_MAX)
+		return (error());
+	*file = ft_strdup(argv2);
+	/* *file = ft_strjoin(*file, " "); */
+	/* *file = ft_strjoin(*file, argv1); */
+	return (0);
+}
 
-	if (access(argv[1], 0) != 0)
+int	filer2(int *fd, char **file, char *argv1, char *argv2)
+{
+	*fd = open(argv1, O_RDWR | O_TRUNC | O_CREAT, 0777);
+	if (*fd < 0 || *fd > OPEN_MAX)
 		return (error());
-	fd = open(argv[1], O_RDWR);
-	if (fd < 0 || fd > OPEN_MAX)
-		return (error());
-	*file1 = ft_strdup(argv[2]);
-	*file1 = ft_strjoin(*file1, " ");
-	*file1 = ft_strjoin(*file1, argv[1]);
+	*file = ft_strdup(argv2);
 	return (0);
 }

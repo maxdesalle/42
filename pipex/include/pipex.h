@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/07/30 11:52:13 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/02 13:45:12 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,17 @@
 # include <limits.h>
 # include <fcntl.h>
 
+# define FOUR_ARG 5
+
+# define STDIN 0
+# define STDOUT 1
+# define STDERR 2
+
 typedef struct s_node
 {
+	int		fd1;
+	int		fd2;
+
 	char	*file1;
 	char	*file2;
 
@@ -32,7 +41,8 @@ typedef struct s_node
 
 /* data/path.c */
 char	**path_finder(char **envp);
-int		filer(char **file1, char **argv);
+int		filer1(int *fd, char **file, char *argv1, char *argv2);
+int		filer2(int *fd, char **file, char *argv1, char *argv2);
 
 /* data/command.c */
 char	*command(char **path, char *cmd);

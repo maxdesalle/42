@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 17:12:36 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/30 11:17:29 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/02 10:57:20 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,19 @@ void	executer(char **args)
 char	*command(char **path, char *cmd)
 {
 	int		i;
+	char	*str;
 	char	**tab;
 
 	i = 0;
 	while (path[i])
 	{
-		path[i] = ft_strjoin(path[i], "/");
+		str = ft_strjoin(path[i], "/");
 		tab = ft_split(cmd, ' ');
-		path[i] = ft_strjoin(path[i], tab[0]);
-		if (access(path[i], 0) == 0)
-			return (path[i]);
+		str = ft_strjoin(str, tab[0]);
+		if (access(str, 0) == 0)
+			return (str);
+		free(str);
+		str = NULL;
 		i += 1;
 	}
 	error();
