@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 11:14:17 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/07/30 11:14:30 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/02 16:11:57 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*ft_strdup(const char *s)
 	len = 0;
 	while (s[len])
 		len++;
-	if (!(newstring = malloc(sizeof(char) * (len + 1))))
+	newstring = malloc(sizeof(char) * (len + 1));
+	if (!newstring)
 		return (NULL);
 	newstring[len] = '\0';
 	while (len-- > 0)
