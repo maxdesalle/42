@@ -6,16 +6,18 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 15:56:45 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/02 16:10:25 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/03 08:18:01 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/pipex.h"
 
-void	launcher(t_node *s)
+int	launcher(t_node *s)
 {
 	pipe(s->pfd);
 	s->pid = fork();
+	if (s->pid < 0)
+		return (0);
 	if (s->pid == 0)
 	{
 		dup2(s->pfd[1], STDOUT);
@@ -32,4 +34,5 @@ void	launcher(t_node *s)
 		close(s->fd2);
 		executer(s->args2);
 	}
+	return (1);
 }

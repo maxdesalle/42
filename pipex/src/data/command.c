@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 17:12:36 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/02 10:57:20 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/03 07:18:17 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ char	*command(char **path, char *cmd)
 		str = NULL;
 		i += 1;
 	}
-	error();
 	return (NULL);
 }
