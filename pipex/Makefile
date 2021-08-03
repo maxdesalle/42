@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/08/02 16:08:37 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/08/03 16:11:58 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRC = src/pipex.c \
 	  src/utilities/ft_strdup.c \
 	  src/utilities/ft_strncmp.c \
 	  src/utilities/ft_strlen.c \
-	  src/misc/return.c
+	  src/misc/return.c \
+	  src/misc/init.c
 
 OBJ = $(SRC:.c=.o)
 

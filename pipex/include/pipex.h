@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/03 07:23:33 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/03 16:51:17 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 
 typedef struct s_node
 {
+	int		i;
+
 	int		fd1;
 	int		fd2;
 	int		pfd[2];
@@ -73,5 +75,8 @@ size_t	ft_strlen(const char *s);
 /* misc/return.c */
 int		normal(t_node *s, int return_code);
 int		error(t_node *s);
+
+/* misc/init.c */
+void	init(t_node *s);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 11:17:08 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/03 09:08:32 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/03 17:00:02 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,18 @@
 
 int	normal(t_node *s, int return_code)
 {
-	int	i;
-
-	i = -1;
-	while (s->path[++i])
-		free(s->path[i]);
+	while (s->path[++(s->i)])
+		free(s->path[s->i]);
 	free(s->path);
 	free(s->file1);
 	free(s->file2);
-	i = -1;
-	while (s->args1[++i])
-		free(s->args1[i]);
+	s->i = -1;
+	while (s->args1[++(s->i)])
+		free(s->args1[s->i]);
 	free(s->args1);
-	i = -1;
-	while (s->args2[++i])
-		free(s->args2[i]);
+	s->i = -1;
+	while (s->args2[++(s->i)])
+		free(s->args2[s->i]);
 	free(s->args2);
 	exit(EXIT_SUCCESS);
 	return (return_code);
@@ -36,6 +33,28 @@ int	normal(t_node *s, int return_code)
 
 int	error(t_node *s)
 {
+	if (s->file1)
+		free(s->file1);
+	if (s->file2)
+		free(s->file2);
+	if (s->path)
+		while (s->path[++(s->i)])
+			free(s->path[s->i]);
+	if (s->args1)
+	{
+		s->i = -1;
+		while (s->args1[++(s->i)])
+			free(s->args1[s->i]);
+		free(s->args1);
+	}
+	if (s->args2)
+	{
+		s->i = -1;
+		while (s->args2[++(s->i)])
+			free(s->args2[s->i]);
+		free(s->args2);
+	}
+	write(STDERR, "Error\n", 6);
 	exit(EXIT_FAILURE);
-	return (s->pid);
+	return (0);
 }

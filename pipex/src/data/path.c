@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 10:54:21 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/03 09:09:20 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/03 16:32:58 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,8 @@ int	saver(t_node *s, char **argv, char **envp)
 		return (0);
 	if (!filer2(&s->fd2, &s->file2, argv[4], argv[3]))
 		return (0);
-	s->args2 = ft_split(s->file2, ' '); if (!s->args2)
+	s->args2 = ft_split(s->file2, ' ');
+	if (!s->args2)
 		return (0);
 	s->args2[0] = command(s->path, s->file2);
 	if (!s->args2[0])
