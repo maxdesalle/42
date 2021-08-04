@@ -6,11 +6,14 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 11:17:08 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/04 11:14:04 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/04 11:20:48 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/pipex.h"
+
+/* frees all the malloc'd memory, and exits using the exit status */
+/* of the pid */
 
 int	normal(t_node *s, int return_code)
 {
@@ -30,6 +33,8 @@ int	normal(t_node *s, int return_code)
 	exit(s->status);
 	return (return_code);
 }
+
+/* frees all the malloc'd memory, and exits using the EXIT_FAILURE macro */
 
 int	error(t_node *s)
 {

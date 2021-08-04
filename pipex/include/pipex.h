@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/04 11:12:37 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/04 11:29:23 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		saver(t_node *s, char **argv, char **envp);
 
 /* data/command.c */
 char	*command(char **path, char *cmd);
-void	executer(char **args);
+int		executer(t_node *s, char **args);
 
 /* data/launcher.c */
 int		launcher(t_node *s);

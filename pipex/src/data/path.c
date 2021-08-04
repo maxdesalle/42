@@ -6,11 +6,13 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 10:54:21 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/03 16:32:58 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/04 11:24:17 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/pipex.h"
+
+/* finds the path in the environment variables */
 
 static char	*finder(char **envp)
 {
@@ -31,6 +33,8 @@ static char	*finder(char **envp)
 	return (path);
 }
 
+/* returns a double pointer array of the path environment variable */
+
 char	**path_finder(char **envp)
 {
 	char	*path;
@@ -46,6 +50,9 @@ char	**path_finder(char **envp)
 	return (tab);
 }
 
+/* opens the file */
+/* if the file descriptor is invalid, 0 is returned */
+
 int	filer1(int *fd, char **file, char *argv1, char *argv2)
 {
 	*fd = open(argv1, O_RDWR);
@@ -58,6 +65,9 @@ int	filer1(int *fd, char **file, char *argv1, char *argv2)
 	return (1);
 }
 
+/* opens the file or creates it (with the right file permissions) */
+/* if the file descriptor is invalid, 0 is returned */
+
 int	filer2(int *fd, char **file, char *argv1, char *argv2)
 {
 	*fd = open(argv1, O_RDWR | O_TRUNC | O_CREAT, 0666);
@@ -69,6 +79,9 @@ int	filer2(int *fd, char **file, char *argv1, char *argv2)
 	*file = ft_strdup(argv2);
 	return (1);
 }
+
+/* assigns the right values to the struct elements and returns 0 if an */
+/* error is encountered, and 1 if everything went well */
 
 int	saver(t_node *s, char **argv, char **envp)
 {
