@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 15:56:45 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/03 16:15:42 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/04 11:13:43 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ int	launcher(t_node *s)
 		close(s->fd2);
 		executer(s->args2);
 	}
+	waitpid(s->pid, &s->status, 0);
+	s->status = WEXITSTATUS(s->status);
 	return (1);
 }

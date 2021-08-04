@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 11:17:08 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/03 17:00:02 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/04 11:14:04 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	normal(t_node *s, int return_code)
 	while (s->args2[++(s->i)])
 		free(s->args2[s->i]);
 	free(s->args2);
-	exit(EXIT_SUCCESS);
+	exit(s->status);
 	return (return_code);
 }
 
