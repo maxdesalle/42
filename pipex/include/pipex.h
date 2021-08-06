@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/04 11:29:23 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/06 10:18:27 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ int		normal(t_node *s, int return_code);
 int		error(t_node *s);
 
 /* misc/init.c */
-void	init(t_node *s);
+int		init(t_node *s, int argc, char **argv);
 
 #endif

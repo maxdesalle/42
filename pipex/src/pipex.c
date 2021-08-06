@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 17:00:58 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/04 11:18:56 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/06 10:20:35 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_node	s;
 
-	init(&s);
-	if (argc != FOUR_ARG)
+	if (!init(&s, argc, argv))
 		return (error(&s));
 	if (!saver(&s, argv, envp))
 		return (error(&s));
