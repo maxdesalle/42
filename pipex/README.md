@@ -26,7 +26,7 @@ To add an option to the command, place it in quotes as follows:
 
 If you want to try out my small tester script, execute the following command:
 ```bash
-make test # if nothing appears, not problems were found
+make test # if nothing appears, no problems were found
 ```
 
 ## What I learned
