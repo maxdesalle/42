@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/08/06 11:37:07 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/08/07 15:34:05 by mdesalle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
-SRC = src/philo.c
+SRC = src/philo.c \
+	  src/misc/return.c \
+	  src/misc/init.c
 
 OBJ = $(SRC:.c=.o)
 

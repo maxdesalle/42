@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   return.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/06 10:54:38 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/07 15:34:39 by mdesalle         ###   ########.fr       */
+/*   Created: 2021/08/07 15:30:22 by mdesalle          #+#    #+#             */
+/*   Updated: 2021/08/07 15:31:10 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/philo.h"
+#include "../../include/philo.h"
 
-int	main(int argc, char **argv)
+int	error(void)
 {
-	if (!valcheck(argc, argv))
-		return (error());
+	write(STDERR, "Error\n", 6);
+	exit(EXIT_FAILURE);
 	return (0);
 }
