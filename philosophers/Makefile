@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/08/07 15:34:05 by mdesalle         ###   ########.fr        #
+#    Updated: 2021/08/09 15:33:06 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,15 @@ NAME = philo
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -pthread -fsanitize=address
 
 SRC = src/philo.c \
+	  src/data/init.c \
+	  src/data/check.c \
+	  src/data/linker.c \
+	  src/data/time.c \
 	  src/misc/return.c \
-	  src/misc/init.c
+	  src/utilities/ft_atoi.c
 
 OBJ = $(SRC:.c=.o)
 

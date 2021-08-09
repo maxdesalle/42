@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 15:24:52 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/07 15:37:37 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/08/09 12:03:20 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-static int	is_num(char *str)
+static int	is_nbr(char *str)
 {
 	int	i;
 
@@ -21,7 +21,7 @@ static int	is_num(char *str)
 		return (0);
 	while (str[i])
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (!is_num(str[i]))
 			return (0);
 		i += 1;
 	}
@@ -33,11 +33,11 @@ int	valcheck(int argc, char **argv)
 	int	i;
 
 	i = 1;
-	if (argc < 5 || argc > 6)
+	if (argc < FOUR_ARG || argc > FIVE_ARG)
 		return (0);
 	while (i < argc)
 	{
-		if (!is_num(argv[i]))
+		if (!is_nbr(argv[i]))
 			return (0);
 		i += 1;
 	}
