@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 10:45:32 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/09 15:40:54 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/09 16:25:08 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,11 @@ int	init(t_node **h, int argc, char **argv)
 
 	c = confinit(argc, argv);
 	if (!c)
-		return (0);
+	{
+		if (c)
+			free(c);
+		return (-1);
+	}
 	if (!saver(h, c))
 		return (0);
 	return (1);

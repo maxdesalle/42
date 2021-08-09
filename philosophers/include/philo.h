@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/09 15:32:34 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/09 15:55:48 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,9 @@ long	wtii(void);
 int		valcheck(int argc, char **argv);
 
 /* misc/return.c */
+int		normal(t_node *h);
+int		error(t_node *h);
 int		errtoi(void);
-int		error(void);
 
 /* utilities/ft_atoi.c */
 int		is_empty(char c);
