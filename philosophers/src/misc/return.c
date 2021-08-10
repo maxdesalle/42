@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 15:30:22 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/09 16:24:07 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/10 09:50:18 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	error(t_node *h)
 	return (0);
 }
 
-int	errtoi(void)
+int	errempty(void)
 {
 	write(STDERR, "Error\n", 6);
 	exit(EXIT_FAILURE);

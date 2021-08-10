@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/09 15:55:48 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/10 14:28:30 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ typedef struct s_phil
 {
 	int				id;
 	pthread_t		pid;
-	pthread_mutex_t	*rf;
 	pthread_mutex_t	*lf;
+	pthread_mutex_t	*rf;
 }				t_phil;
 
 typedef struct s_node
@@ -64,10 +64,13 @@ long	wtii(void);
 /* data/check.c */
 int		valcheck(int argc, char **argv);
 
+/* thread/threader.c */
+int		threader(t_node *h);
+
 /* misc/return.c */
 int		normal(t_node *h);
 int		error(t_node *h);
-int		errtoi(void);
+int		errempty(void);
 
 /* utilities/ft_atoi.c */
 int		is_empty(char c);

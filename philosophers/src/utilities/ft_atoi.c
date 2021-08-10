@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:00:15 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/09 12:03:48 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/10 09:51:19 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static int	ft_return(int result, int sign)
 {
 	result *= sign;
 	if (result > 0 && sign < 0)
-		return (errtoi());
+		return (errempty());
 	if (result < 0 && sign > 0)
-		return (errtoi());
+		return (errempty());
 	return (result);
 }
 
