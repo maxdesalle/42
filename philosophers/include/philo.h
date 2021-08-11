@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/11 14:38:11 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/11 16:03:56 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@
 
 # define FOUR_ARG 5
 # define FIVE_ARG 6
+
+# define LEFT_FORK 0
+# define RIGHT_FORK 1
+# define IS_EATING 2
+# define IS_SLEEPING 3
+# define IS_THINKING 4
 
 typedef struct s_conf
 {
@@ -81,5 +87,8 @@ int		is_empty(char c);
 int		is_sign(char c);
 int		is_num(char c);
 int		ft_atoi(char *str);
+
+/* utilities/ft_putnbr.c */
+void	ft_putnbr(long n);
 
 #endif
