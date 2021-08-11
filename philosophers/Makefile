@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/08/10 14:13:24 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/08/11 14:33:31 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = src/philo.c \
 	  src/data/linker.c \
 	  src/data/time.c \
 	  src/thread/threader.c \
+	  src/thread/actions.c \
 	  src/misc/return.c \
 	  src/utilities/ft_atoi.c
 
