@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/08/11 16:04:11 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/08/11 16:50:05 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,14 @@ SRC = src/philo.c \
 	  src/data/check.c \
 	  src/data/linker.c \
 	  src/data/time.c \
+	  src/data/list.c \
 	  src/thread/threader.c \
 	  src/thread/actions.c \
+	  src/thread/status.c \
 	  src/misc/return.c \
 	  src/utilities/ft_atoi.c \
-	  src/utilities/ft_putnbr.c
+	  src/utilities/ft_putnbr.c \
+	  src/utilities/ft_putchar.c
 
 OBJ = $(SRC:.c=.o)
 

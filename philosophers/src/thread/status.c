@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 15:26:52 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/11 16:10:09 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/11 16:51:11 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ static int	task(int option)
 	return (1);
 }
 
-static int	prefix(int id)
+static int	prefix(long st, int id)
 {
-	timestamp = wtii() - n->c->st;
+	long	timestamp;
+
+	timestamp = wtii() - st;
 	if (!timestamp)
 		return (0);
 	ft_putnbr(timestamp);
@@ -41,7 +43,7 @@ static int	prefix(int id)
 
 int	status(t_node *n, int option)
 {
-	if (!prefix(n->p->id))
+	if (!prefix(n->c->st, n->p->id))
 		return (0);
 	if (!task(option))
 		return (0);

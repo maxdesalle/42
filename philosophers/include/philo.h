@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/11 16:03:56 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/11 16:49:34 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,10 @@ int		linker(t_node **h, t_node **n);
 /* data/time.c */
 long	wtii(void);
 
+/* data/list.c */
+int		assign(t_node *n, t_conf *c, int i);
+t_node	*create(void);
+
 /* data/check.c */
 int		valcheck(int argc, char **argv);
 
@@ -76,6 +80,9 @@ int		threader(t_node *h);
 
 /* thread/actions.c */
 int		actionator(t_node *n);
+
+/* thread/status.c */
+int		status(t_node *n, int option);
 
 /* misc/return.c */
 int		normal(t_node *h);
@@ -90,5 +97,8 @@ int		ft_atoi(char *str);
 
 /* utilities/ft_putnbr.c */
 void	ft_putnbr(long n);
+
+/* utilities/ft_putchar.c */
+void	ft_putchar(char c);
 
 #endif
