@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 15:26:52 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/11 16:51:11 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/12 13:40:10 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ static int	prefix(long st, int id)
 	long	timestamp;
 
 	timestamp = wtii() - st;
-	if (!timestamp)
-		return (0);
 	ft_putnbr(timestamp);
 	write(STDOUT, " ", 1);
 	ft_putnbr(id);

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/11 16:49:34 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/12 13:49:18 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int		linker(t_node **h, t_node **n);
 long	wtii(void);
 
 /* data/list.c */
+int		mutinit(t_node *n);
 int		assign(t_node *n, t_conf *c, int i);
 t_node	*create(void);
 

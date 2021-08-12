@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 10:45:32 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/11 16:46:24 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/12 10:17:02 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static int	saver(t_node **h, t_conf *c)
 			return (0);
 		linker(h, &tmp);
 		assign(tmp, c, i);
+		mutinit(tmp);
 		i += 1;
 	}
 	tmp = *h;
@@ -51,6 +52,7 @@ static int	saver(t_node **h, t_conf *c)
 		tmp = tmp->next;
 	tmp->next = *h;
 	(*h)->prev = tmp;
+	(*h)->p->lf = tmp->p->rf;
 	return (1);
 }
 

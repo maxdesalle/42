@@ -6,11 +6,23 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 16:42:12 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/11 16:42:33 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/12 10:16:49 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
+
+int	mutinit(t_node *n)
+{
+	pthread_mutex_t	rf;
+
+	pthread_mutex_init(&n->p->wri, NULL);
+	pthread_mutex_init(&rf, NULL);
+	n->p->rf = &rf;
+	if (n->prev)
+		n->p->lf = n->prev->p->rf;
+	return (1);
+}
 
 int	assign(t_node *n, t_conf *c, int i)
 {

@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 09:29:11 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/09 10:14:05 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/12 13:50:25 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ long	wtii(void)
 	long			millitime;
 	struct timeval	timestamp;
 
-	if (gettimeofday(&timestamp, NULL) == -1)
-		return (0);
+	gettimeofday(&timestamp, NULL);
 	millitime = timestamp.tv_sec * 1000 + timestamp.tv_usec / 1000;
 	return (millitime);
 }

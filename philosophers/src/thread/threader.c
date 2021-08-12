@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:53:45 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/11 14:45:05 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/12 13:07:39 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,14 @@ int	threader(t_node *h)
 	{
 		if (pthread_create(&tmp->p->pid, NULL, threadator, tmp))
 				return (0);
+		i += 1;
+		tmp = tmp->next;
+	}
+	i = 0;
+	tmp = h;
+	while (i < h->c->len)
+	{
+		pthread_join(tmp->p->pid, NULL);
 		i += 1;
 		tmp = tmp->next;
 	}
