@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 10:45:32 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/12 10:17:02 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/12 14:38:00 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ static t_conf	*confinit(int argc, char **argv)
 		return (NULL);
 	if (argc == FIVE_ARG)
 		c->ee = ft_atoi(argv[5]);
+	pthread_mutex_init(&c->wri, NULL);
 	return (c);
 }
 
@@ -36,8 +37,8 @@ static int	saver(t_node **h, t_conf *c)
 	int		i;
 	t_node	*tmp;
 
-	i = 0;
-	while (i < c->len)
+	i = 1;
+	while (i <= c->len)
 	{
 		tmp = create();
 		if (tmp == NULL)

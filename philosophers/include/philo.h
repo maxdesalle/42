@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/12 13:49:18 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/12 14:35:21 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_conf
 	int		ts;
 	int		ee;
 	long	st;
+	pthread_mutex_t	wri;
 }				t_conf;
 
 typedef struct s_phil
@@ -48,7 +49,6 @@ typedef struct s_phil
 	pthread_t		pid;
 	pthread_mutex_t	*lf;
 	pthread_mutex_t	*rf;
-	pthread_mutex_t	wri;
 }				t_phil;
 
 typedef struct s_node
