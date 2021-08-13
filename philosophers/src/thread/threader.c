@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:53:45 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/13 12:04:20 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/13 13:53:51 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	threader(t_node *h)
 	tmp = h;
 	while (!h->c->de)
 	{
-		if (wtii() - tmp->p->ts <= tmp->c->td)
+		if (wtii() - tmp->p->ts >= tmp->c->td)
 			h->c->de = 1;
 		tmp = tmp->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/13 10:47:45 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/13 13:37:28 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct s_conf
 typedef struct s_phil
 {
 	int				id;
-	int				ts;
+	long			ts;
 	pthread_t		pid;
 	pthread_mutex_t	te;
 	pthread_mutex_t	*lf;
