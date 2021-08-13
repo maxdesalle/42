@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:53:45 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/12 13:07:39 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/13 12:04:20 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static void	*threadator(void *arg)
 	t_node	*n;
 
 	n = (t_node *)arg;
-	actionator(n);
+	while (!n->c->de)
+		actionator(n);
 	return (NULL);
 }
 
@@ -31,8 +32,15 @@ int	threader(t_node *h)
 	while (i < h->c->len)
 	{
 		if (pthread_create(&tmp->p->pid, NULL, threadator, tmp))
-				return (0);
+			return (0);
 		i += 1;
+		tmp = tmp->next;
+	}
+	tmp = h;
+	while (!h->c->de)
+	{
+		if (wtii() - tmp->p->ts <= tmp->c->td)
+			h->c->de = 1;
 		tmp = tmp->next;
 	}
 	i = 0;

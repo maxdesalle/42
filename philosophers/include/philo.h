@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/12 14:35:21 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/13 10:47:45 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,52 @@
 # define IS_SLEEPING 3
 # define IS_THINKING 4
 
+/* single config struct for all philosophers */
+
+/* len: number of philosophers */
+/* td: time to die */
+/* te: time to eat */
+/* ts: time to sleep */
+/* ee: number of times each philosopher must eat */
+/* de: is a philosopher dead? */
+/* st: start time */
+/* wri: mutex for status writing */
+
 typedef struct s_conf
 {
-	int		len;
-	int		td;
-	int		te;
-	int		ts;
-	int		ee;
-	long	st;
+	int				len;
+	int				td;
+	int				te;
+	int				ts;
+	int				ee;
+	int				de;
+	long			st;
 	pthread_mutex_t	wri;
 }				t_conf;
+
+/* struct specific to each philosopher */
+
+/* id: id for each philosopher */
+/* ts: timestamp when last eaten */
+/* pid: thread pid for each philosopher */
+/* te: time to eat mutex for timestamp */
+/* *lf: left fork mutex */
+/* *rf: right fork mutex */
 
 typedef struct s_phil
 {
 	int				id;
+	int				ts;
 	pthread_t		pid;
+	pthread_mutex_t	te;
 	pthread_mutex_t	*lf;
 	pthread_mutex_t	*rf;
 }				t_phil;
+
+/* doubly circular linked list */
+
+/* each philosopher has a s_phil struct */
+/* all philosophers have the same c_conf struct */
 
 typedef struct s_node
 {

@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 10:45:32 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/12 14:38:00 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/13 11:57:15 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static t_conf	*confinit(int argc, char **argv)
 	c->td = ft_atoi(argv[2]);
 	c->te = ft_atoi(argv[3]);
 	c->ts = ft_atoi(argv[4]);
+	c->de = 0;
 	c->st = wtii();
 	if (!c->st)
 		return (NULL);
