@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 15:26:52 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/12 14:23:32 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/13 14:39:50 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,25 @@ static int	prefix(long st, int id)
 
 int	status(t_node *n, int option)
 {
+	if (n->c->de)
+		return (1);
 	if (!prefix(n->c->st, n->p->id))
 		return (0);
 	if (!task(option))
 		return (0);
+	return (1);
+}
+
+int	death(t_node *n)
+{
+	long	timestamp;
+
+	timestamp = wtii() - n->c->st;
+	if (timestamp < 0 || timestamp > 2147483647)
+		return (-1);
+	ft_putnbr(timestamp);
+	write(STDOUT, " ", 1);
+	ft_putnbr(n->p->id);
+	write(STDOUT, " died\n", 6);
 	return (1);
 }

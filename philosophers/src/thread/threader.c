@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:53:45 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/13 13:53:51 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/14 09:43:51 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	*threadator(void *arg)
 int	threader(t_node *h)
 {
 	int		i;
+	int		time;
 	t_node	*tmp;
 
 	i = 0;
@@ -39,16 +40,16 @@ int	threader(t_node *h)
 	tmp = h;
 	while (!h->c->de)
 	{
-		if (wtii() - tmp->p->ts >= tmp->c->td)
+		pthread_mutex_lock(&tmp->p->te);
+		time = wtii() - tmp->p->ts;
+		pthread_mutex_unlock(&tmp->p->te);
+		if (test >= tmp->c->td)
+		{
 			h->c->de = 1;
-		tmp = tmp->next;
-	}
-	i = 0;
-	tmp = h;
-	while (i < h->c->len)
-	{
-		pthread_join(tmp->p->pid, NULL);
-		i += 1;
+			pthread_mutex_lock(&tmp->c->wri);
+			death(tmp);
+			pthread_mutex_unlock(&tmp->c->wri);
+		}
 		tmp = tmp->next;
 	}
 	return (1);

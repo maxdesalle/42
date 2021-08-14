@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/13 13:37:28 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/13 14:19:16 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ int		actionator(t_node *n);
 
 /* thread/status.c */
 int		status(t_node *n, int option);
+int		death(t_node *n);
 
 /* misc/return.c */
 int		normal(t_node *h);
