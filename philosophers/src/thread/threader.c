@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:53:45 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/14 09:54:08 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/14 11:37:09 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void	*threadator(void *arg)
 	t_node	*n;
 
 	n = (t_node *)arg;
+	if (n->p->id % 2 == 0)
+		usleep(20);
 	while (!n->c->de)
 		actionator(n);
 	return (NULL);
