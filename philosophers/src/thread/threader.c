@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:53:45 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/14 09:43:51 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/14 09:54:08 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	threader(t_node *h)
 		pthread_mutex_lock(&tmp->p->te);
 		time = wtii() - tmp->p->ts;
 		pthread_mutex_unlock(&tmp->p->te);
-		if (test >= tmp->c->td)
+		if (time >= tmp->c->td)
 		{
 			h->c->de = 1;
 			pthread_mutex_lock(&tmp->c->wri);
