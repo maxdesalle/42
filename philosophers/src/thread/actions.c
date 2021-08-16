@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 14:33:07 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/14 11:39:33 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/16 10:10:39 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ static int	is_eating(t_node *n)
 	pthread_mutex_lock(&n->c->wri);
 	status(n, RIGHT_FORK);
 	pthread_mutex_unlock(&n->c->wri);
-	pthread_mutex_lock(&n->p->te);
+	pthread_mutex_lock(&n->c->eat);
 	n->p->ts = wtii();
-	pthread_mutex_unlock(&n->p->te);
+	pthread_mutex_unlock(&n->c->eat);
 	pthread_mutex_lock(&n->c->wri);
 	status(n, IS_EATING);
 	pthread_mutex_unlock(&n->c->wri);

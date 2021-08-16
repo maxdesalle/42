@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/08/11 16:50:05 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/08/16 17:09:22 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME = philo
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -pthread -fsanitize=address
+CFLAGS = -Wall -Wextra -pthread -fsanitize=thread
 
 SRC = src/philo.c \
 	  src/data/init.c \
@@ -26,6 +26,7 @@ SRC = src/philo.c \
 	  src/data/time.c \
 	  src/data/list.c \
 	  src/thread/threader.c \
+	  src/thread/threadkill.c \
 	  src/thread/actions.c \
 	  src/thread/status.c \
 	  src/misc/return.c \

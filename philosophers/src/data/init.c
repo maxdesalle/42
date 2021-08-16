@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 10:45:32 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/14 11:39:21 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/16 11:11:32 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ static t_conf	*confinit(int argc, char **argv)
 		return (NULL);
 	if (argc == FIVE_ARG)
 		c->ee = ft_atoi(argv[5]);
+	pthread_mutex_init(&c->eat, NULL);
 	pthread_mutex_init(&c->wri, NULL);
+	pthread_mutex_init(&c->end, NULL);
+	pthread_mutex_init(&c->death, NULL);
 	return (c);
 }
 

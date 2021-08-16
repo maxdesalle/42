@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 16:42:12 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/14 12:34:17 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/16 10:11:41 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	mutinit(t_node *n)
 {
 	pthread_mutex_t	rf;
 
-	pthread_mutex_init(&n->p->te, NULL);
 	pthread_mutex_init(&rf, NULL);
 	n->p->rf = &rf;
 	if (n->prev)

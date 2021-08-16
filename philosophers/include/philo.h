@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/14 11:39:36 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/16 17:05:12 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,16 @@
 typedef struct s_conf
 {
 	int				len;
-	int				td;
 	int				te;
 	int				ts;
 	int				ee;
 	int				de;
+	long			td;
 	long			st;
+	pthread_mutex_t	eat;
 	pthread_mutex_t	wri;
+	pthread_mutex_t	end;
+	pthread_mutex_t	death;
 }				t_conf;
 
 /* struct specific to each philosopher */
@@ -69,7 +72,6 @@ typedef struct s_phil
 	int				id;
 	long			ts;
 	pthread_t		pid;
-	pthread_mutex_t	te;
 	pthread_mutex_t	*lf;
 	pthread_mutex_t	*rf;
 }				t_phil;
@@ -109,6 +111,10 @@ int		threader(t_node *h);
 
 /* thread/actions.c */
 int		actionator(t_node *n);
+
+/* thread/threadkill.c */
+int		death_check(t_node *n);
+int		threadkill(t_node *h);
 
 /* thread/status.c */
 int		status(t_node *n, int option);

@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 15:26:52 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/13 14:39:50 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/16 15:43:38 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,13 @@ static int	prefix(long st, int id)
 
 int	status(t_node *n, int option)
 {
+	pthread_mutex_lock(&n->c->death);
 	if (n->c->de)
+	{
+		pthread_mutex_unlock(&n->c->death);
 		return (1);
+	}
+	pthread_mutex_unlock(&n->c->death);
 	if (!prefix(n->c->st, n->p->id))
 		return (0);
 	if (!task(option))
