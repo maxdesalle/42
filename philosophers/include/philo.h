@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/16 17:05:12 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/17 11:56:15 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@
 # define IS_EATING 2
 # define IS_SLEEPING 3
 # define IS_THINKING 4
+
+/* multiplier to convert microseconds into milliseconds */
+
+# define MS 1000
 
 /* single config struct for all philosophers */
 
