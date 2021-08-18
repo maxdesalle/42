@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 15:26:52 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/16 15:43:38 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/17 15:59:11 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int	death(t_node *n)
 {
 	long	timestamp;
 
+	if (!stopper(n))
+		return (1);
 	timestamp = wtii() - n->c->st;
 	if (timestamp < 0 || timestamp > 2147483647)
 		return (-1);

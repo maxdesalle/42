@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 10:54:38 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/16 15:30:37 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/18 11:28:08 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ int	main(int argc, char **argv)
 	t_node	*h;
 
 	h = NULL;
-	if (!valcheck(argc, argv))
+	ret = valcheck(argc, argv);
+	if (ret == 0)
 		return (errempty());
+	else if (ret == -1)
+		return (0);
 	ret = init(&h, argc, argv);
 	if (ret == 0)
 		return (error(h));

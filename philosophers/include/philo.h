@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/17 11:56:15 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/17 16:57:16 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,13 @@ typedef struct s_conf
 	int				ts;
 	int				ee;
 	int				de;
+	int				ct;
 	long			td;
 	long			st;
 	pthread_mutex_t	eat;
 	pthread_mutex_t	wri;
 	pthread_mutex_t	end;
+	pthread_mutex_t	stex;
 	pthread_mutex_t	death;
 }				t_conf;
 
@@ -77,7 +79,7 @@ typedef struct s_phil
 	long			ts;
 	pthread_t		pid;
 	pthread_mutex_t	*lf;
-	pthread_mutex_t	*rf;
+	pthread_mutex_t	rf;
 }				t_phil;
 
 /* doubly circular linked list */
@@ -103,6 +105,7 @@ int		linker(t_node **h, t_node **n);
 long	wtii(void);
 
 /* data/list.c */
+int		forker(t_node *n);
 int		mutinit(t_node *n);
 int		assign(t_node *n, t_conf *c, int i);
 t_node	*create(void);
@@ -111,6 +114,7 @@ t_node	*create(void);
 int		valcheck(int argc, char **argv);
 
 /* thread/threader.c */
+int		stopper(t_node *n);
 int		threader(t_node *h);
 
 /* thread/actions.c */

@@ -6,20 +6,37 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:53:45 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/17 11:56:41 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/18 14:58:35 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
+
+int	stopper(t_node *n)
+{
+	pthread_mutex_lock(&n->c->stex);
+	if (n->c->ee == (n->c->ct / n->c->len) && n->c->ee != 0)
+	{
+		pthread_mutex_unlock(&n->c->stex);
+		return (0);
+	}
+	pthread_mutex_unlock(&n->c->stex);
+	return (1);
+}
 
 static void	*threadator(void *arg)
 {
 	t_node	*n;
 
 	n = (t_node *)arg;
-	if (n->p->id % 2 == 0)
+	if (n->p->id % 2 == 0 && n->c->len > 1)
 		usleep(n->c->te * 100);
-	while (!death_check(n))
+	if (n->c->len == 1)
+	{
+		status(n, LEFT_FORK);
+		return (NULL);
+	}
+	while (!death_check(n) && stopper(n))
 		actionator(n);
 	return (NULL);
 }

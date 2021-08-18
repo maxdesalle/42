@@ -6,22 +6,33 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 16:42:12 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/16 10:11:41 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/18 11:12:23 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-int	mutinit(t_node *n)
+int	forker(t_node *h)
 {
-	pthread_mutex_t	rf;
+	int		i;
+	t_node	*tmp;
 
-	pthread_mutex_init(&rf, NULL);
-	n->p->rf = &rf;
-	if (n->prev)
-		n->p->lf = n->prev->p->rf;
+	i = 0;
+	tmp = h;
+	while (i < h->c->len)
+	{
+		tmp->p->lf = &tmp->prev->p->rf;
+		i += 1;
+		tmp = tmp->next;
+	}
 	return (1);
 }
+
+/* int	mutinit(t_node *n) */
+/* { */
+/* 	pthread_mutex_init(&rf, NULL); */
+/* 	return (1); */
+/* } */
 
 int	assign(t_node *n, t_conf *c, int i)
 {
@@ -32,6 +43,7 @@ int	assign(t_node *n, t_conf *c, int i)
 		return (0);
 	n->c = c;
 	n->p = p;
+	n->p->lf = NULL;
 	n->p->id = i;
 	return (1);
 }
