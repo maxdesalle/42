@@ -6,11 +6,26 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 10:45:32 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/18 11:12:06 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/19 11:06:29 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
+
+static int	pinit(t_conf *c)
+{
+	if (pthread_mutex_init(&c->eat, NULL))
+		return (0);
+	if (pthread_mutex_init(&c->wri, NULL))
+		return (0);
+	if (pthread_mutex_init(&c->end, NULL))
+		return (0);
+	if (pthread_mutex_init(&c->stex, NULL))
+		return (0);
+	if (pthread_mutex_init(&c->death, NULL))
+		return (0);
+	return (1);
+}
 
 static t_conf	*confinit(int argc, char **argv)
 {
@@ -32,11 +47,8 @@ static t_conf	*confinit(int argc, char **argv)
 		c->ee = ft_atoi(argv[5]);
 	else
 		c->ee = 0;
-	pthread_mutex_init(&c->eat, NULL);
-	pthread_mutex_init(&c->wri, NULL);
-	pthread_mutex_init(&c->end, NULL);
-	pthread_mutex_init(&c->stex, NULL);
-	pthread_mutex_init(&c->death, NULL);
+	if (!pinit(c))
+		return (NULL);
 	return (c);
 }
 
@@ -52,8 +64,8 @@ static int	saver(t_node **h, t_conf *c)
 		if (tmp == NULL)
 			return (0);
 		linker(h, &tmp);
-		assign(tmp, c, i);
-		pthread_mutex_init(&tmp->p->rf, NULL);
+		if (!assign(tmp, c, i))
+			return (0);
 		i += 1;
 	}
 	tmp = *h;

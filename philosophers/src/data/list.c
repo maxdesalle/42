@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 16:42:12 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/18 11:12:23 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/19 11:06:52 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,6 @@ int	forker(t_node *h)
 	return (1);
 }
 
-/* int	mutinit(t_node *n) */
-/* { */
-/* 	pthread_mutex_init(&rf, NULL); */
-/* 	return (1); */
-/* } */
-
 int	assign(t_node *n, t_conf *c, int i)
 {
 	t_phil	*p;
@@ -45,6 +39,8 @@ int	assign(t_node *n, t_conf *c, int i)
 	n->p = p;
 	n->p->lf = NULL;
 	n->p->id = i;
+	if (pthread_mutex_init(&n->p->rf, NULL))
+		return (0);
 	return (1);
 }
 

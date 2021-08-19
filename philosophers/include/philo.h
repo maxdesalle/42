@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/17 16:57:16 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/19 11:05:07 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,18 @@
 /* single config struct for all philosophers */
 
 /* len: number of philosophers */
-/* td: time to die */
 /* te: time to eat */
 /* ts: time to sleep */
 /* ee: number of times each philosopher must eat */
 /* de: is a philosopher dead? */
+/* ct: counter variable */
+/* td: time to die */
 /* st: start time */
+/* eat: mutex for eating timestamp function */
 /* wri: mutex for status writing */
+/* end: mutex for end check */
+/* stex: mutex for numer of time eaten check */
+/* death: mutex for death check */
 
 typedef struct s_conf
 {
@@ -69,9 +74,8 @@ typedef struct s_conf
 /* id: id for each philosopher */
 /* ts: timestamp when last eaten */
 /* pid: thread pid for each philosopher */
-/* te: time to eat mutex for timestamp */
-/* *lf: left fork mutex */
-/* *rf: right fork mutex */
+/* *lf: left fork pointer to mutex */
+/* rf: right fork mutex */
 
 typedef struct s_phil
 {
