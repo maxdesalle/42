@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 16:42:12 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/19 11:06:52 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/19 18:22:28 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	assign(t_node *n, t_conf *c, int i)
 	n->p->id = i;
 	if (pthread_mutex_init(&n->p->rf, NULL))
 		return (0);
+	else
+		n->c->dc += 1;
 	return (1);
 }
 

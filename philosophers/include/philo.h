@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/19 11:05:07 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/19 18:28:39 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@
 /* ee: number of times each philosopher must eat */
 /* de: is a philosopher dead? */
 /* ct: counter variable */
+/* dc: mutex destroy counter */
+/* ndc: normal mutex destroy counter */
 /* td: time to die */
 /* st: start time */
 /* eat: mutex for eating timestamp function */
@@ -60,6 +62,8 @@ typedef struct s_conf
 	int				ee;
 	int				de;
 	int				ct;
+	long			dc;
+	long			ndc;
 	long			td;
 	long			st;
 	pthread_mutex_t	eat;
