@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 15:24:52 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/17 13:46:57 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/20 08:38:21 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	valcheck(int argc, char **argv)
 	i = 1;
 	if (argc < FOUR_ARG || argc > FIVE_ARG)
 		return (0);
-	if (ft_atoi(argv[1]) == 0)
+	if (ft_atoi(argv[1]) == 0 || ft_atoi(argv[2]) == 0)
 		return (0);
 	if (argc == FIVE_ARG)
 	{

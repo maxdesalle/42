@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/10 13:53:45 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/18 14:58:35 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/20 10:40:40 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	*threadator(void *arg)
 
 	n = (t_node *)arg;
 	if (n->p->id % 2 == 0 && n->c->len > 1)
-		usleep(n->c->te * 100);
+		sleeper(n, n->c->te / 10);
 	if (n->c->len == 1)
 	{
 		status(n, LEFT_FORK);
@@ -55,7 +55,7 @@ int	threader(t_node *h)
 		i += 1;
 		tmp = tmp->next;
 	}
-	usleep((h->c->td + 1) * MS);
+	sleeper(h, h->c->td + 1);
 	if (threadkill(h))
 		return (1);
 	return (0);

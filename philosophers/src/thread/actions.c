@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 14:33:07 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/18 14:57:34 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/20 10:41:04 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	is_sleeping(t_node *n)
 	pthread_mutex_lock(&n->c->wri);
 	status(n, IS_SLEEPING);
 	pthread_mutex_unlock(&n->c->wri);
-	usleep(n->c->ts * MS);
+	sleeper(n, n->c->ts);
 	return (1);
 }
 
@@ -49,7 +49,7 @@ static int	is_eating(t_node *n)
 	if (n->c->ee)
 		n->c->ct += 1;
 	pthread_mutex_unlock(&n->c->stex);
-	usleep(n->c->te * MS);
+	sleeper(n, n->c->te);
 	pthread_mutex_unlock(n->p->lf);
 	pthread_mutex_unlock(&n->p->rf);
 	return (1);

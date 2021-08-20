@@ -6,7 +6,7 @@
 /*   By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/06 09:36:10 by mdesalle          #+#    #+#             */
-/*   Updated: 2021/08/19 18:28:39 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/20 10:41:18 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ int		init(t_node **h, int argc, char **argv);
 int		linker(t_node **h, t_node **n);
 
 /* data/time.c */
+int		sleeper(t_node *n, long ms);
 long	wtii(void);
 
 /* data/list.c */
