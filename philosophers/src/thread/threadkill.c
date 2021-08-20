@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 17:01:38 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/08/20 09:29:53 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/08/20 11:33:54 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	destruction(t_node *tmp)
 	pthread_mutex_unlock(&tmp->c->death);
 	return (1);
 }
-	
+
 static int	differ(t_node *tmp)
 {
 	pthread_mutex_lock(&tmp->c->eat);
