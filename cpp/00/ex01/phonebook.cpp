@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 16:27:41 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/09/21 18:36:44 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/09/21 18:39:15 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	question(Contact *contact, int *i)
 	*i += 1;
 }
 
-int			main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	int			i;
 	int			j;
