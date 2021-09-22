@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 16:18:25 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/09/21 18:37:27 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/09/22 09:35:06 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <iomanip>
 
 # define PROGRAM_IS_RUNNING 1
 

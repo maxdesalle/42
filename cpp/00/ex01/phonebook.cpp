@@ -6,13 +6,80 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 16:27:41 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/09/21 18:39:15 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/09/22 10:33:56 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
-static void	question(Contact *contact, int *i)
+static void	value_print(std::string value)
+{
+	std::string	str;
+
+	str = value;
+	if (str.size() > 10)
+	{
+		str.resize(9);
+		str += '.';
+	}
+	std::cout << std::setw(10) << str << "|";
+}
+
+static void	top_print_utils(std::string str)
+{
+	std::cout << std::setw(10) << str << "|";
+}
+
+static void	info_print(Contact contact)
+{
+	std::cout << "First Name: " << contact.get_first_name() << std::endl;
+	std::cout << "Last Name: " << contact.get_last_name() << std::endl;
+	std::cout << "Nickname: " << contact.get_nickname() << std::endl;
+	std::cout << "Phone Number: " << contact.get_phone_number() << std::endl;
+	std::cout << "Darkest Secret: " << contact.get_darkest_secret() << std::endl;
+}
+
+static void	top_print(void)
+{
+	std::cout << std::endl;
+	top_print_utils("Index");
+	top_print_utils("First Name");
+	top_print_utils("Last Name");
+	top_print_utils("Nickname");
+	std::cout << std::endl;
+	top_print_utils("-----");
+	top_print_utils("----------");
+	top_print_utils("----------");
+	top_print_utils("----------");
+	std::cout << std::endl;
+}
+
+static void	search(Contact *contact, int i)
+{
+	int			j;
+	int			value;
+	std::string	line;
+
+	j = 0;
+	top_print();
+	while (j < i)
+	{
+		std::cout << std::setw(10) << j + 1 << "|";
+		value_print(contact[j].get_first_name());
+		value_print(contact[j].get_last_name());
+		value_print(contact[j].get_nickname());
+		std::cout << std::endl;
+		j += 1;
+	}
+	std::cout << std::endl;
+	std::cout << "What's the index number of the contact you are looking for?" << std::endl;
+	std::getline(std::cin, line);
+	value = stoi(line);
+	if (value > 0 && value <= i)
+		info_print(contact[value - 1]);
+}
+
+static void	add(Contact *contact, int *i)
 {
 	std::string	line;
 
@@ -50,11 +117,15 @@ int		main(int argc, char **argv)
 		if (line == "EXIT")
 			exit(EXIT_SUCCESS);
 		else if (line == "ADD")
-			question(&contact[i], &i);
+			add(&contact[i], &i);
 		else if (line == "SEARCH")
-			continue ;
+			search(contact, j);
 		else
 			continue ;
+		if (j != 7)
+			j = i;
+		if (i == 7)
+			i = 0;
     }
 	return (0);
 }
