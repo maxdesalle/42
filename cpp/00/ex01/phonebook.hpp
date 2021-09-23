@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 16:18:25 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/09/22 09:35:06 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/09/23 15:26:35 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ class	Contact {
 		void	set_phone_number(std::string input);
 		void	set_darkest_secret(std::string input);
 
-		std::string	get_first_name();
-		std::string	get_last_name();
-		std::string	get_nickname();
-		std::string	get_phone_number();
-		std::string	get_darkest_secret();
+		std::string	get_first_name() const;
+		std::string	get_last_name() const;
+		std::string	get_nickname() const;
+		std::string	get_phone_number() const;
+		std::string	get_darkest_secret() const;
 
 	private:
 
@@ -70,7 +70,7 @@ void		Contact::set_darkest_secret(std::string input)
 	darkest_secret = input;
 }
 
-std::string	Contact::get_first_name()
+std::string	Contact::get_first_name() const
 {
 	return (first_name);
 }
