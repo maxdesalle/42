@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 16:27:41 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/09/22 10:33:56 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/09/23 17:10:15 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ static void	search(Contact *contact, int i)
 	std::string	line;
 
 	j = 0;
+	value = -1;
 	top_print();
 	while (j < i)
 	{
@@ -74,7 +75,8 @@ static void	search(Contact *contact, int i)
 	std::cout << std::endl;
 	std::cout << "What's the index number of the contact you are looking for?" << std::endl;
 	std::getline(std::cin, line);
-	value = stoi(line);
+	if (!line.empty())
+		value = stoi(line);
 	if (value > 0 && value <= i)
 		info_print(contact[value - 1]);
 }
@@ -101,7 +103,7 @@ static void	add(Contact *contact, int *i)
 	*i += 1;
 }
 
-int		main(int argc, char **argv)
+int		main(void)
 {
 	int			i;
 	int			j;

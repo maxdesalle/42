@@ -6,20 +6,21 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/09/23 17:07:22 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/09/23 18:05:32 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ccgreen = "\033[0;92m"
 ccwhite = "\033[0;0m"
 
-NAME = phonebook
+NAME = account
 
 CC = clang++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -std=c++98
 
-SRC = phonebook.cpp
+SRC = tests.cpp \
+	  Account.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
