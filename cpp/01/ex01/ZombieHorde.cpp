@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 14:28:50 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/04 17:51:59 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/04 17:53:26 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ std::string	gen_random(const int len)
 	return (str);
 }
 
-Zombie*	zombieHorde(int N, std::string name)
+Zombie*	zombieHorde(const int N, std::string name)
 {
 	int	i;
 	Zombie*	z;
