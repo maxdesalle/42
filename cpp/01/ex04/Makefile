@@ -6,15 +6,15 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/10/05 18:42:14 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/10/06 10:20:59 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = weapon
+NAME = replace
 
 CC = clang++
 
-CFLAGS = -Wall -Wextra -std=c++98
+CFLAGS = -Wall -Wextra -std=c++98 -fsanitize=address
 
 SRC = main.cpp \
 
