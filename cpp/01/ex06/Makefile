@@ -6,17 +6,18 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/10/06 10:42:47 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/10/06 15:11:21 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = replace
+NAME = karenFilter
 
 CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
+	  Karen.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
