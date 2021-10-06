@@ -1,3 +1,0 @@
-[submodule "minishell"]
-	path = minishell
-	url = git@github.com:m3zh/minishell.git

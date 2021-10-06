@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/10/04 17:40:56 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/10/06 17:30:51 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,4 +34,4 @@ fclean:
 
 re:	fclean all
 
-.PHONY: all test clean re fclean
+.PHONY: all clean re fclean
