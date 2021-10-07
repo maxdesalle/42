@@ -6,7 +6,7 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/10/06 17:30:07 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/10/06 17:30:16 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
+	  Fixed.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
