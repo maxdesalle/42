@@ -6,23 +6,25 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 16:10:48 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/13 12:40:20 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/10/13 18:01:46 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FLAGTRAP_HPP
-# define FLAGTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 # include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
+# include "FlagTrap.hpp"
 
-# define FLAGTRAP "DiamondTrap"
+# define DIAMONDTRAP "DiamondTrap"
 
-class	DiamondTrap: public ClapTrap
+class	DiamondTrap: public ScavTrap, public FlagTrap
 {
 	public:
 
-		using			FragTrap::_hitpoints;
-		using			FragTrap::_attack_damage;
+		using			FlagTrap::_hitpoints;
+		using			FlagTrap::_attack_damage;
 		using			ScavTrap::_energy_points;
 
 		DiamondTrap(void);
@@ -33,6 +35,7 @@ class	DiamondTrap: public ClapTrap
 		DiamondTrap		&operator=(DiamondTrap const &c);
 
 		void			whoAmI(void);
+
 	private:
 
 		std::string		_name;

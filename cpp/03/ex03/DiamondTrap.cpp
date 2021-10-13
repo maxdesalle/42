@@ -1,56 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FlagTrap.cpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 16:44:28 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/13 11:33:11 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/10/13 18:02:01 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "FlagTrap.hpp"
+#include "DiamondTrap.hpp"
 
-FlagTrap::FlagTrap(void)
+DiamondTrap::DiamondTrap(void)
 {
-	message_print(FLAGTRAP, CONSTRUCTOR);
+	message_print(DIAMONDTRAP, CONSTRUCTOR);
 }
 
-FlagTrap::FlagTrap(std::string name): ClapTrap("FlagTrap", name, 100, 100, 30)
+DiamondTrap::DiamondTrap(std::string name):	ClapTrap(name + "_clap_trap"),
+											ScavTrap(name + "_clap_trap"),
+											FlagTrap(name + "_clap_trap")
 {
-	set_hitpoints(100);
-	set_energy_points(100);
-	set_attack_damage(30);
-	message_print(FLAGTRAP, CONSTRUCTOR);
+	message_print(DIAMONDTRAP, CONSTRUCTOR);
 }
 
-FlagTrap::FlagTrap(FlagTrap const &flag): ClapTrap(flag.get_name())
+DiamondTrap::DiamondTrap(DiamondTrap const &diamond): ClapTrap(diamond.get_name()), ScavTrap(diamond.get_name()), FlagTrap(diamond.get_name())
 {
-	_name = flag.get_name();
-	_hitpoints = flag.get_hitpoints();
-	_attack_damage = flag.get_attack_damage();
-	_energy_points = flag.get_energy_points();
+	_name = diamond.get_name();
+	_hitpoints = diamond.get_hitpoints();
+	_attack_damage = diamond.get_attack_damage();
+	_energy_points = diamond.get_energy_points();
 }
 
-FlagTrap		&FlagTrap::operator=(FlagTrap const &flag)
+DiamondTrap		&DiamondTrap::operator=(DiamondTrap const &diamond)
 {
-	set_name(flag.get_name());
-	set_hitpoints(flag.get_hitpoints());
-	set_energy_points(flag.get_energy_points());
-	set_attack_damage(flag.get_attack_damage());
+	set_name(diamond.get_name());
+	set_hitpoints(diamond.get_hitpoints());
+	set_energy_points(diamond.get_energy_points());
+	set_attack_damage(diamond.get_attack_damage());
 	return (*this);
 }
 
-FlagTrap::~FlagTrap(void)
+DiamondTrap::~DiamondTrap(void)
 {
-	message_print(FLAGTRAP, DESTRUCTOR);
+	message_print(DIAMONDTRAP, DESTRUCTOR);
 }
 
-void			FlagTrap::highFivesGuys(void)
+void			DiamondTrap::whoAmI(void)
 {
-	std::cout << get_type() << " " << get_name();
-	std::cout << " asks for a high five! ✋";
+	std::cout << "My name is " << get_type() << " " << get_name() << "! 👋";
 	std::cout << std::endl;
 }
