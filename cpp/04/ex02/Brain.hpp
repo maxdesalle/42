@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 16:10:48 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/14 17:46:14 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/14 17:48:07 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 
-# include "Brain.hpp"
+# define MAX	100
 
-class	Animal
+class	Brain
 {
 	public:
 
-		Animal(void);
-		virtual				~Animal(void);
-		Animal(Animal const &ref);
-		Animal				&operator=(Animal const &ref);
+		Brain(void);
+		~Brain(void);
+		Brain(Brain const &ref);
+		Brain		&operator=(Brain const &ref);
+		std::string	*get_ideas(void)	const;
 
-		void				set_type(std::string type);
+	private:
 
-		virtual std::string	get_type(void)	const;
-
-		virtual void		makeSound(void)	const;
-
-	protected:
-
-		std::string			_type;
+		std::string	*ideas;
 };
 
 #endif

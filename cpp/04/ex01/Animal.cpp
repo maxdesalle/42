@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 10:11:10 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/14 11:54:58 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/14 18:00:20 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ Animal::~Animal(void)
 
 Animal::Animal(Animal const &ref)
 {
-	set_type("Animal");
-	*this = ref;
+	set_type(ref._type);
 	std::cout << "Animal copy constructor called" << std::endl;
 }
 

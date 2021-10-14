@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 10:11:10 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/14 12:19:41 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/14 17:39:09 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ WrongCat::~WrongCat(void)
 WrongCat::WrongCat(WrongCat const &ref)
 {
 	set_type("WrongCat");
-	*this = ref;
 	std::cout << "WrongCat copy constructor called" << std::endl;
 }
 

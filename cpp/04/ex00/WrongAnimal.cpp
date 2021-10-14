@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 10:11:10 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/14 12:07:46 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/14 17:39:03 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ WrongAnimal::~WrongAnimal(void)
 WrongAnimal::WrongAnimal(WrongAnimal const &ref)
 {
 	set_type("WrongAnimal");
-	*this = ref;
 	std::cout << "WrongAnimal copy constructor called" << std::endl;
 }
 

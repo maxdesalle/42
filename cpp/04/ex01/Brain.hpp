@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongDog.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 16:10:48 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/14 12:28:31 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/14 17:48:07 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGDOG_HPP
-# define WRONGDOG_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-# include "WrongAnimal.hpp"
+# include <iostream>
 
-class	WrongDog: public WrongAnimal
+# define MAX	100
+
+class	Brain
 {
 	public:
 
-		WrongDog(void);
-		~WrongDog(void);
-		WrongDog(WrongDog const &ref);
-		WrongDog	&operator=(WrongDog const &ref);
-
-		void		set_type(std::string type);
-
-		std::string	get_type(void)	const;
-
-		void		makeSound(void)	const;
+		Brain(void);
+		~Brain(void);
+		Brain(Brain const &ref);
+		Brain		&operator=(Brain const &ref);
+		std::string	*get_ideas(void)	const;
 
 	private:
 
-		std::string	_type;
+		std::string	*ideas;
 };
 
 #endif

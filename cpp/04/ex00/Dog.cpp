@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 10:11:10 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/14 11:54:51 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/14 17:38:56 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ Dog::~Dog(void)
 Dog::Dog(Dog const &ref)
 {
 	set_type("Dog");
-	*this = ref;
 	std::cout << "Dog copy constructor called" << std::endl;
 }
 

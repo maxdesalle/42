@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 10:11:10 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/14 11:55:10 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/14 17:38:51 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ Cat::~Cat(void)
 Cat::Cat(Cat const &ref)
 {
 	set_type("Cat");
-	*this = ref;
 	std::cout << "Cat copy constructor called" << std::endl;
 }
 
