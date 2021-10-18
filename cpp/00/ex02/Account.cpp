@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/23 16:10:58 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/09/23 18:11:14 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/18 14:03:58 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ Account::~Account(void)
 Account::Account(int initial_deposit): _amount(initial_deposit)
 {
 	timer();
+	_accountIndex = _nbAccounts;
 	std::cout << " index:";
 	std::cout << _nbAccounts;
 	std::cout << ";amount:";
@@ -99,6 +100,7 @@ void		Account::makeDeposit(int deposit)
 	std::cout << _amount;
 	_nbDeposits += 1;
 	std::cout << ";nb_deposits:";
+	std::cout << _nbDeposits;
 	std::cout << std::endl;
 	_totalAmount += deposit;
 	_totalNbDeposits += 1;
@@ -118,8 +120,7 @@ bool		Account::makeWithdrawal(int withdrawal)
 		std::cout << std::endl;
 		return (false);
 	}
-	else
-		std::cout << withdrawal;
+	std::cout << withdrawal;
 	_amount -= withdrawal;
 	std::cout << "amount:";
 	std::cout << _amount;

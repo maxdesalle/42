@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 14:28:50 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/04 17:53:26 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/18 14:16:33 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@ std::string	gen_random(const int len)
 {
 	int	i;
 	std::string str;
-
 	const char alpha[] = "abcdefghijklmnopqrstuvwxyz";
-	srand(time(NULL));
 
+	srand(time(NULL));
 	str.reserve(len);
 	for (i = 0; i < len; i += 1)
 		str += alpha[rand() % (sizeof(alpha) - 1)];

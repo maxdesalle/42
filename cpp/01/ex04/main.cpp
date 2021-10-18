@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:47:48 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/06 10:21:20 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/18 14:26:58 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,17 @@ int	main(int argc, char **argv)
 	while (std::getline(infile, buffer))
 	{
 		old_pos = 0;
-		while ((pos = buffer.find(str1, old_pos)) != std::string::npos)
+		if (buffer.find(str1, old_pos) != std::string::npos)
 		{
-			outfile << buffer.substr(old_pos, pos - old_pos);
-			outfile << str2;
-			old_pos = pos + str1.length();
+			while ((pos = buffer.find(str1, old_pos)) != std::string::npos)
+			{
+				outfile << buffer.substr(old_pos, pos - old_pos);
+				outfile << str2;
+				old_pos = pos + str1.length();
+			}
 		}
+		else
+			outfile << buffer;
 		outfile << std::endl;
 	}
 

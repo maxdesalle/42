@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 11:49:01 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/05 11:49:08 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/18 14:13:08 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ class Zombie
 {
 	public:
 
-		Zombie(std::string _name);
+		Zombie(const std::string _name);
 		~Zombie();
 		
 		void	announce( void ) const;
 
 	private:
 
-		std::string	_name;
+		const std::string	_name;
 };
 
 Zombie*	newZombie(std::string name);

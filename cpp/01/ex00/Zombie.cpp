@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 13:54:28 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/04 14:15:38 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/18 14:11:44 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	Zombie::announce(void) const
 {
-	std::cout << this->_name;
+	std::cout << _name;
 	std::cout << " BraiiiiiiinnnzzzZ...";
 	std::cout << std::endl;
 }
@@ -26,5 +26,5 @@ Zombie::Zombie(std::string name): _name(name)
 
 Zombie::~Zombie(void)
 {
-	std::cout << "Bye " << this->_name << " 👋" << std::endl;
+	std::cout << "Bye " << _name << " 👋" << std::endl;
 }

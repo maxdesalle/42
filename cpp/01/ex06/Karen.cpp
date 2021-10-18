@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 11:31:05 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/06 15:10:42 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/18 14:33:20 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	Karen::info(void)
 	std::cout << "You don’t put enough! ";
 	std::cout << "If you did I would not have to ask for it!";
 	std::cout << std::endl;
+	std::cout << std::endl;
 }
 
 void	Karen::debug(void)
@@ -30,6 +31,7 @@ void	Karen::debug(void)
 	std::cout << "7XL-double-cheese-triple-pickle-special-ketchup burger. ";
 	std::cout << "I just love it!";
 	std::cout << std::endl;
+	std::cout << std::endl;
 }
 
 void	Karen::error(void)
@@ -37,6 +39,7 @@ void	Karen::error(void)
 	std::cout << "[ERROR]";
 	std::cout << std::endl;
 	std::cout << "This is unacceptable, I want to speak to the manager now.";
+	std::cout << std::endl;
 	std::cout << std::endl;
 }
 
@@ -47,6 +50,7 @@ void	Karen::warning(void)
 	std::cout << "I think I deserve to have some extra bacon for free.";
 	std::cout << std::endl;
 	std::cout << "I’ve been coming here for years and you just started working here last month.";
+	std::cout << std::endl;
 	std::cout << std::endl;
 }
 
