@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:22:21 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/18 19:46:31 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/19 10:42:36 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 Ice::Ice(void): _type("ice")
 {
-	std::cout << _type << "successfully constructed!";
+	std::cout << _type << " successfully constructed!";
 	std::cout << std::endl;
 }
 
 Ice::~Ice(void)
 {
-	std::cout << _type << "successfully destroyed!";
+	std::cout << _type << " successfully destroyed!";
 	std::cout << std::endl;
 }
 
 Ice::Ice(Ice const &ref): _type(ref.getType())
 {
-	std::cout << _type << "successfully copy constructed";
+	std::cout << _type << " successfully copy constructed";
 	std::cout << std::endl;
 }
 

@@ -6,27 +6,27 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 16:22:21 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/18 19:46:40 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/10/19 10:42:55 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(void): _type("Cure")
+Cure::Cure(void): _type("cure")
 {
-	std::cout << _type << "successfully constructed!";
+	std::cout << _type << " successfully constructed!";
 	std::cout << std::endl;
 }
 
 Cure::~Cure(void)
 {
-	std::cout << _type << "successfully destroyed!";
+	std::cout << _type << " successfully destroyed!";
 	std::cout << std::endl;
 }
 
 Cure::Cure(Cure const &ref): _type(ref.getType())
 {
-	std::cout << _type << "successfully copy constructed";
+	std::cout << _type << " successfully copy constructed";
 	std::cout << std::endl;
 }
 
