@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:47:48 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/18 14:26:58 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/11/02 10:35:56 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,20 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 
+
 	size_t				pos;
 	size_t				old_pos;
 	std::string			buffer;
 	std::string const	str1 = argv[2];
 	std::string const	str2 = argv[3];
 	std::ofstream		outfile(file + ".replace");
+
+	if (str1.empty() || str2.empty())
+	{
+		std::cerr << "Invalid string" << std::endl;
+		infile.close();
+		return (1);
+	}
 
 	while (std::getline(infile, buffer))
 	{
