@@ -6,18 +6,17 @@
 #    By: mdesalle <mdesalle@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/06 09:20:39 by mdesalle          #+#    #+#              #
-#    Updated: 2021/11/05 14:17:59 by maxdesall        ###   ########.fr        #
+#    Updated: 2021/11/05 18:45:05 by maxdesall        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = span
+NAME = mutant
 
 CC = clang++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp \
-	  span.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
