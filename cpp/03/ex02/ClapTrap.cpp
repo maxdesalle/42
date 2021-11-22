@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 16:44:28 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/13 12:44:11 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/11/22 11:07:18 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,10 +131,7 @@ void			ClapTrap::attack(std::string const &target)
 	}
 	if (get_energy_points() > 2)
 	{
-		if (get_type() == "ScavTrap")
-			std::cout << get_type() << " " << get_name() << " makes a super massive ultra mega hyper giga attack on " << target;
-		else
-			std::cout << get_type() << " " << get_name() << " attacks " << target;
+		std::cout << get_type() << " " << get_name() << " attacks " << target;
 		std::cout << ", causing " << get_attack_damage() << " points of damage!";
 		std::cout << std::endl;
 		set_energy_points(get_energy_points() - 2);

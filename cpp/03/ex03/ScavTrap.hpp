@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 16:10:48 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/13 17:59:57 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/11/22 11:25:41 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class	ScavTrap: virtual public ClapTrap
 		ScavTrap		&operator=(ScavTrap const &c);
 
 		void			guardGate();
+		void			attack(std::string const & target);
 };
 
 #endif

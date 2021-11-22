@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 16:44:28 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/13 10:12:26 by mdesalle         ###   ########.fr       */
+/*   Updated: 2021/11/22 11:25:25 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,31 @@ void			ScavTrap::guardGate(void)
 	std::cout << "entered gatekeeper mode!";
 	std::cout << std::endl;
 	set_energy_points(50);
+	std::cout << get_name() << ": " << "HP - " << get_hitpoints();
+	std::cout << " / EP - " << get_energy_points();
+	std::cout << std::endl;
+}
+
+void			ScavTrap::attack(std::string const &target)
+{
+	if (get_hitpoints() == 0)
+	{
+		std::cout << get_type() << " " << get_name();
+		std::cout << " cannot attack because he is already dead!";
+		std::cout << std::endl;
+		return ;
+	}
+	if (get_energy_points() > 2)
+	{
+		std::cout << get_type() << " " << get_name() << " makes a super massive ultra mega hyper giga attack on " << target;
+		set_energy_points(get_energy_points() - 2);
+	}
+	else
+	{
+		std::cout << get_type() << " " << get_name() << " tries to attack " << target;
+		std::cout << " but doesn't have enough energy points!";
+		std::cout << std::endl;
+	}
 	std::cout << get_name() << ": " << "HP - " << get_hitpoints();
 	std::cout << " / EP - " << get_energy_points();
 	std::cout << std::endl;

@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/06 16:09:38 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/10/13 18:10:43 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/11/22 11:28:54 by mdesalle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	main(void)
 	two.attack(CROCODILE);
 	one.takeDamage(20);
 	one.beRepaired(10);
+
+	four.attack(CROCODILE);
 
 	two.guardGate();
 	three.highFivesGuys();
