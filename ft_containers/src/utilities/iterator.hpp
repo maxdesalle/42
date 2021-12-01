@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 10:14:41 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/12/01 11:31:36 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/12/01 16:09:19 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,58 @@ namespace ft
 			template <class Iter>
 			reverse_iterator(const reverse_iterator<Iter>& rev_it): _it(rev_it.base()) {}
 
-			iterator_type	base() const { return (_it); }
+			iterator_type		base() const { return (_it); }
+
+			reference			operator*() const
+			{
+				iterator_type	tmp(this->base());
+				return (*(--tmp));
+			}
+
+			reverse_iterator	operator+(difference_type n) const { return (reverse_iterator(this->base() - n)); }
+
+			reverse_iterator&	operator++()
+			{
+				this->_it -= 1;
+				return (*this);
+			}
+
+			reverse_iterator	operator++(int)
+			{
+				reverse_iterator(temp) = *this;
+				++(*this);
+				return (temp);
+			}
+
+			reverse_iterator&	operator+=(difference_type n)
+			{
+				this->_it -= n;
+				return (*this);
+			}
+
+			reverse_iterator	operator-(difference_type n) const { return (reverse_iterator(this->base() + n)); }
+
+			reverse_iterator&	operator--()
+			{
+				this->_it += 1;
+				return (*this);
+			}
+
+			reverse_iterator	operator--(int)
+			{
+				reverse_iterator(temp) = *this;
+				--(*this);
+			}
+
+			reverse_iterator	operator-=(difference_type n)
+			{
+				this->_it += n;
+				return (*this);
+			}
+
+			pointer				operator->() const { return &(operator*()); }
+
+			reference			operator[] (difference_type n) const { return (this->base()[-n - 1]); }
 
 			private:
 
