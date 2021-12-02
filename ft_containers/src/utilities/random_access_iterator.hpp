@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 15:56:47 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/12/01 16:39:45 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/12/02 20:04:25 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ namespace ft
 			typedef T*	pointer;
 			typedef T&	reference;
 			typedef typename ft::iterator<ft::random_access_iterator_tag, T>::iterator_category	iterator_category;
+
+			
 
 		private:
 	};

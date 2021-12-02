@@ -5,6 +5,7 @@
 - [Sun's man pages](https://docs.oracle.com/cd/E19205-01/820-4180/man3c++/)
 - [cplusplus.com (obviously)](https://www.cplusplus.com/)
 - [Microsoft's documentation](https://docs.microsoft.com/en-us/cpp/cpp/?view=msvc-170)
+- [STL Headers overview](https://cs.stmarys.ca/~porter/csc/ref/stl/headers.html)
 
 ## Warning
 The structure of this repository does **not** necessarily follow the guidelines.

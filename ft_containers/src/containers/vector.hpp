@@ -6,7 +6,7 @@
 /*   By: maxdesalle <mdesalle@student.s19.be>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 11:03:03 by maxdesall         #+#    #+#             */
-/*   Updated: 2021/12/01 16:12:53 by maxdesall        ###   ########.fr       */
+/*   Updated: 2021/12/02 17:06:37 by maxdesall        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ namespace ft
 			typedef typename allocator_type::const_reference	const_reference;
 			typedef typename allocator_type::pointer			pointer;
 			typedef typename allocator_type::const_pointer		const_pointer;
-			typedef 
+
+			explicit	vector(const allocator_type& alloc = allocator_type()): _alloc(alloc) {}
 
 		private:
+
+			allocator_type	_alloc;
 	};
 }
 
